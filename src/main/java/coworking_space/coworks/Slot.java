@@ -4,115 +4,104 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+// How to declare an ArrayList:
 // ArrayList<dataType> variableName = new ArrayList<>();
 
-public class Slot {
-
+public class Slot
+{
     public String startTimeString;
     public String endTimeString;
-    @JsonIgnore
-    public LocalDateTime startTime;
-    @JsonIgnore
-    public LocalDateTime endTime;
+
     public ArrayList<Reservation> reservations;
     public double fees;
 
     // coworking_space.coworks.Json constructor configuration
     @JsonCreator
+
+    // start & end time are strings coming from GUI in a fixed format and use equals() to compare
     public Slot(@JsonProperty("startTime") String startTimeString,
                 @JsonProperty("endTime") String endTimeString,
-                @JsonProperty("fees") double fees) {
+                @JsonProperty("fees") double fees)
+    {
         this.startTimeString = startTimeString;
         this.endTimeString = endTimeString;
         this.reservations = new ArrayList<Reservation>();
         this.fees = fees;
-
-        /*DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        startTime = LocalDateTime.parse(startTimeString, formatter);
-        endTime = LocalDateTime.parse(endTimeString, formatter);*/
     }
 
+    // Constructor
     @JsonCreator
-    public Slot() {
-        this.reservations = new ArrayList<Reservation>();
-    }
+    public Slot() {this.reservations = new ArrayList<Reservation>();}
 
-    // Getters
+    // Getter Start time
     @JsonIgnore
-    public String getStartTime() {
-        return startTimeString;
-    }
+    public String getStartTime() {return startTimeString;}
 
+    // Setter Start time
     @JsonIgnore
-    public void setStartTime(String startTimeString) {
-        this.startTimeString = startTimeString;
-    }
+    public void setStartTime(String startTimeString) {this.startTimeString = startTimeString;}
 
+    // Getter End time
     @JsonIgnore
-    public String getEndTime() {
-        return endTimeString;
-    }
+    public String getEndTime() {return endTimeString;}
 
+    // Setter End time
     @JsonIgnore
-    public void setEndTime(String endTimeString) {
-        this.endTimeString = endTimeString;
-    }
+    public void setEndTime(String endTimeString)  {this.endTimeString = endTimeString;}
 
+    // Getter Reservation
     @JsonProperty
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
+    public List<Reservation> getReservations() {return reservations;}
 
-
-    public void setReservations(ArrayList<Reservation> reservations) {
+    // Setter Reservation
+    public void setReservations(ArrayList<Reservation> reservations)
+    {
         this.reservations = reservations;
     }
 
-    public double getFees() {
-        return fees;
-    }
+    // Getter Fees
+    public double getFees() {return fees;}
 
+    // Setter Fees
     @JsonIgnore
-    public void setFees(double fees) {
-        this.fees = fees;
-    }
+    public void setFees(double fees) {this.fees = fees;}
 
-    // Methods
-    public void addReservation(Reservation reservation) {
+    // addReservation: Reservation	Adds an existing Reservation object to the list
+    public void addReservation(Reservation reservation)
+    {
         reservations.add(reservation);
     }
-    public void removeReservation(Reservation reservation) {
+    public void removeReservation(Reservation reservation)
+    {
         reservations.remove(reservation);
     }
+
+    // A function for the admin to update the fees for reserving a room
     public void updateFees(double fees) {this.fees = fees;}
-    public Reservation createReservation(AbstractVisitor visitor) {
+
+    // createReservation	AbstractVisitor	Creates a new Reservation object with the
+    // provided visitor and adds it to the list
+    public Reservation createReservation(AbstractVisitor visitor)
+    {
         Reservation reservation = new Reservation(visitor);
         reservations.add(reservation);
         return reservation;
     }
 
     // Inner class
-    public static class Reservation {
-
+    public static class Reservation
+    {
         private AbstractVisitor visitor;
 
-        public Reservation(){
-            this.visitor=null;
-        }
-        public Reservation(AbstractVisitor visitor) {
-            this.visitor = visitor;
-        }
+        public Reservation() {this.visitor=null;}
+        public Reservation(AbstractVisitor visitor) {this.visitor = visitor;}
 
-        public AbstractVisitor getVisitor() {
-            return visitor;
-        }
+        public AbstractVisitor getVisitor() {return visitor;}
 
-        public void setVisitor(AbstractVisitor visitor) {
-            this.visitor = visitor;
-        }
+        public void setVisitor(AbstractVisitor visitor) {this.visitor = visitor;}
     }
 }
