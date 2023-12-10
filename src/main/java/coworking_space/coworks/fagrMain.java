@@ -6,7 +6,7 @@
 //    public static void main(String[] args) {
 //        final String WRITE_TEACHING_ROOMS_PATH = "src/main/resources/teachingRooms.json";
 //        final String READ_TEACHING_ROOMS_PATH = "teachingRooms.json";
-//        ArrayList<AbstractRoom> teachingRooms=new ArrayList<>();
+//        ArrayList<coworking_space.coworks.AbstractRoom> teachingRooms=new ArrayList<>();
 //
 //        ArrayList<Slot> slots = new ArrayList<>();
 //        ArrayList<InstructorVisitor> insts= new ArrayList<>();

@@ -1,3 +1,5 @@
+package coworking_space.coworks;
+
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "visitorType")
@@ -10,16 +12,16 @@ public abstract class AbstractVisitor {
     protected int id;
     public String type;
     /*
-        public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(ArrayList<Registration> registrations) {
-            ArrayList<AbstractVisitor> visitors = new ArrayList<>();
+        public static ArrayList<coworking_space.coworks.AbstractVisitor> createVisitorsFromRegistrations(ArrayList<Registration> registrations) {
+            ArrayList<coworking_space.coworks.AbstractVisitor> visitors = new ArrayList<>();
             for (Registration registration : registrations) {
-                AbstractVisitor visitor = createVisitorFromRegistration(registration);
+                coworking_space.coworks.AbstractVisitor visitor = createVisitorFromRegistration(registration);
                 visitors.add(visitor);
             }
             return visitors;
         }
 
-        protected static AbstractVisitor createVisitorFromRegistration(Registration registration) {
+        protected static coworking_space.coworks.AbstractVisitor createVisitorFromRegistration(Registration registration) {
             switch (registration.getType()) {
                 case "general":
                     return GeneralVisitor.createVisitorFromRegistration(registration);
@@ -66,10 +68,10 @@ public abstract class AbstractVisitor {
             }
         }
 
-        public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, int currentuserid) {
+        public void displayData(int c, ArrayList<coworking_space.coworks.AbstractVisitor> visitorinfo, int currentuserid) {
             switch (c) {
                 case 1:
-                    for (AbstractVisitor visitor : visitorinfo) {
+                    for (coworking_space.coworks.AbstractVisitor visitor : visitorinfo) {
                         // Check if the current visitor has the target ID
                         if (visitor.id == currentuserid) {
                             //display 3la al gui
@@ -79,7 +81,7 @@ public abstract class AbstractVisitor {
                         }
                     }break;
                 case 2:
-                    for (AbstractVisitor visitor : visitorinfo) {
+                    for (coworking_space.coworks.AbstractVisitor visitor : visitorinfo) {
                         if (visitor.id == currentuserid) {
                             //display all his reservation
 

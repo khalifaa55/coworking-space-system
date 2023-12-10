@@ -1,3 +1,5 @@
+package coworking_space.coworks;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,27 +9,27 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
-@JsonTypeName("formal")
-public class FormalVisitor extends AbstractVisitor {
+@JsonTypeName("instructor")
+public class InstructorVisitor extends AbstractVisitor {
 
     @JsonIgnore
     public String type;
     @JsonCreator
-    public FormalVisitor(@JsonProperty("name") String name,
-                         @JsonProperty("id") int id) {
+    public InstructorVisitor(@JsonProperty("name") String name,
+                             @JsonProperty("id") int id) {
         this.type="general";
         this.name = name;
         this.id = id;
     }
 
-    public FormalVisitor() {
-        this.type="formal";
+    public InstructorVisitor() {
+        this.type="instructor";
     }
     @JsonIgnore
     protected void makeReservation(AbstractRoom room ) {
-        //AbstractRoom room= new TeachingRoom();
+        //coworking_space.coworks.AbstractRoom room= new TeachingRoom();
 
-        MeetingRoom MR = (MeetingRoom) room;
+        TeachingRoom TR = (TeachingRoom) room;
         Scanner input1 = new Scanner(System.in);
         String startTimestring = input1.nextLine();
         LocalDateTime startTime = LocalDateTime.parse(startTimestring);
@@ -42,7 +44,7 @@ public class FormalVisitor extends AbstractVisitor {
         InstructorVisitor instructorVisitor = new InstructorVisitor();
 
 
-        List<Slot> availableslots = MR.getAvailableSlots();
+        List<Slot> availableslots = TR.getAvailableSlots();
         for (Slot slot : availableslots) {
             System.out.println(slot);
         }
@@ -59,16 +61,16 @@ public class FormalVisitor extends AbstractVisitor {
     @JsonIgnore
     protected void updateReservation(AbstractRoom Room) {
 
-        MeetingRoom MR= (MeetingRoom)Room;
-        cancelReservation(MR);
-        makeReservation(MR);
+        TeachingRoom TR= (TeachingRoom)Room;
+        cancelReservation(TR);
+        makeReservation(TR);
 
     }
 
     @JsonIgnore
     public void cancelReservation(AbstractRoom Room) {
 
-        MeetingRoom MR= (MeetingRoom) Room;
+        TeachingRoom TR= (TeachingRoom) Room;
 
         Scanner input1 = new Scanner(System.in);
         String startTimestring=input1.nextLine();
@@ -86,7 +88,7 @@ public class FormalVisitor extends AbstractVisitor {
         Slot canceledslot=new Slot (startTimestring,  endTimestring,  fees);
 
 
-        for(Slot slot :MR.slots)
+        for(Slot slot :TR.slots)
             if(canceledslot.startTime==slot.startTime && canceledslot.endTime==slot.endTime){
                 canceledslot.removeReservation(canceledslot.createReservation(instructorVisitor ));
 
@@ -95,5 +97,6 @@ public class FormalVisitor extends AbstractVisitor {
 
 
     }
+
 
 }

@@ -1,3 +1,5 @@
+/*package coworking_space.coworks;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -116,7 +118,7 @@ class Login {
 
         JButton loginButton = new JButton();
         loginButton.setBounds(580, 370, 169, 40);
-        loginButton.setToolTipText("Login");
+        loginButton.setToolTipText("coworking_space.coworks.Login");
         loginButton.setContentAreaFilled(false);
         loginButton.setBorderPainted(false);
 
@@ -145,4 +147,4 @@ class Login {
     public JPanel getPanel() {
         return panel;
     }
-}
+}*/

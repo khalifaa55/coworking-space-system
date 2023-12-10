@@ -45,7 +45,13 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>  </dependencies>
+    </dependency>
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-annotations</artifactId>
+          <version>2.12.4</version>
+      </dependency>
+  </dependencies>
 
   <build>
     <plugins>
@@ -67,7 +73,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>coworking_space.coworks/coworking_space.coworks.HelloApplication</mainClass>
+              <mainClass>coworking_space.coworks/coworking_space.coworks.Coworks_Main</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

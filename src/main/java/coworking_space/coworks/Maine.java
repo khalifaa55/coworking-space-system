@@ -1,3 +1,5 @@
+package coworking_space.coworks;
+
 import java.util.ArrayList;
 
 public class Maine {
@@ -19,12 +21,12 @@ public class Maine {
         slots.add(slot2);
         // Add Slot objects to the `slots` list
         /*try {
-            Json.writeSlotsToFile(slots, WRITE_SLOTS_PATH);
+            coworking_space.coworks.Json.writeSlotsToFile(slots, WRITE_SLOTS_PATH);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         try {
-            slots = Json.readSlotsFile(READ_SLOTS_PATH);
+            slots = coworking_space.coworks.Json.readSlotsFile(READ_SLOTS_PATH);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

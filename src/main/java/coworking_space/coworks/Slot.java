@@ -1,3 +1,5 @@
+package coworking_space.coworks;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,7 +21,7 @@ public class Slot {
     public ArrayList<Reservation> reservations;
     public double fees;
 
-    // Json constructor configuration
+    // coworking_space.coworks.Json constructor configuration
     @JsonCreator
     public Slot(@JsonProperty("startTime") String startTimeString,
                 @JsonProperty("endTime") String endTimeString,

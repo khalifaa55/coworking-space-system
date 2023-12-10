@@ -1,3 +1,5 @@
+/*package coworking_space.coworks;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -76,15 +78,15 @@ class Registration {
                 String userPhone = textphone.getText();
                 char[] password2 = textPass2.getPassword();
                 char[] password3 = textPass3.getPassword();
-                    JOptionPane.showMessageDialog(panel, "Registration button clicked!");
+                    JOptionPane.showMessageDialog(panel, "coworking_space.coworks.Registration button clicked!");
             }
         });
 
         panel.add(regbutton);
 
-        JButton backButton = new JButton("<html><u>Back to Login</u></html>");
+        JButton backButton = new JButton("<html><u>Back to coworking_space.coworks.Login</u></html>");
         backButton.setBounds(580, 490, 169, 15);
-        backButton.setToolTipText("Back to Login");
+        backButton.setToolTipText("Back to coworking_space.coworks.Login");
         backButton.setForeground(new Color(0x124D3f));
         backButton.setBorderPainted(false);
         backButton.setFocusPainted(false);
@@ -104,4 +106,4 @@ class Registration {
     public JPanel getPanel() {
         return panel;
     }
-}
+}*/

@@ -1,3 +1,5 @@
+/*package coworking_space.coworks;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -5,7 +7,7 @@ public class Main {
     {
         Admin alshimaa = new Admin();
 
-//        AbstractRoom room = new GeneralRoom();
+//        coworking_space.coworks.AbstractRoom room = new coworking_space.coworks.GeneralRoom();
 //        room.id=1;
 //        room.name="G1";
 //
@@ -29,7 +31,7 @@ public class Main {
 ////         alshimaa.deleteSlot(S_0, room);
 //
 ////        alshimaa.displayAllAvailableSlots(room);
-//        AbstractVisitor Gvisitor = new GeneralVisitor();
+//        coworking_space.coworks.AbstractVisitor Gvisitor = new coworking_space.coworks.GeneralVisitor();
 //        Gvisitor.id=25;
 //        Gvisitor.name="Omnia";
 ////        Gvisitor.type="Genaral";
@@ -39,16 +41,16 @@ public class Main {
 ////        alshimaa.DisplayRoomsData(room);
 //
 //
-//        AbstractVisitor Ivisitor = new GeneralVisitor();
+//        coworking_space.coworks.AbstractVisitor Ivisitor = new coworking_space.coworks.GeneralVisitor();
 //        Ivisitor.id=12;
 //        Ivisitor.name="Fagr";
 ////        Ivisitor.type="general";
 //
-////        InstructorVisitor Ivisitor_2 = new InstructorVisitor();
+////        coworking_space.coworks.InstructorVisitor Ivisitor_2 = new coworking_space.coworks.InstructorVisitor();
 ////        Ivisitor_2.id=23;
 ////        Ivisitor_2.name="Banosa";
 ////        Ivisitor_2.type="Teaching";
-////        ArrayList<GeneralVisitor> Varr=new ArrayList<>();
+////        ArrayList<coworking_space.coworks.GeneralVisitor> Varr=new ArrayList<>();
 ////        Varr.add(Ivisitor);
 //
 //        room.visitors.add(Ivisitor);
@@ -58,12 +60,12 @@ public class Main {
 //        alshimaa.DisplayRoomsData(room);
 //        System.out.println(alshimaa.CalcRoom_Profit(room));
 //
-//        ArrayList<AbstractRoom> generalRooms=new ArrayList<>();
+//        ArrayList<coworking_space.coworks.AbstractRoom> generalRooms=new ArrayList<>();
 //
 //        ArrayList<Slot> slots = new ArrayList<>();
-//        ArrayList<GeneralVisitor> gens= new ArrayList<>();
-//        GeneralVisitor gen = new GeneralVisitor("h",12);
-//        GeneralVisitor gen2 = new GeneralVisitor("R",14);
+//        ArrayList<coworking_space.coworks.GeneralVisitor> gens= new ArrayList<>();
+//        coworking_space.coworks.GeneralVisitor gen = new coworking_space.coworks.GeneralVisitor("h",12);
+//        coworking_space.coworks.GeneralVisitor gen2 = new coworking_space.coworks.GeneralVisitor("R",14);
 //        Slot slot1 = new Slot("8/11","9/11", 100.00);
 //        Slot slot2 = new Slot("11/11","10/10", 300);
 //
@@ -73,7 +75,7 @@ public class Main {
 //        gens.add(gen2);
 //        slots.add(slot1);
 //        slots.add(slot2);
-//        GeneralRoom general_room= new GeneralRoom("A",123,slots,gens);
+//        coworking_space.coworks.GeneralRoom general_room= new coworking_space.coworks.GeneralRoom("A",123,slots,gens);
 //        generalRooms.add(general_room);
 //        System.out.println(general_room.getReservationMoney());
 //        System.out.println(alshimaa.CalcRoom_Profit(general_room));
@@ -88,7 +90,7 @@ public class Main {
 
 //        Room.visitors.add(Ivisitor);
 
-//        ArrayList<AbstractRoom> TRooms = new ArrayList<>(2);
+//        ArrayList<coworking_space.coworks.AbstractRoom> TRooms = new ArrayList<>(2);
 //        TRooms.add(Room);
 //        TRooms.add(new TeachingRoom("T1",19,"B1","S1","OMnia",sarr , Varr));
 //        alshimaa.displayInstructors(TRooms);
@@ -126,4 +128,4 @@ public class Main {
 
 
     }
-}
+}*/

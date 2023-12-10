@@ -1,9 +1,11 @@
+/*package coworking_space.coworks;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class    Admin {
-    private final String Admin_Name = "Admin";
-    private final String Admin_Password = "Admin";
+    private final String Admin_Name = "coworking_space.coworks.Admin";
+    private final String Admin_Password = "coworking_space.coworks.Admin";
     //    public static   ArrayList<Slot> availableSlots=new ArrayList<>();
     public void addSlot(AbstractRoom room, Slot slot) {
         // Check if the room and slots are not null and the room has at least one slot
@@ -171,7 +173,7 @@ public class    Admin {
         }
     }
 
-//    void DisplayVisitorData(AbstractVisitor visitor, AbstractRoom Room) {
+//    void DisplayVisitorData(coworking_space.coworks.AbstractVisitor visitor, coworking_space.coworks.AbstractRoom Room) {
 //        visitor.displayData();
 //     visitor.DisplayReservation(Room);}
 
@@ -181,7 +183,7 @@ public class    Admin {
         return Profit;
     }
 
-//    void UpdateRoom(AbstractRoom Room ) {
+//    void UpdateRoom(coworking_space.coworks.AbstractRoom Room ) {
 //        int Case;
 //        Scanner scanner = new Scanner(System.in);
 //        Case = scanner.nextInt();
@@ -211,7 +213,7 @@ public class    Admin {
 //        DisplayRoomsData(Room);
 //    }
 //
-//    void UpdateVisitor(AbstractVisitor visitor  , AbstractRoom Room) {
+//    void UpdateVisitor(coworking_space.coworks.AbstractVisitor visitor  , coworking_space.coworks.AbstractRoom Room) {
 //            int Case;
 //        Scanner scanner = new Scanner(System.in);
 //        Case = scanner.nextInt();
@@ -289,4 +291,4 @@ public class    Admin {
         }
         DisplayRoomSlots(Room);
     }
-}
+}*/

@@ -1,3 +1,5 @@
+package coworking_space.coworks;
+
 import java.io.IOException;
 import java.util.ArrayList;
 

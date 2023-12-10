@@ -1,3 +1,5 @@
+package coworking_space.coworks;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 public class Json {
 
     //source root path
-    // GeneralRoom file path: "generalRooms.json"
+    // coworking_space.coworks.GeneralRoom file path: "generalRooms.json"
     public static ArrayList<AbstractRoom> readRoomsFile(String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enableDefaultTyping();
@@ -42,7 +44,7 @@ public class Json {
     /////////////////////////////////////////////////
 
     //content root path
-    //GeneralRoom file path: "src/main/resources/generalRooms.json"
+    //coworking_space.coworks.GeneralRoom file path: "src/main/resources/generalRooms.json"
     public static void writeRoomsToFile(ArrayList<AbstractRoom> rooms, String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();

@@ -1,32 +1,39 @@
+package coworking_space.coworks;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
-import java.util.List;
 
-@JsonTypeName("Meeting")
-public class MeetingRoom extends AbstractRoom {
-    public final int maxNumberOfVisitors = 10;
-    ArrayList<FormalVisitor> visitors;
+
+@JsonTypeName("general")
+public class GeneralRoom extends AbstractRoom {
+
+    public String type;
+    public final int maxNumberOfVisitors = 20;
+    ArrayList<GeneralVisitor> visitors;
+
     @JsonCreator
-    public MeetingRoom(@JsonProperty("name") String name,
+    public GeneralRoom(@JsonProperty("name") String name,
                        @JsonProperty("id") int id,
                        @JsonProperty("slots") ArrayList<Slot> slots,
-                       @JsonProperty("visitors") ArrayList<FormalVisitor> visitors) {
+                       @JsonProperty("visitors") ArrayList<GeneralVisitor> visitors) {
+        this.type="general";
         this.name = name;
         this.id = id;
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
-        this.visitors = (visitors != null) ? visitors : new ArrayList<FormalVisitor>();
+        this.visitors = (visitors != null) ? visitors : new ArrayList<GeneralVisitor>();
     }
 
+    // Default constructor for Jackson
     @JsonCreator
-    public MeetingRoom() {
+    public GeneralRoom() {
+        this.type = "general";
         this.slots = new ArrayList<>();
-        this.visitors = new ArrayList<FormalVisitor>();
+        this.visitors = new ArrayList<GeneralVisitor>();
     }
-
 
     @JsonProperty("slots")
     public ArrayList<Slot> getSlots() {
@@ -34,13 +41,20 @@ public class MeetingRoom extends AbstractRoom {
     }
 
     @JsonProperty("visitors")
-    public List<FormalVisitor> getVisitors() {
+    public ArrayList<GeneralVisitor> getVisitors() {
+
         return visitors;
     }
+    @JsonProperty
+    public String getType() {
+        return type;
+    }
+
 
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots() {
         ArrayList<Slot> availableSlots = new ArrayList<>();
+
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
@@ -56,18 +70,17 @@ public class MeetingRoom extends AbstractRoom {
     }
 
     @JsonIgnore
-    public int getNumOfVisitors(){
+    public int getNumOfVisitors() {
         return visitors.size();
     }
+
     @JsonIgnore
-    public double getReservationMoney(){
+    public double getReservationMoney() {
         double totalAmount = 0;
 
         for (Slot slot : slots) {
-            totalAmount += (slot.getReservations().size())*(slot.getFees());
+            totalAmount += (slot.getReservations().size()) * (slot.getFees());
         }
         return totalAmount;
     }
 }
-
-

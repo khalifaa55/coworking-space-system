@@ -1,7 +1,9 @@
+package coworking_space.coworks;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
-/*Main code for writing and reading into json file*/
+/*coworking_space.coworks.Main code for writing and reading into json file*/
 public class MainApp {
     public static void main(String[] args) {
         ////////////////////////////////////////////////////////////////
