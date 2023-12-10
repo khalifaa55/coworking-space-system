@@ -1,11 +1,11 @@
-/*package coworking_space.coworks;
+package coworking_space.coworks;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class    Admin {
-    private final String Admin_Name = "coworking_space.coworks.Admin";
-    private final String Admin_Password = "coworking_space.coworks.Admin";
+    private final String Admin_Name = "Admin";
+    private final String Admin_Password = "Admin";
     //    public static   ArrayList<Slot> availableSlots=new ArrayList<>();
     public void addSlot(AbstractRoom room, Slot slot) {
         // Check if the room and slots are not null and the room has at least one slot
@@ -29,23 +29,20 @@ public class    Admin {
         }
     }
 
-    void displayRoomVisitors(AbstractRoom room)
-    {
+    public static void displayRoomVisitors(AbstractRoom room) {
         System.out.println("Visitors in " + room.getRoomType() + ":");
-        int no_=1;
-        if(room instanceof GeneralRoom) {
-            GeneralRoom generalRoom = (GeneralRoom) room;
-            for (AbstractVisitor vis : generalRoom.visitors) {
-                GeneralVisitor v = (GeneralVisitor) vis;
-                System.out.println("The " + no_ + " visitor Id :" + v.id);
-                System.out.println("The " + no_ + " visitor Name :" + v.name);
-//                System.out.println("The " + no_ + " visitor type :" + v.type);
-                System.out.println();
-
-                no_++;
-            }
+        int no = 1;
+        for (AbstractVisitor visitor : room.getVisitors()) {
+            System.out.println("The " + no + " visitor Id: " + visitor.id);
+            System.out.println("The " + no + " visitor Name: " + visitor.name);
+            // You can't call getVisitorType() without a common interface, so omitting it in this example
+            System.out.println();
+            no++;
         }
     }
+
+
+
 
     void DisplayRoomSlots(AbstractRoom Room)
     {
@@ -68,17 +65,13 @@ public class    Admin {
 
         ArrayList<Slot> allSlots = Room.slots;
 //        ArrayList<Slot> Reserved = new ArrayList<>();
-        System.out.println("The Reserved Slots are : ");
-
-        for(int i=0 ; i<allSlots.size();i++){
-
-            if (!(allSlots.get(0).equals(availableSlots.get(i))) && (Room.getNumOfVisitors()== Room.maxNumberOfVisitors)) {
-//                Reserved.equals(allSlots.get(i));
-                System.out.println("Start Time: " + allSlots.get(i).getStartTime());
-                System.out.println("End Time: " + allSlots.get(i).getEndTime());
-                System.out.println("Fees: " + allSlots.get(i).getFees());
-                allSlots.remove(i);
-            }
+        ArrayList<Slot> Reserved = Room.ReservedSlots;
+        for(Slot rslot:Reserved)
+        {
+            System.out.println("Start Time: " + rslot.getStartTime());
+            System.out.println("End Time: " + rslot.getEndTime());
+            System.out.println("Fees: " + rslot.getFees());
+            System.out.println();
         }
 
         System.out.println("The available Slots are : ");
@@ -105,20 +98,21 @@ public class    Admin {
             no_ ++;
 
         }
+        displayRoomVisitors(Room);
     }
 
-    void DisplayTeachingRoom(TeachingRoom Room) {
-
-        System.out.println("The Room ID : "+Room.id);
-        System.out.println("The Room Name : "+Room.name);
-        System.out.println("The Max number Of Visitors : "+Room.maxNumberOfVisitors);
-        System.out.println("The Type Of The Board : "+Room.boardtype);
-        System.out.println("The Instructor Name : "+Room.instractorname);
-        System.out.println("The Projector Type : "+Room.projecttype);
-        ArrayList<Slot> availableSlots = Room.getAvailableSlots();
+    void DisplayTeachingRoom(AbstractRoom Room) {
+        TeachingRoom teachingRoom = (TeachingRoom)Room;
+        System.out.println("The Room ID : "+teachingRoom.id);
+        System.out.println("The Room Name : "+teachingRoom.name);
+        System.out.println("The Max number Of Visitors : "+teachingRoom.maxNumberOfVisitors);
+        System.out.println("The Type Of The Board : "+teachingRoom.boardtype);
+        System.out.println("The Instructor Name : "+teachingRoom.instractorname);
+        System.out.println("The Projector Type : "+teachingRoom.projecttype);
+        ArrayList<Slot> availableSlots = teachingRoom.getAvailableSlots();
 //        ArrayList<Slot> a = Room.getAvailableSlots(availableSlots);
         System.out.println();
-        ArrayList<Slot> allSlots = Room.slots;
+//        ArrayList<Slot> allSlots = teachingRoom.slots;
         System.out.println("The available Slots are : ");
         for (Slot S : availableSlots) {
 
@@ -126,33 +120,19 @@ public class    Admin {
             System.out.println("End Time: " + S.getEndTime());
             System.out.println("Fees: " + S.getFees());
             System.out.println();
-//
+
         }
         System.out.println("The Reserved Slots are : ");
-
-        for (int i=0 ; i<allSlots.size() ; i++) {
-            if (allSlots.get(i).equals(availableSlots.get(i)) ) {
-                continue;
-            }
-            else{
-                System.out.println("Start Time: " + allSlots.get(i).getStartTime());
-                System.out.println("End Time: " + allSlots.get(i).getEndTime());
-                System.out.println("Fees: " + allSlots.get(i).getFees());
-            }
+        ArrayList<Slot> Reserved = teachingRoom.ReservedSlots;
+        for(Slot rslot:Reserved)
+        {
+            System.out.println("Start Time: " + rslot.getStartTime());
+            System.out.println("End Time: " + rslot.getEndTime());
+            System.out.println("Fees: " + rslot.getFees());
+            System.out.println();
         }
         System.out.println();
-        ArrayList<InstructorVisitor> instructors =Room.visitors;
-        if (instructors != null ) {
-            System.out.println("Visitors in the room are : " + Room.getNumOfVisitors());
-            for (AbstractVisitor ins : instructors) {
-                System.out.println("Visitor name : " + ins.name);
-                System.out.println("Visitor Id : " + ins.id);
-                System.out.println("Visitor Type : " + ins.type);
-                System.out.println();
-            }
-        } else {
-            System.out.println("No Instructors in the room.");
-        }
+        displayRoomVisitors(teachingRoom);
     }
 
     void displayInstructors(ArrayList<AbstractRoom> Rooms) {
@@ -173,7 +153,7 @@ public class    Admin {
         }
     }
 
-//    void DisplayVisitorData(coworking_space.coworks.AbstractVisitor visitor, coworking_space.coworks.AbstractRoom Room) {
+//    void DisplayVisitorData(AbstractVisitor visitor, AbstractRoom Room) {
 //        visitor.displayData();
 //     visitor.DisplayReservation(Room);}
 
@@ -183,7 +163,7 @@ public class    Admin {
         return Profit;
     }
 
-//    void UpdateRoom(coworking_space.coworks.AbstractRoom Room ) {
+//    void UpdateRoom(AbstractRoom Room ) {
 //        int Case;
 //        Scanner scanner = new Scanner(System.in);
 //        Case = scanner.nextInt();
@@ -213,7 +193,7 @@ public class    Admin {
 //        DisplayRoomsData(Room);
 //    }
 //
-//    void UpdateVisitor(coworking_space.coworks.AbstractVisitor visitor  , coworking_space.coworks.AbstractRoom Room) {
+//    void UpdateVisitor(AbstractVisitor visitor  , AbstractRoom Room) {
 //            int Case;
 //        Scanner scanner = new Scanner(System.in);
 //        Case = scanner.nextInt();
@@ -291,4 +271,4 @@ public class    Admin {
         }
         DisplayRoomSlots(Room);
     }
-}*/
+}

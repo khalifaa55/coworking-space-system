@@ -22,24 +22,37 @@ public class TeachingRoom extends AbstractRoom{
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projecttype") String projecttype,
                         @JsonProperty("boardtype") String boardtype, @JsonProperty("instractorname")String instractorname,
                         @JsonProperty("slots") ArrayList<Slot> slots,
-                        @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors) {
-        this.name = name;
-        this.id = id;
+                        @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors)
+
+    {
+        this(name,id,slots,visitors);
         this.type="teaching";
         this.projecttype = projecttype;
         this.boardtype = boardtype;
-        this.instractorname = instractorname;
-        this.slots = new ArrayList<>();
-        this.visitors = new ArrayList<InstructorVisitor>(); //
+        this.instractorname =instractorname;
+
+    }
+    public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id,
+                        @JsonProperty("slots") ArrayList<Slot> slots,
+                        @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors) {
+        this();
+
+        this.name=name;
+        this.id=id;
+        this.slots = (slots != null) ? slots : new ArrayList<Slot>();
+        this.visitors = (visitors != null) ? visitors : new ArrayList<InstructorVisitor>();
+
+
     }
     @JsonCreator
     public TeachingRoom() {
-        this.type = "general";
+        this.type = "teaching";
+        this.boardtype="B1";
+        this.projecttype="P1";
+        this.instractorname="alshimaa";
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
         this.visitors = (visitors != null) ? visitors : new ArrayList<InstructorVisitor>();
     }
-
-
 
 
     @JsonProperty("slots")
@@ -48,8 +61,8 @@ public class TeachingRoom extends AbstractRoom{
     }
 
     @JsonProperty("visitors")
-    public List<InstructorVisitor> getVisitors() {
-
+    @Override
+    ArrayList<InstructorVisitor> getVisitors() {
         return visitors;
     }
     @JsonProperty
@@ -70,6 +83,8 @@ public class TeachingRoom extends AbstractRoom{
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
                 availableSlots.add(slot);
             }
+            else
+                ReservedSlots.add(slot);
         }
         // no available slots
         if(availableSlots.isEmpty()){

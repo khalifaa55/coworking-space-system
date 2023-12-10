@@ -36,7 +36,7 @@ public class MeetingRoom extends AbstractRoom {
     }
 
     @JsonProperty("visitors")
-    public List<FormalVisitor> getVisitors() {
+    public ArrayList<FormalVisitor> getVisitors() {
         return visitors;
     }
 
@@ -48,6 +48,8 @@ public class MeetingRoom extends AbstractRoom {
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
                 availableSlots.add(slot);
             }
+            else
+                ReservedSlots.add(slot);
         }
         // no available slots
         if (availableSlots.isEmpty()) {
