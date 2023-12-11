@@ -1,3 +1,4 @@
+package coworking_space.coworks;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import coworking_space.coworks.AbstractRoom;
