@@ -115,6 +115,7 @@ public class Main {
 
         ArrayList<Slot> slots=new ArrayList<>();
         slots.add(S_0);
+
 //        slots.add(S_1);
 //        GeneralVisitor Gvisitor_0=new GeneralVisitor("Banosa",2); // Working with visitor types that matches the room
 //        GeneralVisitor Gvisitor_1=new GeneralVisitor("Fagora",1);
@@ -128,32 +129,63 @@ public class Main {
 //
 //        alshimaa.displayAllAvailableSlots(Groom);
 //        alshimaa.displayRoomVisitors(Groom);
-        InstructorVisitor Ivisitor_0=new InstructorVisitor("Banosa",2); // Working with visitor types that matches the room
-        InstructorVisitor Ivisitor_1=new InstructorVisitor("Fagora",1);
-        InstructorVisitor Ivisitor_2=new InstructorVisitor("Fagor",3);
-        InstructorVisitor Ivisitor_3=new InstructorVisitor("Fago",4);
+        FormalVisitor Fvisitor_0=new FormalVisitor("Banosa",2); // Working with visitor types that matches the room
+        FormalVisitor Fvisitor_1=new FormalVisitor("Fagora",1);
+        FormalVisitor Fvisitor_2=new FormalVisitor("Fagor",3);
+        FormalVisitor Fvisitor_3=new FormalVisitor("Fago",4);
 
 
-        ArrayList<InstructorVisitor> visitors=new ArrayList<>();
-        visitors.add(Ivisitor_0);
-        visitors.add(Ivisitor_1);
-        visitors.add(Ivisitor_2);
-        visitors.add(Ivisitor_3);
-        AbstractRoom Troom = new TeachingRoom("Iroom",1,slots,visitors);
-        alshimaa.addSlot(Troom,S_1);
-        alshimaa.addSlot(Troom,S_2);
 
+
+        ArrayList<FormalVisitor> visitors=new ArrayList<>();
+        visitors.add(Fvisitor_0);
+        visitors.add(Fvisitor_1);
+        visitors.add(Fvisitor_2);
+        visitors.add(Fvisitor_3);
+
+        AbstractRoom Mroom = new MeetingRoom("Mroom",1,slots,visitors);
+
+        alshimaa.addSlot(Mroom,S_1);
+        alshimaa.addSlot(Mroom,S_2);
 //        alshimaa.displayAllAvailableSlots(Troom);
 //        alshimaa.displayRoomVisitors(Troom);
-        S_0.createReservation(Ivisitor_0);
-        S_0.createReservation(Ivisitor_1);
-//        S_0.createReservation(Ivisitor_2);
-//        S_0.createReservation(Ivisitor_3);
+        S_0.createReservation(Fvisitor_0);
+        S_0.createReservation(Fvisitor_1);
+        S_0.createReservation(Fvisitor_2);
+        S_0.createReservation(Fvisitor_3);
+
+        alshimaa.DisplayRoomsData(Mroom);
+//        slots.add(S_1);
+//        slots.add(S_2);
+//         GeneralRoom Gr= new GeneralRoom("GR1",3,slots,visitors);
 
 
 //        alshimaa.DisplayRoomsData(Troom);
-        alshimaa.DisplayTeachingRoom(Troom);
-        System.out.println(alshimaa.CalcRoom_Profit(Troom));
+//          alshimaa.DisplayTeachingRoom(Troom);
+//        System.out.println(alshimaa.CalcRoom_Profit(Troom));
+//
+//        TeachingRoom Tr=new TeachingRoom("TR1" , 3,slots,visitors);
+////        slots.add(S_1);
+//        ArrayList<InstructorVisitor> Iv = new ArrayList<>();
+//        Iv.add(Ivisitor_2);
+//        Iv.add(Ivisitor_3);
+//        TeachingRoom Tr_2=new TeachingRoom("TR2" , 37,slots,Iv);
+//        ArrayList<TeachingRoom>Trooms =new ArrayList<>(2);
+//        Trooms.add(Tr);
+//        Trooms.add(Tr_2);
+//        alshimaa.displayInstructors(Trooms);
+//        alshimaa.UpdateRoom(Troom);
+
+//        alshimaa.DeleteVisitor(Ivisitor_2,Tr_2);
+//        AbstractRoom t = new TeachingRoom("sh",25,slots,Iv);
+//        AbstractRoom t_2 = new TeachingRoom("fa",30,slots,Iv);
+//        ArrayList<AbstractRoom>Trn = new ArrayList<>(2);
+//        Trn.add(t);
+//        Trn.add(t_2);
+//        alshimaa.DeleteRoom(30,Trn);
+
+
+
 
 
     }
