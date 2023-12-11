@@ -7,13 +7,13 @@ class Login {
     private String userEmail;
     private static final String adminUserName="admin";
     private String role;
-    private char[]password;
-    private static final char[]adminPassword= "admin".toCharArray();
+    private String password;
+    private static final String adminPassword= "admin";
 
     private static Login lastSuccessfulLogin;
     static final String PANEL_NAME = "SCREEN_1";
     public Login(){}
-    private Login(String userName, String role, char[] password) {
+    private Login(String userName, String role, String password) {
         this.userEmail = userName;
         this.role = role;
         this.password = password;
@@ -39,7 +39,7 @@ class Login {
 
 
 
-    private boolean validateLogin(String userEmail, char[] password,String role) {
+    private boolean validateLogin(String userEmail, String password,String role) {
 
 
 
@@ -48,7 +48,7 @@ class Login {
             System.out.println("Entered userName: " + userEmail);
             System.out.println("Stored rUsername: " + obj.getUserName());
 
-            if (obj.getUserName().equals(userEmail) && Arrays.equals(obj.getNewPassword(), password)) {
+            if (obj.getUserName().equals(userEmail) && (obj.getNewPassword().equals(password))) {
 
                 Registration currentResigtration = Registration.currentUser(userEmail, role);
                 AbstractVisitor.createVisitorsFromRegistrations(currentResigtration);
@@ -58,7 +58,7 @@ class Login {
         return false;
     }
 
-    private boolean adminLogin(String userEmail, char[] password) {
+    private boolean adminLogin(String userEmail, String password) {
         if (userEmail==adminUserName&&password==adminPassword){
             return true;
         }

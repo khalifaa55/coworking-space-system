@@ -9,8 +9,8 @@ class Registration {
     private String userEmail;
     private String phoneNumber;
     private String role;
-    private char[] newPassword;
-    private char[] confirmPassword;
+    private String newPassword;
+    private String confirmPassword;
     private int id;
     private static int idCounter ;
     private static Registration currentRegistration;
@@ -18,7 +18,7 @@ class Registration {
     static final String PANEL_NAME = "SCREEN_2";
 
     public Registration(){}
-    private Registration(String userName, String userEmail, String phoneNumber, char[] newPassword, char[] confirmPassword) {
+    private Registration(String userName, String userEmail, String phoneNumber, String newPassword, String confirmPassword) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.phoneNumber = phoneNumber;
@@ -69,7 +69,7 @@ class Registration {
     }
 
 
-    public static void  updateRegistrationInfo(ArrayList<Registration> registrations, String userCurrentEmail, String newUserName, char[] newPassword, String newPhoneNumber) {
+    public static void  updateRegistrationInfo(ArrayList<Registration> registrations, String userCurrentEmail, String newUserName,String newPassword, String newPhoneNumber) {
         for (Registration registration : registrations) {
             if (registration.getUserEmail().equals(userCurrentEmail)) {
                 if (newUserName != null) {
@@ -102,7 +102,7 @@ class Registration {
     public String getUserEmail() {
         return userEmail;
     }
-    public char[] getNewPassword() {return newPassword;}
+    public String getNewPassword() {return newPassword;}
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -119,7 +119,7 @@ class Registration {
     public void setUserEmail(String userEmail) {
         this.userEmail=userEmail;
     }
-    public void setNewPassword(char[]newPassword ) {this.newPassword=newPassword;}
+    public void setNewPassword(String newPassword ) {this.newPassword=newPassword;}
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber=phoneNumber;
     }
