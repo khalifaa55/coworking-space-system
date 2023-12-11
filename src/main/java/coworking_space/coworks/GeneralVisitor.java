@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 @JsonTypeName("general")
 public class GeneralVisitor extends AbstractVisitor{
-
     @JsonIgnore
     public String type;
     @JsonCreator

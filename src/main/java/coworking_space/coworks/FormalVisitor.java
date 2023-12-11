@@ -37,7 +37,6 @@ public class FormalVisitor extends AbstractVisitor {
     @Override
     protected void DisplayReservation(AbstractRoom room,Registration currentr) {
         MeetingRoom MR = (MeetingRoom) room;
-
         for(Slot slot:MR.getSlots()){
             for(Slot.Reservation r:slot.getReservations()){
                 String visitorName = r.getVisitor().userEmail;
@@ -53,6 +52,7 @@ public class FormalVisitor extends AbstractVisitor {
     public FormalVisitor() {
         this.type="formal";
     }
+
     @JsonIgnore
     protected void makeReservation(AbstractRoom room ) {
         //AbstractRoom room= new TeachingRoom();
@@ -78,8 +78,6 @@ public class FormalVisitor extends AbstractVisitor {
         FormalVisitor formalVisitor = new FormalVisitor();
 
 
-
-
         for (Slot slot : availableslots) {
             if (Reservedslot.startTimeString.equals( slot.startTimeString ) & Reservedslot.endTimeString.equals(slot.endTimeString) ) {
                 slot.createReservation(formalVisitor);
@@ -88,8 +86,6 @@ public class FormalVisitor extends AbstractVisitor {
 
 
     }
-
-
 
     @JsonIgnore
     protected void updateReservation(AbstractRoom Room) {

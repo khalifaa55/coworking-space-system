@@ -55,6 +55,11 @@ public class InstructorVisitor extends AbstractVisitor {
     public InstructorVisitor() {
         this.type="instructor";
     }
+
+    protected void DisplayReservation(AbstractRoom room) {
+
+    }
+
     @JsonIgnore
     protected void makeReservation(AbstractRoom room ) {
         //AbstractRoom room= new TeachingRoom();
