@@ -1,4 +1,4 @@
-package coworking_space.coworks;
+/*package coworking_space.coworks;
 
 import java.util.Arrays;
 
@@ -32,13 +32,12 @@ class Login {
                     System.out.println(role);
                 } else {
                     JOptionPane.showMessageDialog(panel, "Invalid credentials. Please try again.");
-                }
-      */
+                }*/
 
 
 
 
-
+/*
     private boolean validateLogin(String userEmail, String password,String role) {
 
 
@@ -68,9 +67,4 @@ class Login {
     public static Login getLastSuccessfulLogin() {
         return lastSuccessfulLogin;
     }
-
-
-
-
-}
-*/
+}*/

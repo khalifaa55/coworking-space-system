@@ -1,4 +1,4 @@
-package coworking_space.coworks;
+/*package coworking_space.coworks;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import coworking_space.coworks.AbstractRoom;
@@ -45,7 +45,7 @@ public abstract class AbstractVisitor {
         }
         return visitors;
     }*/
-
+/*
     protected static AbstractVisitor createVisitorFromRegistration(Registration currentR) {
         try {
             switch (currentR.getRole()) {
@@ -126,7 +126,7 @@ public abstract class AbstractVisitor {
                 }break;
         }
     }*/
-
+/*
     public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room) {
         switch (c) {
             case 1:
@@ -163,4 +163,4 @@ public abstract class AbstractVisitor {
     protected abstract void makeReservation(AbstractRoom room);
     protected abstract void updateReservation(AbstractRoom room);
     public abstract void cancelReservation(AbstractRoom room);
-}
+}*/

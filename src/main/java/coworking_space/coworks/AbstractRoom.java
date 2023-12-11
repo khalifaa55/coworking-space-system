@@ -1,4 +1,4 @@
-package coworking_space.coworks;
+/*package coworking_space.coworks;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -35,4 +35,4 @@ abstract public class AbstractRoom {
     // This is a method that returns an ArrayList of any datatype that extends abstract visitor
     // ya3ny abstarct w general w instructor w formal
     abstract ArrayList<? extends AbstractVisitor> getVisitors();
-}
+}*/

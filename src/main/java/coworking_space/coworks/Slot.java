@@ -1,4 +1,4 @@
-package coworking_space.coworks;
+/*package coworking_space.coworks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -74,7 +74,7 @@ public class Slot
     /*public void addReservation(Reservation reservation)
     {
         reservations.add(reservation);
-    }*/
+    }*//*
     public void removeReservation(Reservation reservation)
     {
         reservations.remove(reservation);
@@ -104,4 +104,4 @@ public class Slot
 
         public void setVisitor(AbstractVisitor visitor) {this.visitor = visitor;}
     }
-}
+}*/
