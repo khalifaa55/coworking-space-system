@@ -32,7 +32,8 @@ class Login {
                     System.out.println(role);
                 } else {
                     JOptionPane.showMessageDialog(panel, "Invalid credentials. Please try again.");
-                }*/
+                }
+      */
 
 
 
@@ -50,7 +51,7 @@ class Login {
             if (obj.getUserName().equals(userEmail) && (obj.getNewPassword().equals(password))) {
 
                 Registration currentResigtration = Registration.currentUser(userEmail, role);
-                AbstractVisitor.createVisitorsFromRegistrations(currentResigtration);
+                AbstractVisitor.createVisitorFromRegistration(currentResigtration);
                 return true;
             }
         }
