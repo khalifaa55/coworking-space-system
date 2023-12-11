@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 @JsonTypeName("general")
@@ -14,6 +15,8 @@ public class GeneralRoom extends AbstractRoom {
     public String type;
     public final int maxNumberOfVisitors = 20;
     ArrayList<GeneralVisitor> visitors;
+    ArrayList<Slot> ReservedSlots = new ArrayList<>();
+
 
     @JsonCreator
     public GeneralRoom(@JsonProperty("name") String name,
@@ -52,7 +55,6 @@ public class GeneralRoom extends AbstractRoom {
 
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots() {
-        ArrayList<Slot> availableSlots = new ArrayList<>();
 
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
@@ -84,6 +86,11 @@ public class GeneralRoom extends AbstractRoom {
         }
         return totalAmount;
     }
+//    public ArrayList<Slot>getReservedSlots()
+//    {
+//        return ReservedSlots;
+//    }
+
 
 }
 

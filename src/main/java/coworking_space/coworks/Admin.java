@@ -58,13 +58,31 @@ public class    Admin {
     void DisplayRoomsData(AbstractRoom Room) {
         System.out.println("The Room ID : "+Room.id);
         System.out.println("The Room Name : "+Room.name);
-        System.out.println("The Room Max Number OF Visitors  : "+Room.maxNumberOfVisitors);
+        if(Room instanceof TeachingRoom)
+        {
+            TeachingRoom TR= (TeachingRoom) Room;
+
+            System.out.println("The Room Max Number OF Visitors  : "+TR.maxNumberOfVisitors);
+            System.out.println("The Type Of The Board : "+TR.boardtype);
+            System.out.println("The Instructor Name : "+TR.instractorname);
+            System.out.println("The Projector Type : "+TR.projecttype);
+        } else if (Room instanceof GeneralRoom) {
+            GeneralRoom Gr = (GeneralRoom) Room;
+            System.out.println("The Room Max Number OF Visitors  : "+Gr.maxNumberOfVisitors);
+        }
+        else
+        {
+            MeetingRoom Mr = (MeetingRoom) Room;
+            System.out.println("The Room Max Number OF Visitors  : "+Mr.maxNumberOfVisitors);
+
+
+        }
         System.out.println();
 
-        ArrayList<Slot> availableSlots = Room.getAvailableSlots();
+        ArrayList<Slot> AvailableSlots = Room.getAvailableSlots();
 
-        ArrayList<Slot> allSlots = Room.slots;
-//        ArrayList<Slot> Reserved = new ArrayList<>();
+
+        System.out.println("The Reserved Slots are : ");
         ArrayList<Slot> Reserved = Room.ReservedSlots;
         for(Slot rslot:Reserved)
         {
@@ -74,73 +92,29 @@ public class    Admin {
             System.out.println();
         }
 
+
         System.out.println("The available Slots are : ");
-        for(int i=0 ; i<allSlots.size() ; i++) {
-            if ((allSlots.get(0).equals(availableSlots.get(i)))) {
-                System.out.println("Start Time: " + allSlots.get(i).getStartTime());
-                System.out.println("End Time: " + allSlots.get(i).getEndTime());
-                System.out.println("Fees: " + allSlots.get(i).getFees());
-//
-                System.out.println();
-            }
+        for(Slot aslot:AvailableSlots)
+        {
+            System.out.println("Start Time: " + aslot.getStartTime());
+            System.out.println("End Time: " + aslot.getEndTime());
+            System.out.println("Fees: " + aslot.getFees());
+            System.out.println();
         }
 
         System.out.printf("\n");
-        ArrayList<AbstractVisitor> visitors = Room.visitors;
-        int no_=1;
-        for(AbstractVisitor vis : visitors){
-            System.out.println("Visitors in the room are : " + Room.getNumOfVisitors());
 
-            System.out.println("The "+ no_ + " visitor ID : "+ vis.id);
-            System.out.println("The "+ no_ + " visitor Name : "+ vis.name);
-            System.out.println("The "+ no_ + " visitor Type : "+ vis.type);
-            System.out.println();
-            no_ ++;
-
-        }
         displayRoomVisitors(Room);
     }
 
-    void DisplayTeachingRoom(AbstractRoom Room) {
-        TeachingRoom teachingRoom = (TeachingRoom)Room;
-        System.out.println("The Room ID : "+teachingRoom.id);
-        System.out.println("The Room Name : "+teachingRoom.name);
-        System.out.println("The Max number Of Visitors : "+teachingRoom.maxNumberOfVisitors);
-        System.out.println("The Type Of The Board : "+teachingRoom.boardtype);
-        System.out.println("The Instructor Name : "+teachingRoom.instractorname);
-        System.out.println("The Projector Type : "+teachingRoom.projecttype);
-        ArrayList<Slot> availableSlots = teachingRoom.getAvailableSlots();
-//        ArrayList<Slot> a = Room.getAvailableSlots(availableSlots);
-        System.out.println();
-//        ArrayList<Slot> allSlots = teachingRoom.slots;
-        System.out.println("The available Slots are : ");
-        for (Slot S : availableSlots) {
 
-            System.out.println("Start Time: " + S.getStartTime());
-            System.out.println("End Time: " + S.getEndTime());
-            System.out.println("Fees: " + S.getFees());
-            System.out.println();
 
-        }
-        System.out.println("The Reserved Slots are : ");
-        ArrayList<Slot> Reserved = teachingRoom.ReservedSlots;
-        for(Slot rslot:Reserved)
-        {
-            System.out.println("Start Time: " + rslot.getStartTime());
-            System.out.println("End Time: " + rslot.getEndTime());
-            System.out.println("Fees: " + rslot.getFees());
-            System.out.println();
-        }
-        System.out.println();
-        displayRoomVisitors(teachingRoom);
-    }
-
-    void displayInstructors(ArrayList<AbstractRoom> Rooms) {
+    void displayInstructors(ArrayList<TeachingRoom> Rooms) {
         int no_=1;
-        for (AbstractRoom r : Rooms) {
-            TeachingRoom teachingRoom = (TeachingRoom) r;
+        for (TeachingRoom r : Rooms) {
+//            TeachingRoom teachingRoom = (TeachingRoom) r;
             System.out.println("Instructors in The "+no_+" Room : \n");
-            ArrayList<InstructorVisitor> Ins = teachingRoom.visitors;
+            ArrayList<InstructorVisitor> Ins = r.visitors;
             int no_0 = 1;
             for (InstructorVisitor ins : Ins) {
                 System.out.println("The " + no_0 + " Instructor Name : " + ins.name);
@@ -154,7 +128,7 @@ public class    Admin {
     }
 
 //    void DisplayVisitorData(AbstractVisitor visitor, AbstractRoom Room) {
-//        visitor.displayData();
+//        visitor.
 //     visitor.DisplayReservation(Room);}
 
 
@@ -163,59 +137,62 @@ public class    Admin {
         return Profit;
     }
 
-//    void UpdateRoom(AbstractRoom Room ) {
-//        int Case;
-//        Scanner scanner = new Scanner(System.in);
-//        Case = scanner.nextInt();
-//        switch (Case) {
-//            case 1:
-//                System.out.println("Enter The new Room Id : ");
-//                Room.id = scanner.nextInt();
-//                break;
-//            case 2:
-//                System.out.println("Enter The new Room name");
-//                Room.name = scanner.next();
-//                break;
-//            case 3:
-//                DisplayRoomVisitors(Room);
-//                System.out.println("Enter the visitor Number : ");
-//                scanner.nextInt();
-//                UpdateVisitor(Room.visitors.get(scanner.nextInt()) , Room);
-//                break;
-//            case 4:
-//                DisplayRoomSlots(Room);
-//                System.out.println("Enter The Slot number : ");
-//                scanner.nextInt();
-//                UpdateSlot(Room.slots.get(scanner.nextInt()) , Room);
-//                break;
-//        }
-//        System.out.println("The Data Of The Room After The Update : \n");
-//        DisplayRoomsData(Room);
-//    }
+    void UpdateRoom(AbstractRoom Room ) {
+//        TeachingRoom TR = (TeachingRoom) Room;
+        int Case;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Ypur Choice : \n1-ID \t2-name \n3-visitors\t4-Slots :\n");
+
+        Case = scanner.nextInt();
+        switch (Case) {
+            case 1:
+                System.out.println("Enter The new Room Id : ");
+//                Room.setId(scanner.nextInt());
+                break;
+            case 2:
+                System.out.println("Enter The new Room name");
+//                Room.setName(scanner.next());
+                break;
+            case 3:
+                displayRoomVisitors(Room);
+                System.out.println("Enter the visitor Number : ");
+//                Room.updateVisitors(Room.visitors.get((scanner.nextInt())-1) , Room);
+                break;
+            case 4:
+                DisplayRoomSlots(Room);
+                System.out.println("Enter The Slot number : ");
+
+//                Room.updateSlots(Room.slots.get((scanner.nextInt())-1) , Room);
+                break;
+        }
+        System.out.println("The Data Of The Room After The Update : \n");
+        DisplayRoomsData(Room);
+    }
 //
-//    void UpdateVisitor(AbstractVisitor visitor  , AbstractRoom Room) {
-//            int Case;
-//        Scanner scanner = new Scanner(System.in);
-//        Case = scanner.nextInt();
-//////////////////// Update the Visitor Info ////////////////////
-//        switch (Case){
-//            case 1:
-//                System.out.println("Enter The new Id");
-//                visitor.id = scanner.nextInt();
-//                break;
-//            case 2:
-//                System.out.println("Enter The new name");
-//                visitor.name = scanner.next();
-//                break;
-//            case 3:
-//                System.out.println("Enter The new Type");
-//                visitor.type = scanner.next();
-//                break;
-//        }
-//        System.out.println("The Data Of THE Visitors After The Update : \n");
-//        DisplayRoomVisitors(Room);
-//        //////////////////////Update the reservation ///////////////////////
-//    }
+    void UpdateVisitor(AbstractVisitor visitor  , AbstractRoom Room) {
+        int Case;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter The Choice : \n1-ID \t 2-name\n 3-type :\n");
+        Case = scanner.nextInt();
+////////////////// Update the Visitor Info ////////////////////
+        switch (Case){
+            case 1:
+                System.out.println("Enter The new Id");
+                visitor.id = scanner.nextInt();
+                break;
+            case 2:
+                System.out.println("Enter The new name");
+                visitor.name = scanner.next();
+                break;
+            case 3:
+                System.out.println("Enter The new Type");
+                visitor.type = scanner.next();
+                break;
+        }
+        System.out.println("The Data Of THE Visitors After The Update : \n");
+        displayRoomVisitors(Room);
+        //////////////////////Update the reservation ///////////////////////
+    }
 
     void UpdateSlot(Slot slot , AbstractRoom Room) {
         int Case;
@@ -248,17 +225,48 @@ public class    Admin {
                 Rooms.remove(i);
             }
         }
+        for(AbstractRoom R:Rooms)
+        {
+            DisplayRoomsData(R);
+        }
+
     }
     void DeleteVisitor(AbstractVisitor Visitor , AbstractRoom Room) {
-        ArrayList<AbstractVisitor> allVisitors = Room.visitors;
-
-        for (int i = 0; i < allVisitors.size(); i++) {
-            if (Visitor.equals(allVisitors.get(i))) {
-                allVisitors.remove(i);
-                break;
+        if(Room instanceof TeachingRoom) {
+            TeachingRoom Tr = (TeachingRoom)Room;
+            ArrayList<InstructorVisitor> allVisitors = Tr.visitors;
+            for (int i = 0; i < allVisitors.size(); i++) {
+                if (Visitor.equals(allVisitors.get(i))) {
+                    allVisitors.remove(i);
+                    break;
+                }
             }
         }
-//        DisplayRoomVisitors(Room);
+        else if(Room instanceof GeneralRoom)
+        {
+            GeneralRoom Gr = (GeneralRoom)Room;
+            ArrayList<GeneralVisitor> allVisitors = Gr.visitors;
+            for (int i = 0; i < allVisitors.size(); i++) {
+                if (Visitor.equals(allVisitors.get(i))) {
+                    allVisitors.remove(i);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            MeetingRoom Mr = (MeetingRoom)Room;
+            ArrayList<FormalVisitor> allVisitors = Mr.visitors;
+            for (int i = 0; i < allVisitors.size(); i++) {
+                if (Visitor.equals(allVisitors.get(i))) {
+                    allVisitors.remove(i);
+                    break;
+                }
+            }
+        }
+
+
+        displayRoomVisitors(Room);
     }
     public void deleteSlot(Slot S, AbstractRoom Room) {
         ArrayList<Slot> allSlots = Room.slots;

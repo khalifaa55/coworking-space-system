@@ -128,7 +128,7 @@ public abstract class AbstractVisitor {
         }
     }*/
 
-    public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room,Registration currentR) {
+    public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room, Registration currentr) {
         switch (c) {
             case 1:
                 for (AbstractVisitor visitor : visitorinfo) {
@@ -146,7 +146,7 @@ public abstract class AbstractVisitor {
             case 2:
                 for (AbstractVisitor visitor : visitorinfo) {
                     if (visitor.userEmail == currentUserEmail) {
-                        DisplayReservation(room,currentR);
+                        DisplayReservation(room, currentr);
                     }
                 }break;
         }
@@ -160,7 +160,7 @@ public abstract class AbstractVisitor {
     public int getId() {
         return id;
     }
-    protected abstract void DisplayReservation(AbstractRoom room,Registration currentR);
+    protected abstract void DisplayReservation(AbstractRoom room, Registration currentr) ;
     protected abstract void makeReservation(AbstractRoom room);
     protected abstract void updateReservation(AbstractRoom room);
     public abstract void cancelReservation(AbstractRoom room);
