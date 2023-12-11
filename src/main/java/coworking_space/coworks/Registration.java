@@ -1,109 +1,132 @@
-/*package coworking_space.coworks;
+package coworking_space.coworks;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 class Registration {
+    private String userName;
+    private String userEmail;
+    private String phoneNumber;
+    private String role;
+    private char[] newPassword;
+    private char[] confirmPassword;
+    private int id;
+    private static int idCounter ;
+    private static Registration currentRegistration;
+    private static final ArrayList<Registration> registrations = new ArrayList<>();
     static final String PANEL_NAME = "SCREEN_2";
-    private final JPanel panel;
 
-    public Registration(JPanel cardPanel) {
-        panel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                ImageIcon background = new ImageIcon("D:\\second year\\regisScreen.PNG");
-                g.drawImage(background.getImage(), 0, 0, getWidth(), getHeight(), this);
-            }
-        };
+    public Registration(){}
+    private Registration(String userName, String userEmail, String phoneNumber, char[] newPassword, char[] confirmPassword) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.phoneNumber = phoneNumber;
+        this.newPassword = newPassword;
+        this.confirmPassword = confirmPassword;
+        this.id = ++idCounter;
 
-        JTextField textName = new JTextField();
-        textName.setBounds(540, 146, 330, 47);
-        textName.setOpaque(false);
-        textName.setBorder(null);
+    }
 
-        JTextField textemail = new JTextField();
-        textemail.setBounds(540, 200, 330, 47);
-        textemail.setOpaque(false);
-        textemail.setBorder(null);
-
-        JTextField textphone = new JTextField();
-        textphone.setBounds(622, 258, 247, 47);
-        textphone.setOpaque(false);
-        textphone.setBorder(null);
-
-        JPasswordField textPass2 = new JPasswordField();
-        textPass2.setBounds(568, 320, 305, 47);
-        textPass2.setOpaque(false);
-        textPass2.setBorder(null);
-
-        JPasswordField textPass3 = new JPasswordField();
-        textPass3.setBounds(654, 375, 240, 47);
-        textPass3.setOpaque(false);
-        textPass3.setBorder(null);
-
-
-        panel.setLayout(null);
-        panel.add(textName);
-        panel.add(textPass2);
-        panel.add(textemail);
-        panel.add(textPass3);
-        panel.add(textphone);
-
-        textphone.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (!Character.isDigit(c)) {
-                    e.consume(); // Ignore the input if it's not a digit
+               /* if (userName.isEmpty() || userEmail.isEmpty() || phoneNumber.isEmpty() || newPassword.length == 0 || confirmPassword
+                        .length == 0) {
+                    JOptionPane.showMessageDialog(null, "All fields are required. Please fill in all the details.");
+                } else if (!Arrays.equals(newPassword, confirmPassword)) {
+                    JOptionPane.showMessageDialog(null, "Passwords do not match!");
+                } else if (isDuplicateEmail(userEmail)) {
+                    JOptionPane.showMessageDialog(null, "This email is already registered!");
                 }
-            }
-        });
+                else {
+                    // Perform registration action (you can add your logic here)
+                    Registration newRegistration = new Registration(userName, userEmail, phoneNumber, newPassword, confirmPassword);
+                    registrations.add(newRegistration);
+                    JOptionPane.showMessageDialog(null, "Registration successful!");
+                }
 
-        JButton regbutton = new JButton();
-        regbutton.setBounds(580, 440, 169, 40);
-        regbutton.setToolTipText("Register");
-        regbutton.setContentAreaFilled(false);
-        regbutton.setBorderPainted(false);
+                */
 
-        regbutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String name = textName.getText();
-                String userEmail = textemail.getText();
-                String userPhone = textphone.getText();
-                char[] password2 = textPass2.getPassword();
-                char[] password3 = textPass3.getPassword();
-                    JOptionPane.showMessageDialog(panel, "coworking_space.coworks.Registration button clicked!");
-            }
-        });
-
-        panel.add(regbutton);
-
-        JButton backButton = new JButton("<html><u>Back to coworking_space.coworks.Login</u></html>");
-        backButton.setBounds(580, 490, 169, 15);
-        backButton.setToolTipText("Back to coworking_space.coworks.Login");
-        backButton.setForeground(new Color(0x124D3f));
-        backButton.setBorderPainted(false);
-        backButton.setFocusPainted(false);
-        backButton.setContentAreaFilled(false);
-
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-                cardLayout.previous(cardPanel);
-            }
-        });
-
-        panel.add(backButton);
+    public static ArrayList<Registration> getRegistrations() {
+        return registrations;
     }
 
-    public JPanel getPanel() {
-        return panel;
+    private boolean isDuplicateEmail(String email) {
+        for (Registration registration : registrations) {
+            if (registration.getUserEmail().equals(email)) {
+                return true; // Email is already registered
+            }
+        }
+        return false; // Email is not registered
     }
-}*/
+
+    public static Registration currentUser(String userEmail,String role) {
+        for (Registration registration : registrations) {
+            if (registration.getUserEmail().equals(userEmail)) {
+                registration.setRole(role);
+                currentRegistration = registration;
+            }
+        }
+        return currentRegistration;
+    }
+
+
+    public static void  updateRegistrationInfo(ArrayList<Registration> registrations, String userCurrentEmail, String newUserName, char[] newPassword, String newPhoneNumber) {
+        for (Registration registration : registrations) {
+            if (registration.getUserEmail().equals(userCurrentEmail)) {
+                if (newUserName != null) {
+                    registration.setUserName(newUserName);
+                }
+                if (newPassword != null) {
+                    registration.setNewPassword(newPassword);
+                }
+                if (newPhoneNumber != null) {
+                    registration.setPhoneNumber(newPhoneNumber);
+                }
+                //if (newUserEmail!= null) {
+                //  registration.setPhoneNumber(newPhoneNumber);}
+
+                return;
+            }
+        }
+    }
+    public static Registration  getRegistration(){ return currentRegistration;}
+
+    public int userid(){return id;}
+    public static void updateIdCounter(){
+        idCounter=AbstractVisitor.getlasindex();
+        System.out.println(idCounter);
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+    public String getUserEmail() {
+        return userEmail;
+    }
+    public char[] getNewPassword() {return newPassword;}
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
+    public void setUserName(String userName) {
+        this.userName=userName;
+    }
+    public void setUserEmail(String userEmail) {
+        this.userEmail=userEmail;
+    }
+    public void setNewPassword(char[]newPassword ) {this.newPassword=newPassword;}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber=phoneNumber;
+    }
+
+    // private boolean isValidPhoneNumber(String phoneNumber) {}
+
+    // private boolean isValidEmail(String email) {}
+
+}
+
