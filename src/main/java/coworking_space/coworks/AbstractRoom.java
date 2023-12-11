@@ -36,3 +36,4 @@ abstract public class AbstractRoom {
     // ya3ny abstarct w general w instructor w formal
     abstract ArrayList<? extends AbstractVisitor> getVisitors();
 }
+

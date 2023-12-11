@@ -32,8 +32,7 @@ class Login {
                     System.out.println(role);
                 } else {
                     JOptionPane.showMessageDialog(panel, "Invalid credentials. Please try again.");
-                }
-      */
+                }*/
 
 
 
@@ -68,9 +67,4 @@ class Login {
     public static Login getLastSuccessfulLogin() {
         return lastSuccessfulLogin;
     }
-
-
-
-
 }
-*/
