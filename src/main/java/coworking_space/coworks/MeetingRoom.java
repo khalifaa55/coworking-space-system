@@ -10,13 +10,16 @@ import java.util.List;
 
 @JsonTypeName("Meeting")
 public class MeetingRoom extends AbstractRoom {
-    public final int maxNumberOfVisitors = 10;
+    public final int maxNumberOfVisitors = 3;
     ArrayList<FormalVisitor> visitors;
+//    ArrayList<Slot> ReservedSlots=new ArrayList<>();
+
     @JsonCreator
     public MeetingRoom(@JsonProperty("name") String name,
                        @JsonProperty("id") int id,
                        @JsonProperty("slots") ArrayList<Slot> slots,
                        @JsonProperty("visitors") ArrayList<FormalVisitor> visitors) {
+        this();
         this.name = name;
         this.id = id;
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
@@ -42,8 +45,7 @@ public class MeetingRoom extends AbstractRoom {
 
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots() {
-        ArrayList<Slot> availableSlots = new ArrayList<>();
-        ArrayList<Slot> ReservedSlots=new ArrayList<>();
+//        ArrayList<Slot> availableSlots = new ArrayList<>();
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
@@ -73,10 +75,7 @@ public class MeetingRoom extends AbstractRoom {
         }
         return totalAmount;
     }
-    public ArrayList<Slot>getReservedSlots()
-    {
-        return ReservedSlots;
-    }
+
 
 }
 

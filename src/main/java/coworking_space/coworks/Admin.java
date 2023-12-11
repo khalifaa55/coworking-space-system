@@ -74,22 +74,23 @@ public class    Admin {
         {
             MeetingRoom Mr = (MeetingRoom) Room;
             System.out.println("The Room Max Number OF Visitors  : "+Mr.maxNumberOfVisitors);
-            ArrayList<Slot> Reserved = Mr.getReservedSlots();
-            for(Slot rslot:Reserved)
-            {
-                System.out.println("Start Time: " + rslot.getStartTime());
-                System.out.println("End Time: " + rslot.getEndTime());
-                System.out.println("Fees: " + rslot.getFees());
-                System.out.println();
-            }
+
 
         }
         System.out.println();
 
         ArrayList<Slot> AvailableSlots = Room.getAvailableSlots();
 
-        System.out.println("The Reserved Slots are : \n");
 
+        System.out.println("The Reserved Slots are : ");
+        ArrayList<Slot> Reserved = Room.ReservedSlots;
+        for(Slot rslot:Reserved)
+        {
+            System.out.println("Start Time: " + rslot.getStartTime());
+            System.out.println("End Time: " + rslot.getEndTime());
+            System.out.println("Fees: " + rslot.getFees());
+            System.out.println();
+        }
 
 
         System.out.println("The available Slots are : ");
@@ -146,22 +147,22 @@ public class    Admin {
         switch (Case) {
             case 1:
                 System.out.println("Enter The new Room Id : ");
-                Room.setId(scanner.nextInt());
+//                Room.setId(scanner.nextInt());
                 break;
             case 2:
                 System.out.println("Enter The new Room name");
-                Room.setName(scanner.next());
+//                Room.setName(scanner.next());
                 break;
             case 3:
                 displayRoomVisitors(Room);
                 System.out.println("Enter the visitor Number : ");
-                Room.updateVisitors(Room.visitors.get((scanner.nextInt())-1) , Room);
+//                Room.updateVisitors(Room.visitors.get((scanner.nextInt())-1) , Room);
                 break;
             case 4:
                 DisplayRoomSlots(Room);
                 System.out.println("Enter The Slot number : ");
 
-                Room.updateSlots(Room.slots.get((scanner.nextInt())-1) , Room);
+//                Room.updateSlots(Room.slots.get((scanner.nextInt())-1) , Room);
                 break;
         }
         System.out.println("The Data Of The Room After The Update : \n");

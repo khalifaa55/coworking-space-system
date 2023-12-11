@@ -77,6 +77,8 @@ public class TeachingRoom extends AbstractRoom{
     }
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots(){
+        ArrayList<Slot>availableSlots=new ArrayList<>();
+        ArrayList<Slot> ReservedSlots = new ArrayList<>();
 
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
@@ -94,10 +96,10 @@ public class TeachingRoom extends AbstractRoom{
             return availableSlots;
         }
     }
-    public ArrayList<Slot> getReservedSlots()
-    {
-        return ReservedSlots;
-    }
+//    public ArrayList<Slot> getReservedSlots()
+//    {
+//        return ReservedSlots;
+//    }
     @JsonIgnore
     public double getReservationMoney(){
         double totalAmount = 0;

@@ -129,6 +129,7 @@ public class Main {
 //
 //        alshimaa.displayAllAvailableSlots(Groom);
 //        alshimaa.displayRoomVisitors(Groom);
+
         FormalVisitor Fvisitor_0=new FormalVisitor("Banosa",2); // Working with visitor types that matches the room
         FormalVisitor Fvisitor_1=new FormalVisitor("Fagora",1);
         FormalVisitor Fvisitor_2=new FormalVisitor("Fagor",3);
@@ -155,6 +156,7 @@ public class Main {
         S_0.createReservation(Fvisitor_3);
 
         alshimaa.DisplayRoomsData(Mroom);
+
 //        slots.add(S_1);
 //        slots.add(S_2);
 //         GeneralRoom Gr= new GeneralRoom("GR1",3,slots,visitors);
