@@ -23,7 +23,7 @@ public class FormalVisitor extends AbstractVisitor {
         this.id = id;
     }
     @JsonIgnore
-    public FormalVisitor(String name,char[]password,int id,String type) {
+    public FormalVisitor(String name,String password,int id,String type) {
         this.type = "Formal";
         this.name = name;
         this.id = id;
@@ -82,7 +82,7 @@ public class FormalVisitor extends AbstractVisitor {
 
         for (Slot slot : availableslots) {
             if (Reservedslot.startTimeString.equals( slot.startTimeString ) & Reservedslot.endTimeString.equals(slot.endTimeString) ) {
-                slot.addReservation(Reservedslot.createReservation(formalVisitor));
+                slot.createReservation(formalVisitor);
             }
         }
 

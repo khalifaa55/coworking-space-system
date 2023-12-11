@@ -24,7 +24,7 @@ public class InstructorVisitor extends AbstractVisitor {
         this.id = id;
     }
     @JsonIgnore
-    public InstructorVisitor(String name,char[]password,int id,String type) {
+    public InstructorVisitor(String name,String password,int id,String type) {
         this.type = "general";
         this.name = name;
         this.id = id;
@@ -36,7 +36,19 @@ public class InstructorVisitor extends AbstractVisitor {
     }
 
     @Override
-    protected void DisplayReservation(AbstractRoom room) {
+    protected void DisplayReservation(AbstractRoom room , Registration currentr) {
+
+        TeachingRoom TR = (TeachingRoom) room;
+
+        for(Slot slot:TR.getSlots()){
+            for(Slot.Reservation r:slot.getReservations()){
+                String visitorName = r.getVisitor().userEmail;
+                if(currentr.getUserEmail().equals(visitorName)){
+                    System.out.println(slot.startTimeString);
+                    System.out.println(slot.endTimeString);
+                }
+            }
+        }
 
     }
 
@@ -72,7 +84,7 @@ public class InstructorVisitor extends AbstractVisitor {
 
         for (Slot slot : availableslots) {
             if (Reservedslot.startTimeString.equals( slot.startTimeString ) & Reservedslot.endTimeString.equals(slot.endTimeString) ) {
-                slot.addReservation(Reservedslot.createReservation(instructorVisitor));
+                slot.createReservation(instructorVisitor);
             }
         }
 
