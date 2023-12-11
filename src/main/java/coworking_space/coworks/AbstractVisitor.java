@@ -15,7 +15,6 @@ import java.util.ArrayList;
         @JsonSubTypes.Type(value = FormalVisitor.class, name = "formal"),
         @JsonSubTypes.Type(value = InstructorVisitor.class, name = "instructor"),
 })
-
 public abstract class AbstractVisitor {
     public String name;
     protected String userEmail;
@@ -24,7 +23,7 @@ public abstract class AbstractVisitor {
     protected int id;
     public String type;
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
-    public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
+    /*public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
         boolean check=false;
         boolean flag=false;
         for (AbstractVisitor v : visitors) {
@@ -46,7 +45,7 @@ public abstract class AbstractVisitor {
             }
         }
         return visitors;
-    }
+    }*/
 
     protected static AbstractVisitor createVisitorFromRegistration(Registration currentR) {
         try {
@@ -129,7 +128,7 @@ public abstract class AbstractVisitor {
         }
     }*/
 
-    public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room , Registration currentr) {
+    public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room) {
         switch (c) {
             case 1:
                 for (AbstractVisitor visitor : visitorinfo) {
@@ -147,7 +146,7 @@ public abstract class AbstractVisitor {
             case 2:
                 for (AbstractVisitor visitor : visitorinfo) {
                     if (visitor.userEmail == currentUserEmail) {
-                        DisplayReservation(room,currentr);
+                        DisplayReservation(room);
                     }
                 }break;
         }
@@ -161,7 +160,7 @@ public abstract class AbstractVisitor {
     public int getId() {
         return id;
     }
-    protected abstract void DisplayReservation(AbstractRoom room,Registration currentr);
+    protected abstract void DisplayReservation(AbstractRoom room);
     protected abstract void makeReservation(AbstractRoom room);
     protected abstract void updateReservation(AbstractRoom room);
     public abstract void cancelReservation(AbstractRoom room);

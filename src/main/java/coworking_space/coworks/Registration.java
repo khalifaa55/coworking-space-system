@@ -91,10 +91,9 @@ class Registration {
     public static Registration  getRegistration(){ return currentRegistration;}
 
     public int userid(){return id;}
-    public static void updateIdCounter(){
-        idCounter=AbstractVisitor.getlasindex();
-        System.out.println(idCounter);
-    }
+   // public static void updateIdCounter(){
+    //    idCounter=AbstractVisitor.getlasindex();
+       // System.out.println(idCounter);}
 
     public String getUserName() {
         return userName;
