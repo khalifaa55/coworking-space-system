@@ -1,4 +1,4 @@
-/*package coworking_space.coworks;
+package coworking_space.coworks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,8 +23,7 @@ public class TeachingRoom extends AbstractRoom{
                         @JsonProperty("slots") ArrayList<Slot> slots,
                         @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors)
 
- */
-/*
+
     {
         this(name,id,slots,visitors);
         this.type="teaching";
@@ -104,6 +103,6 @@ public class TeachingRoom extends AbstractRoom{
         }
         return totalAmount;
     }
-}*/
+}
 
 

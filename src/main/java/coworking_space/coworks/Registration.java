@@ -1,4 +1,4 @@
-/* package coworking_space.coworks;
+package coworking_space.coworks;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ class Registration {
                 }
 
                 */
-/*
+
     public static ArrayList<Registration> getRegistrations() {
         return registrations;
     }
@@ -128,5 +128,5 @@ class Registration {
 
     // private boolean isValidEmail(String email) {}
 
-}*/
+}
 

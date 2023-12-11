@@ -16,12 +16,12 @@
       </ImageView>
       <HBox layoutX="100.0" layoutY="640.0" />
       <HBox layoutX="416.0" layoutY="644.0" />
-      <Button layoutX="351.0" layoutY="643.0" mnemonicParsing="false" onMouseClicked="#changeScreenToRegisterScreen" prefHeight="48.0" prefWidth="182.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20;" text="Register" textFill="#063878">
+      <Button layoutX="321.0" layoutY="643.0" mnemonicParsing="false" onMouseClicked="#changeScreenToRegisterScreen" prefHeight="48.0" prefWidth="182.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20;" text="Register" textFill="#063878">
          <font>
             <Font name="Calisto MT" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="79.0" layoutY="643.0" mnemonicParsing="false" onMouseClicked="#changeScreenToLoginScreen" prefHeight="48.0" prefWidth="182.0" style="-fx-background-color: #063878; -fx-background-radius: 20;" text="Login" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
+      <Button layoutX="69.0" layoutY="643.0" mnemonicParsing="false" onMouseClicked="#changeScreenToLoginScreen" prefHeight="48.0" prefWidth="182.0" style="-fx-background-color: #063878; -fx-background-radius: 20;" text="Login" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
          <font>
             <Font name="Calisto MT" size="24.0" />
          </font>

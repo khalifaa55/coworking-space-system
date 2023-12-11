@@ -1,4 +1,4 @@
-/*package coworking_space.coworks;
+package coworking_space.coworks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -130,4 +130,4 @@ public class GeneralVisitor extends AbstractVisitor{
     }
 
 
-}*/
+}

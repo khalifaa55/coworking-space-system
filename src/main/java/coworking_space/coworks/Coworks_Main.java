@@ -13,7 +13,7 @@ public class Coworks_Main extends Application
     public void start(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Coworks_Main.class.getResource("welcomeScreen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = new Scene(fxmlLoader.load(),1155,759);
         stage.setTitle("Coworks");
         stage.setScene(scene);
         stage.show();
