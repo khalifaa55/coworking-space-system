@@ -1,4 +1,4 @@
-/*package coworking_space.coworks;
+package coworking_space.coworks;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class Main {
 //        S_0.setStartTime("7");
 //        S_0.setEndTime("9");
 //        S_0.setFees(150);
-//
+
 //        Slot S_1 = new Slot();
 //        S_1.setStartTime("8");
 //        S_1.setEndTime("12");
@@ -153,7 +153,7 @@ public class Main {
         S_0.createReservation(Fvisitor_0);
         S_0.createReservation(Fvisitor_1);
         S_0.createReservation(Fvisitor_2);
-        S_0.createReservation(Fvisitor_3);
+//        S_0.createReservation(Fvisitor_3);
 
         alshimaa.DisplayRoomsData(Mroom);
 
@@ -191,4 +191,4 @@ public class Main {
 
 
     }
-}*/
+}
