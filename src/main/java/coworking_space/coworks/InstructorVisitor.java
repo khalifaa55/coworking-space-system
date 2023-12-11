@@ -1,3 +1,4 @@
+
 package coworking_space.coworks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -16,10 +17,27 @@ public class InstructorVisitor extends AbstractVisitor {
     public String type;
     @JsonCreator
     public InstructorVisitor(@JsonProperty("name") String name,
-                             @JsonProperty("id") int id) {
+                             @JsonProperty("id") int id
+    ) {
         this.type="general";
         this.name = name;
         this.id = id;
+    }
+    @JsonIgnore
+    public InstructorVisitor(String name,char[]password,int id,String type) {
+        this.type = "general";
+        this.name = name;
+        this.id = id;
+        this.password = password;
+    }
+    @JsonCreator
+    public static InstructorVisitor createVisitorFromRegistration(Registration registration) {
+        return new InstructorVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"instructor");
+    }
+
+    @Override
+    protected void DisplayReservation(AbstractRoom room) {
+
     }
 
     public InstructorVisitor() {
@@ -27,16 +45,22 @@ public class InstructorVisitor extends AbstractVisitor {
     }
     @JsonIgnore
     protected void makeReservation(AbstractRoom room ) {
-        //coworking_space.coworks.AbstractRoom room= new TeachingRoom();
+        //AbstractRoom room= new TeachingRoom();
 
         TeachingRoom TR = (TeachingRoom) room;
+
+        List<Slot> availableslots = TR.getAvailableSlots();
+        for (Slot slot : availableslots) {
+            System.out.println(slot);
+        }
+
         Scanner input1 = new Scanner(System.in);
         String startTimestring = input1.nextLine();
-        LocalDateTime startTime = LocalDateTime.parse(startTimestring);
+        //LocalDateTime startTime = LocalDateTime.parse(startTimestring);
 
         Scanner input2 = new Scanner(System.in);
         String endTimestring = input2.nextLine();
-        LocalDateTime endTime = LocalDateTime.parse(endTimestring);
+        // LocalDateTime endTime = LocalDateTime.parse(endTimestring);
 
         Scanner input3 = new Scanner(System.in);
         double fees = input3.nextDouble();
@@ -44,16 +68,14 @@ public class InstructorVisitor extends AbstractVisitor {
         InstructorVisitor instructorVisitor = new InstructorVisitor();
 
 
-        List<Slot> availableslots = TR.getAvailableSlots();
-        for (Slot slot : availableslots) {
-            System.out.println(slot);
-        }
+
 
         for (Slot slot : availableslots) {
-            if (Reservedslot.startTime == slot.startTime & Reservedslot.endTime == slot.endTime) {
-                Reservedslot.addReservation(Reservedslot.createReservation(instructorVisitor));
+            if (Reservedslot.startTimeString.equals( slot.startTimeString ) & Reservedslot.endTimeString.equals(slot.endTimeString) ) {
+                slot.addReservation(Reservedslot.createReservation(instructorVisitor));
             }
         }
+
     }
 
 
@@ -87,15 +109,14 @@ public class InstructorVisitor extends AbstractVisitor {
 
         Slot canceledslot=new Slot (startTimestring,  endTimestring,  fees);
 
-
-        for(Slot slot :TR.slots)
-            if(canceledslot.startTime==slot.startTime && canceledslot.endTime==slot.endTime){
-                canceledslot.removeReservation(canceledslot.createReservation(instructorVisitor ));
+        for (Slot slot : TR.slots) {
+            if (canceledslot.startTimeString.equals(slot.startTimeString) && canceledslot.endTimeString.equals(slot.endTimeString)) {
+                slot.removeReservation(canceledslot.createReservation(instructorVisitor));
 
             }
 
 
-
+        }
     }
 
 
