@@ -71,10 +71,10 @@ public class Slot
     public void setFees(double fees) {this.fees = fees;}
 
     // addReservation: Reservation	Adds an existing Reservation object to the list
-    public void addReservation(Reservation reservation)
+    /*public void addReservation(Reservation reservation)
     {
         reservations.add(reservation);
-    }
+    }*/
     public void removeReservation(Reservation reservation)
     {
         reservations.remove(reservation);
