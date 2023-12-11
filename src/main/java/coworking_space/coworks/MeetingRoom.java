@@ -43,6 +43,7 @@ public class MeetingRoom extends AbstractRoom {
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots() {
         ArrayList<Slot> availableSlots = new ArrayList<>();
+        ArrayList<Slot> ReservedSlots=new ArrayList<>();
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {

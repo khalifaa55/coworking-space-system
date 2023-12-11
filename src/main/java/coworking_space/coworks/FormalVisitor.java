@@ -16,10 +16,38 @@ public class FormalVisitor extends AbstractVisitor {
     public String type;
     @JsonCreator
     public FormalVisitor(@JsonProperty("name") String name,
-                         @JsonProperty("id") int id) {
-        this.type="general";
+                         @JsonProperty("id") int id
+    ) {
+        this.type="Formal";
         this.name = name;
         this.id = id;
+    }
+    @JsonIgnore
+    public FormalVisitor(String name,String password,int id,String type) {
+        this.type = "Formal";
+        this.name = name;
+        this.id = id;
+        this.password=password;
+    }
+    @JsonIgnore
+    public static FormalVisitor createVisitorFromRegistration(Registration registration) {
+        return new FormalVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"formal");
+    }
+
+    @Override
+    protected void DisplayReservation(AbstractRoom room,Registration currentr) {
+        MeetingRoom MR = (MeetingRoom) room;
+
+        for(Slot slot:MR.getSlots()){
+            for(Slot.Reservation r:slot.getReservations()){
+                String visitorName = r.getVisitor().userEmail;
+                if(currentr.getUserEmail().equals(visitorName)){
+                    System.out.println(slot.startTimeString);
+                    System.out.println(slot.endTimeString);
+                }
+            }
+        }
+
     }
 
     public FormalVisitor() {
@@ -27,33 +55,38 @@ public class FormalVisitor extends AbstractVisitor {
     }
     @JsonIgnore
     protected void makeReservation(AbstractRoom room ) {
-        //coworking_space.coworks.AbstractRoom room= new TeachingRoom();
+        //AbstractRoom room= new TeachingRoom();
 
         MeetingRoom MR = (MeetingRoom) room;
-        Scanner input1 = new Scanner(System.in);
-        String startTimestring = input1.nextLine();
-        LocalDateTime startTime = LocalDateTime.parse(startTimestring);
-
-        Scanner input2 = new Scanner(System.in);
-        String endTimestring = input2.nextLine();
-        LocalDateTime endTime = LocalDateTime.parse(endTimestring);
-
-        Scanner input3 = new Scanner(System.in);
-        double fees = input3.nextDouble();
-        Slot Reservedslot = new Slot(startTimestring, endTimestring, fees);
-        InstructorVisitor instructorVisitor = new InstructorVisitor();
-
 
         List<Slot> availableslots = MR.getAvailableSlots();
         for (Slot slot : availableslots) {
             System.out.println(slot);
         }
 
+        Scanner input1 = new Scanner(System.in);
+        String startTimestring = input1.nextLine();
+        //LocalDateTime startTime = LocalDateTime.parse(startTimestring);
+
+        Scanner input2 = new Scanner(System.in);
+        String endTimestring = input2.nextLine();
+        // LocalDateTime endTime = LocalDateTime.parse(endTimestring);
+
+        Scanner input3 = new Scanner(System.in);
+        double fees = input3.nextDouble();
+        Slot Reservedslot = new Slot(startTimestring, endTimestring, fees);
+        FormalVisitor formalVisitor = new FormalVisitor();
+
+
+
+
         for (Slot slot : availableslots) {
-            if (Reservedslot.startTime == slot.startTime & Reservedslot.endTime == slot.endTime) {
-                Reservedslot.addReservation(Reservedslot.createReservation(instructorVisitor));
+            if (Reservedslot.startTimeString.equals( slot.startTimeString ) & Reservedslot.endTimeString.equals(slot.endTimeString) ) {
+                slot.createReservation(formalVisitor);
             }
         }
+
+
     }
 
 
@@ -83,18 +116,18 @@ public class FormalVisitor extends AbstractVisitor {
         Scanner input3 = new Scanner(System.in);
         double fees=input3.nextDouble();
         Slot Reservedslot = new Slot(startTimestring,  endTimestring,  fees);
-        InstructorVisitor instructorVisitor = new InstructorVisitor();
+        FormalVisitor formalVisitor = new FormalVisitor();
 
         Slot canceledslot=new Slot (startTimestring,  endTimestring,  fees);
 
-
-        for(Slot slot :MR.slots)
-            if(canceledslot.startTime==slot.startTime && canceledslot.endTime==slot.endTime){
-                canceledslot.removeReservation(canceledslot.createReservation(instructorVisitor ));
+        for (Slot slot : MR.slots) {
+            if (canceledslot.startTimeString.equals(slot.startTimeString) && canceledslot.endTimeString.equals(slot.endTimeString)) {
+                slot.removeReservation(canceledslot.createReservation(formalVisitor));
 
             }
 
 
+        }
 
     }
 

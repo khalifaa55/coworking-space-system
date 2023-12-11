@@ -25,6 +25,13 @@ public class GeneralVisitor extends AbstractVisitor{
     public GeneralVisitor() {
         this.type="general";
     }
+    @JsonIgnore
+    public GeneralVisitor(String name, String password, int id, String type) {
+        this.type = type;
+        this.name = name;
+        this.id = id;
+        this.password = password;
+    }
 //    @JsonProperty
 //    public String getVisitor_Type() {
 //        return visitor_type;
@@ -58,8 +65,8 @@ public class GeneralVisitor extends AbstractVisitor{
         for (Slot slot : availableslots){
 
 
-            if (Reserved_slot.startTime == slot.startTime & Reserved_slot.endTime == slot.endTime) {
-                Reserved_slot.addReservation(Reserved_slot.createReservation(generalVisitor));
+            if (Reserved_slot.startTimeString == slot.startTimeString & Reserved_slot.endTimeString == slot.endTimeString) {
+                Reserved_slot.createReservation(generalVisitor);
             }
         }
     }
@@ -93,12 +100,32 @@ public class GeneralVisitor extends AbstractVisitor{
 
 
         for(Slot slot :GR.slots)
-            if(canceled_slot.startTime==slot.startTime && canceled_slot.endTime==slot.endTime){
+            if(canceled_slot.startTimeString==slot.startTimeString && canceled_slot.endTimeString==slot.endTimeString){
                 canceled_slot.removeReservation(canceled_slot.createReservation( generalVisitor ));
 
             }
 
 
+
+    }
+    @JsonCreator
+    public static GeneralVisitor createVisitorFromRegistration(Registration registration) {
+        return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"general");
+    }
+    @Override
+    protected void DisplayReservation(AbstractRoom room , Registration currentr) {
+
+        GeneralRoom gene = (GeneralRoom) room;
+
+        for(Slot slot:gene.getSlots()){
+            for(Slot.Reservation r:slot.getReservations()){
+                String visitorName = r.getVisitor().userEmail;
+                if(currentr.getUserEmail().equals(visitorName)){
+                    System.out.println(slot.startTimeString);
+                    System.out.println(slot.endTimeString);
+                }
+            }
+        }
 
     }
 
