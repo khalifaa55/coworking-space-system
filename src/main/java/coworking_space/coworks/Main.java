@@ -1,5 +1,6 @@
 package coworking_space.coworks;
 
+import javax.security.auth.callback.TextInputCallback;
 import java.util.ArrayList;
 
 public class Main {
@@ -130,32 +131,32 @@ public class Main {
 //        alshimaa.displayAllAvailableSlots(Groom);
 //        alshimaa.displayRoomVisitors(Groom);
 
-        FormalVisitor Fvisitor_0=new FormalVisitor("Banosa",2); // Working with visitor types that matches the room
-        FormalVisitor Fvisitor_1=new FormalVisitor("Fagora",1);
-        FormalVisitor Fvisitor_2=new FormalVisitor("Fagor",3);
-        FormalVisitor Fvisitor_3=new FormalVisitor("Fago",4);
+        InstructorVisitor Ivisitor_0=new InstructorVisitor("Banosa",2); // Working with visitor types that matches the room
+        InstructorVisitor Ivisitor_1=new InstructorVisitor("Fagora",1);
+        InstructorVisitor Ivisitor_2=new InstructorVisitor("Fagor",3);
+        InstructorVisitor Ivisitor_3=new InstructorVisitor("Fago",4);
 
 
 
 
-        ArrayList<FormalVisitor> visitors=new ArrayList<>();
-        visitors.add(Fvisitor_0);
-        visitors.add(Fvisitor_1);
-        visitors.add(Fvisitor_2);
-        visitors.add(Fvisitor_3);
+        ArrayList<InstructorVisitor> visitors=new ArrayList<>();
+        visitors.add(Ivisitor_0);
+        visitors.add(Ivisitor_1);
+        visitors.add(Ivisitor_2);
+        visitors.add(Ivisitor_3);
 
-        AbstractRoom Mroom = new MeetingRoom("Mroom",1,slots,visitors);
+        AbstractRoom Troom = new TeachingRoom("Troom",1,slots,visitors);
 
-        alshimaa.addSlot(Mroom,S_1);
-        alshimaa.addSlot(Mroom,S_2);
+        alshimaa.addSlot(Troom,S_1);
+        alshimaa.addSlot(Troom,S_2);
 //        alshimaa.displayAllAvailableSlots(Troom);
-//        alshimaa.displayRoomVisitors(Troom);
-        S_0.createReservation(Fvisitor_0);
-        S_0.createReservation(Fvisitor_1);
-        S_0.createReservation(Fvisitor_2);
-//        S_0.createReservation(Fvisitor_3);
+        S_0.createReservation(Ivisitor_0);
+        S_0.createReservation(Ivisitor_1);
+        S_1.createReservation(Ivisitor_2);
+        S_1.createReservation(Ivisitor_3);
+//        alshimaa.displayRoomVisitors(Mroom);
 
-        alshimaa.DisplayRoomsData(Mroom);
+        alshimaa.DisplayRoomsData(Troom);
 
 //        slots.add(S_1);
 //        slots.add(S_2);

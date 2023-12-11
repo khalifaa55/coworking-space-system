@@ -1,4 +1,4 @@
-/*package coworking_space.coworks;
+package coworking_space.coworks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -55,7 +55,6 @@ public class GeneralRoom extends AbstractRoom {
 
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots() {
-        ArrayList<Slot> availableSlots = new ArrayList<>();
 
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
@@ -95,4 +94,4 @@ public class GeneralRoom extends AbstractRoom {
 
 }
 
- */
+

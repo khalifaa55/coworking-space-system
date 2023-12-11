@@ -1,6 +1,6 @@
 package coworking_space.coworks;
 
-/*import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -12,7 +12,6 @@ import java.util.List;
 public class MeetingRoom extends AbstractRoom {
     public final int maxNumberOfVisitors = 3;
     ArrayList<FormalVisitor> visitors;
-//    ArrayList<Slot> ReservedSlots=new ArrayList<>();
 
     @JsonCreator
     public MeetingRoom(@JsonProperty("name") String name,
@@ -81,4 +80,4 @@ public class MeetingRoom extends AbstractRoom {
 
 
 
- */
+
