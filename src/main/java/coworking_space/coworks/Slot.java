@@ -75,6 +75,7 @@ public class Slot
     {
         reservations.add(reservation);
     }*/
+
     public void removeReservation(Reservation reservation)
     {
         reservations.remove(reservation);
@@ -105,3 +106,4 @@ public class Slot
         public void setVisitor(AbstractVisitor visitor) {this.visitor = visitor;}
     }
 }
+
