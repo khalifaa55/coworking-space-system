@@ -14,6 +14,7 @@ public class GeneralVisitor extends AbstractVisitor{
 
     @JsonIgnore
     public String type;
+
     @JsonCreator
     public GeneralVisitor(@JsonProperty("name") String name,
                           @JsonProperty("id") int id) {
@@ -65,7 +66,7 @@ public class GeneralVisitor extends AbstractVisitor{
         for (Slot slot : availableslots){
 
 
-            if (Reserved_slot.startTimeString == slot.startTimeString & Reserved_slot.endTimeString == slot.endTimeString) {
+            if (Reserved_slot.startTime == slot.startTime & Reserved_slot.endTime == slot.endTime) {
                 Reserved_slot.createReservation(generalVisitor);
             }
         }
@@ -100,7 +101,7 @@ public class GeneralVisitor extends AbstractVisitor{
 
 
         for(Slot slot :GR.slots)
-            if(canceled_slot.startTimeString==slot.startTimeString && canceled_slot.endTimeString==slot.endTimeString){
+            if(canceled_slot.startTime == slot.startTime && canceled_slot.endTime ==slot.endTime){
                 canceled_slot.removeReservation(canceled_slot.createReservation( generalVisitor ));
 
             }
@@ -121,13 +122,12 @@ public class GeneralVisitor extends AbstractVisitor{
             for(Slot.Reservation r:slot.getReservations()){
                 String visitorName = r.getVisitor().userEmail;
                 if(currentr.getUserEmail().equals(visitorName)){
-                    System.out.println(slot.startTimeString);
-                    System.out.println(slot.endTimeString);
+                    System.out.println(slot.startTime);
+                    System.out.println(slot.endTime);
                 }
             }
         }
 
     }
-
 
 }

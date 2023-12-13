@@ -20,7 +20,8 @@ public abstract class AbstractVisitor {
     protected String userEmail;
     protected String phoneNumber;
     protected String password;
-    protected int id;
+
+    public int id;
     public String type;
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     /*public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {

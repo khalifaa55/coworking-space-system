@@ -21,7 +21,7 @@ public class TeachingRoom extends AbstractRoom{
     public final int maxNumberOfVisitors = 2;
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projecttype") String projecttype,
                         @JsonProperty("boardtype") String boardtype, @JsonProperty("instractorname")String instractorname,
-                        @JsonProperty("slots") ArrayList<Slot> slots,
+                        @JsonProperty("slots.json") ArrayList<Slot> slots,
                         @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors)
 
 
@@ -34,7 +34,7 @@ public class TeachingRoom extends AbstractRoom{
 
     }
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id,
-                        @JsonProperty("slots") ArrayList<Slot> slots,
+                        @JsonProperty("slots.json") ArrayList<Slot> slots,
                         @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors) {
         this();
 
@@ -56,7 +56,7 @@ public class TeachingRoom extends AbstractRoom{
     }
 
 
-    @JsonProperty("slots")
+    @JsonProperty("slots.json")
     public ArrayList<Slot> getSlots() {
         return slots;
     }
@@ -86,7 +86,7 @@ public class TeachingRoom extends AbstractRoom{
             else
                 ReservedSlots.add(slot);
         }
-        // no available slots
+        // no available slots.json
         if(availableSlots.isEmpty()){
             return null;
         }
