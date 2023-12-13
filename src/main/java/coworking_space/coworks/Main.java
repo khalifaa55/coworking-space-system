@@ -156,6 +156,7 @@ public class Main {
         Registration currentr=new Registration("Alshima_374","alshimaa@gmail.com","01019644058","23791831","23791831");
         Ivisitor_0.id=currentr.userid();
         Ivisitor_0.name=currentr.getUserName();
+        Ivisitor_0.userEmail = currentr.getUserEmail();
         S_0.createReservation(Ivisitor_0);
         alshimaa.DisplayVisitorData(Ivisitor_0, currentr,Troom);
 
