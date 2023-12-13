@@ -16,7 +16,7 @@ public class MeetingRoom extends AbstractRoom {
     @JsonCreator
     public MeetingRoom(@JsonProperty("name") String name,
                        @JsonProperty("id") int id,
-                       @JsonProperty("slots") ArrayList<Slot> slots,
+                       @JsonProperty("slots.json") ArrayList<Slot> slots,
                        @JsonProperty("visitors") ArrayList<FormalVisitor> visitors) {
         this();
         this.name = name;
@@ -32,7 +32,7 @@ public class MeetingRoom extends AbstractRoom {
     }
 
 
-    @JsonProperty("slots")
+    @JsonProperty("slots.json")
     public ArrayList<Slot> getSlots() {
         return slots;
     }
@@ -53,7 +53,7 @@ public class MeetingRoom extends AbstractRoom {
             else
                 ReservedSlots.add(slot);
         }
-        // no available slots
+        // no available slots.json
         if (availableSlots.isEmpty()) {
             return null;
         } else {

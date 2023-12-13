@@ -42,8 +42,8 @@ public class FormalVisitor extends AbstractVisitor {
             for(Slot.Reservation r:slot.getReservations()){
                 String visitorName = r.getVisitor().userEmail;
                 if(currentr.getUserEmail().equals(visitorName)){
-                    System.out.println(slot.startTimeString);
-                    System.out.println(slot.endTimeString);
+                    System.out.println(slot.startTime);
+                    System.out.println(slot.endTime);
                 }
             }
         }
@@ -81,7 +81,7 @@ public class FormalVisitor extends AbstractVisitor {
 
 
         for (Slot slot : availableslots) {
-            if (Reservedslot.startTimeString.equals( slot.startTimeString ) & Reservedslot.endTimeString.equals(slot.endTimeString) ) {
+            if (Reservedslot.startTime.equals( slot.startTime) & Reservedslot.endTime.equals(slot.endTime) ) {
                 slot.createReservation(formalVisitor);
             }
         }
@@ -121,7 +121,7 @@ public class FormalVisitor extends AbstractVisitor {
         Slot canceledslot=new Slot (startTimestring,  endTimestring,  fees);
 
         for (Slot slot : MR.slots) {
-            if (canceledslot.startTimeString.equals(slot.startTimeString) && canceledslot.endTimeString.equals(slot.endTimeString)) {
+            if (canceledslot.startTime.equals(slot.startTime) && canceledslot.endTime.equals(slot.endTime)) {
                 slot.removeReservation(canceledslot.createReservation(formalVisitor));
 
             }
@@ -130,7 +130,6 @@ public class FormalVisitor extends AbstractVisitor {
         }
 
     }
-
 }
 
 

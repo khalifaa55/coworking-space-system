@@ -8,7 +8,7 @@
 //        final String READ_TEACHING_ROOMS_PATH = "teachingRooms.json";
 //        ArrayList<coworking_space.coworks.AbstractRoom> teachingRooms=new ArrayList<>();
 //
-//        ArrayList<Slot> slots = new ArrayList<>();
+//        ArrayList<Slot> slots.json = new ArrayList<>();
 //        ArrayList<InstructorVisitor> insts= new ArrayList<>();
 //        InstructorVisitor inst= new InstructorVisitor("h",12);
 //        InstructorVisitor inst2 = new InstructorVisitor("R",14);
@@ -26,9 +26,9 @@
 //        slot1.createReservation(inst);
 //        insts.add(inst);
 //        insts.add(inst2);
-//        slots.add(slot1);
-//        slots.add(slot2);
-//        //TeachingRoom teaching_room= new TeachingRoom("A",123,"p","b","i",slots,insts);
+//        slots.json.add(slot1);
+//        slots.json.add(slot2);
+//        //TeachingRoom teaching_room= new TeachingRoom("A",123,"p","b","i",slots.json,insts);
 //       // teachingRooms.add(teaching_room);
 //
 //

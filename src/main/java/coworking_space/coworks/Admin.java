@@ -8,7 +8,7 @@ public class    Admin {
     private final String Admin_Password = "Admin";
     //    public static   ArrayList<Slot> availableSlots=new ArrayList<>();
     public void addSlot(AbstractRoom room, Slot slot) {
-        // Check if the room and slots are not null and the room has at least one slot
+        // Check if the room and slots.json are not null and the room has at least one slot
         if (room != null ) {
             // Set the start time of the first slot to "2"
             room.slots.add(slot);
@@ -24,7 +24,7 @@ public class    Admin {
                 System.out.println("\n");
 
             } else {
-                System.out.println("No available slots");
+                System.out.println("No available slots.json");
             }
         }
     }
@@ -162,7 +162,7 @@ public class    Admin {
                 DisplayRoomSlots(Room);
                 System.out.println("Enter The Slot number : ");
 
-//                Room.updateSlots(Room.slots.get((scanner.nextInt())-1) , Room);
+//                Room.updateSlots(Room.slots.json.get((scanner.nextInt())-1) , Room);
                 break;
         }
         System.out.println("The Data Of The Room After The Update : \n");
