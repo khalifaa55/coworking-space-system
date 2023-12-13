@@ -65,7 +65,7 @@ public class    Admin {
 
             System.out.println("The Room Max Number OF Visitors  : "+TR.maxNumberOfVisitors);
             System.out.println("The Type Of The Board : "+TR.boardtype);
-            System.out.println("The Instructor Name : "+TR.instractorname);
+            System.out.println("The Instructor Name : "+TR.instructorname);
             System.out.println("The Projector Type : "+TR.projecttype);
         } else if (Room instanceof GeneralRoom) {
             GeneralRoom Gr = (GeneralRoom) Room;

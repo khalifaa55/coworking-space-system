@@ -22,6 +22,7 @@ public abstract class AbstractVisitor {
     protected String password;
 
     public int id;
+
     public String type;
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     /*public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
