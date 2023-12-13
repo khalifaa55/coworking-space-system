@@ -1,5 +1,6 @@
-/*package coworking_space.coworks;
+package coworking_space.coworks;
 
+import javax.security.auth.callback.TextInputCallback;
 import java.util.ArrayList;
 
 public class Main {
@@ -15,7 +16,7 @@ public class Main {
 //        S_0.setStartTime("7");
 //        S_0.setEndTime("9");
 //        S_0.setFees(150);
-//
+
 //        Slot S_1 = new Slot();
 //        S_1.setStartTime("8");
 //        S_1.setEndTime("12");
@@ -62,7 +63,7 @@ public class Main {
 //
 //        ArrayList<AbstractRoom> generalRooms=new ArrayList<>();
 //
-//        ArrayList<Slot> slots = new ArrayList<>();
+//        ArrayList<Slot> slots.json = new ArrayList<>();
 //        ArrayList<GeneralVisitor> gens= new ArrayList<>();
 //        GeneralVisitor gen = new GeneralVisitor("h",12);
 //        GeneralVisitor gen2 = new GeneralVisitor("R",14);
@@ -73,9 +74,9 @@ public class Main {
 //        slot1.createReservation(gen2);
 //        gens.add(gen);
 //        gens.add(gen2);
-//        slots.add(slot1);
-//        slots.add(slot2);
-//        GeneralRoom general_room= new GeneralRoom("A",123,slots,gens);
+//        slots.json.add(slot1);
+//        slots.json.add(slot2);
+//        GeneralRoom general_room= new GeneralRoom("A",123,slots.json,gens);
 //        generalRooms.add(general_room);
 //        System.out.println(general_room.getReservationMoney());
 //        System.out.println(alshimaa.CalcRoom_Profit(general_room));
@@ -115,23 +116,27 @@ public class Main {
 
         ArrayList<Slot> slots=new ArrayList<>();
         slots.add(S_0);
-//        slots.add(S_1);
+
+//        slots.json.add(S_1);
 //        GeneralVisitor Gvisitor_0=new GeneralVisitor("Banosa",2); // Working with visitor types that matches the room
 //        GeneralVisitor Gvisitor_1=new GeneralVisitor("Fagora",1);
 //        ArrayList<GeneralVisitor> visitors=new ArrayList<>();
 //        visitors.add(Gvisitor_0);
 //        visitors.add(Gvisitor_1);
 
-//        AbstractRoom Groom = new GeneralRoom("Groom",1,slots,visitors);
+//        AbstractRoom Groom = new GeneralRoom("Groom",1,slots.json,visitors);
 
 //        alshimaa.addSlot(Groom,S_1);
 //
 //        alshimaa.displayAllAvailableSlots(Groom);
 //        alshimaa.displayRoomVisitors(Groom);
+
         InstructorVisitor Ivisitor_0=new InstructorVisitor("Banosa",2); // Working with visitor types that matches the room
         InstructorVisitor Ivisitor_1=new InstructorVisitor("Fagora",1);
         InstructorVisitor Ivisitor_2=new InstructorVisitor("Fagor",3);
         InstructorVisitor Ivisitor_3=new InstructorVisitor("Fago",4);
+
+
 
 
         ArrayList<InstructorVisitor> visitors=new ArrayList<>();
@@ -139,22 +144,57 @@ public class Main {
         visitors.add(Ivisitor_1);
         visitors.add(Ivisitor_2);
         visitors.add(Ivisitor_3);
-        AbstractRoom Troom = new TeachingRoom("Iroom",1,slots,visitors);
+
+        AbstractRoom Troom = new TeachingRoom("Troom",1,slots,visitors);
+
         alshimaa.addSlot(Troom,S_1);
         alshimaa.addSlot(Troom,S_2);
-
 //        alshimaa.displayAllAvailableSlots(Troom);
-//        alshimaa.displayRoomVisitors(Troom);
-        S_0.createReservation(Ivisitor_0);
         S_0.createReservation(Ivisitor_1);
-//        S_0.createReservation(Ivisitor_2);
-//        S_0.createReservation(Ivisitor_3);
+        S_1.createReservation(Ivisitor_2);
+        S_1.createReservation(Ivisitor_3);
+        Registration currentr=new Registration("Alshima_374","alshimaa@gmail.com","01019644058","23791831","23791831");
+        Ivisitor_0.id=currentr.userid();
+        Ivisitor_0.name=currentr.getUserName();
+        Ivisitor_0.userEmail = currentr.getUserEmail();
+        S_0.createReservation(Ivisitor_0);
+        alshimaa.DisplayVisitorData(Ivisitor_0, currentr,Troom);
+
+//        alshimaa.DisplayRoomsData(Troom);
+//        alshimaa.UpdateRoom(Troom);
+
+//        slots.json.add(S_1);
+//        slots.json.add(S_2);
+//         GeneralRoom Gr= new GeneralRoom("GR1",3,slots.json,visitors);
 
 
 //        alshimaa.DisplayRoomsData(Troom);
-        alshimaa.DisplayTeachingRoom(Troom);
-        System.out.println(alshimaa.CalcRoom_Profit(Troom));
+//          alshimaa.DisplayTeachingRoom(Troom);
+//        System.out.println(alshimaa.CalcRoom_Profit(Troom));
+//
+//        TeachingRoom Tr=new TeachingRoom("TR1" , 3,slots.json,visitors);
+////        slots.json.add(S_1);
+//        ArrayList<InstructorVisitor> Iv = new ArrayList<>();
+//        Iv.add(Ivisitor_2);
+//        Iv.add(Ivisitor_3);
+//        TeachingRoom Tr_2=new TeachingRoom("TR2" , 37,slots.json,Iv);
+//        ArrayList<TeachingRoom>Trooms =new ArrayList<>(2);
+//        Trooms.add(Tr);
+//        Trooms.add(Tr_2);
+//        alshimaa.displayInstructors(Trooms);
+//        alshimaa.UpdateRoom(Troom);
+
+//        alshimaa.DeleteVisitor(Ivisitor_2,Tr_2);
+//        AbstractRoom t = new TeachingRoom("sh",25,slots.json,Iv);
+//        AbstractRoom t_2 = new TeachingRoom("fa",30,slots.json,Iv);
+//        ArrayList<AbstractRoom>Trn = new ArrayList<>(2);
+//        Trn.add(t);
+//        Trn.add(t_2);
+//        alshimaa.DeleteRoom(30,Trn);
+
+
+
 
 
     }
-}*/
+}

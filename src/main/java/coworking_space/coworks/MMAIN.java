@@ -10,7 +10,7 @@ public class MMAIN {
 
         ArrayList<AbstractRoom> teachingRooms=new ArrayList<>();
 
-        ArrayList<Slot> slots = new ArrayList<>();
+        ArrayList<Slot> slots.json = new ArrayList<>();
         ArrayList<InstructorVisitor> arr_vistors= new ArrayList<>();
         InstructorVisitor test = new InstructorVisitor("Mr",2245);
         InstructorVisitor test2 = new InstructorVisitor("Miss",8960);
@@ -28,9 +28,9 @@ public class MMAIN {
         slot_2.createReservation(test2);
         arr_vistors.add(test);
         arr_vistors.add(test2);
-        slots.add(slot_1);
-        slots.add(slot_1);
-        TeachingRoom T_room= new TeachingRoom("Room1",123,"hhk","bjhj","bhkjhj",slots,arr_vistors);
+        slots.json.add(slot_1);
+        slots.json.add(slot_1);
+        TeachingRoom T_room= new TeachingRoom("Room1",123,"hhk","bjhj","bhkjhj",slots.json,arr_vistors);
         teachingRooms.add(T_room);
 
 

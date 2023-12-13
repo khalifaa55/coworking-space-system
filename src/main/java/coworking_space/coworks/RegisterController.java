@@ -1,23 +1,76 @@
 package coworking_space.coworks;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.net.URL;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ResourceBundle;
+import java.util.function.Consumer;
+import java.util.regex.Pattern;
 
-public class RegisterController {
+public class RegisterController implements Initializable {
+
+    @FXML
+    private RadioButton formalVisitor;
+
+    @FXML
+    private RadioButton generalVisitor;
+
+    @FXML
+    private RadioButton instructorVisitor;
+    @FXML
+    private ToggleGroup Visitor_Type;
+    private String visitorType;
+
+    @FXML
+    private PasswordField confirmPassword;
+    private String userconfirmPassword ;
+
+    @FXML
+    private TextField email;
+    private String userEmail;
+
+    @FXML
+    public PasswordField password;
+    private String userPassword;
+
+    @FXML
+    private TextField phoneNumber;
+    private String userPhoneNumber;
 
     @FXML
     private Button registerLogin;
 
     @FXML
+    private Button registerLogin1;
+
+    @FXML
     private AnchorPane registerScreen;
+
+    @FXML
+    public TextField userName;
+    private  String UserName;
 
     @FXML
     void changeScreenToLoginScreen_1(MouseEvent event) throws IOException
@@ -36,4 +89,158 @@ public class RegisterController {
         stage.show();
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Set up event handlers for radio buttons
+        instructorVisitor.setOnAction(this::handleRadioButtonSelection);
+        formalVisitor.setOnAction(this::handleRadioButtonSelection);
+        generalVisitor.setOnAction(this::handleRadioButtonSelection);
+
+        password.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {validatePassword(password.getText(),password.getText());}});
+        confirmPassword.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {validatePassword(password.getText(),confirmPassword.getText());}});
+        phoneNumber.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {validatePhoneNumber(phoneNumber.getText());}});
+        userName.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {validateUsername(userName.getText());}});
+        email.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {validateEmail(email.getText());}});
+    }
+
+    // Event handler for radio button selection
+    private void handleRadioButtonSelection(ActionEvent event) {
+        RadioButton selectedRadioButton = (RadioButton) event.getSource();
+        visitorType = selectedRadioButton.getText();
+        System.out.println("Selected RadioButton: " + visitorType);
+
+    }
+
+    @FXML
+    void saveInfoAndRedirect(MouseEvent Event) throws IOException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
+
+
+        boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText());
+        // Check if any radio button is selected in the Visitor_Type ToggleGroup
+        if (Visitor_Type.getSelectedToggle() == null) {
+            // No radio button is selected, display an error message or take appropriate action
+            String inValidTitle = "Visitor Validation";
+            String inValidMessage = "Please choose a visitor type.";
+            inValidMessage(inValidTitle, inValidMessage);
+            return; // Stop further processing since validation failed
+        } else if (Registration.isDuplicateEmail(userEmail)){
+            String inValidTitle = "You can login directly.";
+            String inValidMessage ="This email already used.";
+            inValidMessage(inValidTitle, inValidMessage);
+            return;
+
+        } else if (!isRegistrationValid) {
+            String inValidTitle = "Invalid Registration";
+            String inValidMessage = "Missing credentials.";
+            inValidMessage(inValidTitle, inValidMessage);
+        }
+        else if (isRegistrationValid) {
+            Registration newRegistration = new Registration(UserName, userEmail, userPhoneNumber, userPassword,visitorType);
+            AbstractVisitor.createVisitorFromRegistration(newRegistration);
+            Registration.getRegistrations().add(newRegistration);
+
+
+            System.out.println("Registration succesful");
+
+        }
+
+    }
+
+    private void validatePassword(String password, String confirmpassword) {
+        boolean isValid = Registration.passwordRegex(password) ;
+        boolean equalsConfirmPass = password.equals(confirmpassword);
+
+        if(!isValid || !equalsConfirmPass) {
+            String inValidTitle = "Password Validation";
+            String inValidMessage = "Invalid password, please try again.";
+            inValidMessage(inValidTitle, inValidMessage);
+
+        } else if (isValid && equalsConfirmPass) {
+            userPassword = password;
+            userconfirmPassword=confirmPassword.getText();
+            System.out.println("user is "+userconfirmPassword);
+        }
+    }
+
+    private void validatePhoneNumber(String phoneNumber) {
+        boolean isValid = Registration.phoneNumberRegex(phoneNumber) ;
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        if(!isValid) {
+            String inValidTitle = "Phone Number Validation";
+            String inValidMessage = "Invalid phone number, Please try again.";
+            inValidMessage(inValidTitle, inValidMessage);
+
+        } else if (isValid) {
+             userPhoneNumber = phoneNumber;
+        }
+    }
+
+    private void validateEmail(String email) {
+        boolean isValid = Registration.emailRegex(email) || email == null;
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        if(!isValid) {
+            String inValidTitle = "Email Validation";
+            String inValidMessage = "Invalid email, please try again.";
+            inValidMessage(inValidTitle, inValidMessage);
+        } else if (isValid) {
+             userEmail = email;
+        }
+    }
+
+    private void validateUsername(String username) {
+        boolean isValid = Registration.usernameRegex(username) ;
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        if(isValid==false || username == null) {
+            String inValidTitle = "Username Validation";
+            String inValidMessage = "Invalid username, please try again.";
+            inValidMessage(inValidTitle, inValidMessage);
+
+        }
+        else{
+             UserName = username;
+        }
+    }
+
+    private void inValidMessage(String title, String message){
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(title);
+
+        Label Message = new Label(message);
+        Message.setFont(Font.font(14));
+        Message.setStyle("-fx-text-fill: white");
+
+
+        Button closeButton = new Button("Close");
+        closeButton.setOnAction(event -> popupStage.close());
+        closeButton.setStyle("-fx-background-radius: 10");
+        //closeButton.setLayoutX(150);
+//        closeButton.setScaleY(100);
+//        closeButton.setX(150);
+//        closeButton.setAlignment(15020);
+
+        VBox layout = new VBox(10);
+        layout.setAlignment(Pos.CENTER);
+        layout.setStyle("-fx-background-color: #6678CB");
+        layout.setPadding(new Insets(10));
+        layout.getChildren().addAll(Message, closeButton);
+
+        Scene scene = new Scene(layout, 300, 100);
+        popupStage.setScene(scene);
+        popupStage.showAndWait();
+    }
+
+
+
+
 }
+
+

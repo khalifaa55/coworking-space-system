@@ -1,4 +1,4 @@
-/*package coworking_space.coworks;
+package coworking_space.coworks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 @JsonTypeName("general")
@@ -14,11 +15,13 @@ public class GeneralRoom extends AbstractRoom {
     public String type;
     public final int maxNumberOfVisitors = 20;
     ArrayList<GeneralVisitor> visitors;
+    ArrayList<Slot> ReservedSlots = new ArrayList<>();
+
 
     @JsonCreator
     public GeneralRoom(@JsonProperty("name") String name,
                        @JsonProperty("id") int id,
-                       @JsonProperty("slots") ArrayList<Slot> slots,
+                       @JsonProperty("slots.json") ArrayList<Slot> slots,
                        @JsonProperty("visitors") ArrayList<GeneralVisitor> visitors) {
         this.type="general";
         this.name = name;
@@ -35,7 +38,7 @@ public class GeneralRoom extends AbstractRoom {
         this.visitors = new ArrayList<GeneralVisitor>();
     }
 
-    @JsonProperty("slots")
+    @JsonProperty("slots.json")
     public ArrayList<Slot> getSlots() {
         return slots;
     }
@@ -52,7 +55,6 @@ public class GeneralRoom extends AbstractRoom {
 
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots() {
-        ArrayList<Slot> availableSlots = new ArrayList<>();
 
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
@@ -62,7 +64,7 @@ public class GeneralRoom extends AbstractRoom {
             else
                 ReservedSlots.add(slot);
         }
-        // no available slots
+        // no available slots.json
         if (availableSlots.isEmpty()) {
             return null;
         } else {
@@ -84,7 +86,12 @@ public class GeneralRoom extends AbstractRoom {
         }
         return totalAmount;
     }
+//    public ArrayList<Slot>getReservedSlots()
+//    {
+//        return ReservedSlots;
+//    }
+
 
 }
 
- */
+

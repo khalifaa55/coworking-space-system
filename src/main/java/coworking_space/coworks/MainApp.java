@@ -39,9 +39,9 @@ public class MainApp {
         slot1.createReservation(gen2);
         gens.add(gen);
         gens.add(gen2);
-        slots.add(slot1);
-        slots.add(slot2);
-        GeneralRoom general_room= new GeneralRoom("A",123,slots,gens);
+        slots..add(slot1);
+        slots.json.add(slot2);
+        GeneralRoom general_room= new GeneralRoom("A",123,slots.json,gens);
         generalRooms.add(general_room);
 
 
@@ -54,8 +54,8 @@ public class MainApp {
         }
 
     }
-}
-*/
+}*/
+
 
 
 

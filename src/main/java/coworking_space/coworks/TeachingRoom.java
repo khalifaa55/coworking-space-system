@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @JsonTypeName("teaching")
 
@@ -17,10 +18,10 @@ public class TeachingRoom extends AbstractRoom{
     public String instractorname;
     public String type;
     ArrayList<InstructorVisitor> visitors;
-    public final int maxNumberOfVisitors = 10;
+    public final int maxNumberOfVisitors = 2;
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projecttype") String projecttype,
                         @JsonProperty("boardtype") String boardtype, @JsonProperty("instractorname")String instractorname,
-                        @JsonProperty("slots") ArrayList<Slot> slots,
+                        @JsonProperty("slots.json") ArrayList<Slot> slots,
                         @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors)
 
 
@@ -33,7 +34,7 @@ public class TeachingRoom extends AbstractRoom{
 
     }
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id,
-                        @JsonProperty("slots") ArrayList<Slot> slots,
+                        @JsonProperty("slots.json") ArrayList<Slot> slots,
                         @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors) {
         this();
 
@@ -55,7 +56,7 @@ public class TeachingRoom extends AbstractRoom{
     }
 
 
-    @JsonProperty("slots")
+    @JsonProperty("slots.json")
     public ArrayList<Slot> getSlots() {
         return slots;
     }
@@ -76,7 +77,6 @@ public class TeachingRoom extends AbstractRoom{
     }
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots(){
-        ArrayList<Slot> availableSlots = new ArrayList<>();
 
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
@@ -86,7 +86,7 @@ public class TeachingRoom extends AbstractRoom{
             else
                 ReservedSlots.add(slot);
         }
-        // no available slots
+        // no available slots.json
         if(availableSlots.isEmpty()){
             return null;
         }
@@ -94,6 +94,10 @@ public class TeachingRoom extends AbstractRoom{
             return availableSlots;
         }
     }
+//    public ArrayList<Slot> getReservedSlots()
+//    {
+//        return ReservedSlots;
+//    }
     @JsonIgnore
     public double getReservationMoney(){
         double totalAmount = 0;
@@ -103,6 +107,7 @@ public class TeachingRoom extends AbstractRoom{
         }
         return totalAmount;
     }
+
 }
 
 

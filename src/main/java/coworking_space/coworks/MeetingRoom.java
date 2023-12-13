@@ -1,22 +1,25 @@
 package coworking_space.coworks;
 
-/*import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @JsonTypeName("Meeting")
 public class MeetingRoom extends AbstractRoom {
-    public final int maxNumberOfVisitors = 10;
+    public final int maxNumberOfVisitors = 3;
     ArrayList<FormalVisitor> visitors;
+
     @JsonCreator
     public MeetingRoom(@JsonProperty("name") String name,
                        @JsonProperty("id") int id,
-                       @JsonProperty("slots") ArrayList<Slot> slots,
+                       @JsonProperty("slots.json") ArrayList<Slot> slots,
                        @JsonProperty("visitors") ArrayList<FormalVisitor> visitors) {
+        this();
         this.name = name;
         this.id = id;
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
@@ -30,7 +33,7 @@ public class MeetingRoom extends AbstractRoom {
     }
 
 
-    @JsonProperty("slots")
+    @JsonProperty("slots.json")
     public ArrayList<Slot> getSlots() {
         return slots;
     }
@@ -42,8 +45,7 @@ public class MeetingRoom extends AbstractRoom {
 
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots() {
-        ArrayList<Slot> availableSlots = new ArrayList<>();
-        ArrayList<Slot> ReservedSlots=new ArrayList<>();
+//        ArrayList<Slot> availableSlots = new ArrayList<>();
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
@@ -52,7 +54,7 @@ public class MeetingRoom extends AbstractRoom {
             else
                 ReservedSlots.add(slot);
         }
-        // no available slots
+        // no available slots.json
         if (availableSlots.isEmpty()) {
             return null;
         } else {
@@ -73,8 +75,12 @@ public class MeetingRoom extends AbstractRoom {
         }
         return totalAmount;
     }
-}
 
 
 
- */
+    }
+
+
+
+
+

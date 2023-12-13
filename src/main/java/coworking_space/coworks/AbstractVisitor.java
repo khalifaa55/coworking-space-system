@@ -20,7 +20,8 @@ public abstract class AbstractVisitor {
     protected String userEmail;
     protected String phoneNumber;
     protected String password;
-    protected int id;
+
+    public int id;
     public String type;
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     /*public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
@@ -128,7 +129,7 @@ public abstract class AbstractVisitor {
         }
     }*/
 
-    public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room) {
+    public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room, Registration currentr) {
         switch (c) {
             case 1:
                 for (AbstractVisitor visitor : visitorinfo) {
@@ -146,7 +147,7 @@ public abstract class AbstractVisitor {
             case 2:
                 for (AbstractVisitor visitor : visitorinfo) {
                     if (visitor.userEmail == currentUserEmail) {
-                        DisplayReservation(room);
+                        DisplayReservation(room, currentr);
                     }
                 }break;
         }
@@ -157,11 +158,13 @@ public abstract class AbstractVisitor {
         AbstractVisitor lastElement = visitors.get(lastindex);
         return lastElement.getId();
     }
+
     public int getId() {
         return id;
     }
-    protected abstract void DisplayReservation(AbstractRoom room);
+    protected abstract void DisplayReservation(AbstractRoom room, Registration currentr) ;
     protected abstract void makeReservation(AbstractRoom room);
     protected abstract void updateReservation(AbstractRoom room);
     public abstract void cancelReservation(AbstractRoom room);
+
 }

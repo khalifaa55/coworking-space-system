@@ -3,6 +3,7 @@ package coworking_space.coworks;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 class Registration {
     private String userName;
@@ -10,7 +11,6 @@ class Registration {
     private String phoneNumber;
     private String role;
     private String newPassword;
-    private String confirmPassword;
     private int id;
     private static int idCounter ;
     private static Registration currentRegistration;
@@ -18,14 +18,57 @@ class Registration {
     static final String PANEL_NAME = "SCREEN_2";
 
     public Registration(){}
-    private Registration(String userName, String userEmail, String phoneNumber, String newPassword, String confirmPassword) {
+    public Registration(String userName, String userEmail, String phoneNumber, String newPassword, String confirmPassword) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.phoneNumber = phoneNumber;
         this.newPassword = newPassword;
-        this.confirmPassword = confirmPassword;
         this.id = ++idCounter;
+        this.role=role;
 
+    }
+
+    public static boolean usernameRegex(String username) {
+
+        String usernameRegex = "^[a-zA-Z0-9_]{3,20}$";
+
+
+        boolean isValid = Pattern.matches(usernameRegex, username);
+
+        // Display a pop-up with the validation result
+        return isValid;
+    }
+    public static boolean passwordRegex(String password) {
+        // Define the password validation regex
+        String passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d@$!%*?&]{8,}$";
+
+        // Check if the password matches the regex
+        boolean isValid = Pattern.matches(passwordRegex, password);
+
+        // Display a pop-up with the validation result
+        return isValid;
+    }
+
+    public static boolean phoneNumberRegex(String phoneNumber) {
+
+        String phoneNumberRegex = "^[0-9]{10}$";
+
+        // Check if the password matches the regex
+        boolean isValid = Pattern.matches(phoneNumberRegex,phoneNumber);
+
+        // Display a pop-up with the validation result
+        return isValid;
+    }
+
+    public static boolean emailRegex(String email) {
+
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+
+        boolean isValid = Pattern.matches(emailRegex, email);
+
+        // Display a pop-up with the validation result
+        return isValid;
     }
 
                /* if (userName.isEmpty() || userEmail.isEmpty() || phoneNumber.isEmpty() || newPassword.length == 0 || confirmPassword
@@ -49,7 +92,7 @@ class Registration {
         return registrations;
     }
 
-    private boolean isDuplicateEmail(String email) {
+    public static boolean  isDuplicateEmail(String email) {
         for (Registration registration : registrations) {
             if (registration.getUserEmail().equals(email)) {
                 return true; // Email is already registered
@@ -91,9 +134,10 @@ class Registration {
     public static Registration  getRegistration(){ return currentRegistration;}
 
     public int userid(){return id;}
-   // public static void updateIdCounter(){
-    //    idCounter=AbstractVisitor.getlasindex();
-       // System.out.println(idCounter);}
+    public static void updateIdCounter(){
+    idCounter=AbstractVisitor.getlasindex();
+        System.out.println(idCounter);
+    }
 
     public String getUserName() {
         return userName;
