@@ -41,8 +41,8 @@ public class InstructorVisitor extends AbstractVisitor {
         TeachingRoom TR = (TeachingRoom) room;
         for(Slot slot:TR.getSlots()){
             for(Slot.Reservation r:slot.getReservations()){
-                String visitorName = r.getVisitor().name;
-                if(currentr.getUserName().equals(visitorName)){
+                String visitorEmail = r.getVisitor().userEmail;
+                if(currentr.getUserEmail().equals(visitorEmail)){
                     System.out.println(slot.getStartTime());
                     System.out.println(slot.getEndTime());
                     System.out.println(slot.getFees());
