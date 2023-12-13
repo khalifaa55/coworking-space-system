@@ -22,37 +22,37 @@
             <Font name="Calisto MT" size="24.0" />
          </font>
       </Button>
-      <TextField fx:id="userName" layoutX="659.0" layoutY="194.0" prefHeight="25.0" prefWidth="361.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
+      <TextField fx:id="userName" layoutX="657.0" layoutY="192.0" prefHeight="25.0" prefWidth="361.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
          <font>
             <Font name="Calisto MT" size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="email" layoutX="659.0" layoutY="266.0" prefHeight="25.0" prefWidth="361.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
+      <TextField fx:id="email" layoutX="658.0" layoutY="263.0" prefHeight="25.0" prefWidth="361.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
          <font>
             <Font name="Calisto MT" size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="phoneNumber" layoutX="659.0" layoutY="338.0" prefHeight="25.0" prefWidth="361.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
+      <TextField fx:id="phoneNumber" layoutX="660.0" layoutY="334.0" prefHeight="25.0" prefWidth="361.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
          <font>
             <Font name="Calisto MT" size="18.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="password" layoutX="662.0" layoutY="415.0" prefHeight="25.0" prefWidth="364.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
+      <PasswordField fx:id="password" layoutX="663.0" layoutY="413.0" prefHeight="25.0" prefWidth="364.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
          <font>
             <Font size="14.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="confirmPassword" layoutX="662.0" layoutY="489.0" prefHeight="25.0" prefWidth="364.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
+      <PasswordField fx:id="confirmPassword" layoutX="663.0" layoutY="487.0" prefHeight="25.0" prefWidth="364.0" style="-fx-background-color: transparent; -fx-text-fill: #3F388A;">
          <font>
             <Font size="14.0" />
          </font>
       </PasswordField>
-      <Button fx:id="registerLogin1" layoutX="759.0" layoutY="618.0" mnemonicParsing="false" onMouseClicked="#saveInfoAndRedirect" prefHeight="50.0" prefWidth="184.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20;" text="Register" textFill="#063878">
+      <Button fx:id="registerLogin1" layoutX="755.0" layoutY="614.0" mnemonicParsing="false" onMouseClicked="#saveInfoAndRedirect" prefHeight="50.0" prefWidth="184.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20;" text="Register" textFill="#063878">
          <font>
             <Font name="Calisto MT" size="24.0" />
          </font>
       </Button>
-      <RadioButton layoutX="644.0" layoutY="563.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="General Visitor">
+      <RadioButton fx:id="generalVisitor" layoutX="640.0" layoutY="559.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="General Visitor">
          <font>
             <Font size="14.0" />
          </font>
@@ -60,12 +60,12 @@
             <ToggleGroup fx:id="Visitor_Type" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="789.0" layoutY="563.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="Instructor Visitor" toggleGroup="$Visitor_Type">
+      <RadioButton fx:id="instructorVisitor" layoutX="785.0" layoutY="559.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="Instructor Visitor" toggleGroup="$Visitor_Type">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="953.0" layoutY="562.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="Formal Visitor" toggleGroup="$Visitor_Type">
+      <RadioButton fx:id="formalVisitor" layoutX="949.0" layoutY="558.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="Formal Visitor" toggleGroup="$Visitor_Type">
          <font>
             <Font size="14.0" />
          </font>
