@@ -52,7 +52,7 @@
             <Font name="Calisto MT" size="24.0" />
          </font>
       </Button>
-      <RadioButton layoutX="640.0" layoutY="559.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="General Visitor">
+      <RadioButton fx:id="generalVisitor" layoutX="640.0" layoutY="559.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="General Visitor">
          <font>
             <Font size="14.0" />
          </font>
@@ -60,12 +60,12 @@
             <ToggleGroup fx:id="Visitor_Type" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="785.0" layoutY="559.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="Instructor Visitor" toggleGroup="$Visitor_Type">
+      <RadioButton fx:id="instructorVisitor" layoutX="785.0" layoutY="559.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="Instructor Visitor" toggleGroup="$Visitor_Type">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="949.0" layoutY="558.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="Formal Visitor" toggleGroup="$Visitor_Type">
+      <RadioButton fx:id="formalVisitor" layoutX="949.0" layoutY="558.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="Formal Visitor" toggleGroup="$Visitor_Type">
          <font>
             <Font size="14.0" />
          </font>
