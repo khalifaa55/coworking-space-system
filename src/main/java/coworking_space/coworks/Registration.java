@@ -27,7 +27,7 @@ class Registration {
 
     }
 
-    public boolean usernameRegex(String username) {
+    public static boolean usernameRegex(String username) {
 
         String usernameRegex = "^[a-zA-Z0-9_]{3,20}$";
 
@@ -37,7 +37,7 @@ class Registration {
         // Display a pop-up with the validation result
         return isValid;
     }
-    public boolean passwordRegex(String password) {
+    public static boolean passwordRegex(String password) {
         // Define the password validation regex
         String passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d@$!%*?&]{8,}$";
 
@@ -48,7 +48,7 @@ class Registration {
         return isValid;
     }
 
-    public boolean phoneNumberRegex(String phoneNumber) {
+    public static boolean phoneNumberRegex(String phoneNumber) {
 
         String phoneNumberRegex = "^[0-9]{10}$";
 
@@ -59,7 +59,7 @@ class Registration {
         return isValid;
     }
 
-    public boolean emailRegex(String email) {
+    public static boolean emailRegex(String email) {
 
         String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
