@@ -52,7 +52,7 @@
             <Font name="Calisto MT" size="24.0" />
          </font>
       </Button>
-      <RadioButton layoutX="640.0" layoutY="559.0" mnemonicParsing="false" style="-fx-text-fill: #3F388A;" text="General Visitor">
+      <RadioButton layoutX="640.0" layoutY="559.0" mnemonicParsing="false" selected="true" style="-fx-text-fill: #3F388A;" text="General Visitor">
          <font>
             <Font size="14.0" />
          </font>

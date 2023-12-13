@@ -27,18 +27,26 @@ public class RegisterController {
 
     @FXML
     private ToggleGroup Visitor_Type;
+    Toggle selectedToggle;
+    RadioButton selectedRadioButton;
+
+    public String type;
 
     @FXML
     private PasswordField confirmPassword;
 
     @FXML
     private TextField email;
+    public String userEmail;
 
     @FXML
-    public PasswordField password;
+    private PasswordField password;
+
+    public String pass;
 
     @FXML
     private TextField phoneNumber;
+    public String userPhoneNumber;
 
     @FXML
     private Button registerLogin;
@@ -50,7 +58,10 @@ public class RegisterController {
     private AnchorPane registerScreen;
 
     @FXML
-    public TextField userName;
+    private TextField userName;
+    public String name;
+
+    private Registration registration = new Registration();
 
     @FXML
     void changeScreenToLoginScreen_1(MouseEvent event) throws IOException
@@ -81,67 +92,49 @@ public class RegisterController {
             if (event.getCode() == KeyCode.ENTER) {validateUsername(userName.getText());}});
         email.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {validateEmail(email.getText());}});
+
     }
     @FXML
     void saveInfoAndRedirect(MouseEvent Event) throws IOException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
 
-        /* String textFromuserName = userName.getText();
-        String textFromEmail = email.getText();
-        String textFromPhoneNumber = phoneNumber.getText();
-        String textFromPassword = password.getText();
-        String textFromConfirmPassword = confirmPassword.getText();
+        boolean isValid = validateForm();
+        boolean isduplicate=Registration.isDuplicateEmail(userEmail);
 
-*/
-      //  Parent root = FXMLLoader.load(getClass().getResource("registerScreen.fxml"));
-        //System.out.println("Text from user: " + userName.getText());
-//        System.out.println("Text from password: " + password.getText());
+        System.out.println("Email: " + userEmail);
+        System.out.println("Is Duplicate: " + isduplicate);
+
+        if (isValid && (!isduplicate)) {
+            Registration newRegistration = new Registration(name, userEmail, userPhoneNumber, pass,type);
+            AbstractVisitor.createVisitorFromRegistration(newRegistration);
+            Registration.getRegistrations().add(newRegistration);
+
+
+           System.out.println("Registration succesful");
+        }
+        else if (isduplicate){
+            System.out.println("Registration insuccesful");
+            for (Registration obj : Registration.getRegistrations()) {
+                 obj.displayAttributes();
+            }
+        }
 
     }
-    private boolean passwordRegex(String password) {
-        // Define the password validation regex
-        String passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d@$!%*?&]{8,}$";
 
-        // Check if the password matches the regex
-        boolean isValid = Pattern.matches(passwordRegex, password);
+    private boolean validateForm() {
 
-        // Display a pop-up with the validation result
-        return isValid;
+        boolean isValidUsername = registration.usernameRegex(userName.getText());
+        boolean isValidEmail = registration.emailRegex(email.getText());
+        boolean isValidPhoneNumber = registration.phoneNumberRegex(phoneNumber.getText());
+        boolean isValidPassword = registration.passwordRegex(password.getText());
+        boolean arePasswordsMatching = password.getText().equals(confirmPassword.getText());
+        boolean isValidType=validateVisitorType();
+
+        return isValidUsername && isValidEmail && isValidPhoneNumber && isValidPassword && arePasswordsMatching && isValidType;
     }
 
-    private boolean phoneNumberRegex(String phoneNumber) {
-
-        String phoneNumberRegex = "^[0-9]{10}$";
-
-        // Check if the password matches the regex
-        boolean isValid = Pattern.matches(phoneNumberRegex,phoneNumber);
-
-        // Display a pop-up with the validation result
-        return isValid;
-    }
-
-    private boolean emailRegex(String email) {
-
-        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-
-
-        boolean isValid = Pattern.matches(emailRegex, email);
-
-        // Display a pop-up with the validation result
-        return isValid;
-    }
-    private boolean usernameRegex(String username) {
-
-        String usernameRegex = "^[a-zA-Z0-9_]{3,20}$";
-
-
-        boolean isValid = Pattern.matches(usernameRegex, username);
-
-        // Display a pop-up with the validation result
-        return isValid;
-    }
 
     private void validatePassword(String password, String confirmPassword) {
-        boolean isValid = passwordRegex(password);
+        boolean isValid = registration.passwordRegex(password);
         boolean equalsConfirmPass = password.equals(confirmPassword);
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
@@ -160,10 +153,14 @@ public class RegisterController {
             popupStage.setScene(scene);
             popupStage.showAndWait();
         }
+        else if(isValid || equalsConfirmPass ){
+            pass=password;
+        }
+
     }
 
     private void validatePhoneNumber(String phoneNumber) {
-        boolean isValid = phoneNumberRegex(phoneNumber);
+        boolean isValid = registration.phoneNumberRegex(phoneNumber);
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.setTitle("Phone Number Validation");
@@ -181,10 +178,13 @@ public class RegisterController {
             popupStage.setScene(scene);
             popupStage.showAndWait();
         }
+        else if(isValid ){
+            userPhoneNumber=phoneNumber;
+        }
     }
 
     private void validateEmail(String email) {
-        boolean isValid = emailRegex(email);
+        boolean isValid = registration.emailRegex(email);
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.setTitle("Email Validation");
@@ -202,10 +202,13 @@ public class RegisterController {
             popupStage.setScene(scene);
             popupStage.showAndWait();
         }
+        else if(isValid  ){
+            userEmail=email;
+        }
     }
 
     private void validateUsername(String username) {
-        boolean isValid = usernameRegex(username);
+        boolean isValid = registration.usernameRegex(username);
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.setTitle("Username Validation");
@@ -223,12 +226,43 @@ public class RegisterController {
             popupStage.setScene(scene);
             popupStage.showAndWait();
         }
+        else if(isValid  ){
+            name=username;
+        }
     }
 
+    private boolean validateVisitorType() {
+        selectedToggle = Visitor_Type.getSelectedToggle();
+        boolean check = false;
 
+        if (selectedToggle == null || !(selectedToggle instanceof RadioButton)) {
+            // Handle the case where no RadioButton is selected
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setTitle("Error");
 
+            Label errorMessage = new Label("Please choose a type of visitor.");
 
+            Button closeButton = new Button("Close");
+            closeButton.setOnAction(e -> popupStage.close());
 
+            VBox layout = new VBox(10);
+            layout.setPadding(new Insets(10));
+            layout.getChildren().addAll(errorMessage, closeButton);
+
+            Scene scene = new Scene(layout, 300, 100);
+            popupStage.setScene(scene);
+            popupStage.showAndWait();
+
+            check = false;
+        } else {
+            selectedRadioButton = (RadioButton) selectedToggle;
+            type = selectedRadioButton.getText();
+            check = true;
+        }
+
+        return check;
+    }
 
 }
 
