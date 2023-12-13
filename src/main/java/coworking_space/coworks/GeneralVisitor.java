@@ -44,17 +44,17 @@ public class GeneralVisitor extends AbstractVisitor{
         GeneralRoom GR = (GeneralRoom) room;
 
         Scanner input1 = new Scanner(System.in);
-        String startTimestring = input1.nextLine();
-        LocalDateTime startTime = LocalDateTime.parse(startTimestring);
+        String startTime = input1.nextLine();
+//        LocalDateTime startTime = LocalDateTime.parse(startTimestring);
 
         Scanner input2 = new Scanner(System.in);
-        String endTimestring = input2.nextLine();
-        LocalDateTime endTime = LocalDateTime.parse(endTimestring);
+        String endTime = input2.nextLine();
+//        LocalDateTime endTime = LocalDateTime.parse(endTimestring);
 
         Scanner input3 = new Scanner(System.in);
         double fees = input3.nextDouble();
 
-        Slot Reserved_slot = new Slot(startTimestring, endTimestring, fees);
+        Slot Reserved_slot = new Slot(startTime, endTime, fees);
         GeneralVisitor generalVisitor = new GeneralVisitor();
 
 
@@ -66,7 +66,7 @@ public class GeneralVisitor extends AbstractVisitor{
         for (Slot slot : availableslots){
 
 
-            if (Reserved_slot.startTime == slot.startTime & Reserved_slot.endTime == slot.endTime) {
+            if (Reserved_slot.startTime .equals(slot.startTime) && Reserved_slot.endTime.equals(slot.endTime)) {
                 Reserved_slot.createReservation(generalVisitor);
             }
         }
@@ -87,21 +87,21 @@ public class GeneralVisitor extends AbstractVisitor{
         GeneralRoom GR= (GeneralRoom) Room;
 
         Scanner input1 = new Scanner(System.in);
-        String startTimestring=input1.nextLine();
+        String startTime=input1.nextLine();
 
         Scanner input2 = new Scanner(System.in);
-        String endTimestring=input2.nextLine();
+        String endTime=input2.nextLine();
 
         Scanner input3 = new Scanner(System.in);
         double fees=input3.nextDouble();
-        Slot Reserved_slot = new Slot(startTimestring,  endTimestring,  fees);
+        Slot Reserved_slot = new Slot(startTime,  endTime,  fees);
         GeneralVisitor generalVisitor = new GeneralVisitor();
 
-        Slot canceled_slot=new Slot (startTimestring,  endTimestring,  fees);
+        Slot canceled_slot=new Slot (startTime,  endTime,  fees);
 
 
         for(Slot slot :GR.slots)
-            if(canceled_slot.startTime == slot.startTime && canceled_slot.endTime ==slot.endTime){
+            if(canceled_slot.startTime.equals(slot.startTime)  && canceled_slot.endTime.equals(slot.endTime)){
                 canceled_slot.removeReservation(canceled_slot.createReservation( generalVisitor ));
 
             }
@@ -115,7 +115,6 @@ public class GeneralVisitor extends AbstractVisitor{
     }
     @Override
     protected void DisplayReservation(AbstractRoom room , Registration currentr) {
-
         GeneralRoom gene = (GeneralRoom) room;
 
         for(Slot slot:gene.getSlots()){

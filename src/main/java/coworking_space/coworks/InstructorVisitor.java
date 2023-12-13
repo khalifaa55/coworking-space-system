@@ -39,13 +39,14 @@ public class InstructorVisitor extends AbstractVisitor {
     protected void DisplayReservation(AbstractRoom room , Registration currentr) {
 
         TeachingRoom TR = (TeachingRoom) room;
-
         for(Slot slot:TR.getSlots()){
             for(Slot.Reservation r:slot.getReservations()){
-                String visitorName = r.getVisitor().userEmail;
-                if(currentr.getUserEmail().equals(visitorName)){
-                    System.out.println(slot.startTime);
-                    System.out.println(slot.endTime);
+                String visitorName = r.getVisitor().name;
+                if(currentr.getUserName().equals(visitorName)){
+                    System.out.println(slot.getStartTime());
+                    System.out.println(slot.getEndTime());
+                    System.out.println(slot.getFees());
+
                 }
             }
         }

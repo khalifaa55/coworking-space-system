@@ -15,9 +15,10 @@ class Registration {
     private static int idCounter ;
     private static Registration currentRegistration;
     private static final ArrayList<Registration> registrations = new ArrayList<>();
+    static final String PANEL_NAME = "SCREEN_2";
 
     public Registration(){}
-    public Registration(String userName, String userEmail, String phoneNumber, String newPassword,String role) {
+    public Registration(String userName, String userEmail, String phoneNumber, String newPassword, String confirmPassword) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.phoneNumber = phoneNumber;
@@ -166,12 +167,9 @@ class Registration {
         this.phoneNumber=phoneNumber;
     }
 
-   public void displayAttributes() {
-        System.out.println("Name: " + userName + " " + userEmail + " "+ role);
-    }
+    // private boolean isValidPhoneNumber(String phoneNumber) {}
 
-
-
+    // private boolean isValidEmail(String email) {}
 
 }
 

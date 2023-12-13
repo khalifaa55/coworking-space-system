@@ -53,7 +53,7 @@ public class Slot
 
     // Getter Start time
     @JsonIgnore
-    public String getStartTime() {return startTime;}
+    public String getStartTime() {return this.startTime;}
 
     // Setter Start time
     @JsonIgnore
@@ -61,7 +61,7 @@ public class Slot
 
     // Getter End time
     @JsonIgnore
-    public String getEndTime() {return endTime;}
+    public String getEndTime() {return this.endTime;}
 
     // Setter End time
     @JsonIgnore
@@ -78,7 +78,7 @@ public class Slot
     }
 
     // Getter Fees
-    public double getFees() {return fees;}
+    public double getFees() {return this.fees;}
 
     // Setter Fees
     public void setFees(double fees) {this.fees = fees;}
