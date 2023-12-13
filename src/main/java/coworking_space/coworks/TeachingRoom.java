@@ -6,8 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 @JsonTypeName("teaching")
 
@@ -15,12 +13,12 @@ import java.util.Scanner;
 public class TeachingRoom extends AbstractRoom{
     public String projecttype;
     public String boardtype;
-    public String instractorname;
+    public String instructorname;
     public String type;
     ArrayList<InstructorVisitor> visitors;
     public final int maxNumberOfVisitors = 2;
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projecttype") String projecttype,
-                        @JsonProperty("boardtype") String boardtype, @JsonProperty("instractorname")String instractorname,
+                        @JsonProperty("boardtype") String boardtype, @JsonProperty("instructorname")String instructorname,
                         @JsonProperty("slots.json") ArrayList<Slot> slots,
                         @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors)
 
@@ -30,7 +28,7 @@ public class TeachingRoom extends AbstractRoom{
         this.type="teaching";
         this.projecttype = projecttype;
         this.boardtype = boardtype;
-        this.instractorname =instractorname;
+        this.instructorname =instructorname;
 
     }
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id,
@@ -50,7 +48,7 @@ public class TeachingRoom extends AbstractRoom{
         this.type = "teaching";
         this.boardtype="B1";
         this.projecttype="P1";
-        this.instractorname="alshimaa";
+        this.instructorname ="alshimaa";
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
         this.visitors = (visitors != null) ? visitors : new ArrayList<InstructorVisitor>();
     }
