@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @JsonTypeName("Meeting")
 public class MeetingRoom extends AbstractRoom {
@@ -76,7 +77,9 @@ public class MeetingRoom extends AbstractRoom {
     }
 
 
-}
+
+    }
+
 
 
 

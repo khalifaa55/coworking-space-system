@@ -18,7 +18,7 @@ class Registration {
     static final String PANEL_NAME = "SCREEN_2";
 
     public Registration(){}
-    private Registration(String userName, String userEmail, String phoneNumber, String newPassword, String confirmPassword) {
+    public Registration(String userName, String userEmail, String phoneNumber, String newPassword, String confirmPassword) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.phoneNumber = phoneNumber;

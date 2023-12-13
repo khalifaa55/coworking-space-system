@@ -158,6 +158,7 @@ public abstract class AbstractVisitor {
         AbstractVisitor lastElement = visitors.get(lastindex);
         return lastElement.getId();
     }
+
     public int getId() {
         return id;
     }
@@ -165,4 +166,5 @@ public abstract class AbstractVisitor {
     protected abstract void makeReservation(AbstractRoom room);
     protected abstract void updateReservation(AbstractRoom room);
     public abstract void cancelReservation(AbstractRoom room);
+
 }
