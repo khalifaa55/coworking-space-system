@@ -47,7 +47,7 @@
             <Font size="14.0" />
          </font>
       </PasswordField>
-      <Button fx:id="registerLogin1" layoutX="755.0" layoutY="614.0" mnemonicParsing="false" onMouseClicked="#saveInfoAndRedirect" prefHeight="50.0" prefWidth="184.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20;" text="Register" textFill="#063878">
+      <Button fx:id="registerLogin1" layoutX="755.0" layoutY="614.0" mnemonicParsing="false" onMouseClicked="#saveInfoAndRedirect" onMousePressed="#GoToVisitorScreen" prefHeight="50.0" prefWidth="184.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20;" text="Register" textFill="#063878">
          <font>
             <Font name="Calisto MT" size="24.0" />
          </font>

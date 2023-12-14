@@ -85,6 +85,24 @@ public class RegisterController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    void GoToVisitorScreen(MouseEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("Visitor.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) registerScreen.getScene().getWindow();
+
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
