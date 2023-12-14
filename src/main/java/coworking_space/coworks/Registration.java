@@ -18,7 +18,7 @@ class Registration {
     static final String PANEL_NAME = "SCREEN_2";
 
     public Registration(){}
-    public Registration(String userName, String userEmail, String phoneNumber, String newPassword, String confirmPassword) {
+    public Registration(String userName, String userEmail, String phoneNumber, String newPassword,String role) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.phoneNumber = phoneNumber;
@@ -51,7 +51,7 @@ class Registration {
 
     public static boolean phoneNumberRegex(String phoneNumber) {
 
-        String phoneNumberRegex = "^[0-9]{10}$";
+        String phoneNumberRegex = "^[0-9]{11}$";
 
         // Check if the password matches the regex
         boolean isValid = Pattern.matches(phoneNumberRegex,phoneNumber);
@@ -166,10 +166,6 @@ class Registration {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber=phoneNumber;
     }
-
-    // private boolean isValidPhoneNumber(String phoneNumber) {}
-
-    // private boolean isValidEmail(String email) {}
 
 }
 

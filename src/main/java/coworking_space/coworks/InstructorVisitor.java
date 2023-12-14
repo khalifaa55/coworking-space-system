@@ -7,30 +7,61 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-@JsonTypeName("instructor")
 public class InstructorVisitor extends AbstractVisitor {
-
-    @JsonIgnore
+    @JsonProperty("type")
     public String type;
-    @JsonCreator
-    public InstructorVisitor(@JsonProperty("name") String name,
-                             @JsonProperty("id") int id
-    ) {
-        this.type="general";
-        this.name = name;
-        this.id = id;
-    }
-    @JsonIgnore
-    public InstructorVisitor(String name,String password,int id,String type) {
-        this.type = "general";
+
+    //Class Constructors//
+
+    public InstructorVisitor( String name, String password,
+                              int id, String type) {
+        this.type = "instructor";
         this.name = name;
         this.id = id;
         this.password = password;
     }
     @JsonCreator
+    public InstructorVisitor(@JsonProperty("name")String name,
+                             @JsonProperty("id") int id) {
+        this.type="instructor";
+        this.name = name;
+        this.id = id;
+    }
+    @JsonCreator
+    public InstructorVisitor() {
+        this.type="instructor";
+    }
+
+    //Getters//
+    @JsonProperty("password")
+    public String getPassword(){
+        return this.password;
+    }
+    @JsonProperty("phoneNumber")
+    public String getPhoneNumber(){
+        return this.phoneNumber;
+    }
+    @JsonProperty("userEmail")
+    public String getUserEmail(){
+        return this.userEmail;
+    }
+    //Setters//
+    public void setPassword(String password){
+        this.password=password;
+    }
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber=phoneNumber;
+    }
+    public void setUserEmail(String userEmail){
+        this.userEmail=userEmail;
+    }
+
+    //Class Methods//
+    @JsonIgnore
     public static InstructorVisitor createVisitorFromRegistration(Registration registration) {
         return new InstructorVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"instructor");
     }
@@ -53,15 +84,6 @@ public class InstructorVisitor extends AbstractVisitor {
 
     }
 
-    public InstructorVisitor() {
-        this.type="instructor";
-    }
-
-    protected void DisplayReservation(AbstractRoom room) {
-
-    }
-
-    @JsonIgnore
     protected void makeReservation(AbstractRoom room ) {
         //AbstractRoom room= new TeachingRoom();
 
@@ -85,9 +107,6 @@ public class InstructorVisitor extends AbstractVisitor {
         Slot Reservedslot = new Slot(startTimestring, endTimestring, fees);
         InstructorVisitor instructorVisitor = new InstructorVisitor();
 
-
-
-
         for (Slot slot : availableslots) {
             if (Reservedslot.startTime.equals( slot.startTime) & Reservedslot.endTime.equals(slot.endTime) ) {
                 slot.createReservation(instructorVisitor);
@@ -96,9 +115,6 @@ public class InstructorVisitor extends AbstractVisitor {
 
     }
 
-
-
-    @JsonIgnore
     protected void updateReservation(AbstractRoom Room) {
 
         TeachingRoom TR= (TeachingRoom)Room;
@@ -107,7 +123,6 @@ public class InstructorVisitor extends AbstractVisitor {
 
     }
 
-    @JsonIgnore
     public void cancelReservation(AbstractRoom Room) {
 
         TeachingRoom TR= (TeachingRoom) Room;
@@ -127,17 +142,14 @@ public class InstructorVisitor extends AbstractVisitor {
 
         Slot canceledslot=new Slot (startTimestring,  endTimestring,  fees);
 
-        for (Slot slot : TR.slots) {
+        for (Slot slot : TR.slots)
+        {
             if (canceledslot.startTime.equals(slot.startTime) && canceledslot.endTime.equals(slot.endTime)) {
                 slot.removeReservation(canceledslot.createReservation(instructorVisitor));
 
             }
-
-
         }
     }
-
-
 }
 
 

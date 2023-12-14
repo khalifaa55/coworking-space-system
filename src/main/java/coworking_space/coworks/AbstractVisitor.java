@@ -1,5 +1,7 @@
 package coworking_space.coworks;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import coworking_space.coworks.AbstractRoom;
@@ -9,7 +11,7 @@ import coworking_space.coworks.InstructorVisitor;
 
 import java.util.ArrayList;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "visitorType")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = GeneralVisitor.class, name = "general"),
         @JsonSubTypes.Type(value = FormalVisitor.class, name = "formal"),
@@ -20,11 +22,11 @@ public abstract class AbstractVisitor {
     protected String userEmail;
     protected String phoneNumber;
     protected String password;
-
     public int id;
+    @JsonIgnore
     public String type;
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
-    public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
+    /*public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
         boolean check=false;
         boolean flag=false;
         for (AbstractVisitor v : visitors) {
@@ -46,16 +48,16 @@ public abstract class AbstractVisitor {
             }
         }
         return visitors;
-    }
-
+    }*/
+    @JsonIgnore
     protected static AbstractVisitor createVisitorFromRegistration(Registration currentR) {
         try {
             switch (currentR.getRole()) {
-                case "General Visitor":
+                case "general":
                     return GeneralVisitor.createVisitorFromRegistration(currentR);
-                case "Formal Visitor":
+                case "formal":
                     return FormalVisitor.createVisitorFromRegistration(currentR);
-                case "Instructor Visitor":
+                case "instructor":
                     return InstructorVisitor.createVisitorFromRegistration(currentR);
                 default:
                     throw new IllegalArgumentException("Unknown visitor type: " + currentR.getRole());
@@ -63,13 +65,13 @@ public abstract class AbstractVisitor {
         } catch (Exception e) {
             System.err.println("Unknown visitor type: " + currentR.getRole());
             e.printStackTrace();
-            return null;
+            return null; // Return null or throw a specific exception as needed
         }
     }
 
 
 
-
+    @JsonIgnore
     public void editUserInfo(int c, ArrayList<AbstractVisitor> editvisitor, String currentuseremail, String newname,String newpass, String phonenumber, String email) {
         int index = -1;
         for (AbstractVisitor visitor : editvisitor) {
@@ -128,7 +130,7 @@ public abstract class AbstractVisitor {
                 }break;
         }
     }*/
-
+    @JsonIgnore
     public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room, Registration currentr) {
         switch (c) {
             case 1:
@@ -146,23 +148,26 @@ public abstract class AbstractVisitor {
                 }break;
             case 2:
                 for (AbstractVisitor visitor : visitorinfo) {
-                    if (visitor.userEmail == currentUserEmail) {
+                    if (visitor.userEmail.equals(currentUserEmail)) {
                         DisplayReservation(room, currentr);
                     }
                 }break;
         }
     }
-
+    @JsonIgnore
     public static int getlasindex() {
         int lastindex = visitors.size() - 1;
         AbstractVisitor lastElement = visitors.get(lastindex);
         return lastElement.getId();
     }
+
     public int getId() {
         return id;
     }
+    @JsonIgnore
     protected abstract void DisplayReservation(AbstractRoom room, Registration currentr) ;
     protected abstract void makeReservation(AbstractRoom room);
     protected abstract void updateReservation(AbstractRoom room);
     public abstract void cancelReservation(AbstractRoom room);
+
 }
