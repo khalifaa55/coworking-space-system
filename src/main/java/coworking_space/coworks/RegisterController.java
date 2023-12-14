@@ -45,19 +45,17 @@ public class RegisterController implements Initializable {
 
     @FXML
     private PasswordField confirmPassword;
-    private String userconfirmPassword ;
+
 
     @FXML
     private TextField email;
-    private String userEmail;
 
     @FXML
     public PasswordField password;
-    private String userPassword;
+
 
     @FXML
     private TextField phoneNumber;
-    private String userPhoneNumber;
 
     @FXML
     private Button registerLogin;
@@ -70,7 +68,6 @@ public class RegisterController implements Initializable {
 
     @FXML
     public TextField userName;
-    private  String UserName;
 
     @FXML
     void changeScreenToLoginScreen_1(MouseEvent event) throws IOException
@@ -120,7 +117,7 @@ public class RegisterController implements Initializable {
     void saveInfoAndRedirect(MouseEvent Event) throws IOException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
 
 
-        boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText());
+        boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText())&& (password.getText()).equals(confirmPassword.getText());
         // Check if any radio button is selected in the Visitor_Type ToggleGroup
         if (Visitor_Type.getSelectedToggle() == null) {
             // No radio button is selected, display an error message or take appropriate action
@@ -128,7 +125,7 @@ public class RegisterController implements Initializable {
             String inValidMessage = "Please choose a visitor type.";
             inValidMessage(inValidTitle, inValidMessage);
             return; // Stop further processing since validation failed
-        } else if (Registration.isDuplicateEmail(userEmail)){
+        } else if (Registration.isDuplicateEmail(email.getText())){
             String inValidTitle = "You can login directly.";
             String inValidMessage ="This email already used.";
             inValidMessage(inValidTitle, inValidMessage);
@@ -140,7 +137,7 @@ public class RegisterController implements Initializable {
             inValidMessage(inValidTitle, inValidMessage);
         }
         else if (isRegistrationValid) {
-            Registration newRegistration = new Registration(UserName, userEmail, userPhoneNumber, userPassword,visitorType);
+            Registration newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(),visitorType);
             AbstractVisitor.createVisitorFromRegistration(newRegistration);
             Registration.getRegistrations().add(newRegistration);
 
@@ -160,10 +157,6 @@ public class RegisterController implements Initializable {
             String inValidMessage = "Invalid password, please try again.";
             inValidMessage(inValidTitle, inValidMessage);
 
-        } else if (isValid && equalsConfirmPass) {
-            userPassword = password;
-            userconfirmPassword=confirmPassword.getText();
-            System.out.println("user is "+userconfirmPassword);
         }
     }
 
@@ -176,21 +169,17 @@ public class RegisterController implements Initializable {
             String inValidMessage = "Invalid phone number, Please try again.";
             inValidMessage(inValidTitle, inValidMessage);
 
-        } else if (isValid) {
-             userPhoneNumber = phoneNumber;
         }
     }
 
     private void validateEmail(String email) {
-        boolean isValid = Registration.emailRegex(email) || email == null;
+        boolean isValid = Registration.emailRegex(email) ;
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
-        if(!isValid) {
+        if(!isValid || email == null) {
             String inValidTitle = "Email Validation";
             String inValidMessage = "Invalid email, please try again.";
             inValidMessage(inValidTitle, inValidMessage);
-        } else if (isValid) {
-             userEmail = email;
         }
     }
 
@@ -203,9 +192,6 @@ public class RegisterController implements Initializable {
             String inValidMessage = "Invalid username, please try again.";
             inValidMessage(inValidTitle, inValidMessage);
 
-        }
-        else{
-             UserName = username;
         }
     }
 

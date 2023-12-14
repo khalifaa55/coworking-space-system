@@ -6,13 +6,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class TeachingRoom extends AbstractRoom{
     public String projecttype;
     public String boardtype;
-    public String instractorname;
+    public String instructorname;
     public String type;
     public ArrayList<InstructorVisitor> visitors;
     public final int maxNumberOfVisitors = 10;
@@ -28,7 +26,7 @@ public class TeachingRoom extends AbstractRoom{
         this.type="teaching";
         this.projecttype = projecttype;
         this.boardtype = boardtype;
-        this.instractorname =instractorname;
+        this.instructorname =instructorname;
 
     }
     public TeachingRoom(String name, int id, ArrayList<Slot> slots,
@@ -46,7 +44,7 @@ public class TeachingRoom extends AbstractRoom{
         this.type = "teaching";
         this.boardtype="B1";
         this.projecttype="P1";
-        this.instractorname="alshimaa";
+        this.instructorname ="alshimaa";
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
         this.visitors = (visitors != null) ? visitors : new ArrayList<InstructorVisitor>();
     }

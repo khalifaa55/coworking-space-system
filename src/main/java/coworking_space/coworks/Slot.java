@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-//import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +117,7 @@ public class Slot
 
     public static class Reservation
     {
-        private AbstractVisitor visitor;
+        public AbstractVisitor visitor;
 
         public Reservation(AbstractVisitor visitor) {this.visitor = visitor;}
         public Reservation(){this.visitor = null;}

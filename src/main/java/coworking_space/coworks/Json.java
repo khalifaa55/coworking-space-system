@@ -46,6 +46,7 @@ public class Json {
     ////////////////////////////////////////////////////////
     public static ArrayList<AbstractVisitor> readVisitorsFromFile(String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
 
         try {
             return objectMapper.readValue(new File((filePath)), new TypeReference<ArrayList<AbstractVisitor>>() {});
@@ -56,6 +57,8 @@ public class Json {
     ////////////////////////////////////////////////////////
         public static void writeVisitorsToFile(ArrayList<AbstractVisitor> visitors, String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
 
         // Write the ArrayList<Student> objects to the specified file
