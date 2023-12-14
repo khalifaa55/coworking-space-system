@@ -58,8 +58,8 @@ public class filesMain {
         gens.add(gen2);
         slots.add(slot1);
         slots.add(slot2);
-        TeachingRoom general_room1= new TeachingRoom("B",125,slots,gens);
-        TeachingRoom general_room= new TeachingRoom("B",125,null,null);
+        TeachingRoom general_room1= new TeachingRoom("Room B",125,slots,gens);
+        TeachingRoom general_room= new TeachingRoom("Room B",125,null,null);
         teachingRooms.add(general_room);
         teachingRooms.add(general_room1);
         try {

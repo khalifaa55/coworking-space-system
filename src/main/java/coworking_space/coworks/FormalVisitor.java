@@ -12,6 +12,7 @@ import java.util.Scanner;
 @JsonTypeName("formal")
 public class FormalVisitor extends AbstractVisitor {
 
+    @JsonIgnore
     public String type;
 
     //Class Constructors//

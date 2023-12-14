@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class InstructorVisitor extends AbstractVisitor {
 
+    @JsonIgnore
     public String type;
 
     //Class Constructors//

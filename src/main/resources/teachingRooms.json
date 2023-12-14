@@ -1,5 +1,5 @@
 [ {
-  "name" : "B",
+  "name" : "Room B",
   "id" : 125,
   "slots" : [ ],
   "visitors" : [ ],
@@ -9,7 +9,7 @@
   "instructorname" : "alshimaa",
   "maxNumberOfVisitors" : 10
 }, {
-  "name" : "B",
+  "name" : "Room B",
   "id" : 125,
   "slots" : [ {
     "startTime" : "8",
@@ -21,7 +21,6 @@
         "name" : "Rahmaa",
         "password" : null,
         "id" : 14,
-        "type" : "instructor",
         "userEmail" : null,
         "phoneNumber" : null
       }
@@ -37,7 +36,6 @@
         "name" : "hano",
         "password" : null,
         "id" : 12,
-        "type" : "instructor",
         "userEmail" : null,
         "phoneNumber" : null
       }
@@ -49,7 +47,6 @@
     "name" : "hano",
     "password" : null,
     "id" : 12,
-    "type" : "instructor",
     "userEmail" : null,
     "phoneNumber" : null
   }, {
@@ -57,75 +54,6 @@
     "name" : "Rahmaa",
     "password" : null,
     "id" : 14,
-    "type" : "instructor",
-    "userEmail" : null,
-    "phoneNumber" : null
-  } ],
-  "type" : "teaching",
-  "projecttype" : "P1",
-  "boardtype" : "B1",
-  "instructorname" : "alshimaa",
-  "maxNumberOfVisitors" : 10
-}, {
-  "name" : "B",
-  "id" : 125,
-  "slots" : [ ],
-  "visitors" : [ ],
-  "type" : "teaching",
-  "projecttype" : "P1",
-  "boardtype" : "B1",
-  "instructorname" : "alshimaa",
-  "maxNumberOfVisitors" : 10
-}, {
-  "name" : "B",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "8",
-    "endTime" : "10",
-    "fees" : 100.0,
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "Rahmaa",
-        "password" : null,
-        "id" : 14,
-        "type" : "instructor",
-        "userEmail" : null,
-        "phoneNumber" : null
-      }
-    } ],
-    "currentDate" : [ 2023, 12, 14 ]
-  }, {
-    "startTime" : "8",
-    "endTime" : "10",
-    "fees" : 300.0,
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "hano",
-        "password" : null,
-        "id" : 12,
-        "type" : "instructor",
-        "userEmail" : null,
-        "phoneNumber" : null
-      }
-    } ],
-    "currentDate" : [ 2023, 12, 14 ]
-  } ],
-  "visitors" : [ {
-    "type" : "instructor",
-    "name" : "hano",
-    "password" : null,
-    "id" : 12,
-    "type" : "instructor",
-    "userEmail" : null,
-    "phoneNumber" : null
-  }, {
-    "type" : "instructor",
-    "name" : "Rahmaa",
-    "password" : null,
-    "id" : 14,
-    "type" : "instructor",
     "userEmail" : null,
     "phoneNumber" : null
   } ],
