@@ -51,7 +51,7 @@ class Registration {
 
     public static boolean phoneNumberRegex(String phoneNumber) {
 
-        String phoneNumberRegex = "^[0-9]{10}$";
+        String phoneNumberRegex = "^[0-9]{11}$";
 
         // Check if the password matches the regex
         boolean isValid = Pattern.matches(phoneNumberRegex,phoneNumber);
