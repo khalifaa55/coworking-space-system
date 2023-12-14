@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class    Admin {
-    private final String Admin_Name = "Admin";
-    private final String Admin_Password = "Admin";
-    //    public static   ArrayList<Slot> availableSlots=new ArrayList<>();
+    private static final String Admin_Name = "Admin";
+    private static final String Admin_Password = "Admin";
+
+    public static String getAdmin_Name() {
+        return Admin_Name;
+    }
+
+    public static String getAdmin_Password() {
+        return Admin_Password;
+    }
+
     public void addSlot(AbstractRoom room, Slot slot) {
-        // Check if the room and slots.json are not null and the room has at least one slot
         if (room != null ) {
-            // Set the start time of the first slot to "2"
             room.slots.add(slot);
         }
     }
@@ -31,7 +37,7 @@ public class    Admin {
     }
 
     public static void displayRoomVisitors(AbstractRoom room) {
-        System.out.println("Visitors in " + room.getRoomType() + ":");
+//        System.out.println("Visitors in " + room.getRoomType() + ":");
         int no = 1;
         for (AbstractVisitor visitor : room.getVisitors()) {
             System.out.println("The " + no + " visitor Id: " + visitor.id);
@@ -292,10 +298,6 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
                     System.out.println("Enter The new name");
                     visitor.name = scanner.next();
                     break;
-                case 3:
-                    System.out.println("Enter The new Type");
-                    visitor.type = scanner.next();
-                    break;
             }
         System.out.println("The Data Of THE Visitors After The Update : \n");
         displayRoomVisitors(Room);
@@ -372,8 +374,6 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
                 }
             }
         }
-
-
         displayRoomVisitors(Room);
     }
     public void deleteSlot(Slot S, AbstractRoom Room) {
