@@ -14,20 +14,18 @@ public class Json {
 
     //source root path
     // coworking_space.coworks.GeneralRoom file path: "generalRooms.json"
-    public static ArrayList<AbstractRoom> readRoomsFile(String filePath) throws IOException {
+    public static ArrayList<AbstractRoom> readRoomsFromFile(String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.enableDefaultTyping();
 
-        try (InputStream inputStream = Json.class.getResourceAsStream(filePath)) {
-            if (inputStream == null) {
-                throw new FileNotFoundException("Resource not found: " + filePath);
-            }
-            return objectMapper.readValue(inputStream, new TypeReference<ArrayList<AbstractRoom>>() {});
+        try {
+            return objectMapper.readValue(new File((filePath)), new TypeReference<ArrayList<AbstractRoom>>() {});
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
     /////////////////////////////////////////////////////////
 
     //content root path
@@ -44,15 +42,13 @@ public class Json {
             throw new RuntimeException(e);
         }
     }
+
     ////////////////////////////////////////////////////////
-    public static ArrayList<AbstractVisitor> readVisitorsFile(String filePath) throws IOException {
+    public static ArrayList<AbstractVisitor> readVisitorsFromFile(String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        try (InputStream inputStream = Json.class.getResourceAsStream(filePath)) {
-            if (inputStream == null) {
-                throw new FileNotFoundException("Resource not found: " + filePath);
-            }
-            return objectMapper.readValue(inputStream, new TypeReference<ArrayList<AbstractVisitor>>() {});
+        try {
+            return objectMapper.readValue(new File((filePath)), new TypeReference<ArrayList<AbstractVisitor>>() {});
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

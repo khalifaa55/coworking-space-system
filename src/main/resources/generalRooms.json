@@ -1,0 +1,41 @@
+[ {
+  "name" : "A",
+  "id" : 123,
+  "slots" : [ {
+    "startTime" : "8/11",
+    "endTime" : "9/11",
+    "fees" : 100.0,
+    "reservations" : [ {
+      "visitor" : {
+        "visitorType" : "general",
+        "name" : "R",
+        "id" : 14
+      }
+    } ],
+    "currentDate" : "14-12-2023"
+  }, {
+    "startTime" : "11/11",
+    "endTime" : "10/10",
+    "fees" : 300.0,
+    "reservations" : [ {
+      "visitor" : {
+        "visitorType" : "general",
+        "name" : "h",
+        "id" : 12
+      }
+    } ],
+    "currentDate" : "14-12-2023"
+  } ],
+  "visitors" : [ {
+    "visitorType" : "general",
+    "name" : "h",
+    "id" : 12
+  }, {
+    "visitorType" : "general",
+    "name" : "R",
+    "id" : 14
+  } ],
+  "type" : "general",
+  "maxNumberOfVisitors" : 20,
+  "roomType" : null
+} ]

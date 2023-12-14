@@ -1,5 +1,7 @@
 package coworking_space.coworks;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import coworking_space.coworks.AbstractRoom;
@@ -9,7 +11,7 @@ import coworking_space.coworks.InstructorVisitor;
 
 import java.util.ArrayList;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "visitorType")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = GeneralVisitor.class, name = "general"),
         @JsonSubTypes.Type(value = FormalVisitor.class, name = "formal"),
@@ -22,6 +24,7 @@ public abstract class AbstractVisitor {
     protected String password;
 
     public int id;
+    @JsonIgnore
     public String type;
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     /*public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
@@ -47,7 +50,7 @@ public abstract class AbstractVisitor {
         }
         return visitors;
     }*/
-
+    @JsonIgnore
     protected static AbstractVisitor createVisitorFromRegistration(Registration currentR) {
         try {
             switch (currentR.getRole()) {
@@ -69,7 +72,7 @@ public abstract class AbstractVisitor {
 
 
 
-
+    @JsonIgnore
     public void editUserInfo(int c, ArrayList<AbstractVisitor> editvisitor, String currentuseremail, String newname,String newpass, String phonenumber, String email) {
         int index = -1;
         for (AbstractVisitor visitor : editvisitor) {
@@ -128,7 +131,7 @@ public abstract class AbstractVisitor {
                 }break;
         }
     }*/
-
+    @JsonIgnore
     public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room, Registration currentr) {
         switch (c) {
             case 1:
@@ -152,7 +155,7 @@ public abstract class AbstractVisitor {
                 }break;
         }
     }
-
+    @JsonIgnore
     public static int getlasindex() {
         int lastindex = visitors.size() - 1;
         AbstractVisitor lastElement = visitors.get(lastindex);
@@ -162,6 +165,7 @@ public abstract class AbstractVisitor {
     public int getId() {
         return id;
     }
+    @JsonIgnore
     protected abstract void DisplayReservation(AbstractRoom room, Registration currentr) ;
     protected abstract void makeReservation(AbstractRoom room);
     protected abstract void updateReservation(AbstractRoom room);
