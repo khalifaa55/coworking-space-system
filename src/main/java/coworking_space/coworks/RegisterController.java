@@ -134,10 +134,10 @@ public class RegisterController implements Initializable {
     @FXML
     void saveInfoAndRedirect(MouseEvent Event) throws IOException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
 
-        validatePassword(password.getText(),confirmPassword.getText());
-        validatePhoneNumber(phoneNumber.getText());
-        validateUsername(userName.getText());
-        validateEmail(email.getText());
+//        validatePassword(password.getText(),confirmPassword.getText());
+//        validatePhoneNumber(phoneNumber.getText());
+//        validateUsername(userName.getText());
+//        validateEmail(email.getText());
         boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText())&& (password.getText()).equals(confirmPassword.getText());
         // Check if any radio button is selected in the Visitor_Type ToggleGroup
         if (Visitor_Type.getSelectedToggle() == null) {
