@@ -10,63 +10,63 @@ public class filesMain {
         final String READ_GENERAL_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\generalRooms.json";
         final String WRITE_MEETING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\meetingRooms.json";
         final String READ_MEETING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\meetingRooms.json";
-        final String WRITE_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-        final String READ_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+        final String WRITE_TEACHING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\teachingRooms.json";
+        final String READ_TEACHING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\teachingRooms.json";
         final String WRITE_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
         final String READ_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
 
         //////////////////////////////////VISITORS JSON/////////////////////////////////////////
-//        ArrayList<AbstractVisitor> visitors=new ArrayList<>();
-//        try {
-//            visitors= Json.readVisitorsFromFile(READ_VISITORS_PATH);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        GeneralVisitor Gvisitor_0=new GeneralVisitor("haya",200); // Working with visitor types that matches the room
-//        GeneralVisitor Gvisitor_1=new GeneralVisitor("malak","myPassword",123,"general");
-//
-//        FormalVisitor gen = new FormalVisitor("hano",12);
-//        InstructorVisitor gen2 = new InstructorVisitor("Rahmaa",14);
-//        visitors.add(Gvisitor_0);
-//        visitors.add(Gvisitor_1);
-//        visitors.add(gen);
-//        visitors.add(gen2);
-//        try {
-//            Json.writeVisitorsToFile( visitors, WRITE_VISITORS_PATH);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+        ArrayList<AbstractVisitor> visitors=new ArrayList<>();
+        try {
+            visitors= Json.readVisitorsFromFile(READ_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        GeneralVisitor Gvisitor_0=new GeneralVisitor("haya",200); // Working with visitor types that matches the room
+        GeneralVisitor Gvisitor_1=new GeneralVisitor("malak","myPassword",123,"general");
+
+        FormalVisitor gen = new FormalVisitor("hano",12);
+        InstructorVisitor gen2 = new InstructorVisitor("Rahmaa",14);
+        visitors.add(Gvisitor_0);
+        visitors.add(Gvisitor_1);
+        visitors.add(gen);
+        visitors.add(gen2);
+        try {
+            Json.writeVisitorsToFile( visitors, WRITE_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         ////////////////////////////////TEACHING ROOMS JSON/////////////////////////////////////////
-        ArrayList<AbstractRoom> teachingRooms=new ArrayList<>();
-        try {
-            teachingRooms = Json.readRoomsFromFile(READ_TEACHING_ROOMS_PATH);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        ArrayList<Slot> slots = new ArrayList<>();
-        ArrayList<InstructorVisitor> gens= new ArrayList<>();
-        InstructorVisitor gen = new InstructorVisitor("hano",12);
-        InstructorVisitor gen2 = new InstructorVisitor("Rahmaa",14);
-
-        Slot slot1 = new Slot("8","10", 100.00);
-        Slot slot2 = new Slot("8","10", 300);
-
-        slot2.createReservation(gen);
-        slot1.createReservation(gen2);
-        gens.add(gen);
-        gens.add(gen2);
-        slots.add(slot1);
-        slots.add(slot2);
-        TeachingRoom general_room1= new TeachingRoom("Room B",125,slots,gens);
-        TeachingRoom general_room= new TeachingRoom("Room B",125,null,null);
-        teachingRooms.add(general_room);
-        teachingRooms.add(general_room1);
-        try {
-            Json.writeRoomsToFile( teachingRooms, WRITE_TEACHING_ROOMS_PATH);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        ArrayList<AbstractRoom> teachingRooms=new ArrayList<>();
+//        try {
+//            teachingRooms = Json.readRoomsFromFile(READ_TEACHING_ROOMS_PATH);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        ArrayList<Slot> slots = new ArrayList<>();
+//        ArrayList<InstructorVisitor> gens= new ArrayList<>();
+//        InstructorVisitor gen = new InstructorVisitor("hano",12);
+//        InstructorVisitor gen2 = new InstructorVisitor("Rahmaa",14);
+//
+//        Slot slot1 = new Slot("8","10", 100.00);
+//        Slot slot2 = new Slot("8","10", 300);
+//
+//        slot2.createReservation(gen);
+//        slot1.createReservation(gen2);
+//        gens.add(gen);
+//        gens.add(gen2);
+//        slots.add(slot1);
+//        slots.add(slot2);
+//        TeachingRoom general_room1= new TeachingRoom("Room B",125,slots,gens);
+//        TeachingRoom general_room= new TeachingRoom("Room B",125,null,null);
+//        teachingRooms.add(general_room);
+//        teachingRooms.add(general_room1);
+//        try {
+//            Json.writeRoomsToFile( teachingRooms, WRITE_TEACHING_ROOMS_PATH);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
         //////////////////////////////////MEETING ROOMS JSON/////////////////////////////////////////
 

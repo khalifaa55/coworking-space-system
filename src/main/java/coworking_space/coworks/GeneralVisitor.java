@@ -11,22 +11,20 @@ import java.util.Scanner;
 
 
 public class GeneralVisitor extends AbstractVisitor{
-
-    @JsonIgnore
+    @JsonProperty("type")
     public String type;
 
     //Class Constructors//
-    @JsonCreator
-    public GeneralVisitor(@JsonProperty("name") String name,
-                          @JsonProperty("password") String password,
-                          @JsonProperty("id") int id,
-                          @JsonProperty("type") String type) {
-        this.type = "general";
+
+    public GeneralVisitor( String name, String password, int id, String type) {
+        this.type = type;
         this.name = name;
         this.id = id;
         this.password = password;
     }
-    public GeneralVisitor(String name, int id) {
+    @JsonCreator
+    public GeneralVisitor(@JsonProperty("name")String name,
+                          @JsonProperty("id") int id) {
         this.type="general";
         this.name = name;
         this.id = id;
