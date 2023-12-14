@@ -24,7 +24,7 @@ public abstract class AbstractVisitor {
     public int id;
     public String type;
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
-    /*public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
+    public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
         boolean check=false;
         boolean flag=false;
         for (AbstractVisitor v : visitors) {
@@ -46,16 +46,16 @@ public abstract class AbstractVisitor {
             }
         }
         return visitors;
-    }*/
+    }
 
     protected static AbstractVisitor createVisitorFromRegistration(Registration currentR) {
         try {
             switch (currentR.getRole()) {
-                case "general":
+                case "General Visitor":
                     return GeneralVisitor.createVisitorFromRegistration(currentR);
-                case "formal":
+                case "Formal Visitor":
                     return FormalVisitor.createVisitorFromRegistration(currentR);
-                case "instructor":
+                case "Instructor Visitor":
                     return InstructorVisitor.createVisitorFromRegistration(currentR);
                 default:
                     throw new IllegalArgumentException("Unknown visitor type: " + currentR.getRole());
@@ -63,7 +63,7 @@ public abstract class AbstractVisitor {
         } catch (Exception e) {
             System.err.println("Unknown visitor type: " + currentR.getRole());
             e.printStackTrace();
-            return null; // Return null or throw a specific exception as needed
+            return null;
         }
     }
 
@@ -158,7 +158,6 @@ public abstract class AbstractVisitor {
         AbstractVisitor lastElement = visitors.get(lastindex);
         return lastElement.getId();
     }
-
     public int getId() {
         return id;
     }
@@ -166,5 +165,4 @@ public abstract class AbstractVisitor {
     protected abstract void makeReservation(AbstractRoom room);
     protected abstract void updateReservation(AbstractRoom room);
     public abstract void cancelReservation(AbstractRoom room);
-
 }
