@@ -6,14 +6,14 @@
   "type" : "teaching",
   "projecttype" : "P1",
   "boardtype" : "B1",
-  "instractorname" : "alshimaa",
+  "instructorname" : "alshimaa",
   "maxNumberOfVisitors" : 10
 }, {
   "name" : "B",
   "id" : 125,
   "slots" : [ {
-    "startTime" : "8/11",
-    "endTime" : "9/11",
+    "startTime" : "8",
+    "endTime" : "10",
     "fees" : 100.0,
     "reservations" : [ {
       "visitor" : {
@@ -26,10 +26,10 @@
         "phoneNumber" : null
       }
     } ],
-    "currentDate" : "14-12-2023"
+    "currentDate" : [ 2023, 12, 14 ]
   }, {
-    "startTime" : "11/11",
-    "endTime" : "10/10",
+    "startTime" : "8",
+    "endTime" : "10",
     "fees" : 300.0,
     "reservations" : [ {
       "visitor" : {
@@ -42,7 +42,7 @@
         "phoneNumber" : null
       }
     } ],
-    "currentDate" : "14-12-2023"
+    "currentDate" : [ 2023, 12, 14 ]
   } ],
   "visitors" : [ {
     "type" : "instructor",
@@ -64,7 +64,7 @@
   "type" : "teaching",
   "projecttype" : "P1",
   "boardtype" : "B1",
-  "instractorname" : "alshimaa",
+  "instructorname" : "alshimaa",
   "maxNumberOfVisitors" : 10
 }, {
   "name" : "B",
@@ -74,14 +74,14 @@
   "type" : "teaching",
   "projecttype" : "P1",
   "boardtype" : "B1",
-  "instractorname" : "alshimaa",
+  "instructorname" : "alshimaa",
   "maxNumberOfVisitors" : 10
 }, {
   "name" : "B",
   "id" : 125,
   "slots" : [ {
-    "startTime" : "8/11",
-    "endTime" : "9/11",
+    "startTime" : "8",
+    "endTime" : "10",
     "fees" : 100.0,
     "reservations" : [ {
       "visitor" : {
@@ -94,10 +94,10 @@
         "phoneNumber" : null
       }
     } ],
-    "currentDate" : "14-12-2023"
+    "currentDate" : [ 2023, 12, 14 ]
   }, {
-    "startTime" : "11/11",
-    "endTime" : "10/10",
+    "startTime" : "8",
+    "endTime" : "10",
     "fees" : 300.0,
     "reservations" : [ {
       "visitor" : {
@@ -110,7 +110,7 @@
         "phoneNumber" : null
       }
     } ],
-    "currentDate" : "14-12-2023"
+    "currentDate" : [ 2023, 12, 14 ]
   } ],
   "visitors" : [ {
     "type" : "instructor",
@@ -132,210 +132,6 @@
   "type" : "teaching",
   "projecttype" : "P1",
   "boardtype" : "B1",
-  "instractorname" : "alshimaa",
-  "maxNumberOfVisitors" : 10
-}, {
-  "name" : "B",
-  "id" : 125,
-  "slots" : [ ],
-  "visitors" : [ ],
-  "type" : "teaching",
-  "projecttype" : "P1",
-  "boardtype" : "B1",
-  "instractorname" : "alshimaa",
-  "maxNumberOfVisitors" : 10
-}, {
-  "name" : "B",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "8/11",
-    "endTime" : "9/11",
-    "fees" : 100.0,
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "Rahmaa",
-        "password" : null,
-        "id" : 14,
-        "type" : "instructor",
-        "userEmail" : null,
-        "phoneNumber" : null
-      }
-    } ],
-    "currentDate" : "14-12-2023"
-  }, {
-    "startTime" : "11/11",
-    "endTime" : "10/10",
-    "fees" : 300.0,
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "hano",
-        "password" : null,
-        "id" : 12,
-        "type" : "instructor",
-        "userEmail" : null,
-        "phoneNumber" : null
-      }
-    } ],
-    "currentDate" : "14-12-2023"
-  } ],
-  "visitors" : [ {
-    "type" : "instructor",
-    "name" : "hano",
-    "password" : null,
-    "id" : 12,
-    "type" : "instructor",
-    "userEmail" : null,
-    "phoneNumber" : null
-  }, {
-    "type" : "instructor",
-    "name" : "Rahmaa",
-    "password" : null,
-    "id" : 14,
-    "type" : "instructor",
-    "userEmail" : null,
-    "phoneNumber" : null
-  } ],
-  "type" : "teaching",
-  "projecttype" : "P1",
-  "boardtype" : "B1",
-  "instractorname" : "alshimaa",
-  "maxNumberOfVisitors" : 10
-}, {
-  "name" : "B",
-  "id" : 125,
-  "slots" : [ ],
-  "visitors" : [ ],
-  "type" : "teaching",
-  "projecttype" : "P1",
-  "boardtype" : "B1",
-  "instractorname" : "alshimaa",
-  "maxNumberOfVisitors" : 10
-}, {
-  "name" : "B",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "8/11",
-    "endTime" : "9/11",
-    "fees" : 100.0,
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "Rahmaa",
-        "password" : null,
-        "id" : 14,
-        "type" : "instructor",
-        "userEmail" : null,
-        "phoneNumber" : null
-      }
-    } ],
-    "currentDate" : "14-12-2023"
-  }, {
-    "startTime" : "11/11",
-    "endTime" : "10/10",
-    "fees" : 300.0,
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "hano",
-        "password" : null,
-        "id" : 12,
-        "type" : "instructor",
-        "userEmail" : null,
-        "phoneNumber" : null
-      }
-    } ],
-    "currentDate" : "14-12-2023"
-  } ],
-  "visitors" : [ {
-    "type" : "instructor",
-    "name" : "hano",
-    "password" : null,
-    "id" : 12,
-    "type" : "instructor",
-    "userEmail" : null,
-    "phoneNumber" : null
-  }, {
-    "type" : "instructor",
-    "name" : "Rahmaa",
-    "password" : null,
-    "id" : 14,
-    "type" : "instructor",
-    "userEmail" : null,
-    "phoneNumber" : null
-  } ],
-  "type" : "teaching",
-  "projecttype" : "P1",
-  "boardtype" : "B1",
-  "instractorname" : "alshimaa",
-  "maxNumberOfVisitors" : 10
-}, {
-  "name" : "B",
-  "id" : 125,
-  "slots" : [ ],
-  "visitors" : [ ],
-  "type" : "teaching",
-  "projecttype" : "P1",
-  "boardtype" : "B1",
-  "instractorname" : "alshimaa",
-  "maxNumberOfVisitors" : 10
-}, {
-  "name" : "B",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "8/11",
-    "endTime" : "9/11",
-    "fees" : 100.0,
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "Rahmaa",
-        "password" : null,
-        "id" : 14,
-        "type" : "instructor",
-        "userEmail" : null,
-        "phoneNumber" : null
-      }
-    } ],
-    "currentDate" : "14-12-2023"
-  }, {
-    "startTime" : "11/11",
-    "endTime" : "10/10",
-    "fees" : 300.0,
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "hano",
-        "password" : null,
-        "id" : 12,
-        "type" : "instructor",
-        "userEmail" : null,
-        "phoneNumber" : null
-      }
-    } ],
-    "currentDate" : "14-12-2023"
-  } ],
-  "visitors" : [ {
-    "type" : "instructor",
-    "name" : "hano",
-    "password" : null,
-    "id" : 12,
-    "type" : "instructor",
-    "userEmail" : null,
-    "phoneNumber" : null
-  }, {
-    "type" : "instructor",
-    "name" : "Rahmaa",
-    "password" : null,
-    "id" : 14,
-    "type" : "instructor",
-    "userEmail" : null,
-    "phoneNumber" : null
-  } ],
-  "type" : "teaching",
-  "projecttype" : "P1",
-  "boardtype" : "B1",
-  "instractorname" : "alshimaa",
+  "instructorname" : "alshimaa",
   "maxNumberOfVisitors" : 10
 } ]

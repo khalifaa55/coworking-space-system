@@ -148,7 +148,7 @@ public abstract class AbstractVisitor {
                 }break;
             case 2:
                 for (AbstractVisitor visitor : visitorinfo) {
-                    if (visitor.userEmail == currentUserEmail) {
+                    if (visitor.userEmail.equals(currentUserEmail)) {
                         DisplayReservation(room, currentr);
                     }
                 }break;

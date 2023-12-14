@@ -36,7 +36,7 @@ class Login {
     }
 
     public static boolean adminLogin(String userEmail, String password) {
-        if (userEmail==adminUserName&&password==adminPassword){
+        if (userEmail.equals(adminUserName) && password.equals(adminPassword)){
             return true;
         }
         else return false;

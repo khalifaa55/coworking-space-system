@@ -10,8 +10,8 @@ public class filesMain {
         final String READ_GENERAL_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\generalRooms.json";
         final String WRITE_MEETING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\meetingRooms.json";
         final String READ_MEETING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\meetingRooms.json";
-        final String WRITE_TEACHING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\teachingRooms.json";
-        final String READ_TEACHING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\teachingRooms.json";
+        final String WRITE_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+        final String READ_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
         final String WRITE_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
         final String READ_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
 
@@ -49,8 +49,8 @@ public class filesMain {
         InstructorVisitor gen = new InstructorVisitor("hano",12);
         InstructorVisitor gen2 = new InstructorVisitor("Rahmaa",14);
 
-        Slot slot1 = new Slot("8/11","9/11", 100.00);
-        Slot slot2 = new Slot("11/11","10/10", 300);
+        Slot slot1 = new Slot("8","10", 100.00);
+        Slot slot2 = new Slot("8","10", 300);
 
         slot2.createReservation(gen);
         slot1.createReservation(gen2);
@@ -67,7 +67,6 @@ public class filesMain {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
 
         //////////////////////////////////MEETING ROOMS JSON/////////////////////////////////////////
 
