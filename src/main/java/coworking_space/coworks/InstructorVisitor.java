@@ -12,21 +12,21 @@ import java.util.List;
 import java.util.Scanner;
 
 public class InstructorVisitor extends AbstractVisitor {
-
+    @JsonProperty("type")
     public String type;
 
     //Class Constructors//
-    @JsonCreator
-    public InstructorVisitor(@JsonProperty("name") String name,
-                             @JsonProperty("password") String password,
-                             @JsonProperty("id") int id,
-                             @JsonProperty("type") String type) {
+
+    public InstructorVisitor( String name, String password,
+                              int id, String type) {
         this.type = "instructor";
         this.name = name;
         this.id = id;
         this.password = password;
     }
-    public InstructorVisitor(String name, int id) {
+    @JsonCreator
+    public InstructorVisitor(@JsonProperty("name")String name,
+                             @JsonProperty("id") int id) {
         this.type="instructor";
         this.name = name;
         this.id = id;

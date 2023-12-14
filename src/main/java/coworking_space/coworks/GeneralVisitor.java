@@ -11,20 +11,20 @@ import java.util.Scanner;
 
 
 public class GeneralVisitor extends AbstractVisitor{
-
-    @JsonIgnore
+    @JsonProperty("type")
     public String type;
-    @JsonCreator
-    public GeneralVisitor(@JsonProperty("name") String name,
-                          @JsonProperty("password") String password,
-                          @JsonProperty("id") int id,
-                          @JsonProperty("type") String type) {
-        this.type = "general";
+
+    //Class Constructors//
+
+    public GeneralVisitor( String name, String password, int id, String type) {
+        this.type = type;
         this.name = name;
         this.id = id;
         this.password = password;
     }
-    public GeneralVisitor(String name, int id) {
+    @JsonCreator
+    public GeneralVisitor(@JsonProperty("name")String name,
+                          @JsonProperty("id") int id) {
         this.type="general";
         this.name = name;
         this.id = id;
@@ -110,7 +110,7 @@ public class GeneralVisitor extends AbstractVisitor{
             }
         }
     }
-    @JsonIgnore
+
     protected void updateReservation(AbstractRoom Room) {
 
         GeneralRoom GR= (GeneralRoom)Room;
@@ -119,8 +119,6 @@ public class GeneralVisitor extends AbstractVisitor{
 
     }
 
-
-    @JsonIgnore
     public void cancelReservation(AbstractRoom Room) {
 
         GeneralRoom GR= (GeneralRoom) Room;
@@ -146,5 +144,3 @@ public class GeneralVisitor extends AbstractVisitor{
         }
     }
 }
-
-

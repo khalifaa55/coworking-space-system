@@ -1,57 +1,71 @@
 [ {
   "name" : "haya",
-  "password" : null,
   "id" : 200,
-  "type" : "general",
   "userEmail" : null,
-  "phoneNumber" : null
+  "phoneNumber" : null,
+  "password" : null,
+  "type" : "general"
 }, {
   "name" : "malak",
-  "password" : "myPassword",
   "id" : 123,
-  "type" : "general",
   "userEmail" : null,
-  "phoneNumber" : null
-}, {
-  "name" : "hano",
-  "password" : null,
-  "id" : 12,
-  "type" : "formal",
-  "userEmail" : null,
-  "phoneNumber" : null
-}, {
-  "name" : "Rahmaa",
-  "password" : null,
-  "id" : 14,
-  "type" : "instructor",
-  "userEmail" : null,
-  "phoneNumber" : null
+  "phoneNumber" : null,
+  "password" : "myPassword",
+  "type" : "general"
 }, {
   "name" : "haya",
-  "password" : null,
   "id" : 200,
-  "type" : "general",
   "userEmail" : null,
-  "phoneNumber" : null
+  "phoneNumber" : null,
+  "password" : null,
+  "type" : "general"
 }, {
   "name" : "malak",
-  "password" : "myPassword",
   "id" : 123,
-  "type" : "general",
   "userEmail" : null,
-  "phoneNumber" : null
+  "phoneNumber" : null,
+  "password" : "myPassword",
+  "type" : "general"
+}, {
+  "name" : "haya",
+  "id" : 200,
+  "userEmail" : null,
+  "phoneNumber" : null,
+  "password" : null,
+  "type" : "general"
+}, {
+  "name" : "malak",
+  "id" : 123,
+  "userEmail" : null,
+  "phoneNumber" : null,
+  "password" : "myPassword",
+  "type" : "general"
+}, {
+  "name" : "haya",
+  "id" : 200,
+  "userEmail" : null,
+  "phoneNumber" : null,
+  "password" : null,
+  "type" : "general"
+}, {
+  "name" : "malak",
+  "id" : 123,
+  "userEmail" : null,
+  "phoneNumber" : null,
+  "password" : "myPassword",
+  "type" : "general"
 }, {
   "name" : "hano",
-  "password" : null,
   "id" : 12,
-  "type" : "formal",
   "userEmail" : null,
-  "phoneNumber" : null
+  "phoneNumber" : null,
+  "password" : null,
+  "type" : "formal"
 }, {
   "name" : "Rahmaa",
-  "password" : null,
   "id" : 14,
-  "type" : "instructor",
   "userEmail" : null,
-  "phoneNumber" : null
+  "phoneNumber" : null,
+  "password" : null,
+  "type" : "instructor"
 } ]
