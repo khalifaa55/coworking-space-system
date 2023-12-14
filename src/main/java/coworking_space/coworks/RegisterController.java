@@ -68,7 +68,6 @@ public class RegisterController implements Initializable {
 
     @FXML
     public TextField userName;
-    private  String UserName;
 
     @FXML
     void changeScreenToLoginScreen_1(MouseEvent event) throws IOException
