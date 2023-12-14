@@ -22,7 +22,6 @@ public abstract class AbstractVisitor {
     protected String userEmail;
     protected String phoneNumber;
     protected String password;
-
     public int id;
     @JsonIgnore
     public String type;

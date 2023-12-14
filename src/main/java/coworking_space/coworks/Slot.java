@@ -24,7 +24,6 @@ public class Slot
 {
     public String startTime;
     public String endTime;
-
     public ArrayList<Reservation> reservations;
     public double fees;
 
@@ -48,7 +47,6 @@ public class Slot
     }
 
     // Constructor
-    @JsonCreator
     public Slot() {this.reservations = new ArrayList<Reservation>();}
 
     // Getter Start time
@@ -117,6 +115,7 @@ public class Slot
     }
 
     // Inner class
+
     public static class Reservation
     {
         private AbstractVisitor visitor;
