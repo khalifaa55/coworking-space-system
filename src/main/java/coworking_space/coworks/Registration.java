@@ -167,9 +167,5 @@ class Registration {
         this.phoneNumber=phoneNumber;
     }
 
-    // private boolean isValidPhoneNumber(String phoneNumber) {}
-
-    // private boolean isValidEmail(String email) {}
-
 }
 
