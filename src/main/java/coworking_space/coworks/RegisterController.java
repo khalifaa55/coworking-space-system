@@ -85,7 +85,7 @@ public class RegisterController implements Initializable {
     }
     void GoToVisitorScreen() throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("Visitor.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("visitorMakeReservationScreen.fxml"));
 
         // Create a new scene with the loaded FXML content
         Scene scene = new Scene(root);
@@ -151,7 +151,7 @@ public class RegisterController implements Initializable {
         }
         else {
             Registration newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(), visitorType);
-            AbstractVisitor.createVisitorFromRegistration(newRegistration);
+            AbstractVisitor.createVisitorsFromRegistrations(newRegistration);
             Registration.getRegistrations().add(newRegistration);
             System.out.println("Registration successful");
             GoToVisitorScreen();

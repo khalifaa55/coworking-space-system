@@ -61,16 +61,17 @@ public class VisitorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        room1Options.add("Option 1 for Room 1");
-        room1Options.add("Option 2 for Room 1");
+        // leave the spaces for the GUI to look better
+        room1Options.add("Slot 1 for Room 1                                              ");
+        room1Options.add("Slot 2 for Room 1                                              ");
 
-        room2Options.add("Option 1 for Room 2");
-        room2Options.add("Option 2 for Room 2");
-        room2Options.add("Option 3 for Room 2");
+        room2Options.add("Slot 1 for Room 2                                              ");
+        room2Options.add("Slot 2 for Room 2                                              ");
+        room2Options.add("Slot 3 for Room 2                                              ");
 
-        room3Options.add("Option 1 for Room 3");
-        room3Options.add("Option 2 for Room 3");
-        room3Options.add("Option 3 for Room 3");
+        room3Options.add("Slot 1 for Room 3                                              ");
+        room3Options.add("Slot 2 for Room 3                                              ");
+        room3Options.add("Slot 3 for Room 3                                              ");
 
         // Add default options to the ChoiceBox
         choiceBox.getItems().addAll(room1Options);
