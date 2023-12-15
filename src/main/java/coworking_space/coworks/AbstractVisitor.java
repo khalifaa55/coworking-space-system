@@ -26,7 +26,7 @@ public abstract class AbstractVisitor {
     @JsonIgnore
     public String type;
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
-    /*public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
+    public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
         boolean check=false;
         boolean flag=false;
         for (AbstractVisitor v : visitors) {
@@ -48,7 +48,7 @@ public abstract class AbstractVisitor {
             }
         }
         return visitors;
-    }*/
+    }
     @JsonIgnore
     protected static AbstractVisitor createVisitorFromRegistration(Registration currentR) {
         try {
