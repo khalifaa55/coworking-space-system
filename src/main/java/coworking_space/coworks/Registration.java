@@ -71,23 +71,6 @@ class Registration {
         return isValid;
     }
 
-               /* if (userName.isEmpty() || userEmail.isEmpty() || phoneNumber.isEmpty() || newPassword.length == 0 || confirmPassword
-                        .length == 0) {
-                    JOptionPane.showMessageDialog(null, "All fields are required. Please fill in all the details.");
-                } else if (!Arrays.equals(newPassword, confirmPassword)) {
-                    JOptionPane.showMessageDialog(null, "Passwords do not match!");
-                } else if (isDuplicateEmail(userEmail)) {
-                    JOptionPane.showMessageDialog(null, "This email is already registered!");
-                }
-                else {
-                    // Perform registration action (you can add your logic here)
-                    Registration newRegistration = new Registration(userName, userEmail, phoneNumber, newPassword, confirmPassword);
-                    registrations.add(newRegistration);
-                    JOptionPane.showMessageDialog(null, "Registration successful!");
-                }
-
-                */
-
     public static ArrayList<Registration> getRegistrations() {
         return registrations;
     }
