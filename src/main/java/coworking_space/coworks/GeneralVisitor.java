@@ -104,7 +104,6 @@ public class GeneralVisitor extends AbstractVisitor{
 
         for (Slot slot : availableslots){
 
-
             if (Reserved_slot.startTime .equals(slot.startTime) && Reserved_slot.endTime.equals(slot.endTime)) {
                 Reserved_slot.createReservation(generalVisitor);
             }

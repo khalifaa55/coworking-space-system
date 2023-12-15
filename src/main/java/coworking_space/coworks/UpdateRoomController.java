@@ -8,7 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class UpdateRoom {
+public class UpdateRoomController {
 
     @FXML
     private Button AddSlotButton;
