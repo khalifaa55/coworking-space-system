@@ -55,6 +55,8 @@ public class GeneralRoom extends AbstractRoom
             {
                 availableSlots.add(slot);
             }
+            else
+                ReservedSlots.add(slot);
         }
         // No available slots
         if (availableSlots.isEmpty()) {

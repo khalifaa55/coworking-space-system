@@ -9,9 +9,6 @@ class Login {
     private String password;
     private String role;
 
-    private static final String adminUserName="Admin";
-    private static final String adminPassword= "Admin";
-
     private Login(String userName, String role, String password) {
         this.userEmail = userName;
         this.role = role;
@@ -36,7 +33,7 @@ class Login {
     }
 
     public static boolean adminLogin(String userEmail, String password) {
-        if (userEmail.equals(adminUserName) && password.equals(adminPassword)){
+        if (userEmail.equals(Admin.getAdmin_Name()) && password.equals(Admin.getAdmin_Password())){
             return true;
         }
         else return false;
