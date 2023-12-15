@@ -1,5 +1,7 @@
 package coworking_space.coworks;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -16,9 +18,12 @@ public class VisitorController implements Initializable {
 
     @FXML
     private ChoiceBox<String> choiceBox;
-    private ArrayList<String> room1Options = new ArrayList<>();
-    private ArrayList<String> room2Options = new ArrayList<>();
-    private ArrayList<String> room3Options = new ArrayList<>();
+    private ArrayList<Slot> availableSlots = new ArrayList<>();
+
+    // ObservableList to hold the slot strings for the ChoiceBox
+    private ObservableList<String> observableSlots = FXCollections.observableArrayList();
+
+
     @FXML
     private RadioButton Room1;
 
@@ -31,16 +36,44 @@ public class VisitorController implements Initializable {
 
     @FXML
     void getRoom1(MouseEvent event) {
-        choiceBox.getItems().clear();
-        choiceBox.getItems().addAll(room1Options);
+//        private void updatechoiceBox() {
+//            // Clear the observable list
+//            observableSlots.clear();
+//
+//            // Populate the observable list with slot information
+//            for (Slot slot : availableSlots) {
+//                // Customize this to format the slot information as needed
+//                String slotInfo = slot.getStartTime() + " - " + slot.getEndTime();
+//                observableSlots.add(slotInfo);
+//            }
+//
+//            // Set the updated observable list as the items for the ChoiceBox
+//            choiceBox.setItems(observableSlots);
+//        }
+//
+//        // Method to retrieve available slots and update the ChoiceBox
+//        private void retrieveAvailableSlots() {
+//            if(RegisterController.formaltype){
+//
+//            } else if (RegisterController.instructortype) {
+//
+//            }else{
+//
+//            }
+//
+//
+//            updatechoiceBox();
+//        }
+
+
 
 
     }
 
-    @FXML
+
     void getRoom2(MouseEvent event) {
         choiceBox.getItems().clear();
-        choiceBox.getItems().addAll(room2Options);
+
 
 
     }
@@ -48,7 +81,7 @@ public class VisitorController implements Initializable {
     @FXML
     void getRoom3(MouseEvent event) {
         choiceBox.getItems().clear();
-        choiceBox.getItems().addAll(room3Options);
+
 
 
     }
@@ -61,19 +94,7 @@ public class VisitorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        room1Options.add("Option 1 for Room 1");
-        room1Options.add("Option 2 for Room 1");
 
-        room2Options.add("Option 1 for Room 2");
-        room2Options.add("Option 2 for Room 2");
-        room2Options.add("Option 3 for Room 2");
-
-        room3Options.add("Option 1 for Room 3");
-        room3Options.add("Option 2 for Room 3");
-        room3Options.add("Option 3 for Room 3");
-
-        // Add default options to the ChoiceBox
-        choiceBox.getItems().addAll(room1Options);
 
     }
 }

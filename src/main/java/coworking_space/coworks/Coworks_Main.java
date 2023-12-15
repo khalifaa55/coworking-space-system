@@ -32,7 +32,7 @@ public class Coworks_Main extends Application
 
 //        final String WRITE_MEETING_ROOMS_PATH = "src/main/resources/meetingRooms.json";
 //        final String READ_MEETING_ROOMS_PATH = "meetingRooms.json";
-        ArrayList<AbstractRoom> meetingRooms=new ArrayList<>();
+         ArrayList<AbstractRoom> meetingRooms=new ArrayList<>();
 
         ArrayList<Slot> slots = new ArrayList<>();
         ArrayList<FormalVisitor> insts= new ArrayList<>();
