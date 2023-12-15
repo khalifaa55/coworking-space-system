@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="displayRoomDataScreen" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1174.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.DisplayRoomDataController">
+   <children>
+      <ImageView fx:id="displayRoomDataImage" fitHeight="769.0" fitWidth="1175.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Resources/AdminScreens/DisplayRoomDataScreen.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="423.0" layoutY="108.0" text="ChooseType" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <ChoiceBox id="TypeComboBox" fx:id="RoomTyprComboBox" layoutX="549.0" layoutY="109.0" prefHeight="32.0" prefWidth="194.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20;" />
+      <Label layoutX="816.0" layoutY="108.0" text="Choose ID" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <ChoiceBox id="RoomsIdComoboBox" fx:id="RoomsIdComboBox" layoutX="928.0" layoutY="108.0" prefHeight="32.0" prefWidth="179.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20;" />
+      <Button id="LogOutButton" fx:id="LogOutButton" layoutX="104.0" layoutY="658.0" mnemonicParsing="false" onMouseClicked="#LogOut_1" prefHeight="63.0" prefWidth="127.0" style="-fx-background-color: clear; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Button>
+      <Label layoutX="424.0" layoutY="162.0" text="ID :" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label id="SelectedRoomId" fx:id="SelectedRoomID" layoutX="470.0" layoutY="159.0" prefHeight="35.0" prefWidth="134.0" text="12" textFill="#3f388a">
+         <font>
+            <Font name="Calisto MT" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="819.0" layoutY="159.0" text="Name :" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label id="SelectedRoomName" fx:id="SelectedRoomName" layoutX="894.0" layoutY="156.0" prefHeight="35.0" prefWidth="214.0" text="Alshimaa" textFill="#3f388a">
+         <font>
+            <Font name="Calisto MT" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="424.0" layoutY="217.0" text="Room Visitors :" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <TableView id="RoomVisitorsTable" fx:id="VisitorsTable" editable="true" layoutX="423.0" layoutY="250.0" prefHeight="188.0" prefWidth="683.0" style="-fx-background-radius: 20;">
+        <columns>
+          <TableColumn prefWidth="314.933349609375" text="Visitor Name" />
+          <TableColumn prefWidth="301.86663818359375" text="Visitor ID" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="425.0" layoutY="455.0" text="Available Slots :" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <TableView id="RoomAvailableSlotsTable" fx:id="AvailableSlotsTable" editable="true" layoutX="424.0" layoutY="491.0" prefHeight="199.0" prefWidth="304.0" style="-fx-border-color: 000000; -fx-background-radius: 20;">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Date" />
+          <TableColumn prefWidth="75.0" text="Start Time" />
+            <TableColumn prefWidth="75.0" text="End Time" />
+            <TableColumn prefWidth="75.0" text="Fees" />
+        </columns>
+      </TableView>
+      <Label layoutX="807.0" layoutY="455.0" text="Reserved Slots :" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <TableView id="RoomReservesSlorsTable" fx:id="ReservedSlotsTable" editable="true" layoutX="803.0" layoutY="491.0" prefHeight="199.0" prefWidth="304.0" style="-fx-border-color: 000000; -fx-background-radius: 20;">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Date" />
+            <TableColumn prefWidth="75.0" text="Start Time" />
+            <TableColumn prefWidth="75.0" text="End Time" />
+            <TableColumn prefWidth="75.0" text="Fees" />
+         </columns>
+      </TableView>
+      <Label layoutX="511.0" layoutY="703.0" text="The Profit Of The Room Reservations :" textFill="#3f388a">
+         <font>
+            <Font name="Calisto MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3f388a" height="24.0" layoutX="866.0" layoutY="707.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 20; -fx-arc-height: 20;" width="100.0" />
+      <Label id="RoomProfit" fx:id="RoomProfit" layoutX="901.0" layoutY="707.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: clear;" text="400" textAlignment="JUSTIFY" textFill="WHITE">
+         <font>
+            <Font name="Calisto MT" size="17.0" />
+         </font></Label>
+      <Button id="RoomsSlotsButton" fx:id="RoomsAvailableSlots" layoutX="-1.0" layoutY="380.0" mnemonicParsing="false" onMouseClicked="#changeScreenToAvailableSlotsScreen_1" prefHeight="75.0" prefWidth="347.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="VisitorsButton" fx:id="VisitorsData" layoutX="-1.0" layoutY="455.0" mnemonicParsing="false" onMouseClicked="#changeScreenToVisitorsDataScreen_1" prefHeight="83.0" prefWidth="347.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="RoomUpdateButton" fx:id="UpdateRoom" layoutX="-1.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#changeScreenToUpdateRoomDataDataScreen_1" prefHeight="75.0" prefWidth="347.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button layoutX="-9.0" layoutY="735.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="360.0" style="-fx-background-color: #063878;" />
+   </children>
+</AnchorPane>
