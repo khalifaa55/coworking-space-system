@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="welcomeScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.welcomeController">
+<AnchorPane fx:id="welcomeScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.welcomeController">
    <children>
       <ImageView fx:id="welcomeImage" fitHeight="1022.0" fitWidth="1398.0" layoutX="-225.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>

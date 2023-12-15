@@ -87,7 +87,7 @@ public class LoginController  implements Initializable {
     }
 
         @FXML
-    void validateSignIn(MouseEvent event) {
+    void validateSignInAndRedirect(MouseEvent event) throws IOException {
 
         if (Visitor_Type.getSelectedToggle() == null) {
                 // No radio button is selected, display an error message or take appropriate action
@@ -105,6 +105,19 @@ public class LoginController  implements Initializable {
         else if((Login.validateLogin(userEmail.getText(), userPassword.getText(),visitorType))){
             System.out.println("change to Home Screen");
         }
+
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("(admin)displayRoomDataScreen.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) loginScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void inValidMessage(String title, String message){
