@@ -53,11 +53,11 @@ public abstract class AbstractVisitor {
     protected static AbstractVisitor createVisitorFromRegistration(Registration currentR) {
         try {
             switch (currentR.getRole()) {
-                case "general":
+                case "General Visitor":
                     return GeneralVisitor.createVisitorFromRegistration(currentR);
-                case "formal":
+                case "Formal Visitor":
                     return FormalVisitor.createVisitorFromRegistration(currentR);
-                case "instructor":
+                case "Instructor Visitor":
                     return InstructorVisitor.createVisitorFromRegistration(currentR);
                 default:
                     throw new IllegalArgumentException("Unknown visitor type: " + currentR.getRole());
