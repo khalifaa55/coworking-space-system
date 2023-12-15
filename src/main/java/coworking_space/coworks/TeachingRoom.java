@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TeachingRoom extends AbstractRoom{
@@ -64,11 +65,19 @@ public class TeachingRoom extends AbstractRoom{
         return visitors.size();
     }
     @JsonIgnore
-    public ArrayList<Slot> getAvailableSlots(){
+    public ArrayList<Slot> getAvailableSlots(LocalDate date){
 
         for (Slot slot : slots) {
+
+            ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
+            for(Slot.Reservation reservation : slot.getReservations()){
+                if(reservation.getDate().equals(date)){
+                    reservationsInDate.add(reservation);
+                }
+
+            }
             // Check if there are no reservations or the slot is not fully reserved
-            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
+            if (reservationsInDate.isEmpty() || reservationsInDate.size() < maxNumberOfVisitors) {
                 availableSlots.add(slot);
             }
             else

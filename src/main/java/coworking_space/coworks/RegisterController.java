@@ -66,6 +66,7 @@ public class RegisterController implements Initializable {
 
     @FXML
     public TextField userName;
+
     public static boolean formaltype =false;
     public static boolean generaltype =false;
     public static boolean instructortype =false;
@@ -252,5 +253,3 @@ public class RegisterController implements Initializable {
 
 
 }
-
-
