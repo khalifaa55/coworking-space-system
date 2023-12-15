@@ -25,7 +25,7 @@ class Login {
             if (obj.getUserEmail().equals(userEmail) && (obj.getNewPassword().equals(password))) {
 
                 Registration currentRegistration = Registration.currentUser(userEmail, role);
-                AbstractVisitor.createVisitorFromRegistration(currentRegistration);
+                AbstractVisitor.createVisitorsFromRegistrations(currentRegistration);
                 return true;
             }
         }
