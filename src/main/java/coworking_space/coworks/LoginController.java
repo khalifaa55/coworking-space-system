@@ -89,14 +89,15 @@ public class LoginController  implements Initializable {
         @FXML
     void validateSignInAndRedirect(MouseEvent event) throws IOException {
 
-        if (Visitor_Type.getSelectedToggle() == null) {
-                // No radio button is selected, display an error message or take appropriate action
-                String inValidTitle = "Visitor Validation";
-                String inValidMessage = "Please choose a visitor type.";
-                inValidMessage(inValidTitle, inValidMessage);
-                return;
-        } else if(Login.adminLogin(userEmail.getText(), userPassword.getText())) {
+        if (Login.adminLogin(userEmail.getText(), userPassword.getText())&&Visitor_Type.getSelectedToggle() == null) {
             System.out.println("change to Admin Screen");
+            return;
+        } else if(Visitor_Type.getSelectedToggle() == null) {
+            // No radio button is selected, display an error message or take appropriate action
+            String inValidTitle = "Visitor Validation";
+            String inValidMessage = "Please choose a visitor type.";
+            inValidMessage(inValidTitle, inValidMessage);
+            return;
         } else if (!(Login.validateLogin(userEmail.getText(), userPassword.getText(),visitorType))) {
             String inValidTitle = "Invalid Sign in";
             String inValidMessage = "Wrong credentials.";
