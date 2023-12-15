@@ -26,8 +26,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
-import java.util.function.Consumer;
-import java.util.regex.Pattern;
 
 public class RegisterController implements Initializable {
 
@@ -41,15 +39,18 @@ public class RegisterController implements Initializable {
     private RadioButton instructorVisitor;
     @FXML
     private ToggleGroup Visitor_Type;
+    private String visitorType;
 
     @FXML
     private PasswordField confirmPassword;
+
 
     @FXML
     private TextField email;
 
     @FXML
     public PasswordField password;
+
 
     @FXML
     private TextField phoneNumber;
@@ -82,6 +83,23 @@ public class RegisterController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    void GoToVisitorScreen() throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("visitorMakeReservationScreen.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) registerScreen.getScene().getWindow();
+
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -105,11 +123,19 @@ public class RegisterController implements Initializable {
     // Event handler for radio button selection
     private void handleRadioButtonSelection(ActionEvent event) {
         RadioButton selectedRadioButton = (RadioButton) event.getSource();
-        System.out.println("Selected RadioButton: " + selectedRadioButton.getText());
+        visitorType = selectedRadioButton.getText();
+        System.out.println("Selected RadioButton: " + visitorType);
+
     }
 
     @FXML
     void saveInfoAndRedirect(MouseEvent Event) throws IOException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
+
+//        validatePassword(password.getText(),confirmPassword.getText());
+//        validatePhoneNumber(phoneNumber.getText());
+//        validateUsername(userName.getText());
+//        validateEmail(email.getText());
+        boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText())&& (password.getText()).equals(confirmPassword.getText());
         // Check if any radio button is selected in the Visitor_Type ToggleGroup
         if (Visitor_Type.getSelectedToggle() == null) {
             // No radio button is selected, display an error message or take appropriate action
@@ -117,65 +143,25 @@ public class RegisterController implements Initializable {
             String inValidMessage = "Please choose a visitor type.";
             inValidMessage(inValidTitle, inValidMessage);
             return; // Stop further processing since validation failed
+        }  else if (!isRegistrationValid) {
+            String inValidTitle = "Invalid Registration";
+            String inValidMessage = "Please fill out missing data.";
+            inValidMessage(inValidTitle, inValidMessage);
+            return;
+        }
+        else {
+            Registration newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(), visitorType);
+            AbstractVisitor.createVisitorFromRegistration(newRegistration);
+            Registration.getRegistrations().add(newRegistration);
+            System.out.println("Registration successful");
+            GoToVisitorScreen();
         }
 
-        // Continue with the rest of your code for saving information and redirection
-        String textFromUserName = userName.getText();
-        String textFromEmail = email.getText();
-        String textFromPhoneNumber = phoneNumber.getText();
-        String textFromPassword = password.getText();
-        String textFromConfirmPassword = confirmPassword.getText();
-
-      //  Parent root = FXMLLoader.load(getClass().getResource("registerScreen.fxml"));
-
-
-    }
-    private boolean passwordRegex(String password) {
-        // Define the password validation regex
-        String passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d@$!%*?&]{8,}$";
-
-        // Check if the password matches the regex
-        boolean isValid = Pattern.matches(passwordRegex, password);
-
-        // Display a pop-up with the validation result
-        return isValid;
     }
 
-    private boolean phoneNumberRegex(String phoneNumber) {
-
-        String phoneNumberRegex = "^[0-9]{11}$";
-
-        // Check if the password matches the regex
-        boolean isValid = Pattern.matches(phoneNumberRegex,phoneNumber);
-
-        // Display a pop-up with the validation result
-        return isValid;
-    }
-
-    private boolean emailRegex(String email) {
-
-        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-
-
-        boolean isValid = Pattern.matches(emailRegex, email);
-
-        // Display a pop-up with the validation result
-        return isValid;
-    }
-    private boolean usernameRegex(String username) {
-
-        String usernameRegex = "^[a-zA-Z0-9_]{3,20}$";
-
-
-        boolean isValid = Pattern.matches(usernameRegex, username);
-
-        // Display a pop-up with the validation result
-        return isValid;
-    }
-
-    private void validatePassword(String password, String confirmPassword) {
-        boolean isValid = passwordRegex(password) ;
-        boolean equalsConfirmPass = password.equals(confirmPassword);
+    private void validatePassword(String password, String confirmpassword) {
+        boolean isValid = Registration.passwordRegex(password) ;
+        boolean equalsConfirmPass = password.equals(confirmpassword);
 
         if(!isValid || !equalsConfirmPass) {
             String inValidTitle = "Password Validation";
@@ -186,38 +172,42 @@ public class RegisterController implements Initializable {
     }
 
     private void validatePhoneNumber(String phoneNumber) {
-        boolean isValid = phoneNumberRegex(phoneNumber) ;
+        boolean isValid = Registration.phoneNumberRegex(phoneNumber) ;
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
         if(!isValid) {
             String inValidTitle = "Phone Number Validation";
-            String inValidMessage = "Invalid phone number, Please try again.";
+            String inValidMessage = "Invalid phone number, please try again.";
             inValidMessage(inValidTitle, inValidMessage);
 
         }
     }
 
     private void validateEmail(String email) {
-        boolean isValid = emailRegex(email) || email == null;
+        boolean isValid = Registration.emailRegex(email) ;
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
-        if(!isValid) {
+        if(!isValid || email == null ) {
             String inValidTitle = "Email Validation";
             String inValidMessage = "Invalid email, please try again.";
             inValidMessage(inValidTitle, inValidMessage);
-
-
+        }
+        else if (Registration.isDuplicateEmail(email)){
+            String inValidTitle = "Duplicate Email";
+            String inValidMessage ="Email in use, You can login directly.";
+            inValidMessage(inValidTitle, inValidMessage);
         }
     }
 
     private void validateUsername(String username) {
-        boolean isValid = usernameRegex(username) || username == null;
+        boolean isValid = Registration.usernameRegex(username) ;
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
-        if(!isValid) {
+        if(!isValid || username == null) {
             String inValidTitle = "Username Validation";
-            String inValidMessage = "Invalid username, please try again.";
+            String inValidMessage ="Invalid username, please try again.";
             inValidMessage(inValidTitle, inValidMessage);
+
         }
     }
 
@@ -227,17 +217,13 @@ public class RegisterController implements Initializable {
         popupStage.setTitle(title);
 
         Label Message = new Label(message);
+        Message.setAlignment(Pos.CENTER);
         Message.setFont(Font.font(14));
         Message.setStyle("-fx-text-fill: white");
-
 
         Button closeButton = new Button("Close");
         closeButton.setOnAction(event -> popupStage.close());
         closeButton.setStyle("-fx-background-radius: 10");
-        //closeButton.setLayoutX(150);
-//        closeButton.setScaleY(100);
-//        closeButton.setX(150);
-//        closeButton.setAlignment(15020);
 
         VBox layout = new VBox(10);
         layout.setAlignment(Pos.CENTER);

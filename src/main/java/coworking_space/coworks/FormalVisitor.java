@@ -11,24 +11,54 @@ import java.util.Scanner;
 
 @JsonTypeName("formal")
 public class FormalVisitor extends AbstractVisitor {
-
-    @JsonIgnore
+    @JsonProperty("type")
     public String type;
+
+    //Class Constructors//
+
+    public FormalVisitor( String name, String password, int id, String type) {
+        this.type = "formal";
+        this.name = name;
+        this.id = id;
+        this.password = password;
+    }
     @JsonCreator
     public FormalVisitor(@JsonProperty("name") String name,
-                         @JsonProperty("id") int id
-    ) {
-        this.type="Formal";
+                         @JsonProperty("id") int id) {
+        this.type="formal";
         this.name = name;
         this.id = id;
     }
-    @JsonIgnore
-    public FormalVisitor(String name,String password,int id,String type) {
-        this.type = "Formal";
-        this.name = name;
-        this.id = id;
+    @JsonCreator
+    public FormalVisitor() {
+        this.type="formal";
+    }
+
+    //Getters//
+    @JsonProperty("password")
+    public String getPassword(){
+        return this.password;
+    }
+    @JsonProperty("phoneNumber")
+    public String getPhoneNumber(){
+        return this.phoneNumber;
+    }
+    @JsonProperty("userEmail")
+    public String getUserEmail(){
+        return this.userEmail;
+    }
+    //Setters//
+    public void setPassword(String password){
         this.password=password;
     }
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber=phoneNumber;
+    }
+    public void setUserEmail(String userEmail){
+        this.userEmail=userEmail;
+    }
+
+    //Class Methods//
     @JsonIgnore
     public static FormalVisitor createVisitorFromRegistration(Registration registration) {
         return new FormalVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"formal");
@@ -49,11 +79,6 @@ public class FormalVisitor extends AbstractVisitor {
         }
 
     }
-
-    public FormalVisitor() {
-        this.type="formal";
-    }
-    @JsonIgnore
     protected void makeReservation(AbstractRoom room ) {
         //AbstractRoom room= new TeachingRoom();
 
@@ -66,19 +91,14 @@ public class FormalVisitor extends AbstractVisitor {
 
         Scanner input1 = new Scanner(System.in);
         String startTimestring = input1.nextLine();
-        //LocalDateTime startTime = LocalDateTime.parse(startTimestring);
 
         Scanner input2 = new Scanner(System.in);
         String endTimestring = input2.nextLine();
-        // LocalDateTime endTime = LocalDateTime.parse(endTimestring);
 
         Scanner input3 = new Scanner(System.in);
         double fees = input3.nextDouble();
         Slot Reservedslot = new Slot(startTimestring, endTimestring, fees);
         FormalVisitor formalVisitor = new FormalVisitor();
-
-
-
 
         for (Slot slot : availableslots) {
             if (Reservedslot.startTime.equals( slot.startTime) & Reservedslot.endTime.equals(slot.endTime) ) {
@@ -89,9 +109,6 @@ public class FormalVisitor extends AbstractVisitor {
 
     }
 
-
-
-    @JsonIgnore
     protected void updateReservation(AbstractRoom Room) {
 
         MeetingRoom MR= (MeetingRoom)Room;
@@ -100,18 +117,15 @@ public class FormalVisitor extends AbstractVisitor {
 
     }
 
-    @JsonIgnore
     public void cancelReservation(AbstractRoom Room) {
 
         MeetingRoom MR= (MeetingRoom) Room;
 
         Scanner input1 = new Scanner(System.in);
         String startTimestring=input1.nextLine();
-        //LocalDateTime startTime = LocalDateTime.parse(startTimestring);
 
         Scanner input2 = new Scanner(System.in);
         String endTimestring=input2.nextLine();
-        //LocalDateTime endTime = LocalDateTime.parse(endTimestring);
 
         Scanner input3 = new Scanner(System.in);
         double fees=input3.nextDouble();
@@ -120,15 +134,13 @@ public class FormalVisitor extends AbstractVisitor {
 
         Slot canceledslot=new Slot (startTimestring,  endTimestring,  fees);
 
-        for (Slot slot : MR.slots) {
-            if (canceledslot.startTime.equals(slot.startTime) && canceledslot.endTime.equals(slot.endTime)) {
+        for (Slot slot : MR.slots)
+        {
+            if (canceledslot.startTime.equals(slot.startTime) && canceledslot.endTime.equals(slot.endTime))
+            {
                 slot.removeReservation(canceledslot.createReservation(formalVisitor));
-
             }
-
-
         }
-
     }
 }
 

@@ -3,119 +3,131 @@
   "endTime" : "12",
   "fees" : 700.0,
   "reservations" : [ ],
-  "currentDate" : "13-12-2023"
+  "currentDate" : "14-12-2023"
+}, {
+  "startTime" : "0",
+  "endTime" : "12",
+  "fees" : 700.0,
+  "reservations" : [ {
+    "visitor" : {
+      "type" : "general",
+      "name" : null,
+      "password" : null,
+      "id" : 0,
+      "type" : "general",
+      "userEmail" : null,
+      "phoneNumber" : null
+    }
+  } ],
+  "currentDate" : "14-12-2023"
+}, {
+  "startTime" : "0",
+  "endTime" : "12",
+  "fees" : 700.0,
+  "reservations" : [ {
+    "visitor" : {
+      "type" : "general",
+      "name" : null,
+      "password" : null,
+      "id" : 0,
+      "type" : "general",
+      "userEmail" : null,
+      "phoneNumber" : null
+    }
+  } ],
+  "currentDate" : "14-12-2023"
 }, {
   "startTime" : "0",
   "endTime" : "12",
   "fees" : 700.0,
   "reservations" : [ ],
-  "currentDate" : "13-12-2023"
+  "currentDate" : "14-12-2023"
 }, {
   "startTime" : "0",
   "endTime" : "12",
   "fees" : 700.0,
   "reservations" : [ ],
-  "currentDate" : "13-12-2023"
+  "currentDate" : "14-12-2023"
+}, {
+  "startTime" : "0",
+  "endTime" : "12",
+  "fees" : 700.0,
+  "reservations" : [ {
+    "visitor" : {
+      "type" : "general",
+      "name" : null,
+      "password" : null,
+      "id" : 0,
+      "type" : "general",
+      "userEmail" : null,
+      "phoneNumber" : null
+    }
+  } ],
+  "currentDate" : "14-12-2023"
+}, {
+  "startTime" : "0",
+  "endTime" : "12",
+  "fees" : 700.0,
+  "reservations" : [ {
+    "visitor" : {
+      "type" : "general",
+      "name" : null,
+      "password" : null,
+      "id" : 0,
+      "type" : "general",
+      "userEmail" : null,
+      "phoneNumber" : null
+    }
+  } ],
+  "currentDate" : "14-12-2023"
 }, {
   "startTime" : "0",
   "endTime" : "12",
   "fees" : 700.0,
   "reservations" : [ ],
-  "currentDate" : "13-12-2023"
+  "currentDate" : "14-12-2023"
 }, {
   "startTime" : "0",
   "endTime" : "12",
   "fees" : 700.0,
   "reservations" : [ ],
-  "currentDate" : "13-12-2023"
+  "currentDate" : "14-12-2023"
+}, {
+  "startTime" : "0",
+  "endTime" : "12",
+  "fees" : 700.0,
+  "reservations" : [ {
+    "visitor" : {
+      "type" : "general",
+      "name" : null,
+      "password" : null,
+      "id" : 0,
+      "type" : "general",
+      "userEmail" : null,
+      "phoneNumber" : null
+    }
+  } ],
+  "currentDate" : "14-12-2023"
+}, {
+  "startTime" : "0",
+  "endTime" : "12",
+  "fees" : 700.0,
+  "reservations" : [ {
+    "visitor" : {
+      "type" : "general",
+      "name" : null,
+      "password" : null,
+      "id" : 0,
+      "type" : "general",
+      "userEmail" : null,
+      "phoneNumber" : null
+    }
+  } ],
+  "currentDate" : "14-12-2023"
 }, {
   "startTime" : "0",
   "endTime" : "12",
   "fees" : 700.0,
   "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
-}, {
-  "startTime" : "0",
-  "endTime" : "12",
-  "fees" : 700.0,
-  "reservations" : [ ],
-  "currentDate" : "13-12-2023"
+  "currentDate" : "14-12-2023"
 } ]

@@ -150,13 +150,18 @@ public class Main {
         alshimaa.addSlot(Troom,S_1);
         alshimaa.addSlot(Troom,S_2);
 //        alshimaa.displayAllAvailableSlots(Troom);
-        S_0.createReservation(Ivisitor_0);
         S_0.createReservation(Ivisitor_1);
         S_1.createReservation(Ivisitor_2);
         S_1.createReservation(Ivisitor_3);
-//        alshimaa.displayRoomVisitors(Mroom);
+        Registration currentr=new Registration("Alshima_374","alshimaa@gmail.com","01019644058","23791831","23791831");
+        Ivisitor_0.id=currentr.userid();
+        Ivisitor_0.name=currentr.getUserName();
+        Ivisitor_0.userEmail = currentr.getUserEmail();
+        S_0.createReservation(Ivisitor_0);
+        alshimaa.DisplayVisitorData(Ivisitor_0, currentr,Troom);
 
-        alshimaa.DisplayRoomsData(Troom);
+//        alshimaa.DisplayRoomsData(Troom);
+//        alshimaa.UpdateRoom(Troom);
 
 //        slots.json.add(S_1);
 //        slots.json.add(S_2);

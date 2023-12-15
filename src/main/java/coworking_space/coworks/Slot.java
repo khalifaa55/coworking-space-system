@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-//import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +23,10 @@ public class Slot
 {
     public String startTime;
     public String endTime;
-
     public ArrayList<Reservation> reservations;
     public double fees;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    //@JsonFormat(pattern = "dd-MM-yyyy")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     public LocalDate currentDate;
@@ -48,12 +46,11 @@ public class Slot
     }
 
     // Constructor
-    @JsonCreator
     public Slot() {this.reservations = new ArrayList<Reservation>();}
 
     // Getter Start time
     @JsonIgnore
-    public String getStartTime() {return startTime;}
+    public String getStartTime() {return this.startTime;}
 
     // Setter Start time
     @JsonIgnore
@@ -61,7 +58,7 @@ public class Slot
 
     // Getter End time
     @JsonIgnore
-    public String getEndTime() {return endTime;}
+    public String getEndTime() {return this.endTime;}
 
     // Setter End time
     @JsonIgnore
@@ -78,7 +75,7 @@ public class Slot
     }
 
     // Getter Fees
-    public double getFees() {return fees;}
+    public double getFees() {return this.fees;}
 
     // Setter Fees
     public void setFees(double fees) {this.fees = fees;}
@@ -94,16 +91,11 @@ public class Slot
 
     // Method to compute the date 30 days from the current date
     @JsonIgnore
-    public String getDate30DaysFromNow()
+    public LocalDate getDate30DaysFromNow()
     {
-        LocalDate date30DaysLater = currentDate.plusDays(30);
-
-        // Define the desired date format using DateTimeFormatter
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-        // Format the date using the defined formatter
-        return date30DaysLater.format(formatter);
+        return currentDate.plusDays(30);
     }
+
     // A function for the admin to update the fees for reserving a room
     public void updateFees(double fees) {this.fees = fees;}
 
@@ -117,9 +109,10 @@ public class Slot
     }
 
     // Inner class
+
     public static class Reservation
     {
-        private AbstractVisitor visitor;
+        public AbstractVisitor visitor;
 
         public Reservation(AbstractVisitor visitor) {this.visitor = visitor;}
         public Reservation(){this.visitor = null;}

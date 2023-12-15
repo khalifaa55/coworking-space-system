@@ -6,22 +6,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-@JsonTypeName("teaching")
-
 
 public class TeachingRoom extends AbstractRoom{
     public String projecttype;
     public String boardtype;
-    public String instractorname;
+    public String instructorname;
     public String type;
-    ArrayList<InstructorVisitor> visitors;
-    public final int maxNumberOfVisitors = 2;
-    public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projecttype") String projecttype,
-                        @JsonProperty("boardtype") String boardtype, @JsonProperty("instractorname")String instractorname,
-                        @JsonProperty("slots.json") ArrayList<Slot> slots,
+    public ArrayList<InstructorVisitor> visitors;
+    public final int maxNumberOfVisitors = 10;
+    @JsonCreator
+    public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projectType") String projecttype,
+                        @JsonProperty("boardType") String boardtype, @JsonProperty("instructorName")String instractorname,
+                        @JsonProperty("slots") ArrayList<Slot> slots,
                         @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors)
 
 
@@ -30,14 +26,13 @@ public class TeachingRoom extends AbstractRoom{
         this.type="teaching";
         this.projecttype = projecttype;
         this.boardtype = boardtype;
-        this.instractorname =instractorname;
+        this.instructorname =instructorname;
 
     }
-    public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id,
-                        @JsonProperty("slots.json") ArrayList<Slot> slots,
-                        @JsonProperty("visitors") ArrayList<InstructorVisitor> visitors) {
+    public TeachingRoom(String name, int id, ArrayList<Slot> slots,
+                       ArrayList<InstructorVisitor> visitors) {
         this();
-
+        this.type = "teaching";
         this.name=name;
         this.id=id;
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
@@ -45,30 +40,23 @@ public class TeachingRoom extends AbstractRoom{
 
 
     }
-    @JsonCreator
     public TeachingRoom() {
         this.type = "teaching";
         this.boardtype="B1";
         this.projecttype="P1";
-        this.instractorname="alshimaa";
+        this.instructorname ="alshimaa";
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
         this.visitors = (visitors != null) ? visitors : new ArrayList<InstructorVisitor>();
     }
 
 
-    @JsonProperty("slots.json")
+    @JsonProperty("slots")
     public ArrayList<Slot> getSlots() {
         return slots;
     }
 
-    @JsonProperty("visitors")
-    @Override
     ArrayList<InstructorVisitor> getVisitors() {
         return visitors;
-    }
-    @JsonProperty
-    public String getType() {
-        return type;
     }
 
     @JsonIgnore
@@ -94,10 +82,6 @@ public class TeachingRoom extends AbstractRoom{
             return availableSlots;
         }
     }
-//    public ArrayList<Slot> getReservedSlots()
-//    {
-//        return ReservedSlots;
-//    }
     @JsonIgnore
     public double getReservationMoney(){
         double totalAmount = 0;

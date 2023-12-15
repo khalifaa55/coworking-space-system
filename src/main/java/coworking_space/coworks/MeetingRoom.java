@@ -7,37 +7,39 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-@JsonTypeName("Meeting")
+
 public class MeetingRoom extends AbstractRoom {
-    public final int maxNumberOfVisitors = 3;
-    ArrayList<FormalVisitor> visitors;
+    public String type;
+    public final int maxNumberOfVisitors = 10;
+    public ArrayList<FormalVisitor> visitors;
 
     @JsonCreator
     public MeetingRoom(@JsonProperty("name") String name,
                        @JsonProperty("id") int id,
-                       @JsonProperty("slots.json") ArrayList<Slot> slots,
+                       @JsonProperty("slots") ArrayList<Slot> slots,
                        @JsonProperty("visitors") ArrayList<FormalVisitor> visitors) {
         this();
+        this.type="meeting";
         this.name = name;
         this.id = id;
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
         this.visitors = (visitors != null) ? visitors : new ArrayList<FormalVisitor>();
     }
 
-    @JsonCreator
     public MeetingRoom() {
+        this.type="meeting";
         this.slots = new ArrayList<>();
         this.visitors = new ArrayList<FormalVisitor>();
     }
 
 
-    @JsonProperty("slots.json")
+    @JsonProperty("slots")
     public ArrayList<Slot> getSlots() {
         return slots;
     }
 
-    @JsonProperty("visitors")
     public ArrayList<FormalVisitor> getVisitors() {
         return visitors;
     }
@@ -76,7 +78,9 @@ public class MeetingRoom extends AbstractRoom {
     }
 
 
-}
+
+    }
+
 
 
 
