@@ -143,12 +143,12 @@ public class Coworks_Main extends Application
         tslots.add(slot7);
         tslots.add(slot8);
         TeachingRoom teaching_room= new TeachingRoom("A",123,tslots,insts);
-        meetingRooms.add(meeting_room);
+        teachingRooms.add(teaching_room);
 
         TeachingRoom teaching_room2= new TeachingRoom("B",124,tslots2,insts2);
         TeachingRoom teaching_room3= new TeachingRoom("C",125,tslots3,insts3);
-        meetingRooms.add(meeting_room2);
-        meetingRooms.add(meeting_room3);
+        teachingRooms.add(teaching_room2);
+        teachingRooms.add(teaching_room3);
 
         //slot1.createReservation(inst);
 

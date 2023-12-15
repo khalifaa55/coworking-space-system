@@ -24,12 +24,14 @@ public class VisitorController implements Initializable {
     private ObservableList<String> observableSlots = FXCollections.observableArrayList();
 
     private ArrayList<AbstractRoom> meetingRooms = Coworks_Main.meetingRooms;
-    private ArrayList<Slot> slots  = Coworks_Main.Mslots;
-    private ArrayList<Slot> slots2  = Coworks_Main.Mslots2;
-    private ArrayList<Slot> slots3  = Coworks_Main.Mslots3;
-    private ArrayList<FormalVisitor> insts=Coworks_Main.formals;
-    private ArrayList<FormalVisitor> insts2=Coworks_Main.formals2;
-    private ArrayList<FormalVisitor> insts3=Coworks_Main.formals3;
+
+    private ArrayList<AbstractRoom> teachingRooms = Coworks_Main.teachingRooms;
+    private ArrayList<Slot> Mslots  = Coworks_Main.Mslots;
+    private ArrayList<Slot> Mslots2  = Coworks_Main.Mslots2;
+    private ArrayList<Slot> Mslots3  = Coworks_Main.Mslots3;
+    private ArrayList<FormalVisitor> formals=Coworks_Main.formals;
+    private ArrayList<FormalVisitor> formals2=Coworks_Main.formals2;
+    private ArrayList<FormalVisitor> formals3=Coworks_Main.formals3;
 
 
 
@@ -64,6 +66,8 @@ public class VisitorController implements Initializable {
 
 
         } else if (RegisterController.instructortype) {
+            AbstractRoom teaching_room = teachingRooms.get(i);
+            availableSlots= teaching_room.getAvailableSlots();
 
         }else{
 
