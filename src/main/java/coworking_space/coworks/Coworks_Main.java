@@ -40,6 +40,11 @@ public class Coworks_Main extends Application
         stage.setScene(scene);
         stage.show();
     }
+    public static void main(String[] args) {launch();
+//        final String WRITE_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
+//        final String READ_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
+//
+//        ArrayList<AbstractVisitor> visitors=new ArrayList<>();
     public static void main(String[] args) {
         final String WRITE_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
         final String READ_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
@@ -71,7 +76,7 @@ public class Coworks_Main extends Application
 
 
 //        try {
-//            meetingRooms  = Json.readRoomsFromFile(READ_MEETING_ROOMS_PATH);
+//            visitors= Json.readVisitorsFromFile(READ_VISITORS_PATH);
 //        } catch (IOException e) {
 //            throw new RuntimeException(e);
 //        }

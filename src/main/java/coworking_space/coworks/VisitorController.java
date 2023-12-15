@@ -80,6 +80,9 @@ public class VisitorController implements Initializable {
 
     @FXML
     void getRoom1(MouseEvent event) {
+        choiceBox.getItems().clear();
+        choiceBox.getItems().addAll(room1Options);
+
 
         retrieveAvailableSlots(0);
     }

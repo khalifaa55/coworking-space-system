@@ -11,6 +11,5 @@ public class slotsMain {
         System.out.println("Current Date + 30 --> " + thirty);
         System.out.println("Current Date --> " + now);
         System.out.println("Current Date < Current Date + 30: " + now.isBefore(thirty));
-
     }
 }

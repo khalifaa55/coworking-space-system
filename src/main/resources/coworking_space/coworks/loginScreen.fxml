@@ -14,7 +14,7 @@
    <children>
       <ImageView fx:id="loginImage" fitHeight="767.0" fitWidth="1178.0" layoutX="-15.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Resources/LoginScreen.png" />
+            <Image url="@../../Resources/LoginAndRegistration/LoginScreen.png" />
          </image>
       </ImageView>
       <Button fx:id="RegisterButton" layoutX="147.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#changeScreenToLoginScreen_2" prefHeight="50.0" prefWidth="184.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20;" text="Register" textFill="#063878">
