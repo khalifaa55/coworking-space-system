@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="availableSlotsScreen" prefHeight="759.0" prefWidth="1156.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.AvailableSlotsController">
+   <children>
+      <ImageView fx:id="availableSlotsImage" fitHeight="769.0" fitWidth="1175.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Resources/AdminScreens/AvailableSlotsScreen.png" />
+         </image>
+      </ImageView>
+      <Button id="RoomDataButton" fx:id="RoomDataButton" layoutX="-13.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#changeScreenDisplayRoomsDataScreen_2" prefHeight="78.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="RoomsSlotsButton" fx:id="RoomsAvailableSlots" layoutX="-13.0" layoutY="534.0" mnemonicParsing="false" onMouseClicked="#changeScreenUpdateRoomDataScreen_2" prefHeight="79.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="VisitorsButton" fx:id="VisitorsData" layoutX="-15.0" layoutY="455.0" mnemonicParsing="false" onMouseClicked="#changeScreenToVisitorsDataScreen_2" prefHeight="80.0" prefWidth="360.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="LogOutButton" fx:id="LogOutButton1" layoutX="97.0" layoutY="656.0" mnemonicParsing="false" onMouseClicked="#LogOut_2" prefHeight="60.0" prefWidth="134.0" style="-fx-background-color: clear; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Button>
+      <Button layoutX="-11.0" layoutY="734.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="371.0" style="-fx-background-color: #063878;" />
+   </children>
+</AnchorPane>
