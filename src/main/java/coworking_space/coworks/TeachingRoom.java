@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TeachingRoom extends AbstractRoom{
+
     public String projecttype;
     public String boardtype;
     public String instructorname;
@@ -69,7 +70,7 @@ public class TeachingRoom extends AbstractRoom{
 
         for (Slot slot : slots) {
 
-            ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
+            ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<>();
             for(Slot.Reservation reservation : slot.getReservations()){
                 if(reservation.getDate().equals(date)){
                     reservationsInDate.add(reservation);

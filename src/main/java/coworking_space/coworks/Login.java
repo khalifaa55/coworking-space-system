@@ -32,12 +32,12 @@ class Login {
         return false;
     }
 
-//    public static boolean adminLogin(String userEmail, String password) {
-//        if (userEmail.equals(Admin.getAdmin_Name()) && password.equals(Admin.getAdmin_Password())){
-//            return true;
-//        }
-//        else return false;
-//    }
+    public static boolean adminLogin(String userEmail, String password) {
+        if (userEmail.equals(Admin.getAdmin_Name()) && password.equals(Admin.getAdmin_Password())){
+            return true;
+        }
+        else return false;
+    }
 
 
 }
