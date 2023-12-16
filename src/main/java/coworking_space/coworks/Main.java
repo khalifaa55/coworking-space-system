@@ -134,8 +134,8 @@ public class Main {
 //        alshimaa.displayAllAvailableSlots(Groom);
 //        alshimaa.displayRoomVisitors(Groom);
 
-        InstructorVisitor Ivisitor_0=new InstructorVisitor("Banosa",2); // Working with visitor types that matches the room
-        InstructorVisitor Ivisitor_1=new InstructorVisitor("Fagora",1);
+//        InstructorVisitor Ivisitor_0=new InstructorVisitor("Banosa",2); // Working with visitor types that matches the room
+//        InstructorVisitor Ivisitor_1=new InstructorVisitor("Fagora",1);
         InstructorVisitor Ivisitor_2=new InstructorVisitor("Fagor",3);
         InstructorVisitor Ivisitor_3=new InstructorVisitor("Fago",4);
 
@@ -143,9 +143,9 @@ public class Main {
 
 
         ArrayList<InstructorVisitor> visitors=new ArrayList<>();
-        visitors.add(Ivisitor_0);
-        visitors.add(Ivisitor_1);
-        visitors.add(Ivisitor_2);
+//        visitors.add(Ivisitor_0);
+//        visitors.add(Ivisitor_1);
+//        visitors.add(Ivisitor_2);
         visitors.add(Ivisitor_3);
 
         AbstractRoom Troom = new TeachingRoom("Troom",1,slots,visitors);
