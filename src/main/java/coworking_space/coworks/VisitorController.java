@@ -45,6 +45,8 @@ public  class VisitorController implements Initializable {
         generalRooms=genaral_rooms;
     }
 
+    int index;
+
 
 
 
@@ -155,27 +157,25 @@ public  class VisitorController implements Initializable {
             // leave the spaces for the GUI to look better
             System.out.println("room1");
             retrieveAvailableSlots(0);
+            index=0;
 
         } else if (Room.equals("Room_2")) {
 
             System.out.println("room2");
             retrieveAvailableSlots(1);
+            index=1;
 
         }else{
 
             System.out.println("room3");
             retrieveAvailableSlots(2);
+            index=2;
         }
 
 
     }
 
-
-
-
-
-    @FXML
-    void getselectedslot(MouseEvent event) {
+    void MakeReservation (){
         String selectedSlot = choiceBox.getSelectionModel().getSelectedItem();
         if (selectedSlot != null) {
             // Split the selected slot string to extract start time and end time
@@ -191,16 +191,22 @@ public  class VisitorController implements Initializable {
                 // Pass these values to the appropriate visitor's makeReservation method
                 if (RegisterController.formaltype) {
                     FormalVisitor formalVisitor = new FormalVisitor();
-                    formalVisitor.makeReservation(meetingRooms.get(0), selectedDate, startTime, endTime);
+                    formalVisitor.makeReservation(meetingRooms.get(index), selectedDate, startTime, endTime);
                 } else if (RegisterController.instructortype) {
                     InstructorVisitor instructorVisitor = new InstructorVisitor();
-                    instructorVisitor.makeReservation(teachingRooms.get(0), selectedDate, startTime, endTime);
+                    instructorVisitor.makeReservation(teachingRooms.get(index), selectedDate, startTime, endTime);
                 } else {
                     GeneralVisitor generalVisitor = new GeneralVisitor();
-                    generalVisitor.makeReservation(generalRooms.get(0), selectedDate, startTime, endTime);
+                    generalVisitor.makeReservation(generalRooms.get(index), selectedDate, startTime, endTime);
                 }
             }
         }
+    }
+
+    @FXML
+    void getselectedslot(MouseEvent event) {
+        MakeReservation();
+
     }
 
 

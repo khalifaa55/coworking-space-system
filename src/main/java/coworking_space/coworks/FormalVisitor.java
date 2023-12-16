@@ -16,7 +16,7 @@ public class FormalVisitor extends AbstractVisitor {
     @JsonProperty("type")
     public String type;
     public  static ArrayList<Slot> FuserResrvations =new ArrayList<>();
-    private ArrayList<AbstractRoom> meetingRooms = Coworks_Main.meetingRooms;
+
 
     //Class Constructors//
 
@@ -69,7 +69,7 @@ public class FormalVisitor extends AbstractVisitor {
     }
 
     @Override
-    protected void DisplayReservation(AbstractRoom room,Registration currentr) {
+    protected ArrayList DisplayReservation(AbstractRoom room,Registration currentr) {
         MeetingRoom MR = (MeetingRoom) room;
 
         for(Slot slot:MR.getSlots()){
@@ -82,6 +82,7 @@ public class FormalVisitor extends AbstractVisitor {
                 }
             }
         }
+        return FuserResrvations;
 
     }
     protected void makeReservation(AbstractRoom room, LocalDate date,String startTime,String endTime) {
@@ -108,33 +109,25 @@ public class FormalVisitor extends AbstractVisitor {
     protected void updateReservation(AbstractRoom Room ,LocalDate date,String startTime,String endTime) {
 
         MeetingRoom MR= (MeetingRoom)Room;
-        cancelReservation(MR);
+        //cancelReservation(MR);
         makeReservation(MR,date,startTime,endTime);
 
     }
 
-    public void cancelReservation(AbstractRoom Room) {
+    public void cancelReservation(AbstractRoom Room,Registration currentr,String startTime,String endTime) {
 
-        MeetingRoom MR= (MeetingRoom) Room;
-
-        Scanner input1 = new Scanner(System.in);
-        String startTimestring=input1.nextLine();
-
-        Scanner input2 = new Scanner(System.in);
-        String endTimestring=input2.nextLine();
-
-        Scanner input3 = new Scanner(System.in);
-        double fees=input3.nextDouble();
-        Slot Reservedslot = new Slot(startTimestring,  endTimestring,  fees);
-        FormalVisitor formalVisitor = new FormalVisitor();
-
-        Slot canceledslot=new Slot (startTimestring,  endTimestring,  fees);
-
-        for (Slot slot : MR.slots)
-        {
-            if (canceledslot.startTime.equals(slot.startTime) && canceledslot.endTime.equals(slot.endTime))
-            {
-                slot.removeReservation(canceledslot.createReservation(formalVisitor));
+        MeetingRoom MR= (MeetingRoom)Room;
+        for (Slot slot : MR.slots) {
+            if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
+                for (Slot.Reservation r : slot.getReservations()) {
+                    String visitorEmail = r.getVisitor().userEmail;
+                    if (currentr.getUserEmail().equals(visitorEmail)) {
+                        slot.removeReservation(r);
+                        // Optionally add a message or confirmation of cancellation
+                        System.out.println("Reservation canceled successfully!");
+                        return; // Exit the method after canceling the reservation
+                    }
+                }
             }
         }
     }

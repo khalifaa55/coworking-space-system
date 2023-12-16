@@ -67,7 +67,7 @@ public class GeneralVisitor extends AbstractVisitor{
         return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"general");
     }
     @Override
-    protected void DisplayReservation(AbstractRoom room , Registration currentr) {
+    protected ArrayList DisplayReservation(AbstractRoom room , Registration currentr) {
         GeneralRoom gene = (GeneralRoom) room;
 
         for(Slot slot:gene.getSlots()){
@@ -80,6 +80,7 @@ public class GeneralVisitor extends AbstractVisitor{
                 }
             }
         }
+        return GuserResrvations;
 
     }
     protected void makeReservation(AbstractRoom room , LocalDate date , String startTime , String endTime) {
@@ -99,35 +100,29 @@ public class GeneralVisitor extends AbstractVisitor{
         }
     }
 
-    protected void updateReservation(AbstractRoom Room, LocalDate date,String startTime,String endTime) {
+    protected void updateReservation(AbstractRoom Room, LocalDate date,String startTime,String endTime,Registration currentr) {
 
         GeneralRoom GR= (GeneralRoom)Room;
-        cancelReservation(GR);
+        //cancelReservation(GR,currentr);
         makeReservation(GR,date,startTime,endTime);
 
     }
 
-    public void cancelReservation(AbstractRoom Room) {
+    public void cancelReservation(AbstractRoom Room,Registration currentr,String startTime,String endTime) {
 
         GeneralRoom GR= (GeneralRoom) Room;
 
-        Scanner input1 = new Scanner(System.in);
-        String startTime=input1.nextLine();
-
-        Scanner input2 = new Scanner(System.in);
-        String endTime=input2.nextLine();
-
-        Scanner input3 = new Scanner(System.in);
-        double fees=input3.nextDouble();
-        Slot Reserved_slot = new Slot(startTime,  endTime,  fees);
-        GeneralVisitor generalVisitor = new GeneralVisitor();
-
-        Slot canceled_slot=new Slot (startTime,  endTime,  fees);
-
-
-        for(Slot slot :GR.slots) {
-            if (canceled_slot.startTime.equals(slot.startTime) && canceled_slot.endTime.equals(slot.endTime)) {
-                canceled_slot.removeReservation(canceled_slot.createReservation(generalVisitor));
+        for (Slot slot : GR.slots) {
+            if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
+                for (Slot.Reservation r : slot.getReservations()) {
+                    String visitorEmail = r.getVisitor().userEmail;
+                    if (currentr.getUserEmail().equals(visitorEmail)) {
+                        slot.removeReservation(r);
+                        // Optionally add a message or confirmation of cancellation
+                        System.out.println("Reservation canceled successfully!");
+                        return; // Exit the method after canceling the reservation
+                    }
+                }
             }
         }
     }
