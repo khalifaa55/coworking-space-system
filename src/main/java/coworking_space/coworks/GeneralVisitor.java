@@ -16,11 +16,13 @@ public class GeneralVisitor extends AbstractVisitor{
 
     //Class Constructors//
 
-    public GeneralVisitor( String name, String password, int id, String type) {
+    public GeneralVisitor( String name, String password, int id, String type,String Email,String phonenumber) {
         this.type = type;
         this.name = name;
         this.id = id;
         this.password = password;
+        this.userEmail=Email;
+        this.phoneNumber=phonenumber;
     }
     @JsonCreator
     public GeneralVisitor(@JsonProperty("name")String name,
@@ -61,7 +63,7 @@ public class GeneralVisitor extends AbstractVisitor{
     //Class Methods//
     @JsonIgnore
     public static GeneralVisitor createVisitorFromRegistration(Registration registration) {
-        return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"general");
+        return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"general",registration.getUserEmail(), registration.getPhoneNumber());
     }
     @Override
     protected void DisplayReservation(AbstractRoom room , Registration currentr) {

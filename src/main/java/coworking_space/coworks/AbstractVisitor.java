@@ -11,6 +11,9 @@ import coworking_space.coworks.InstructorVisitor;
 
 import java.util.ArrayList;
 
+import static coworking_space.coworks.Coworks_Main.visitors;
+import static coworking_space.coworks.DisplayUserData.inValidMessage;
+
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = GeneralVisitor.class, name = "general"),
@@ -25,7 +28,7 @@ public abstract class AbstractVisitor {
     public int id;
     @JsonIgnore
     public String type;
-    public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
+
     public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
         boolean check=false;
         boolean flag=false;
@@ -44,6 +47,7 @@ public abstract class AbstractVisitor {
                 }
             }
             if (flag == false) {
+                System.out.println("addvisitor susciss");
                 visitors.add(visitor);
             }
         }
@@ -69,40 +73,96 @@ public abstract class AbstractVisitor {
         }
     }
 
-
-
     @JsonIgnore
-    public void editUserInfo(int c, ArrayList<AbstractVisitor> editvisitor, String currentuseremail, String newname,String newpass, String phonenumber, String email) {
-        int index = -1;
-        for (AbstractVisitor visitor : editvisitor) {
-            if (visitor.userEmail.equals(currentuseremail)) {
-                index = editvisitor.indexOf(visitor);
-                break;
+    public static AbstractVisitor getCurrentVisitor(Registration currentR) {
+        try {
+            if (visitors != null) {
+                for (AbstractVisitor currentVisitor : visitors) {
+                    if (currentR.getUserEmail().equals(currentVisitor.userEmail)) {
+                        return currentVisitor;
+                    }
+                }
+            } else {
+                System.err.println("Error: Visitors list is null.");
             }
+        } catch (Exception e) {
+            // Catch more specific exceptions if possible
+            System.err.println("Error while searching for current visitor: " + e.getMessage());
+            e.printStackTrace();
         }
-        switch (c) {
-            case 1:
-                if (index != -1) {
-                    editvisitor.get(index).name = newname;
-                    Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null);
-                }
-                break;
-            case 2:
-                if (index != -1) {
-                    editvisitor.get(index).password = newpass;
-                    Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, newpass, null);
-                }
-                break;
-            case 3:
-                if (index != -1) {
-                    editvisitor.get(index).phoneNumber = phonenumber;
-                    Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, null, phonenumber);
-                }
-                break;
+        return null;
+    }
+    public  void editUserInfo(AbstractVisitor cVisitor,String currentuseremail,String newname,String newpass,String newemail,String newphoneNumber){
+        if(newname !=null&& !newname.isEmpty()){
+            cVisitor.name=newname;
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null);
+
+        }
+        if(newpass !=null&& !newpass.isEmpty()){
+            cVisitor.password=newpass;
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null);
+        }
+        if(newemail !=null&& !newemail.isEmpty()){
+            cVisitor.userEmail=newemail;
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null);
+
+        }
+        if(newphoneNumber !=null&& !newphoneNumber.isEmpty()){
+            cVisitor.phoneNumber=newphoneNumber;
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null);
+
+        }
+    }
+    public void checkEmail(String newEmail){
+        for(AbstractVisitor allVisitor:visitors){
+            if(allVisitor.userEmail.equals(newEmail)){
+                String inValidTitle = "EmailNotValid";
+                String inValidMessage ="Invalid Email, please try again.";
+                inValidMessage(inValidTitle, inValidMessage);
+            }
         }
     }
 
-    /*public void editUserInfo(int c,ArrayList<AbstractVisitor> editvisitor , String currentuseremail, String newname,char[] newpass,String phonenumber,String email) {
+    @JsonIgnore
+    public static int getlasindex() {
+        int lastindex = visitors.size() - 1;
+        AbstractVisitor lastElement = visitors.get(lastindex);
+        return lastElement.getId();
+    }
+
+    public int getId() {
+        return id;
+    }
+    @JsonIgnore
+    protected abstract void DisplayReservation(AbstractRoom room, Registration currentr) ;
+    protected abstract void makeReservation(AbstractRoom room);
+    protected abstract void updateReservation(AbstractRoom room);
+    public abstract void cancelReservation(AbstractRoom room);
+
+}
+//    @JsonIgnore
+//    public void editUserInfo(int c, AbstractVisitor editVisitor, String currentUserEmail, String newName,String newPass, String newPhoneNumber, String newEmail) {
+//        switch (c) {
+//            case 1:
+//                editVisitor.name=newName;
+//                    Registration.updateRegistrationInfo(Registration.getRegistrations(), currentUserEmail, newName, null, null);
+//                break;
+//            case 2:
+//                editVisitor.password=newPass;
+//                Registration.updateRegistrationInfo(Registration.getRegistrations(), currentUserEmail, newName, null, null);
+//                break;
+//            case 3:
+//                editVisitor.phoneNumber=newPhoneNumber;
+//                Registration.updateRegistrationInfo(Registration.getRegistrations(), currentUserEmail, newName, null, null);
+//                break;
+//            case 4:
+//                editVisitor.userEmail=newEmail;
+//                Registration.updateRegistrationInfo(Registration.getRegistrations(), currentUserEmail, newName, null, null);
+//                break;
+//        }
+//    }
+
+/*public void editUserInfo(int c,ArrayList<AbstractVisitor> editvisitor , String currentuseremail, String newname,char[] newpass,String phonenumber,String email) {
         switch (c) {
             case 1:
                 for (AbstractVisitor visitor : editvisitor) {
@@ -130,6 +190,8 @@ public abstract class AbstractVisitor {
                 }break;
         }
     }*/
+
+    /*
     @JsonIgnore
     public void displayData(int c, ArrayList<AbstractVisitor> visitorinfo, String currentUserEmail, AbstractRoom room, Registration currentr) {
         switch (c) {
@@ -153,21 +215,4 @@ public abstract class AbstractVisitor {
                     }
                 }break;
         }
-    }
-    @JsonIgnore
-    public static int getlasindex() {
-        int lastindex = visitors.size() - 1;
-        AbstractVisitor lastElement = visitors.get(lastindex);
-        return lastElement.getId();
-    }
-
-    public int getId() {
-        return id;
-    }
-    @JsonIgnore
-    protected abstract void DisplayReservation(AbstractRoom room, Registration currentr) ;
-    protected abstract void makeReservation(AbstractRoom room);
-    protected abstract void updateReservation(AbstractRoom room);
-    public abstract void cancelReservation(AbstractRoom room);
-
-}
+    }*/

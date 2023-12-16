@@ -19,28 +19,45 @@ public class Coworks_Main extends Application
         stage.setScene(scene);
         stage.show();
     }
+    public static ArrayList<AbstractVisitor> visitors=new ArrayList<>();
+    public static final ArrayList<Registration> registrations = new ArrayList<>();
     public static void main(String[] args) {launch();
-//        final String WRITE_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
-//        final String READ_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
-//
-//        ArrayList<AbstractVisitor> visitors=new ArrayList<>();
-//        try {
-//            visitors= Json.readVisitorsFromFile(READ_VISITORS_PATH);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//
-//
-////        final String WRITE_MEETING_ROOMS_PATH = "src/main/resources/meetingRooms.json";
-////        final String READ_MEETING_ROOMS_PATH = "meetingRooms.json";
-//        ArrayList<AbstractRoom> meetingRooms=new ArrayList<>();
-//
-//        ArrayList<Slot> slots = new ArrayList<>();
-//        ArrayList<FormalVisitor> insts= new ArrayList<>();
-//        FormalVisitor inst= new FormalVisitor("h",12);
-//        FormalVisitor inst2 = new FormalVisitor("R",14);
-//
+        final String WRITE_VISITORS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+        final String READ_VISITORS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+        try {
+            visitors= Json.readVisitorsFromFile(READ_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        for (AbstractVisitor allVisitors:visitors) {
+            Registration setRegistration=new Registration();
+            setRegistration.setUserName(allVisitors.name);
+            setRegistration.setUserEmail(allVisitors.userEmail);
+            setRegistration.setPhoneNumber(allVisitors.phoneNumber);
+            setRegistration.setRole(allVisitors.type);
+            setRegistration.setID(allVisitors.id);
+            registrations.add(setRegistration);
+        }
+
+        for (Registration r:registrations) {
+            System.out.println(r.getUserName());
+            System.out.println(r.getNewPassword());
+            System.out.println(r.getUserEmail());
+            System.out.println(r.userid());
+            System.out.println(r.getPhoneNumber());
+            System.out.println("############################################");
+        }
+
+
+       //final String WRITE_MEETING_ROOMS_PATH = "src/main/resources/meetingRooms.json";
+      //final String READ_MEETING_ROOMS_PATH = "meetingRooms.json";
+        //ArrayList<AbstractRoom> meetingRooms=new ArrayList<>();
+
+        //ArrayList<Slot> slots = new ArrayList<>();
+        //ArrayList<FormalVisitor> insts= new ArrayList<>();
+        //FormalVisitor inst= new FormalVisitor("h",12);
+        //FormalVisitor inst2 = new FormalVisitor("R",14);
+
 //        FormalVisitor formal1= new FormalVisitor("y",123);
 //        FormalVisitor formal2 = new FormalVisitor("z",143);
 //
@@ -52,12 +69,12 @@ public class Coworks_Main extends Application
 //
 //        ArrayList<Slot> slots3 = new ArrayList<>();
 //        ArrayList<FormalVisitor> insts3= new ArrayList<>();
-//
-////        try {
-////            meetingRooms  = Json.readRoomsFromFile(READ_MEETING_ROOMS_PATH);
-////        } catch (IOException e) {
-////            throw new RuntimeException(e);
-////        }
+
+//        try {
+//            meetingRooms  = Json.readRoomsFromFile(READ_MEETING_ROOMS_PATH);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 //
 //        Slot slot1 = new Slot("8","11", 100.00);
 //        Slot slot2 = new Slot("10","12", 300);
@@ -100,5 +117,12 @@ public class Coworks_Main extends Application
 //        } catch (IOException e) {
 //            throw new RuntimeException(e);
 //        }
+
+        try {
+            Json.writeVisitorsToFile(visitors,WRITE_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

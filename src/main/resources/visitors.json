@@ -1,5 +1,5 @@
 [ {
-  "name" : "Rabab",
+  "name" : "Rahab",
   "id" : 0,
   "userEmail" : "rabab@example.com",
   "phoneNumber" : "0128887777",
@@ -138,4 +138,11 @@
   "phoneNumber" : "0101234567",
   "password" : "Abc12345",
   "type" : "instructor"
+}, {
+  "name" : "farha",
+  "id" : 12,
+  "userEmail" : "Farha@gmail.com",
+  "phoneNumber" : "0101745230",
+  "password" : "1234",
+  "type" : "general"
 } ]
