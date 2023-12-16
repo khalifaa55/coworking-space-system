@@ -38,7 +38,7 @@ abstract public class AbstractRoom
     }
     @JsonIgnore abstract ArrayList<? extends AbstractVisitor> getVisitors();
     public  abstract ArrayList<Slot> getAvailableSlotsForAdmin();
-
+//    public abstract ArrayList<Slot> getReservedSlotsForAdmin();
 
 
 }
