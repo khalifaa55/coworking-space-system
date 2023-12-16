@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
@@ -78,43 +79,28 @@ public class GeneralVisitor extends AbstractVisitor{
         }
 
     }
-    protected void makeReservation(AbstractRoom room ) {
+    protected void makeReservation(AbstractRoom room , LocalDate date , String startTime , String endTime) {
 
         GeneralRoom GR = (GeneralRoom) room;
-
-        Scanner input1 = new Scanner(System.in);
-        String startTime = input1.nextLine();
-//        LocalDateTime startTime = LocalDateTime.parse(startTimestring);
-
-        Scanner input2 = new Scanner(System.in);
-        String endTime = input2.nextLine();
-//        LocalDateTime endTime = LocalDateTime.parse(endTimestring);
-
-        Scanner input3 = new Scanner(System.in);
-        double fees = input3.nextDouble();
-
-        Slot Reserved_slot = new Slot(startTime, endTime, fees);
         GeneralVisitor generalVisitor = new GeneralVisitor();
 
 
-        List<Slot> availableslots = GR.getAvailableSlots();
-        for (Slot slot : availableslots) {
-            System.out.println(slot);
-        }
+        List<Slot> availableslots = GR.getAvailableSlots(date);
+
 
         for (Slot slot : availableslots){
 
-            if (Reserved_slot.startTime .equals(slot.startTime) && Reserved_slot.endTime.equals(slot.endTime)) {
-                Reserved_slot.createReservation(generalVisitor);
+            if (startTime .equals(slot.startTime) && endTime.equals(slot.endTime)) {
+                slot.createReservation(generalVisitor);
             }
         }
     }
 
-    protected void updateReservation(AbstractRoom Room) {
+    protected void updateReservation(AbstractRoom Room, LocalDate date,String startTime,String endTime) {
 
         GeneralRoom GR= (GeneralRoom)Room;
         cancelReservation(GR);
-        makeReservation(GR);
+        makeReservation(GR,date,startTime,endTime);
 
     }
 

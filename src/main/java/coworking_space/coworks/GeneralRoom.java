@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -46,12 +47,19 @@ public class GeneralRoom extends AbstractRoom
 
     //Implemented Methods//
     @JsonIgnore
-    public ArrayList<Slot> getAvailableSlots()
+    public ArrayList<Slot> getAvailableSlots(LocalDate date)
     {
         for (Slot slot : slots)
         {
+            ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
+            for(Slot.Reservation reservation : slot.getReservations()){
+                if(reservation.getDate().equals(date)){
+                    reservationsInDate.add(reservation);
+                }
+
+            }
             // Check if there are no reservations or the slot is not fully reserved
-            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
+            if (reservationsInDate.isEmpty() ||reservationsInDate.size() < maxNumberOfVisitors)
             {
                 availableSlots.add(slot);
             }
@@ -78,6 +86,24 @@ public class GeneralRoom extends AbstractRoom
             totalAmount += (slot.getReservations().size()) * (slot.getFees());
         }
         return totalAmount;
+    }
+    public ArrayList<Slot> getAvailableSlotsForAdmin(){
+
+        for (Slot slot : slots) {
+            // Check if there are no reservations or the slot is not fully reserved
+            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
+                availableslots.add(slot);
+            }
+            else
+                reservedslots.add(slot);
+        }
+        // no available slots.json
+        if(availableslots.isEmpty()){
+            return null;
+        }
+        else{
+            return availableslots;
+        }
     }
 }
 

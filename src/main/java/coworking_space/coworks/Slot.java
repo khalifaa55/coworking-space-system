@@ -66,8 +66,7 @@ public class Slot
 
     // Getter Reservation
     @JsonProperty
-    public ArrayList<
-            Reservation> getReservations() {return reservations;}
+    public ArrayList<Reservation> getReservations() {return reservations;}
 
     // Setter Reservation
     public void setReservations(ArrayList<Reservation> reservations)
@@ -111,12 +110,23 @@ public class Slot
 
     // Inner class
 
-    public static class Reservation
+    public  class Reservation
     {
         public AbstractVisitor visitor;
-        public Reservation(AbstractVisitor visitor) {this.visitor = visitor;}
+        public LocalDate date;
+        public Reservation(AbstractVisitor visitor) {
+            this.visitor = visitor;
+
+        }
+        public LocalDate getDate(){return this.date;}
+
+        public Reservation(AbstractVisitor visitor , LocalDate date) {
+            this.visitor = visitor;
+            this.date=date;
+        }
         public Reservation(){this.visitor = null;}
         public AbstractVisitor getVisitor() {return visitor;}
+
         public void setVisitor(AbstractVisitor visitor) {this.visitor = visitor;}
     }
 }

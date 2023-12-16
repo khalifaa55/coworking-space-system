@@ -21,19 +21,19 @@ public class    Admin {
         }
     }
 
-    void displayAllAvailableSlots(AbstractRoom room ) {
-        ArrayList<Slot> availableSlots= room.getAvailableSlots();
-        for (Slot slot : availableSlots) {
-            if (availableSlots != null && !availableSlots.isEmpty()) {
+    void displayAllAvailableSlots(AbstractRoom room) {
+        ArrayList<Slot> available = room.getAvailableSlotsForAdmin();
+
+//        if (availableSlots != null && !availableSlots.isEmpty()) {
+            for (Slot slot : available) {
                 System.out.println("Start Time: " + slot.getStartTime());
                 System.out.println("End Time: " + slot.getEndTime());
-                System.out.println("Fees : " + slot.getFees());
+                System.out.println("Fees: " + slot.getFees());
                 System.out.println("\n");
-
-            } else {
-                System.out.println("No available slots");
             }
-        }
+//        } else {
+//            System.out.println("No available slots");
+//        }
     }
 
     public static void displayRoomVisitors(AbstractRoom room) {
@@ -86,7 +86,7 @@ public class    Admin {
         }
         System.out.println();
 
-        ArrayList<Slot> AvailableSlots = Room.getAvailableSlots();
+        ArrayList<Slot> AvailableSlots = Room.getAvailableSlotsForAdmin();
         System.out.println("The Reserved Slots are : ");
         ArrayList<Slot> Reserved = Room.ReservedSlots;
         for(Slot rslot:Reserved)
@@ -119,7 +119,7 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
         System.out.println("The "+ n_0+" Teaching Room Slots : " );
         System.out.println("The "+ n_0+ "ID : "+ Tr.id );
 
-        for(Slot S :Tr.availableSlots)
+        for(Slot S :Tr.getAvailableSlotsForAdmin())
         {
             System.out.println("The Start Time " + S.getStartTime());
             System.out.println("The End Time " + S.getEndTime());
@@ -134,7 +134,7 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
     {
         System.out.println("The "+ n_0+" General Room Slots : " );
         System.out.println("The "+ n_0+ "ID : "+ Gr.id );
-        for(Slot S :Gr.availableSlots)
+        for(Slot S :Gr.getAvailableSlotsForAdmin())
         {
             System.out.println("The Start Time " + S.getStartTime());
             System.out.println("The End Time " + S.getEndTime());
@@ -149,7 +149,7 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
         System.out.println("The "+ n_0+" Meeting Room Slots : " );
         System.out.println("The "+ n_0+ "ID : "+ Mr.id );
 
-        for(Slot S :Mr.availableSlots)
+        for(Slot S :Mr.getAvailableSlotsForAdmin())
         {
             System.out.println("The Start Time " + S.getStartTime());
             System.out.println("The End Time " + S.getEndTime());

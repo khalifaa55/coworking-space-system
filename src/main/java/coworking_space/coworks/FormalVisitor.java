@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,6 +15,7 @@ import java.util.Scanner;
 public class FormalVisitor extends AbstractVisitor {
     @JsonProperty("type")
     public String type;
+    private ArrayList<AbstractRoom> meetingRooms = Coworks_Main.meetingRooms;
 
     //Class Constructors//
 
@@ -79,41 +82,32 @@ public class FormalVisitor extends AbstractVisitor {
         }
 
     }
-    protected void makeReservation(AbstractRoom room ) {
+    protected void makeReservation(AbstractRoom room, LocalDate date,String startTime,String endTime) {
         //AbstractRoom room= new TeachingRoom();
+       // System.out.println("Size of meetingRooms: " + meetingRooms.size());
 
         MeetingRoom MR = (MeetingRoom) room;
 
-        List<Slot> availableslots = MR.getAvailableSlots();
-        for (Slot slot : availableslots) {
-            System.out.println(slot);
-        }
+        List<Slot> availableslots = MR.getAvailableSlots(date);
 
-        Scanner input1 = new Scanner(System.in);
-        String startTimestring = input1.nextLine();
 
-        Scanner input2 = new Scanner(System.in);
-        String endTimestring = input2.nextLine();
-
-        Scanner input3 = new Scanner(System.in);
-        double fees = input3.nextDouble();
-        Slot Reservedslot = new Slot(startTimestring, endTimestring, fees);
         FormalVisitor formalVisitor = new FormalVisitor();
 
         for (Slot slot : availableslots) {
-            if (Reservedslot.startTime.equals( slot.startTime) & Reservedslot.endTime.equals(slot.endTime) ) {
+            if (startTime.equals( slot.startTime) & endTime.equals(slot.endTime) ) {
                 slot.createReservation(formalVisitor);
+                System.out.println("Reservation Made successfully");
             }
         }
 
 
     }
 
-    protected void updateReservation(AbstractRoom Room) {
+    protected void updateReservation(AbstractRoom Room ,LocalDate date,String startTime,String endTime) {
 
         MeetingRoom MR= (MeetingRoom)Room;
         cancelReservation(MR);
-        makeReservation(MR);
+        makeReservation(MR,date,startTime,endTime);
 
     }
 

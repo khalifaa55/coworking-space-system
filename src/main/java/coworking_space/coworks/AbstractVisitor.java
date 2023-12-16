@@ -9,6 +9,7 @@ import coworking_space.coworks.FormalVisitor;
 import coworking_space.coworks.GeneralVisitor;
 import coworking_space.coworks.InstructorVisitor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
@@ -166,8 +167,8 @@ public abstract class AbstractVisitor {
     }
     @JsonIgnore
     protected abstract void DisplayReservation(AbstractRoom room, Registration currentr) ;
-    protected abstract void makeReservation(AbstractRoom room);
-    protected abstract void updateReservation(AbstractRoom room);
+    protected abstract void makeReservation(AbstractRoom room , LocalDate date ,String startTime,String endTime);
+    protected abstract void updateReservation(AbstractRoom room, LocalDate date,String startTime,String endTime);
     public abstract void cancelReservation(AbstractRoom room);
 
 }

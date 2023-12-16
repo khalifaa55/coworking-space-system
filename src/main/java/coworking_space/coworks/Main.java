@@ -116,6 +116,9 @@ public class Main {
 
         ArrayList<Slot> slots=new ArrayList<>();
         slots.add(S_0);
+//        slots.add(S_1);
+//        slots.add(S_2);
+
 
 //        slots.json.add(S_1);
 //        GeneralVisitor Gvisitor_0=new GeneralVisitor("Banosa",2); // Working with visitor types that matches the room
@@ -146,21 +149,24 @@ public class Main {
         visitors.add(Ivisitor_3);
 
         AbstractRoom Troom = new TeachingRoom("Troom",1,slots,visitors);
-
         alshimaa.addSlot(Troom,S_1);
         alshimaa.addSlot(Troom,S_2);
 //        alshimaa.displayAllAvailableSlots(Troom);
-        S_0.createReservation(Ivisitor_1);
-        S_1.createReservation(Ivisitor_2);
-        S_1.createReservation(Ivisitor_3);
-        Registration currentr=new Registration("Alshima_374","alshimaa@gmail.com","01019644058","23791831","23791831");
-        Ivisitor_0.id=currentr.userid();
-        Ivisitor_0.name=currentr.getUserName();
-        Ivisitor_0.userEmail = currentr.getUserEmail();
-        S_0.createReservation(Ivisitor_0);
-        alshimaa.DisplayVisitorData(Ivisitor_0, currentr,Troom);
 
-//        alshimaa.DisplayRoomsData(Troom);
+
+//        alshimaa.displayAllAvailableSlots(Troom);
+//        S_0.createReservation(Ivisitor_1);
+//        S_0.createReservation(Ivisitor_2);
+////        S_0.createReservation(Ivisitor_3);
+//        Registration currentr=new Registration("Alshima_374","alshimaa@gmail.com","01019644058","23791831","23791831");
+//        Ivisitor_0.id=currentr.userid();
+//        Ivisitor_0.name=currentr.getUserName();
+//        Ivisitor_0.userEmail = currentr.getUserEmail();
+//        S_0.createReservation(Ivisitor_0);
+
+//        alshimaa.DisplayVisitorData(Ivisitor_0, currentr,Troom);
+//          alshimaa.displayAllAvailableSlots(Troom);
+        alshimaa.DisplayRoomsData(Troom);
 //        alshimaa.UpdateRoom(Troom);
 
 //        slots.json.add(S_1);
