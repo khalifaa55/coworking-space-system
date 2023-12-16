@@ -165,6 +165,7 @@ public class RegisterController implements Initializable {
         else {
             Registration newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(), visitorType);
             AbstractVisitor.createVisitorsFromRegistrations(newRegistration);
+            Registration.setCurrentRegistration(newRegistration);
             Registration.getRegistrations().add(newRegistration);
             System.out.println("Registration successful");
             GoToVisitorScreen();

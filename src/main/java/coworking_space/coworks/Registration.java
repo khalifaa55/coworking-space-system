@@ -13,6 +13,11 @@ class Registration {
     private String newPassword;
     private int id;
     private static int idCounter ;
+
+    public static void setCurrentRegistration(Registration currentRegistration) {
+        Registration.currentRegistration = currentRegistration;
+    }
+
     private static Registration currentRegistration;
     private static final ArrayList<Registration> registrations = new ArrayList<>();
     static final String PANEL_NAME = "SCREEN_2";
