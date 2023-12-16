@@ -76,10 +76,10 @@
       </Label>
       <TableView id="RoomAvailableSlotsTable" fx:id="AvailableSlotsTable" editable="true" layoutX="424.0" layoutY="491.0" prefHeight="199.0" prefWidth="304.0" style="-fx-border-color: 000000; -fx-background-radius: 20;">
         <columns>
-          <TableColumn prefWidth="75.0" text="Date" />
-          <TableColumn prefWidth="75.0" text="Start Time" />
-            <TableColumn prefWidth="75.0" text="End Time" />
-            <TableColumn prefWidth="75.0" text="Fees" />
+          <TableColumn fx:id="DateColumn" prefWidth="75.0" text="Date" />
+          <TableColumn fx:id="StartTimeColumn" prefWidth="75.0" text="Start Time" />
+            <TableColumn fx:id="EndTimeColumn" prefWidth="75.0" text="End Time" />
+            <TableColumn fx:id="FeesColumn" prefWidth="75.0" text="Fees" />
         </columns>
       </TableView>
       <Label layoutX="807.0" layoutY="455.0" text="Reserved Slots :" textFill="#6678cb">

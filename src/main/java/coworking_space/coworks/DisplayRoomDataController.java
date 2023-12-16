@@ -26,7 +26,17 @@ import java.util.ResourceBundle;
 
 public class DisplayRoomDataController implements Initializable {
     @FXML
-    private TableView<?> AvailableSlotsTable;
+    private TableView<Slot> AvailableSlotsTable;
+    @FXML
+    private TableColumn<Slot, String> StartTimeColumn;
+    @FXML
+    private TableColumn<Slot, String> DateColumn;
+
+    @FXML
+    private TableColumn<Slot, String> EndTimeColumn;
+
+    @FXML
+    private TableColumn<Slot, String> FeesColumn;
 
     @FXML
     private Button LogOutButton;
@@ -204,35 +214,13 @@ public class DisplayRoomDataController implements Initializable {
 
     }
 
-    private void findRoomById(String roomId) {
-        for (AbstractRoom room : GRooms) {
-            if (room != null && String.valueOf(room.id).equals(roomId)) {
-                SelectedRoom = room;
-                return;
-            }
-        }
-        for (AbstractRoom room : TRooms) {
-            if (room != null && String.valueOf(room.id).equals(roomId)) {
-                SelectedRoom = room;
-                return;
-            }
-        }
-        for (AbstractRoom room : MRooms) {
-            if (room != null && String.valueOf(room.id).equals(roomId)) {
-                System.out.println("MeetingRoom Selected");
-                SelectedRoom = room;
-                UpdateRoomData(roomId);
-                return; // Exit the loop after setting SelectedRoom
-            }
-        }
-    }
 
 //        SelectedRoomID.setText(String.valueOf(SelectedRoom.id));
 //        SelectedRoomName.setText(SelectedRoom.name);
 //        VisitorsTable.setItems(FXCollections.observableArrayList(SelectedRoom.visitors));
 //        UpdateRoomData();
 
-    void UpdateRoomData(String Id) {
+    void DisplayRoomVistor(String Id) {
 
         for(AbstractRoom r :MRooms) {
             if(Id.equals(String.valueOf(r.id))) {
@@ -249,7 +237,7 @@ public class DisplayRoomDataController implements Initializable {
                 VisitorsIdColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
 
                 VisitorsTable.setItems(customers);
-
+                DisplayAvailableSlots();
             }
         }
         for(AbstractRoom r :GRooms)
@@ -257,6 +245,7 @@ public class DisplayRoomDataController implements Initializable {
             if(Id.equals(String.valueOf(r.id))) {
                 SelectedRoomID.setText(String.valueOf(r.id));
                 SelectedRoomName.setText(r.name);
+                SelectedRoom=r;
                 GeneralRoom Mr = (GeneralRoom) r;
                 ObservableList<AbstractVisitor> customers = FXCollections.observableArrayList();
 
@@ -268,6 +257,8 @@ public class DisplayRoomDataController implements Initializable {
                 VisitorsIdColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
 
                 VisitorsTable.setItems(customers);
+                DisplayAvailableSlots();
+
 
             }
         }
@@ -288,9 +279,27 @@ public class DisplayRoomDataController implements Initializable {
                         VisitorsIdColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
 
                         VisitorsTable.setItems(customers);
-
+                        DisplayAvailableSlots();
                     }
                 }
+//                DisplayAvailableSlots();
+        }
+        public void DisplayAvailableSlots()
+        {
+
+            ObservableList<Slot> slotsavail = FXCollections.observableArrayList();
+
+            for(Slot s :SelectedRoom.getAvailableSlotsForAdmin())
+            {
+                slotsavail.add(s);
+            }
+            DateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().currentDate)));
+            StartTimeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStartTime()));
+            EndTimeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndTime()));
+            FeesColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fees)));
+
+
+            AvailableSlotsTable.setItems(slotsavail);
         }
 
 
@@ -322,34 +331,14 @@ public class DisplayRoomDataController implements Initializable {
         SelectedRoomName.setText("");
 
 
-        // Set up a listener for RoomTypeComboBox selection changes
-//        RoomTyprComboBox.setOnAction(this::onRoomTypeSelected);
-//        RoomTyprComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//            updateRoomsIdComboBox(newValue);
-//        });
-//        VisitorsNameColumn.setCellValueFactory(new PropertyValueFactory<AbstractVisitor, String>("name"));
-//        ObservableList<AbstractVisitor> observableList = FXCollections.observableArrayList(SelectedRoom.visitors);
-//        VisitorsTable.setItems(observableList);
-
-        VisitorsNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        VisitorsNameColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
-
-
-        VisitorsNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
-
         RoomTyprComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             updateRoomsIdComboBox(newValue);
         });
         RoomsIdComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            UpdateRoomData(newValue);
+            DisplayRoomVistor(newValue);
         });
 
-        // Set up the cell value factory for VisitorsTable
-//        VisitorsNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-
     }
-
-
 
 }
 
