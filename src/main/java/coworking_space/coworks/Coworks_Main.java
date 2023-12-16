@@ -78,15 +78,15 @@ public class Coworks_Main extends Application {
 //            throw new RuntimeException(e);
 //        }
 
-            Slot slot1 = new Slot("8", "10", 100.00);
-            Slot slot2 = new Slot("10", "12", 300);
+            Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00);
+            Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300);
 
 
-            Slot slot3 = new Slot("11", "1", 100.00);
-            Slot slot4 = new Slot("1", "3", 300);
+            Slot slot3 = new Slot("02:00 PM", "04:00 PM", 100.00);
+            Slot slot4 = new Slot("04:00 PM", "06:00 PM", 300);
 
-            Slot slot5 = new Slot("6", "8", 100.00);
-            Slot slot6 = new Slot("3", "5", 300);
+            Slot slot5 = new Slot("06:00 PM", "08:00 PM", 100.00);
+            Slot slot6 = new Slot("08:00 PM", "10:00 PM", 300);
 
             // slot2.createReservation(inst);
             //slot1.createReservation(inst);
@@ -125,15 +125,15 @@ public class Coworks_Main extends Application {
 //        InstructorVisitor inst6 = new InstructorVisitor("D",142);
 
 
-            Slot slot7 = new Slot("8/11", "9/11", 100.00);
-            Slot slot8 = new Slot("11/11", "10/10", 300);
+            Slot slot7 = new Slot("08:00 AM", "10:00 AM", 100.00);
+            Slot slot8 = new Slot("10:00 AM", "12:00 PM", 300.00);
 
 
-            Slot slot9 = new Slot("8/11", "9/11", 100.00);
-            Slot slot10 = new Slot("11/11", "10/10", 300);
+            Slot slot9 = new Slot("08:00 AM", "10:00 AM", 100.00);
+            Slot slot10 = new Slot("10:00 AM", "12:00 PM", 300.00);
 
-            Slot slot11 = new Slot("8/11", "9/11", 100.00);
-            Slot slot12 = new Slot("11/11", "10/10", 300);
+            Slot slot11 = new Slot("08:00 AM", "10:00 AM", 100.00);
+            Slot slot12 = new Slot("10:00 AM", "12:00 PM", 300.00);
 
 
             tslots.add(slot7);
@@ -159,11 +159,11 @@ public class Coworks_Main extends Application {
             ArrayList<GeneralVisitor> generals = new ArrayList<>();
             ArrayList<GeneralVisitor> generals2 = new ArrayList<>();
 
-            Slot slot13 = new Slot("11", "1", 100.00);
-            Slot slot14 = new Slot("1", "3", 300);
+            Slot slot13 = new Slot("02:00 PM", "04:00 PM", 100.00);
+            Slot slot14 = new Slot("04:00 PM", "06:00 PM", 300.00);
 
-            Slot slot15 = new Slot("6", "8", 100.00);
-            Slot slot16 = new Slot("3", "5", 300);
+            Slot slot15 = new Slot("06:00 PM", "08:00 PM", 100.00);
+            Slot slot16 = new Slot("04:00", "06:00 PM", 300.00);
 
 
 
