@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,42 +85,28 @@ public class InstructorVisitor extends AbstractVisitor {
 
     }
 
-    protected void makeReservation(AbstractRoom room ) {
+    protected void makeReservation(AbstractRoom room , LocalDate date,String startTime,String endTime) {
         //AbstractRoom room= new TeachingRoom();
 
         TeachingRoom TR = (TeachingRoom) room;
 
-        List<Slot> availableslots = TR.getAvailableSlots();
-        for (Slot slot : availableslots) {
-            System.out.println(slot);
-        }
+        List<Slot> availableslots = TR.getAvailableSlots(date);
 
-        Scanner input1 = new Scanner(System.in);
-        String startTimestring = input1.nextLine();
-        //LocalDateTime startTime = LocalDateTime.parse(startTimestring);
-
-        Scanner input2 = new Scanner(System.in);
-        String endTimestring = input2.nextLine();
-        // LocalDateTime endTime = LocalDateTime.parse(endTimestring);
-
-        Scanner input3 = new Scanner(System.in);
-        double fees = input3.nextDouble();
-        Slot Reservedslot = new Slot(startTimestring, endTimestring, fees);
         InstructorVisitor instructorVisitor = new InstructorVisitor();
 
         for (Slot slot : availableslots) {
-            if (Reservedslot.startTime.equals( slot.startTime) & Reservedslot.endTime.equals(slot.endTime) ) {
+            if (startTime.equals( slot.startTime) & endTime.equals(slot.endTime) ) {
                 slot.createReservation(instructorVisitor);
             }
         }
 
     }
 
-    protected void updateReservation(AbstractRoom Room) {
+    protected void updateReservation(AbstractRoom Room,  LocalDate date,String startTime,String endTime) {
 
         TeachingRoom TR= (TeachingRoom)Room;
         cancelReservation(TR);
-        makeReservation(TR);
+        makeReservation(TR,date,startTime,endTime);
 
     }
 

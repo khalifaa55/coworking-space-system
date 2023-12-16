@@ -9,6 +9,7 @@ import coworking_space.coworks.FormalVisitor;
 import coworking_space.coworks.GeneralVisitor;
 import coworking_space.coworks.InstructorVisitor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
@@ -26,7 +27,7 @@ public abstract class AbstractVisitor {
     @JsonIgnore
     public String type;
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
-    /*public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
+    public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
         boolean check=false;
         boolean flag=false;
         for (AbstractVisitor v : visitors) {
@@ -48,16 +49,16 @@ public abstract class AbstractVisitor {
             }
         }
         return visitors;
-    }*/
+    }
     @JsonIgnore
     protected static AbstractVisitor createVisitorFromRegistration(Registration currentR) {
         try {
             switch (currentR.getRole()) {
-                case "general":
+                case "General Visitor":
                     return GeneralVisitor.createVisitorFromRegistration(currentR);
-                case "formal":
+                case "Formal Visitor":
                     return FormalVisitor.createVisitorFromRegistration(currentR);
-                case "instructor":
+                case "Instructor Visitor":
                     return InstructorVisitor.createVisitorFromRegistration(currentR);
                 default:
                     throw new IllegalArgumentException("Unknown visitor type: " + currentR.getRole());
@@ -166,8 +167,8 @@ public abstract class AbstractVisitor {
     }
     @JsonIgnore
     protected abstract void DisplayReservation(AbstractRoom room, Registration currentr) ;
-    protected abstract void makeReservation(AbstractRoom room);
-    protected abstract void updateReservation(AbstractRoom room);
+    protected abstract void makeReservation(AbstractRoom room , LocalDate date ,String startTime,String endTime);
+    protected abstract void updateReservation(AbstractRoom room, LocalDate date,String startTime,String endTime);
     public abstract void cancelReservation(AbstractRoom room);
 
 }

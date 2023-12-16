@@ -67,6 +67,10 @@ public class RegisterController implements Initializable {
     @FXML
     public TextField userName;
 
+    public static boolean formaltype =false;
+    public static boolean generaltype =false;
+    public static boolean instructortype =false;
+
     @FXML
     void changeScreenToLoginScreen_1(MouseEvent event) throws IOException
     {
@@ -85,7 +89,7 @@ public class RegisterController implements Initializable {
     }
     void GoToVisitorScreen() throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("visitorMakeReservationScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)MakeReservationScreen.fxml"));
 
         // Create a new scene with the loaded FXML content
         Scene scene = new Scene(root);
@@ -125,6 +129,15 @@ public class RegisterController implements Initializable {
         RadioButton selectedRadioButton = (RadioButton) event.getSource();
         visitorType = selectedRadioButton.getText();
         System.out.println("Selected RadioButton: " + visitorType);
+        if(visitorType.equals("Formal Visitor")){
+            formaltype=true;
+        } else if (visitorType.equals("General Visitor")) {
+            generaltype=true;
+
+        }
+        else{
+            instructortype=true;
+        }
 
     }
 
@@ -151,7 +164,8 @@ public class RegisterController implements Initializable {
         }
         else {
             Registration newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(), visitorType);
-            AbstractVisitor.createVisitorFromRegistration(newRegistration);
+            AbstractVisitor.createVisitorsFromRegistrations(newRegistration);
+            Registration.setCurrentRegistration(newRegistration);
             Registration.getRegistrations().add(newRegistration);
             System.out.println("Registration successful");
             GoToVisitorScreen();
@@ -240,5 +254,3 @@ public class RegisterController implements Initializable {
 
 
 }
-
-

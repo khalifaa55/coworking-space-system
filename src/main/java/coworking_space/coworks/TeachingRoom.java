@@ -5,15 +5,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TeachingRoom extends AbstractRoom{
+
     public String projecttype;
     public String boardtype;
     public String instructorname;
     public String type;
     public ArrayList<InstructorVisitor> visitors;
-    public final int maxNumberOfVisitors = 10;
+    public final int maxNumberOfVisitors = 3;
     @JsonCreator
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projectType") String projecttype,
                         @JsonProperty("boardType") String boardtype, @JsonProperty("instructorName")String instractorname,
@@ -64,11 +66,19 @@ public class TeachingRoom extends AbstractRoom{
         return visitors.size();
     }
     @JsonIgnore
-    public ArrayList<Slot> getAvailableSlots(){
+    public ArrayList<Slot> getAvailableSlots(LocalDate date){
 
         for (Slot slot : slots) {
+
+            ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<>();
+            for(Slot.Reservation reservation : slot.getReservations()){
+                if(reservation.getDate().equals(date)){
+                    reservationsInDate.add(reservation);
+                }
+
+            }
             // Check if there are no reservations or the slot is not fully reserved
-            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
+            if (reservationsInDate.isEmpty() || reservationsInDate.size() < maxNumberOfVisitors) {
                 availableSlots.add(slot);
             }
             else
@@ -90,6 +100,24 @@ public class TeachingRoom extends AbstractRoom{
             totalAmount += (slot.getReservations().size())*(slot.getFees());
         }
         return totalAmount;
+    }
+    public ArrayList<Slot> getAvailableSlotsForAdmin(){
+
+        for (Slot slot : slots) {
+            // Check if there are no reservations or the slot is not fully reserved
+            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
+                availableslots.add(slot);
+            }
+            else
+                reservedslots.add(slot);
+        }
+        // no available slots.json
+        if(availableslots.isEmpty()){
+            return null;
+        }
+        else{
+            return availableslots;
+        }
     }
 
 }
