@@ -13,7 +13,7 @@ public class GeneralRoom extends AbstractRoom
 {
     //Attributes//
     public String type;
-    public final int maxNumberOfVisitors = 20;
+    public final int maxNumberOfVisitors = 2;
     public ArrayList<GeneralVisitor> visitors;
 
     //Class Constructors//
@@ -73,6 +73,7 @@ public class GeneralRoom extends AbstractRoom
             return availableSlots;
         }
     }
+
     @JsonIgnore
     public int getNumOfVisitors() {
         return visitors.size();
@@ -105,6 +106,7 @@ public class GeneralRoom extends AbstractRoom
             return availableslots;
         }
     }
+
 }
 
 
