@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,6 +15,7 @@ import java.util.Scanner;
 public class GeneralVisitor extends AbstractVisitor{
     @JsonProperty("type")
     public String type;
+    public  static ArrayList<Slot> GuserResrvations =new ArrayList<>();
 
     //Class Constructors//
 
@@ -72,6 +74,7 @@ public class GeneralVisitor extends AbstractVisitor{
             for(Slot.Reservation r:slot.getReservations()){
                 String visitorName = r.getVisitor().userEmail;
                 if(currentr.getUserEmail().equals(visitorName)){
+                    GuserResrvations.add(slot);
                     System.out.println(slot.startTime);
                     System.out.println(slot.endTime);
                 }

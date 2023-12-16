@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class InstructorVisitor extends AbstractVisitor {
     @JsonProperty("type")
     public String type;
+    public  static ArrayList<Slot> IuserResrvations =new ArrayList<>();
 
     //Class Constructors//
 
@@ -75,6 +76,8 @@ public class InstructorVisitor extends AbstractVisitor {
             for(Slot.Reservation r:slot.getReservations()){
                 String visitorEmail = r.getVisitor().userEmail;
                 if(currentr.getUserEmail().equals(visitorEmail)){
+                    IuserResrvations.add(slot);
+
                     System.out.println(slot.getStartTime());
                     System.out.println(slot.getEndTime());
                     System.out.println(slot.getFees());

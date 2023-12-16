@@ -181,6 +181,10 @@ public class Coworks_Main extends Application {
             gslots.add(slot16);
 
             System.out.println("Size of meetingRooms: " + meetingRooms.size());
+            VisitorCancelReservationScreen.getarraylistfrommain(meetingRooms);
+            VisitorCancelReservationScreen.getarraylistfromMain(teachingRooms);
+            VisitorCancelReservationScreen.getarraylistfrommMain(generalRooms);
+
             VisitorController.getarraylistfrommain(meetingRooms);
             VisitorController.getarraylistfromMain(teachingRooms);
             VisitorController.getarraylistfrommMain(generalRooms);
