@@ -24,6 +24,8 @@ abstract public class AbstractRoom
     public String type;
     public ArrayList<Slot> slots;
     public ArrayList<AbstractVisitor> visitors;
+    ArrayList<Slot> availableslots=new ArrayList<>();
+    ArrayList<Slot> reservedslots=new ArrayList<>();
     ArrayList<Slot> availableSlots=new ArrayList<>();
     ArrayList<Slot> ReservedSlots=new ArrayList<>();
 
@@ -35,6 +37,10 @@ abstract public class AbstractRoom
         return type;
     }
     @JsonIgnore abstract ArrayList<? extends AbstractVisitor> getVisitors();
+    public  abstract ArrayList<Slot> getAvailableSlotsForAdmin();
+
+
+
 }
 
 

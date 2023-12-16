@@ -87,6 +87,24 @@ public class GeneralRoom extends AbstractRoom
         }
         return totalAmount;
     }
+    public ArrayList<Slot> getAvailableSlotsForAdmin(){
+
+        for (Slot slot : slots) {
+            // Check if there are no reservations or the slot is not fully reserved
+            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
+                availableslots.add(slot);
+            }
+            else
+                reservedslots.add(slot);
+        }
+        // no available slots.json
+        if(availableslots.isEmpty()){
+            return null;
+        }
+        else{
+            return availableslots;
+        }
+    }
 }
 
 

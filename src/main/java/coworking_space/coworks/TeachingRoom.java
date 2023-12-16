@@ -15,7 +15,7 @@ public class TeachingRoom extends AbstractRoom{
     public String instructorname;
     public String type;
     public ArrayList<InstructorVisitor> visitors;
-    public final int maxNumberOfVisitors = 10;
+    public final int maxNumberOfVisitors = 3;
     @JsonCreator
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projectType") String projecttype,
                         @JsonProperty("boardType") String boardtype, @JsonProperty("instructorName")String instractorname,
@@ -100,6 +100,24 @@ public class TeachingRoom extends AbstractRoom{
             totalAmount += (slot.getReservations().size())*(slot.getFees());
         }
         return totalAmount;
+    }
+    public ArrayList<Slot> getAvailableSlotsForAdmin(){
+
+        for (Slot slot : slots) {
+            // Check if there are no reservations or the slot is not fully reserved
+            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
+                availableslots.add(slot);
+            }
+            else
+                reservedslots.add(slot);
+        }
+        // no available slots.json
+        if(availableslots.isEmpty()){
+            return null;
+        }
+        else{
+            return availableslots;
+        }
     }
 
 }
