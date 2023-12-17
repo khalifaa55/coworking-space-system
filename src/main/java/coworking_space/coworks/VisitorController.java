@@ -4,7 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.RadioButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -14,7 +20,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,7 +31,7 @@ import java.util.ResourceBundle;
 
 
 
-public  class VisitorController implements Initializable {
+public class VisitorController implements Initializable {
 
     @FXML
     private ChoiceBox<String> choiceBox;
@@ -60,6 +69,13 @@ public  class VisitorController implements Initializable {
     @FXML
     public RadioButton Room3;
     private String SelectedRoom;
+    @FXML
+    private Button DisplayinfoScreen;
+
+
+    @FXML
+    private AnchorPane visitorScreen;
+
 
     @FXML
     private Button save;
@@ -224,5 +240,24 @@ public  class VisitorController implements Initializable {
        // choiceBox.getItems().addAll(room1Options);
 
         //System.out.println("Size of meetingRooms: " + meetingRooms.size());
+        // Add default options to the ChoiceBox
+    }
+
+
+    @FXML
+    void DisplayInfoScreen(MouseEvent event) throws IOException
+    {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("DisplayUserData.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) visitorScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
 }

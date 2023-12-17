@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
+import static coworking_space.coworks.Coworks_Main.registrations;
+
 class Registration {
     private String userName;
     private String userEmail;
@@ -17,9 +19,8 @@ class Registration {
     public static void setCurrentRegistration(Registration currentRegistration) {
         Registration.currentRegistration = currentRegistration;
     }
-
     private static Registration currentRegistration;
-    private static final ArrayList<Registration> registrations = new ArrayList<>();
+
     static final String PANEL_NAME = "SCREEN_2";
 
     public Registration(){}
@@ -36,7 +37,6 @@ class Registration {
     public static boolean usernameRegex(String username) {
 
         String usernameRegex = "^[a-zA-Z0-9_]{3,20}$";
-
 
         boolean isValid = Pattern.matches(usernameRegex, username);
 
@@ -99,7 +99,6 @@ class Registration {
         return currentRegistration;
     }
 
-
     public static void  updateRegistrationInfo(ArrayList<Registration> registrations, String userCurrentEmail, String newUserName,String newPassword, String newPhoneNumber) {
         for (Registration registration : registrations) {
             if (registration.getUserEmail().equals(userCurrentEmail)) {
@@ -120,7 +119,6 @@ class Registration {
         }
     }
     public static Registration  getRegistration(){ return currentRegistration;}
-
     public int userid(){return id;}
     public static void updateIdCounter(){
     idCounter=AbstractVisitor.getlasindex();
@@ -143,6 +141,9 @@ class Registration {
     }
     public void setRole(String role) {
         this.role = role;
+    }
+    public void setID(int id) {
+        this.id = id;
     }
     public void setUserName(String userName) {
         this.userName=userName;
