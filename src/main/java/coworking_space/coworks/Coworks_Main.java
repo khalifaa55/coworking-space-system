@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Coworks_Main extends Application
 {
+    public static ArrayList<AbstractVisitor> visitors=new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException
     {
@@ -19,7 +20,6 @@ public class Coworks_Main extends Application
         stage.setScene(scene);
         stage.show();
     }
-    public static ArrayList<AbstractVisitor> visitors=new ArrayList<>();
     public static final ArrayList<Registration> registrations = new ArrayList<>();
     public static void main(String[] args) {launch();
         final String WRITE_VISITORS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";

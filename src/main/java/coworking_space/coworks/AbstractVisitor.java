@@ -32,20 +32,20 @@ public abstract class AbstractVisitor {
         boolean check=false;
         boolean flag=false;
         for (AbstractVisitor v : visitors) {
-            if ((v.id == currentR.userid() || v.userEmail == currentR.getUserEmail()) && currentR.getRole() == v.type) {
+            if ((v.id == currentR.userid() || v.userEmail .equals(currentR.getUserEmail())) && currentR.getRole() .equals(v.type)) {
                 check = true;
                 break;
             }
         }
-        if (check==false) {
+        if (!check) {
             AbstractVisitor visitor = createVisitorFromRegistration(currentR);
             for (AbstractVisitor v : visitors) {
-                if (v.id == currentR.userid() || v.userEmail == currentR.getUserEmail()) {
+                if (v.id == currentR.userid()|| v.userEmail .equals(currentR.getUserEmail())) {
                     flag = true;
                     break;
                 }
             }
-            if (flag == false) {
+            if (!flag) {
                 System.out.println("addvisitor susciss");
                 visitors.add(visitor);
             }

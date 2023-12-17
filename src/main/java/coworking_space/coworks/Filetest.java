@@ -12,6 +12,9 @@ public class Filetest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        AbstractVisitor s=new GeneralVisitor("Bansah",12);
+        Coworks_Main.visitors.add(s);
         for (AbstractVisitor v:  Coworks_Main.visitors) {
             System.out.println(v.name);
             System.out.println(v.password);
@@ -22,8 +25,6 @@ public class Filetest {
             System.out.println("#############################################");
 
         }
-        AbstractVisitor v=new GeneralVisitor("Bansah","1234",12,"general","Bansah@gmail.com","0101745289");
-        Coworks_Main.visitors.add(v);
         try {
             Json.writeVisitorsToFile(Coworks_Main.visitors,WRITE_VISITORS_PATH);
         } catch (IOException e) {
