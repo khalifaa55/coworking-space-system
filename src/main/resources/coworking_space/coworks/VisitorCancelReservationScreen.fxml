@@ -28,7 +28,7 @@
          </font>
       </Label>
       <Button fx:id="R_button" layoutX="910.0" layoutY="177.0" mnemonicParsing="false" onMouseClicked="#replaceReservation" prefHeight="35.0" prefWidth="131.0" text="Replace Reservation " />
-      <AnchorPane fx:id="anchor2" layoutX="416.0" layoutY="296.0" prefHeight="316.0" prefWidth="622.0">
+      <AnchorPane fx:id="anchor2" layoutX="416.0" layoutY="296.0" prefHeight="316.0" prefWidth="622.0" visible="false">
          <children>
             <DatePicker fx:id="date_picker" layoutX="29.0" layoutY="65.0" onAction="#getDate" />
             <ChoiceBox fx:id="slotChoiceBox" layoutX="29.0" layoutY="175.0" prefHeight="34.0" prefWidth="166.0" />
