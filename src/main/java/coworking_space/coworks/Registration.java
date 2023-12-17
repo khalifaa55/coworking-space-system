@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 import static coworking_space.coworks.Coworks_Main.registrations;
 
-class Registration {
+public class Registration {
     private String userName;
     private String userEmail;
     private String phoneNumber;

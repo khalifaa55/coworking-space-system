@@ -46,7 +46,8 @@ public abstract class AbstractVisitor {
                     break;
                 }
             }
-            if (flag == false) {
+            if (!flag) {
+                System.out.println("addvisitor susciss");
                 visitors.add(visitor);
             }
         }
@@ -134,10 +135,11 @@ public abstract class AbstractVisitor {
         return id;
     }
     @JsonIgnore
-    protected abstract void DisplayReservation(AbstractRoom room, Registration currentr) ;
-    protected abstract void makeReservation(AbstractRoom room);
-    protected abstract void updateReservation(AbstractRoom room);
-    public abstract void cancelReservation(AbstractRoom room);
+    protected abstract ArrayList DisplayReservation(AbstractRoom room, Registration currentr) ;
+    protected abstract void makeReservation(AbstractRoom room , LocalDate date ,String startTime,String endTime);
+    //protected abstract void updateReservation(AbstractRoom room, LocalDate date,String startTime,String endTime, Registration currentr);
+    public abstract void cancelReservation(AbstractRoom room,Registration currentr,String startTime,String endTime);
+
 
 }
 //    @JsonIgnore

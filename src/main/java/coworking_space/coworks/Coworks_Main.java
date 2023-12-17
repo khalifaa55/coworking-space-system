@@ -9,7 +9,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Coworks_Main extends Application {
-
+    /*  2 General Rooms: max_num_visitors 20 per room
+        3 Meeting Rooms: max_num_visitors 10 per room
+        3 Teaching Rooms: max_num_visitors 10 per room
+    */
+    public static ArrayList<AbstractVisitor> visitors= new ArrayList<>();
+    public static ArrayList<Registration> registrations = new ArrayList<Registration>();
     public static ArrayList<AbstractRoom> meetingRooms = new ArrayList<>();
 
     public static ArrayList<AbstractRoom> generalRooms = new ArrayList<>();
@@ -34,7 +39,7 @@ public class Coworks_Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Coworks_Main.class.getResource("welcomeScreen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1155, 759);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Coworks");
         stage.setScene(scene);
         stage.show();
