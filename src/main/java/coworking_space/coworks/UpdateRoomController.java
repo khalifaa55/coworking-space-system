@@ -18,6 +18,9 @@ import java.io.IOException;
 
 public class UpdateRoomController {
 
+
+    @FXML
+    private Button logoutButton;
     @FXML
     private Button AddSlotButton;
 

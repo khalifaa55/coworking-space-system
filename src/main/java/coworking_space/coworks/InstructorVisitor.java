@@ -104,7 +104,7 @@ public class InstructorVisitor extends AbstractVisitor {
 
     protected void updateReservation(AbstractRoom Room,  LocalDate date,String startTime,String endTime) {
 
-        TeachingRoom TR= (TeachingRoom)Room;
+        TeachingRoom TR = (TeachingRoom)Room;
         cancelReservation(TR);
         makeReservation(TR,date,startTime,endTime);
 
