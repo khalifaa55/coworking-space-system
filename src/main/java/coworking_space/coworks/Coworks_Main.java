@@ -39,6 +39,17 @@ public class Coworks_Main extends Application
             registrations.add(setRegistration);
         }
 
+
+        for (AbstractVisitor allVisitors:visitors) {
+            Registration setRegistration=new Registration();
+            setRegistration.setUserName(allVisitors.name);
+            setRegistration.setUserEmail(allVisitors.userEmail);
+            setRegistration.setPhoneNumber(allVisitors.phoneNumber);
+            setRegistration.setRole(allVisitors.type);
+            setRegistration.setID(allVisitors.id);
+            registrations.add(setRegistration);
+        }
+
         for (Registration r:registrations) {
             System.out.println(r.getUserName());
             System.out.println(r.getNewPassword());
@@ -48,6 +59,11 @@ public class Coworks_Main extends Application
             System.out.println("############################################");
         }
 
+        try {
+            Json.writeVisitorsToFile(visitors,WRITE_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
        //final String WRITE_MEETING_ROOMS_PATH = "src/main/resources/meetingRooms.json";
       //final String READ_MEETING_ROOMS_PATH = "meetingRooms.json";
@@ -118,11 +134,7 @@ public class Coworks_Main extends Application
 //            throw new RuntimeException(e);
 //        }
 
-        try {
-            Json.writeVisitorsToFile(visitors,WRITE_VISITORS_PATH);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
 
     }
 }

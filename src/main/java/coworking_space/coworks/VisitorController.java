@@ -1,11 +1,18 @@
 package coworking_space.coworks;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -27,6 +34,12 @@ public class VisitorController implements Initializable {
 
     @FXML
     private RadioButton Room3;
+    @FXML
+    private Button DisplayinfoScreen;
+
+
+    @FXML
+    private AnchorPane visitorScreen;
 
 
     @FXML
@@ -76,5 +89,23 @@ public class VisitorController implements Initializable {
         // Add default options to the ChoiceBox
         choiceBox.getItems().addAll(room1Options);
 
+    }
+
+
+    @FXML
+    void DisplayInfoScreen(MouseEvent event) throws IOException
+    {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("DisplayUserData.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) visitorScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
 }

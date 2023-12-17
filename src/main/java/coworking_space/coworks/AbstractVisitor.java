@@ -28,7 +28,6 @@ public abstract class AbstractVisitor {
     public int id;
     @JsonIgnore
     public String type;
-
     public static ArrayList<AbstractVisitor> createVisitorsFromRegistrations(Registration currentR) {
         boolean check=false;
         boolean flag=false;

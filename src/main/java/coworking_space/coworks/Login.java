@@ -3,9 +3,7 @@ package coworking_space.coworks;
 import java.util.Arrays;
 
 class Login {
-
     private String userEmail;
-
     private String password;
     private String role;
 
