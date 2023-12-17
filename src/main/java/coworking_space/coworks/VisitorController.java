@@ -101,7 +101,7 @@ public  class VisitorController implements Initializable {
 
     @FXML
     void getDate(ActionEvent event) {
-        selectedDate=datepicker.getValue();
+        selectedDate = datepicker.getValue();
         if(selectedDate.isAfter(currentDate.plusDays(30))){
             inValidMessage("ERROR!","choose a date within 30 days");
 

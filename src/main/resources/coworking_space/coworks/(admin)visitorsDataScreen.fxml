@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="visitorsDataScreen" prefHeight="759.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.VisitorsDataController">
    <children>
       <ImageView fx:id="visitorsDataImage" fitHeight="769.0" fitWidth="1175.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
@@ -14,10 +13,10 @@
             <Image url="@../../Resources/AdminScreens/VisitorsDataScreen.png" />
          </image>
       </ImageView>
-      <Button id="RoomDataButton" fx:id="RoomDataButton" layoutX="-14.0" layoutY="305.0" mnemonicParsing="false" onMouseClicked="#changeScreenDisplayRoomsDataScreen_3" prefHeight="78.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
-      <Button id="RoomsSlotsButton" fx:id="RoomsAvailableSlots" layoutX="-14.0" layoutY="539.0" mnemonicParsing="false" onMouseClicked="#changeScreenUpdateRoomDataScreen_3" prefHeight="79.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
-      <Button id="VisitorsButton" fx:id="VisitorsData" layoutX="-16.0" layoutY="377.0" mnemonicParsing="false" onMouseClicked="#changeScreenToAvailableRoomsScreen_3" prefHeight="80.0" prefWidth="360.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
-      <Button id="LogOutButton" fx:id="LogOutButton1" layoutX="96.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#LogOut_3" prefHeight="60.0" prefWidth="134.0" style="-fx-background-color: clear; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
+      <Button id="RoomDataButton" fx:id="RoomDataButton" layoutX="2.0" layoutY="305.0" mnemonicParsing="false" onMouseClicked="#changeScreenDisplayRoomsDataScreen_3" prefHeight="78.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="RoomsSlotsButton" fx:id="RoomsAvailableSlots" layoutY="539.0" mnemonicParsing="false" onMouseClicked="#changeScreenUpdateRoomDataScreen_3" prefHeight="79.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="VisitorsButton" fx:id="VisitorsData" layoutX="-1.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#changeScreenToAvailableRoomsScreen_3" prefHeight="80.0" prefWidth="360.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="LogOutButton" fx:id="LogOutButton1" layoutX="113.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#LogOut_3" prefHeight="60.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
