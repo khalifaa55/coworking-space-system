@@ -357,7 +357,7 @@ public void DispalyReservedSlots()
     ObservableList<Slot> Reserved = FXCollections.observableArrayList();
 
 
-    for(Slot s :SelectedRoom.reservedslots)
+    for(Slot s :SelectedRoom.reservedSlots)
     {
         Reserved.add(s);
     }

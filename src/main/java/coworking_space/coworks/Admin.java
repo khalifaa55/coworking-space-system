@@ -88,7 +88,7 @@ public class    Admin {
 
         ArrayList<Slot> AvailableSlots = Room.getAvailableSlotsForAdmin();
         System.out.println("The Reserved Slots are : ");
-        ArrayList<Slot> Reserved = Room.ReservedSlots;
+        ArrayList<Slot> Reserved = Room.reservedSlots;
         for(Slot rslot:Reserved)
         {
             System.out.println("Start Time: " + rslot.getStartTime());

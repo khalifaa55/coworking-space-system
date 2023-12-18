@@ -59,19 +59,24 @@ public class UpdateReservationController implements Initializable {
 
     private ObservableList<String> observableUserSlots = FXCollections.observableArrayList();
 
-    public static  ArrayList<AbstractRoom> meetingRooms;
-    public static ArrayList<AbstractRoom> teachingRooms;
-    public static ArrayList<AbstractRoom> generalRooms;
-    public static void getarraylistfrommain(ArrayList<AbstractRoom> meeting_rooms){
+    public static  ArrayList<MeetingRoom> meetingRooms;
+    public static ArrayList<TeachingRoom> teachingRooms;
+    public static ArrayList<GeneralRoom> generalRooms;
+    public static void getRoomsArrayListFromMain(ArrayList<MeetingRoom> meeting_rooms,ArrayList<TeachingRoom> teaching_rooms,ArrayList<GeneralRoom> general_rooms){
         meetingRooms=meeting_rooms;
-    }
-
-    public static void getarraylistfromMain(ArrayList<AbstractRoom> teaching_rooms){
         teachingRooms=teaching_rooms;
+        generalRooms=general_rooms;
     }
-    public static void getarraylistfrommMain(ArrayList<AbstractRoom> genaral_rooms){
-        generalRooms=genaral_rooms;
-    }
+//    public static void getarraylistfrommain(ArrayList<AbstractRoom> meeting_rooms){
+//        meetingRooms=meeting_rooms;
+//    }
+//
+//    public static void getarraylistfromMain(ArrayList<AbstractRoom> teaching_rooms){
+//        teachingRooms=teaching_rooms;
+//    }
+//    public static void getarraylistfrommMain(ArrayList<AbstractRoom> genaral_rooms){
+//        generalRooms=genaral_rooms;
+//    }
 
 
     private ArrayList<Slot> availableSlots = new ArrayList<>();

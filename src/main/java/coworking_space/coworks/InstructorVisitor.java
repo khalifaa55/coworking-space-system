@@ -14,40 +14,39 @@ import java.util.Scanner;
 
 public class InstructorVisitor extends AbstractVisitor {
     @JsonProperty("type")
-    public String type;
+    public final String type="instructor";
     public  static ArrayList<Slot> IuserResrvations =new ArrayList<>();
 
     //Class Constructors//
 
-    public InstructorVisitor( String name, String password,
-                              int id, String type) {
-        this.type = "instructor";
+    @JsonCreator
+    public InstructorVisitor(@JsonProperty("name") String name,
+                          @JsonProperty("password")String password,
+                          @JsonProperty("id") int id,
+                          @JsonProperty("phoneNumber") String Email,
+                          @JsonProperty("userEmail") String phonenumber) {
         this.name = name;
         this.id = id;
         this.password = password;
+        this.userEmail=Email;
+        this.phoneNumber=phonenumber;
     }
-    @JsonCreator
-    public InstructorVisitor(@JsonProperty("name")String name,
-                             @JsonProperty("id") int id) {
-        this.type="instructor";
+    public InstructorVisitor(String name,
+                            int id) {
         this.name = name;
         this.id = id;
     }
     @JsonCreator
     public InstructorVisitor() {
-        this.type="instructor";
     }
 
     //Getters//
-    @JsonProperty("password")
     public String getPassword(){
         return this.password;
     }
-    @JsonProperty("phoneNumber")
     public String getPhoneNumber(){
         return this.phoneNumber;
     }
-    @JsonProperty("userEmail")
     public String getUserEmail(){
         return this.userEmail;
     }
@@ -65,7 +64,7 @@ public class InstructorVisitor extends AbstractVisitor {
     //Class Methods//
     @JsonIgnore
     public static InstructorVisitor createVisitorFromRegistration(Registration registration) {
-        return new InstructorVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"instructor");
+        return new InstructorVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
     }
 
     @Override
