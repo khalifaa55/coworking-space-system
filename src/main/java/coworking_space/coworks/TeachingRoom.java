@@ -13,7 +13,7 @@ public class TeachingRoom extends AbstractRoom{
     public String projecttype;
     public String boardtype;
     public String instructorname;
-    public String type;
+    public final String type = "teaching";
     public ArrayList<InstructorVisitor> visitors;
     public final int maxNumberOfVisitors = 3;
     @JsonCreator
@@ -25,7 +25,6 @@ public class TeachingRoom extends AbstractRoom{
 
     {
         this(name,id,slots,visitors);
-        this.type="teaching";
         this.projecttype = projecttype;
         this.boardtype = boardtype;
         this.instructorname =instructorname;
@@ -34,7 +33,6 @@ public class TeachingRoom extends AbstractRoom{
     public TeachingRoom(String name, int id, ArrayList<Slot> slots,
                        ArrayList<InstructorVisitor> visitors) {
         this();
-        this.type = "teaching";
         this.name=name;
         this.id=id;
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
@@ -43,7 +41,6 @@ public class TeachingRoom extends AbstractRoom{
 
     }
     public TeachingRoom() {
-        this.type = "teaching";
         this.boardtype="B1";
         this.projecttype="P1";
         this.instructorname ="alshimaa";
@@ -82,7 +79,7 @@ public class TeachingRoom extends AbstractRoom{
                 availableSlots.add(slot);
             }
             else
-                ReservedSlots.add(slot);
+                reservedSlots.add(slot);
         }
         // no available slots.json
         if(availableSlots.isEmpty()){
@@ -101,22 +98,23 @@ public class TeachingRoom extends AbstractRoom{
         }
         return totalAmount;
     }
+    @JsonIgnore
     public ArrayList<Slot> getAvailableSlotsForAdmin(){
 
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
-                availableslots.add(slot);
+                availableSlots.add(slot);
             }
             else
-                reservedslots.add(slot);
+                reservedSlots.add(slot);
         }
         // no available slots.json
-        if(availableslots.isEmpty()){
+        if(availableSlots.isEmpty()){
             return null;
         }
         else{
-            return availableslots;
+            return availableSlots;
         }
     }
 

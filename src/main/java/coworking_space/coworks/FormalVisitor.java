@@ -14,40 +14,39 @@ import java.util.Scanner;
 @JsonTypeName("formal")
 public class FormalVisitor extends AbstractVisitor {
     @JsonProperty("type")
-    public String type;
+    public final String type="formal";
     public  static ArrayList<Slot> FuserResrvations =new ArrayList<>();
 
 
     //Class Constructors//
 
-    public FormalVisitor( String name, String password, int id, String type) {
-        this.type = "formal";
+    @JsonCreator
+    public FormalVisitor(@JsonProperty("name") String name,
+                          @JsonProperty("password")String password,
+                          @JsonProperty("id") int id,
+                          @JsonProperty("phoneNumber") String Email,
+                          @JsonProperty("userEmail") String phonenumber) {
         this.name = name;
         this.id = id;
         this.password = password;
+        this.userEmail=Email;
+        this.phoneNumber=phonenumber;
     }
-    @JsonCreator
-    public FormalVisitor(@JsonProperty("name") String name,
-                         @JsonProperty("id") int id) {
-        this.type="formal";
+    public FormalVisitor(String name, int id) {
         this.name = name;
         this.id = id;
     }
     @JsonCreator
     public FormalVisitor() {
-        this.type="formal";
     }
 
     //Getters//
-    @JsonProperty("password")
     public String getPassword(){
         return this.password;
     }
-    @JsonProperty("phoneNumber")
     public String getPhoneNumber(){
         return this.phoneNumber;
     }
-    @JsonProperty("userEmail")
     public String getUserEmail(){
         return this.userEmail;
     }
@@ -65,7 +64,7 @@ public class FormalVisitor extends AbstractVisitor {
     //Class Methods//
     @JsonIgnore
     public static FormalVisitor createVisitorFromRegistration(Registration registration) {
-        return new FormalVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"formal");
+        return new FormalVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
     }
 
     @Override

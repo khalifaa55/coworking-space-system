@@ -14,41 +14,43 @@ import java.util.Scanner;
 
 public class GeneralVisitor extends AbstractVisitor{
     @JsonProperty("type")
-    public String type;
+    public final String type = "general";
     public  static ArrayList<Slot> GuserResrvations =new ArrayList<>();
 
     //Class Constructors//
-
-    public GeneralVisitor( String name, String password, int id, String type,String Email,String phonenumber) {
-        this.type = type;
+    @JsonCreator
+    public GeneralVisitor(@JsonProperty("name") String name,
+                          @JsonProperty("password")String password,
+                          @JsonProperty("id") int id,
+                          @JsonProperty("phoneNumber") String Email,
+                          @JsonProperty("userEmail") String phonenumber) {
         this.name = name;
         this.id = id;
         this.password = password;
         this.userEmail=Email;
         this.phoneNumber=phonenumber;
     }
-    @JsonCreator
-    public GeneralVisitor(@JsonProperty("name")String name,
-                          @JsonProperty("id") int id) {
-        this.type="general";
+    public GeneralVisitor(String name,
+                          int id) {
+
         this.name = name;
         this.id = id;
     }
     @JsonCreator
     public GeneralVisitor() {
-        this.type="general";
+
     }
 
     //Getters//
-    @JsonProperty("password")
+
     public String getPassword(){
         return this.password;
     }
-    @JsonProperty("phoneNumber")
+
     public String getPhoneNumber(){
         return this.phoneNumber;
     }
-    @JsonProperty("userEmail")
+
     public String getUserEmail(){
         return this.userEmail;
     }
@@ -66,7 +68,7 @@ public class GeneralVisitor extends AbstractVisitor{
     //Class Methods//
     @JsonIgnore
     public static GeneralVisitor createVisitorFromRegistration(Registration registration) {
-        return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"general",registration.getUserEmail(), registration.getPhoneNumber());
+        return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
     }
     @Override
     protected ArrayList DisplayReservation(AbstractRoom room , Registration currentr) {
