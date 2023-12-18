@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static coworking_space.coworks.Coworks_Main.visitors;
-import static coworking_space.coworks.DisplayUserDataController.inValidMessage;
+import static coworking_space.coworks.EditInformationController.inValidMessage;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({

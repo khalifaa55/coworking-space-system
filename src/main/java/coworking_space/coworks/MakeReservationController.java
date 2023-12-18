@@ -224,13 +224,19 @@ public class MakeReservationController implements Initializable {
         Room2.setOnAction(this::handleRadioButtonSelection_1);
         Room3.setOnAction(this::handleRadioButtonSelection_1);
 
-//        leave the spaces for the GUI to look better
-//
-//        choiceBox.setItems(observableSlots);
-//        choiceBox.getItems().addAll(room1Options);
-//
-//        System.out.println("Size of meetingRooms: " + meetingRooms.size());
-//        Add default options to the ChoiceBox
+
+        if (RegisterController.generaltype){
+            Room3.setVisible(false);
+        }
+
+
+        // leave the spaces for the GUI to look better
+
+        //choiceBox.setItems(observableSlots);
+       // choiceBox.getItems().addAll(room1Options);
+
+        //System.out.println("Size of meetingRooms: " + meetingRooms.size());
+        // Add default options to the ChoiceBox
     }
 
     @FXML
