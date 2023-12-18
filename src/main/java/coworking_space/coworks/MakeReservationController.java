@@ -13,7 +13,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -21,7 +20,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,9 +27,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-
-
-public class VisitorController implements Initializable {
+public class MakeReservationController implements Initializable {
 
     @FXML
     private ChoiceBox<String> choiceBox;
@@ -39,7 +35,6 @@ public class VisitorController implements Initializable {
 
     // ObservableList to hold the slot strings for the ChoiceBox
     private ObservableList<String> observableSlots = FXCollections.observableArrayList();
-//
     public static  ArrayList<AbstractRoom> meetingRooms;
     public static ArrayList<AbstractRoom> teachingRooms;
     public static ArrayList<AbstractRoom> generalRooms;
@@ -54,36 +49,40 @@ public class VisitorController implements Initializable {
         generalRooms=genaral_rooms;
     }
 
-    int index;
 
-
-
+    @FXML
+    private Button DisplayinfoButton;
 
     @FXML
     private RadioButton Room1;
-    private String Room;
 
     @FXML
     private RadioButton Room2;
 
     @FXML
-    public RadioButton Room3;
-    private String SelectedRoom;
-    @FXML
-    private Button DisplayinfoScreen;
-
+    private RadioButton Room3;
 
     @FXML
-    private AnchorPane visitorScreen;
+    private ToggleGroup Rooms;
 
+    @FXML
+    private DatePicker datepicker;
+
+    @FXML
+    private Button logoutButton;
 
     @FXML
     private Button save;
 
     @FXML
-    private ToggleGroup Rooms;
+    private Button updateReservationButton;
 
-    public DatePicker datepicker;
+    @FXML
+    private AnchorPane visitorScreen;
+
+    private String SelectedRoom;
+    private String Room;
+    int index;
     LocalDate selectedDate;
     LocalDate currentDate=LocalDate.now();
 
@@ -111,21 +110,16 @@ public class VisitorController implements Initializable {
         popupStage.setScene(scene);
         popupStage.showAndWait();
     }
-
-
-
-
     @FXML
     void getDate(ActionEvent event) {
         selectedDate = datepicker.getValue();
         if(selectedDate.isAfter(currentDate.plusDays(30))){
             inValidMessage("ERROR!","choose a date within 30 days");
 
-        } else if (selectedDate.isBefore(currentDate)) {
-
+        }
+        else if (selectedDate.isBefore(currentDate)) {
             inValidMessage("ERROR!", "invalid date");
         }
-
     }
     private void updatechoiceBox() {
         // Clear the observable list
@@ -148,19 +142,16 @@ public class VisitorController implements Initializable {
         if (RegisterController.formaltype) {
             AbstractRoom meeting_room = meetingRooms.get(i);
             availableSlots = meeting_room.getAvailableSlots(selectedDate);
-
-
-        } else if (RegisterController.instructortype) {
+        }
+        else if (RegisterController.instructortype) {
             AbstractRoom teaching_room = teachingRooms.get(i);
             availableSlots = teaching_room.getAvailableSlots(selectedDate);
-
-        } else {
+        }
+        else {
             Room3.setVisible(false);
             AbstractRoom general_room = generalRooms.get(i);
             availableSlots = general_room.getAvailableSlots(selectedDate);
-
         }
-
 
         updatechoiceBox();
     }
@@ -174,21 +165,19 @@ public class VisitorController implements Initializable {
             System.out.println("room1");
             retrieveAvailableSlots(0);
             index=0;
-
-        } else if (Room.equals("Room_2")) {
+        }
+        else if (Room.equals("Room_2")) {
 
             System.out.println("room2");
             retrieveAvailableSlots(1);
             index=1;
-
-        }else{
+        }
+        else{
 
             System.out.println("room3");
             retrieveAvailableSlots(2);
             index=2;
         }
-
-
     }
 
     void MakeReservation (){
@@ -208,10 +197,12 @@ public class VisitorController implements Initializable {
                 if (RegisterController.formaltype) {
                     FormalVisitor formalVisitor = new FormalVisitor();
                     formalVisitor.makeReservation(meetingRooms.get(index), selectedDate, startTime, endTime);
-                } else if (RegisterController.instructortype) {
+                }
+                else if (RegisterController.instructortype) {
                     InstructorVisitor instructorVisitor = new InstructorVisitor();
                     instructorVisitor.makeReservation(teachingRooms.get(index), selectedDate, startTime, endTime);
-                } else {
+                }
+                else {
                     GeneralVisitor generalVisitor = new GeneralVisitor();
                     generalVisitor.makeReservation(generalRooms.get(index), selectedDate, startTime, endTime);
                 }
@@ -220,12 +211,7 @@ public class VisitorController implements Initializable {
     }
 
     @FXML
-    void getselectedslot(MouseEvent event) {
-        MakeReservation();
-
-    }
-
-
+    void getselectedslot(MouseEvent event) {MakeReservation();}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -233,22 +219,51 @@ public class VisitorController implements Initializable {
         Room2.setOnAction(this::handleRadioButtonSelection_1);
         Room3.setOnAction(this::handleRadioButtonSelection_1);
 
-
-        // leave the spaces for the GUI to look better
-
-        //choiceBox.setItems(observableSlots);
-       // choiceBox.getItems().addAll(room1Options);
-
-        //System.out.println("Size of meetingRooms: " + meetingRooms.size());
-        // Add default options to the ChoiceBox
+//        leave the spaces for the GUI to look better
+//
+//        choiceBox.setItems(observableSlots);
+//        choiceBox.getItems().addAll(room1Options);
+//
+//        System.out.println("Size of meetingRooms: " + meetingRooms.size());
+//        Add default options to the ChoiceBox
     }
 
+    @FXML
+    void changeScreenToUpdateReservationScreen(MouseEvent event) throws IOException {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)updateReservationScreen.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) visitorScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
-    void DisplayInfoScreen(MouseEvent event) throws IOException
+    void changeScreenToDisplayInfoScreen(MouseEvent event) throws IOException
     {
         // Load the loginScreen.fxml file
-        Parent root = FXMLLoader.load(getClass().getResource("DisplayUserData.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)displayUserDataScreen.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) visitorScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("welcomeScreen.fxml"));
 
         // Create a new scene with the loaded FXML content
         Scene scene = new Scene(root);

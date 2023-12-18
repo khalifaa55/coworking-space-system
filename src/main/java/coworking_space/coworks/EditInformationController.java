@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class EditInformation {
+public class EditInformationController {
 
     @FXML
     private Button DisplayCancelReservationScreen;
@@ -56,7 +56,7 @@ public class EditInformation {
     void SwitchToEditScreen(MouseEvent event) throws IOException
     {
         // Load the loginScreen.fxml file
-        Parent root = FXMLLoader.load(getClass().getResource("DisplayUserData.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)editInformationScreen.fxml"));
 
         // Create a new scene with the loaded FXML content
         Scene scene = new Scene(root);
@@ -70,17 +70,17 @@ public class EditInformation {
     }
 
     @FXML
-    void DisplayCancelReservation(MouseEvent event) {
+    void logout_3(MouseEvent event) {
 
     }
 
     @FXML
-    void DisplayMakeReservation(MouseEvent event) {
+    void changeScreenToMakeReservationScreen_3(MouseEvent event) {
 
     }
 
     @FXML
-    void DisplayUpdateReservation(MouseEvent event) {
+    void changeScreenToUpdateReservationScreen_3(MouseEvent event) {
 
     }
 }
