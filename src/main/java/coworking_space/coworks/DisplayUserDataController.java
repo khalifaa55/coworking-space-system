@@ -25,16 +25,10 @@ public class DisplayUserDataController {
     private AnchorPane DisplayInfoScreen;
 
     @FXML
-    private Button DisplayUpdateReservationScreen;
-
-    @FXML
     private Button EditScreenButton;
 
     @FXML
     private Label EmailLabel;
-
-    @FXML
-    private Button MakeReservationScreen;
 
     @FXML
     private Label Passwordlable;

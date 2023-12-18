@@ -75,6 +75,6 @@
       </TextField>
       <Button fx:id="MakeReservationScreen" layoutX="-7.0" layoutY="292.0" mnemonicParsing="false" onMouseClicked="#changeScreenToMakeReservationScreen_3" prefHeight="79.0" prefWidth="365.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
       <Button fx:id="DisplayUpdateReservationScreen" layoutX="-3.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#changeScreenToUpdateReservationScreen_3" prefHeight="77.0" prefWidth="360.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
-      <Button fx:id="DisplayCancelReservationScreen" layoutX="115.0" layoutY="671.0" mnemonicParsing="false" onMouseClicked="#logout_3" prefHeight="62.0" prefWidth="126.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
+      <Button fx:id="logoutButton" layoutX="115.0" layoutY="671.0" mnemonicParsing="false" onMouseClicked="#logout_3" prefHeight="62.0" prefWidth="126.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
    </children>
 </AnchorPane>

@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -15,42 +17,40 @@ import java.io.IOException;
 public class EditInformationController {
 
     @FXML
-    private Button DisplayCancelReservationScreen;
-
-    @FXML
-    private AnchorPane editInfoScreen;
-
-    @FXML
     private Button DisplayUpdateReservationScreen;
-
-    @FXML
-    private Button EditScreen;
-
-    @FXML
-    private Label EmailLabel;
 
     @FXML
     private Button MakeReservationScreen;
 
     @FXML
-    private Label Passwordlable;
+    private TextField SetEmail;
 
     @FXML
-    private Label namelabel;
+    private TextField SetPhoneNum;
 
     @FXML
-    private Label phoneNumberlabel;
+    private ImageView editInfoImage;
 
+    @FXML
+    private AnchorPane editInfoScreen;
 
+    @FXML
+    private Button logoutButton;
+
+    @FXML
+    private TextField setName;
+
+    @FXML
+    private TextField setPassword;
 
     static Registration currentResistrtionn= Registration.getRegistration();
     static AbstractVisitor cVisitor=AbstractVisitor.getCurrentVisitor(currentResistrtionn);
 
     public void initialize() {
-        namelabel.setText(cVisitor.name);
-        EmailLabel.setText(cVisitor.userEmail);
-        Passwordlable.setText(cVisitor.password);
-        phoneNumberlabel.setText(cVisitor.phoneNumber);
+        setName.setText(cVisitor.name);
+        SetEmail.setText(cVisitor.userEmail);
+        setPassword.setText(cVisitor.password);
+        SetPhoneNum.setText(cVisitor.phoneNumber);
     }
     @FXML
     void SaveUpdatedData(MouseEvent event) {
