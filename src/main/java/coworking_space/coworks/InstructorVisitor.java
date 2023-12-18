@@ -100,6 +100,7 @@ public class InstructorVisitor extends AbstractVisitor {
         for (Slot slot : availableslots) {
             if (startTime.equals( slot.startTime) & endTime.equals(slot.endTime) ) {
                 slot.createReservation(instructorVisitor);
+                break;
             }
         }
 

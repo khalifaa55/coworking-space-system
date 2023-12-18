@@ -100,6 +100,7 @@ public class GeneralVisitor extends AbstractVisitor{
 
             if (startTime .equals(slot.startTime) && endTime.equals(slot.endTime)) {
                 slot.createReservation(generalVisitor);
+                break;
             }
         }
     }

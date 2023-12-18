@@ -214,6 +214,7 @@ public class VisitorController implements Initializable {
                     InstructorVisitor instructorVisitor = new InstructorVisitor();
                     instructorVisitor.makeReservation(teachingRooms.get(index), selectedDate, startTime, endTime);
                 } else {
+
                     GeneralVisitor generalVisitor = new GeneralVisitor();
                     generalVisitor.makeReservation(generalRooms.get(index), selectedDate, startTime, endTime);
                 }
@@ -234,6 +235,11 @@ public class VisitorController implements Initializable {
         Room1.setOnAction(this::handleRadioButtonSelection_1);
         Room2.setOnAction(this::handleRadioButtonSelection_1);
         Room3.setOnAction(this::handleRadioButtonSelection_1);
+
+
+        if (RegisterController.generaltype){
+            Room3.setVisible(false);
+        }
 
 
         // leave the spaces for the GUI to look better

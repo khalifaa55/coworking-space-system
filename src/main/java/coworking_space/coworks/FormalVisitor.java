@@ -99,6 +99,7 @@ public class FormalVisitor extends AbstractVisitor {
             if (startTime.equals( slot.startTime) & endTime.equals(slot.endTime) ) {
                 slot.createReservation(formalVisitor);
                 System.out.println("Reservation Made successfully");
+                break;
             }
         }
 
