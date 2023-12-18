@@ -244,7 +244,7 @@ public class DisplayRoomDataController implements Initializable {
 //        VisitorsTable.setItems(FXCollections.observableArrayList(SelectedRoom.visitors));
 //        UpdateRoomData();
 
-    void DisplayRoomVistor(String Id) {
+    public  void  DisplayRoomVistor(String Id) {
 
         for(AbstractRoom r :MRooms) {
             if(Id.equals(String.valueOf(r.id))) {

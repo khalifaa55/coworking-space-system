@@ -102,7 +102,7 @@
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3f388a" height="24.0" layoutX="866.0" layoutY="707.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 20; -fx-arc-height: 20;" width="100.0" />
-      <Label id="RoomProfit" fx:id="RoomProfit" layoutX="901.0" layoutY="707.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: clear;" text="400" textAlignment="JUSTIFY" textFill="WHITE">
+      <Label id="RoomProfit" fx:id="RoomProfit" layoutX="901.0" layoutY="707.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: clear;" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="Calisto MT" size="17.0" />
          </font></Label>
