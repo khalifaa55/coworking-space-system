@@ -221,7 +221,7 @@ public void DisplayAllSlots() {
 
     RoomId.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
     RoomName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().name));
-    RoonTy.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRoomType()));
+    RoonTy.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().type));
 
     // Check if the room has available slots
     Date.setCellValueFactory(cellData -> {
