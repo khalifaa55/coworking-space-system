@@ -43,14 +43,16 @@ public class EditInformationController {
     @FXML
     private TextField setPassword;
 
+
+
     static Registration currentResistrtionn= Registration.getRegistration();
     static AbstractVisitor cVisitor=AbstractVisitor.getCurrentVisitor(currentResistrtionn);
 
     public void initialize() {
-        setName.setText(cVisitor.name);
-        SetEmail.setText(cVisitor.userEmail);
-        setPassword.setText(cVisitor.password);
-        SetPhoneNum.setText(cVisitor.phoneNumber);
+        namelabel.setText(cVisitor.name);
+        EmailLabel.setText(cVisitor.userEmail);
+        Passwordlable.setText(cVisitor.password);
+        phoneNumberlabel.setText(cVisitor.phoneNumber);
     }
     @FXML
     void SaveUpdatedData(MouseEvent event) {

@@ -13,14 +13,14 @@ public class Coworks_Main extends Application {
         3 Meeting Rooms: max_num_visitors 10 per room
         3 Teaching Rooms: max_num_visitors 10 per room
     */
-//    final static String WRITE_GENERAL_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\generalRooms.json";
-//    final static String READ_GENERAL_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\generalRooms.json";
-//    final static String WRITE_MEETING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\meetingRooms.json";
-//    final static String READ_MEETING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\meetingRooms.json";
-//    final static String WRITE_TEACHING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\teachingRooms.json";
-//    final static String READ_TEACHING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\teachingRooms.json";
-//    final static String WRITE_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
-//    final static String READ_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
+    final static String WRITE_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String READ_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String WRITE_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String READ_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String WRITE_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String READ_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String WRITE_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String READ_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
 
     public static ArrayList<AbstractVisitor> visitors= new ArrayList<>();
     public static ArrayList<Registration> registrations = new ArrayList<Registration>();
@@ -47,26 +47,26 @@ public class Coworks_Main extends Application {
     public static ArrayList<Slot> tslots3 = new ArrayList<>();
     public static ArrayList<InstructorVisitor> insts3 = new ArrayList<>();
 
-//    public static void readArrayListFromJson(){
-//        try {
-//            generalRooms = Json.readGeneralRoomsFromFile(READ_GENERAL_ROOMS_PATH);
-//            meetingRooms = Json.readMeetingRoomsFromFile(READ_MEETING_ROOMS_PATH);
-//            teachingRooms = Json.readTeachingRoomsFromFile(READ_TEACHING_ROOMS_PATH);
-//            visitors = Json.readVisitorsFromFile(READ_VISITORS_PATH);
-//        } catch (IOException e) {
-//            throw new RuntimeException("Error reading data from file", e);
-//        }
-//    }
-//    public static void writeArrayListIntoJson(){
-//        try {
-//            Json.writeGeneralRoomsToFile(generalRooms, WRITE_GENERAL_ROOMS_PATH);
-//            Json.writeMeetingRoomsToFile(meetingRooms, WRITE_MEETING_ROOMS_PATH);
-//            Json.writeTeachingRoomsToFile(teachingRooms, WRITE_TEACHING_ROOMS_PATH);
-//            Json.writeVisitorsToFile(visitors, WRITE_VISITORS_PATH);
-//        } catch (IOException e) {
-//            throw new RuntimeException("Error writing data to file", e);
-//        }
-//    }
+    public static void readArrayListFromJson(){
+        try {
+            generalRooms = Json.readGeneralRoomsFromFile(READ_GENERAL_ROOMS_PATH);
+            meetingRooms = Json.readMeetingRoomsFromFile(READ_MEETING_ROOMS_PATH);
+            teachingRooms = Json.readTeachingRoomsFromFile(READ_TEACHING_ROOMS_PATH);
+            visitors = Json.readVisitorsFromFile(READ_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading data from file", e);
+        }
+    }
+    public static void writeArrayListIntoJson(){
+        try {
+            Json.writeGeneralRoomsToFile(generalRooms, WRITE_GENERAL_ROOMS_PATH);
+            Json.writeMeetingRoomsToFile(meetingRooms, WRITE_MEETING_ROOMS_PATH);
+            Json.writeTeachingRoomsToFile(teachingRooms, WRITE_TEACHING_ROOMS_PATH);
+            Json.writeVisitorsToFile(visitors, WRITE_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException("Error writing data to file", e);
+        }
+    }
     public static void sendArrayListToMain(ArrayList<?> arrayList){
         try {
             Object firstElement = arrayList.get(0);
