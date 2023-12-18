@@ -150,26 +150,26 @@ public class RegisterController implements Initializable {
 //        validateEmail(email.getText());
         boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText())&& (password.getText()).equals(confirmPassword.getText());
         // Check if any radio button is selected in the Visitor_Type ToggleGroup
-        if (Visitor_Type.getSelectedToggle() == null) {
-            // No radio button is selected, display an error message or take appropriate action
-            String inValidTitle = "Visitor Validation";
-            String inValidMessage = "Please choose a visitor type.";
-            inValidMessage(inValidTitle, inValidMessage);
-            return; // Stop further processing since validation failed
-        }  else if (!isRegistrationValid) {
-            String inValidTitle = "Invalid Registration";
-            String inValidMessage = "Please fill out missing data.";
-            inValidMessage(inValidTitle, inValidMessage);
-            return;
-        }
-        else {
+//        if (Visitor_Type.getSelectedToggle() == null) {
+//            // No radio button is selected, display an error message or take appropriate action
+//            String inValidTitle = "Visitor Validation";
+//            String inValidMessage = "Please choose a visitor type.";
+//            inValidMessage(inValidTitle, inValidMessage);
+//            return; // Stop further processing since validation failed
+//        }  else if (!isRegistrationValid) {
+//            String inValidTitle = "Invalid Registration";
+//            String inValidMessage = "Please fill out missing data.";
+//            inValidMessage(inValidTitle, inValidMessage);
+//            return;
+//        }
+//        else {
             Registration newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(), visitorType);
             AbstractVisitor.createVisitorsFromRegistrations(newRegistration);
             Registration.setCurrentRegistration(newRegistration);
             Registration.getRegistrations().add(newRegistration);
             System.out.println("Registration successful");
             GoToVisitorScreen();
-        }
+//        }
 
     }
 
