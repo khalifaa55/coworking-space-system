@@ -21,6 +21,7 @@ import java.io.IOException;
 import static coworking_space.coworks.EditInformationController.cVisitor;
 
 public class DisplayUserDataController {
+
     @FXML
     private AnchorPane DisplayInfoScreen;
 
@@ -48,40 +49,32 @@ public class DisplayUserDataController {
     @FXML
     private Button updateReservationButton;
 
-//    @FXML
-//    void SaveUpdatedData(MouseEvent event) {
-//        String newName= setName.getText();
-//        String newEmail=SetEmail.getText();
-//        cVisitor.checkEmail(newEmail);
-//        String newPhoneNumber=SetPhoneNum.getText();
-//        String newPassword=setPassword.getText();
-//        cVisitor.editUserInfo(cVisitor,cVisitor.userEmail,newName,newPassword,newEmail,newPhoneNumber);
-//    }
 
+    static Registration currentResistrtionn= Registration.getRegistration();
+    static AbstractVisitor cVisitor=AbstractVisitor.getCurrentVisitor(currentResistrtionn);
 
-    protected static void inValidMessage(String title, String message){
-        Stage popupStage = new Stage();
-        popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.setTitle(title);
+    public void initialize() {
+        namelabel.setText(cVisitor.name);
+        EmailLabel.setText(cVisitor.userEmail);
+        Passwordlable.setText(cVisitor.password);
+        phoneNumberlabel.setText(cVisitor.phoneNumber);
+    }
 
-        Label Message = new Label(message);
-        Message.setAlignment(Pos.CENTER);
-        Message.setFont(Font.font(14));
-        Message.setStyle("-fx-text-fill: white");
+    @FXML
+    void SwitchToEditScreen(MouseEvent event) throws IOException
+    {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)editInformationScreen.fxml"));
 
-        Button closeButton = new Button("Close");
-        closeButton.setOnAction(event -> popupStage.close());
-        closeButton.setStyle("-fx-background-radius: 10");
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
 
-        VBox layout = new VBox(10);
-        layout.setAlignment(Pos.CENTER);
-        layout.setStyle("-fx-background-color: #6678CB");
-        layout.setPadding(new Insets(10));
-        layout.getChildren().addAll(Message, closeButton);
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) DisplayInfoScreen.getScene().getWindow();
 
-        Scene scene = new Scene(layout, 300, 100);
-        popupStage.setScene(scene);
-        popupStage.showAndWait();
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -101,20 +94,6 @@ public class DisplayUserDataController {
     @FXML
     void changeScreenToUpdateReservationScreen_1(MouseEvent event)throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("(visitor)updateReservationScreen.fxml"));
-
-        // Create a new scene with the loaded FXML content
-        Scene scene = new Scene(root);
-
-        // Get the Stage from the MouseEvent's source
-        Stage stage = (Stage) DisplayInfoScreen.getScene().getWindow();
-
-        // Set the new scene on the stage
-        stage.setScene(scene);
-        stage.show();
-    }
-    @FXML
-    void SwitchToEditScreen(MouseEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("(visitor)editInformationScreen.fxml"));
 
         // Create a new scene with the loaded FXML content
         Scene scene = new Scene(root);
