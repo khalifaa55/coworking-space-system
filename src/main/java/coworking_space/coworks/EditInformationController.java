@@ -18,7 +18,7 @@ public class EditInformationController {
     private Button DisplayCancelReservationScreen;
 
     @FXML
-    private AnchorPane DisplayInfoScreen;
+    private AnchorPane editInfoScreen;
 
     @FXML
     private Button DisplayUpdateReservationScreen;
@@ -53,34 +53,55 @@ public class EditInformationController {
         phoneNumberlabel.setText(cVisitor.phoneNumber);
     }
     @FXML
-    void SwitchToEditScreen(MouseEvent event) throws IOException
+    void SaveUpdatedData(MouseEvent event) {
+
+    }
+    @FXML
+    void changeScreenToMakeReservationScreen_3(MouseEvent event)throws IOException
     {
         // Load the loginScreen.fxml file
-        Parent root = FXMLLoader.load(getClass().getResource("(visitor)editInformationScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)MakeReservationScreen.fxml"));
 
         // Create a new scene with the loaded FXML content
         Scene scene = new Scene(root);
 
         // Get the Stage from the MouseEvent's source
-        Stage stage = (Stage) DisplayInfoScreen.getScene().getWindow();
+        Stage stage = (Stage) editInfoScreen.getScene().getWindow();
 
         // Set the new scene on the stage
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
-    void logout_3(MouseEvent event) {
+    void changeScreenToUpdateReservationScreen_3(MouseEvent event) throws IOException
+    {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)updateReservationScreen.fxml"));
 
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) editInfoScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
-
     @FXML
-    void changeScreenToMakeReservationScreen_3(MouseEvent event) {
+    void logout_3(MouseEvent event) throws IOException
+    {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("welcomeScreen.fxml"));
 
-    }
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
 
-    @FXML
-    void changeScreenToUpdateReservationScreen_3(MouseEvent event) {
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) editInfoScreen.getScene().getWindow();
 
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
 }

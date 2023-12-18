@@ -223,7 +223,7 @@ public class Coworks_Main extends Application {
 
 
             System.out.println("Size of meetingRooms: " + meetingRooms.size());
-            VisitorCancelReservationScreen.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
+            //VisitorCancelReservationScreen.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
             VisitorController.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
 
 //            VisitorCancelReservationScreen.getarraylistfrommain(meetingRooms);

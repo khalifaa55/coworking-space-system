@@ -9,24 +9,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="DisplayINfoScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.EditInformationController">
+<AnchorPane fx:id="editInfoScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.EditInformationController">
    <children>
-      <ImageView fitHeight="762.0" fitWidth="1175.0" layoutX="-1.0" layoutY="-3.0">
+      <ImageView fx:id="editInfoImage" fitHeight="762.0" fitWidth="1175.0" layoutX="-2.0" layoutY="-3.0">
          <image>
             <Image url="@../../Resources/VisitorScreen/EditInformationScreen.png" />
          </image>
       </ImageView>
-      <Text fill="#6678cb" layoutX="563.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :" wrappingWidth="91.0255126953125" x="10.0" y="10.0">
+      <Text fill="#6678cb" layoutX="563.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :" wrappingWidth="91.0255126953125" x="10.0" y="10.0">
          <font>
-            <Font name="Calisto MT Bold" size="21.0" />
+            <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Text>
-      <Text fill="#6678cb" layoutX="563.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Email :" wrappingWidth="168.35888671875" x="10.0" y="10.0">
+      <Text fill="#6678cb" layoutX="561.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Email :" wrappingWidth="168.35888671875" x="10.0" y="10.0">
          <font>
-            <Font name="Calisto MT Bold" size="21.0" />
+            <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Text>
-      <TextField fx:id="SetEmail" layoutX="753.0" layoutY="268.0" opacity="0.73" prefHeight="35.0" prefWidth="297.0" style="-fx-border-color: #3F388A; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-width: 2px; -fx-text-fill: #3F388A;" text="12313">
+      <TextField fx:id="SetEmail" layoutX="754.0" layoutY="300.0" opacity="0.73" prefHeight="35.0" prefWidth="300.0" style="-fx-border-color: #3F388A; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2px; -fx-texte-fill: #3F388A;">
          <font>
             <Font name="Calisto MT" size="19.0" />
          </font>
@@ -34,12 +34,25 @@
             <Blend />
          </effect>
       </TextField>
-      <Text fill="#6678cb" layoutX="564.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="198.5811767578125" x="10.0" y="10.0">
+      <Text fill="#6678cb" layoutX="562.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="198.5811767578125" x="10.0" y="10.0">
          <font>
-            <Font name="Calisto MT Bold" size="21.0" />
+            <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Text>
-      <TextField fx:id="SetPhoneNum" layoutX="753.0" layoutY="336.0" opacity="0.73" prefHeight="35.0" prefWidth="297.0" style="-fx-background-radius: 12; -fx-border-color: #3F388A; -fx-border-width: 2px; -fx-border-radius: 12; -fx-text-fill: #3F388A;" text="1325">
+      <TextField fx:id="SetPhoneNum" layoutX="754.0" layoutY="363.0" opacity="0.73" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 20; -fx-border-color: #3F388A; -fx-border-width: 2px; -fx-border-radius: 20; -fx-text-fill: #3F388A;">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="19.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </TextField>
+      <Text fill="#6678cb" layoutX="560.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New password:" wrappingWidth="198.5811767578125" x="10.0" y="10.0">
+         <font>
+            <Font name="Calisto MT Bold" size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="setPassword" layoutX="755.0" layoutY="507.0" opacity="0.73" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 20; -fx-border-color: #3F388A; -fx-border-radius: 20; -fx-border-width: 2px; -fx-text-fill: #3F388A;">
          <font>
             <Font name="Calisto MT" size="19.0" />
          </font>
@@ -47,25 +60,12 @@
             <Blend />
          </effect>
       </TextField>
-      <Text fill="#6678cb" layoutX="567.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New password:" wrappingWidth="198.5811767578125" x="10.0" y="10.0">
+      <Button layoutX="701.0" layoutY="622.0" mnemonicParsing="false" onMouseClicked="#SaveUpdatedData" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #063878; -fx-background-radius: 20;" text="Save" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
          <font>
-            <Font name="Calisto MT Bold" size="21.0" />
-         </font>
-      </Text>
-      <TextField fx:id="setPassword" layoutX="753.0" layoutY="463.0" opacity="0.73" prefHeight="35.0" prefWidth="297.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20; -fx-border-width: 2px; -fx-text-fill: 063878;">
-         <font>
-            <Font name="Arial Bold Italic" size="19.0" />
-         </font>
-         <effect>
-            <Blend />
-         </effect>
-      </TextField>
-      <Button layoutX="644.0" layoutY="628.0" mnemonicParsing="false" onMouseClicked="#SaveUpdatedData" prefHeight="55.0" prefWidth="208.0" style="-fx-background-color: #063878; -fx-background-radius: 25;" text="Submit" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
-         <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Calisto MT Bold" size="19.0" />
          </font>
       </Button>
-      <TextField fx:id="setName" layoutX="753.0" layoutY="210.0" opacity="0.73" prefHeight="35.0" prefWidth="297.0" style="-fx-border-color: #3F388A; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-width: 2px; -fx-text-fill: #3F388A;" text="1213">
+      <TextField fx:id="setName" layoutX="754.0" layoutY="237.0" opacity="0.73" prefHeight="35.0" prefWidth="300.0" style="-fx-border-color: #3F388A; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2px; -fx-text-fill: #3F388A;">
          <font>
             <Font name="Calisto MT" size="19.0" />
          </font>
@@ -73,9 +73,8 @@
             <Blend />
          </effect>
       </TextField>
-      <Button fx:id="DisplayInfoScreen" layoutX="-1.0" layoutY="491.0" mnemonicParsing="false" onMouseClicked="#DisplayUserInfo" prefHeight="79.0" prefWidth="347.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
-      <Button fx:id="MakeReservationScreen" layoutX="2.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#DisplayMakeReservation" prefHeight="79.0" prefWidth="347.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
-      <Button fx:id="DisplayUpdateReservationScreen" layoutX="3.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#DisplayUpdateReservation" prefHeight="70.0" prefWidth="347.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
-      <Button fx:id="DisplayCancelReservationScreen" layoutX="9.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#DisplayCancelReservation" prefHeight="62.0" prefWidth="347.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
+      <Button fx:id="MakeReservationScreen" layoutX="-7.0" layoutY="292.0" mnemonicParsing="false" onMouseClicked="#changeScreenToMakeReservationScreen_3" prefHeight="79.0" prefWidth="365.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
+      <Button fx:id="DisplayUpdateReservationScreen" layoutX="-3.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#changeScreenToUpdateReservationScreen_3" prefHeight="77.0" prefWidth="360.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
+      <Button fx:id="DisplayCancelReservationScreen" layoutX="115.0" layoutY="671.0" mnemonicParsing="false" onMouseClicked="#logout_3" prefHeight="62.0" prefWidth="126.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
    </children>
 </AnchorPane>
