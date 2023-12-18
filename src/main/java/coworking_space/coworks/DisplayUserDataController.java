@@ -119,6 +119,4 @@ public class DisplayUserDataController {
         stage.setScene(scene);
         stage.show();
     }
-
-
 }

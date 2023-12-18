@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="DisplayInfoScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.DisplayUserDataController">
    <children>
-      <ImageView fitHeight="762.0" fitWidth="1175.0" layoutX="-1.0" layoutY="-2.0">
+      <ImageView fitHeight="762.0" fitWidth="1175.0" layoutX="-1.0" layoutY="-1.0">
          <image>
             <Image url="@../../Resources/VisitorScreen/DisplayInformationScreen.png" />
          </image>
@@ -25,12 +25,32 @@
             <Font name="Calisto MT Bold" size="21.0" />
          </font>
       </Text>
-      <Label fx:id="namelabel" layoutX="639.0" layoutY="393.0" prefHeight="35.0" prefWidth="227.0" style="-fx-border-color: #3F388A; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2px; -fx-text-fill: #3F388A; -fx-background-color: white;">
+      <Label layoutX="640.0" layoutY="526.0" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3F388A; -fx-border-radius: 20; -fx-border-width: 2px;" textFill="#3f388a">
          <font>
             <Font name="Calisto MT" size="19.0" />
          </font>
       </Label>
-      <Label fx:id="EmailLabel" layoutX="640.0" layoutY="458.0" prefHeight="35.0" prefWidth="227.0" style="-fx-border-color: #3F388A; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2px; -fx-text-fill: #3F388A; -fx-background-color: white;">
+      <Label layoutX="641.0" layoutY="595.0" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3F388A; -fx-border-radius: 20; -fx-border-width: 2px;" textFill="#3f388a">
+         <font>
+            <Font name="Calisto MT" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="640.0" layoutY="458.0" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3F388A; -fx-border-radius: 20; -fx-border-width: 2px;" textFill="#3f388a">
+         <font>
+            <Font name="Calisto MT" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="639.0" layoutY="393.0" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3F388A; -fx-border-radius: 20; -fx-border-width: 2px;" textFill="#3f388a">
+         <font>
+            <Font name="Calisto MT" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="namelabel" layoutX="651.0" layoutY="392.0" prefHeight="35.0" prefWidth="255.0" textFill="#3f388a">
+         <font>
+            <Font name="Calisto MT" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="EmailLabel" layoutX="650.0" layoutY="457.0" prefHeight="35.0" prefWidth="255.0" textFill="#3f388a">
          <font>
             <Font name="Calisto MT" size="19.0" />
          </font>
@@ -45,12 +65,12 @@
             <Font name="Calisto MT Bold" size="21.0" />
          </font>
       </Text>
-      <Label fx:id="Passwordlable" layoutX="640.0" layoutY="526.0" prefHeight="35.0" prefWidth="227.0" style="-fx-border-color: #3F388A; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2px; -fx-text-fill: #3F388A; -fx-background-color: white;">
+      <Label fx:id="Passwordlable" layoutX="651.0" layoutY="525.0" prefHeight="35.0" prefWidth="255.0" textFill="#3f388a">
          <font>
             <Font name="Calisto MT" size="19.0" />
          </font>
       </Label>
-      <Label fx:id="phoneNumberlabel" layoutX="641.0" layoutY="595.0" prefHeight="35.0" prefWidth="227.0" style="-fx-border-color: #3F388A; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2px; -fx-text-fill: #3F388A; -fx-background-color: white;">
+      <Label fx:id="phoneNumberlabel" layoutX="652.0" layoutY="594.0" prefHeight="35.0" prefWidth="255.0" textFill="#3f388a">
          <font>
             <Font name="Calisto MT" size="19.0" />
          </font>
