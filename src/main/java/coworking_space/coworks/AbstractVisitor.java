@@ -22,13 +22,20 @@ public abstract class AbstractVisitor {
     protected String phoneNumber;
     protected String password;
     public int id;
-    @JsonIgnore
     public String type;
+    public static ArrayList<AbstractVisitor> visitors;
+
+    public static void getAbstractVisitorsFromMain(ArrayList<AbstractVisitor>Visitors){
+        visitors=Visitors;
+    }
+
     public static void createVisitorsFromRegistrations(Registration currentR) {
         boolean check=false;
         boolean flag=false;
+        String UserEmailCurrentR=currentR.getUserEmail();
+        System.out.println(UserEmailCurrentR);
         for (AbstractVisitor v : visitors) {
-            if ((v.id == currentR.userid() || v.userEmail .equals(currentR.getUserEmail())) && currentR.getRole() .equals(v.type)) {
+            if ( (v.userEmail).equals(UserEmailCurrentR) && currentR.getRole() .equals(v.type)) {
                 check = true;
                 break;
             }
@@ -36,12 +43,12 @@ public abstract class AbstractVisitor {
         if (!check) {
             AbstractVisitor visitor = createVisitorFromRegistration(currentR);
             for (AbstractVisitor v : visitors) {
-                if (v.id == currentR.userid() || v.userEmail.equals(currentR.getUserEmail())) {
+                if ((v.userEmail).equals(UserEmailCurrentR)) {
                     flag = true;
                     break;
                 }
             }
-            if (flag == false) {
+            if (!flag) {
                 visitors.add(visitor);
             }
         }
@@ -65,9 +72,6 @@ public abstract class AbstractVisitor {
             return null; // Return null or throw a specific exception as needed
         }
     }
-
-
-
     @JsonIgnore
     public static AbstractVisitor getCurrentVisitor(Registration currentR) {
         try {

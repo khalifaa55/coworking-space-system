@@ -88,6 +88,7 @@ public class Json {
     public static ArrayList<AbstractVisitor> readVisitorsFromFile(String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
+        objectMapper.enableDefaultTyping();
 
         try {
             return objectMapper.readValue(new File((filePath)), new TypeReference<ArrayList<AbstractVisitor>>() {});

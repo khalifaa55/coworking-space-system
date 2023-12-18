@@ -13,26 +13,25 @@ import java.util.Scanner;
 
 
 public class GeneralVisitor extends AbstractVisitor{
-    @JsonProperty("type")
-    public final String type = "general";
     public  static ArrayList<Slot> GuserResrvations =new ArrayList<>();
 
     //Class Constructors//
     @JsonCreator
-    public GeneralVisitor(@JsonProperty("name") String name,
+    public GeneralVisitor(
+                          @JsonProperty("name") String name,
                           @JsonProperty("password")String password,
                           @JsonProperty("id") int id,
-                          @JsonProperty("phoneNumber") String Email,
-                          @JsonProperty("userEmail") String phonenumber) {
+                          @JsonProperty("userEmail") String Email,
+                          @JsonProperty("phoneNumber") String phoneNumber) {
+        this.type="general";
         this.name = name;
         this.id = id;
         this.password = password;
         this.userEmail=Email;
-        this.phoneNumber=phonenumber;
+        this.phoneNumber=phoneNumber;
     }
-    public GeneralVisitor(String name,
-                          int id) {
-
+    public GeneralVisitor(String name, int id) {
+        this.type="general";
         this.name = name;
         this.id = id;
     }
@@ -66,6 +65,8 @@ public class GeneralVisitor extends AbstractVisitor{
     }
 
     //Class Methods//
+
+
     @JsonIgnore
     public static GeneralVisitor createVisitorFromRegistration(Registration registration) {
         return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());

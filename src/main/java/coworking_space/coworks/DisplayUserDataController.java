@@ -51,6 +51,8 @@ public class DisplayUserDataController {
 
 
     static Registration currentResistrtionn= Registration.getRegistration();
+
+
     static AbstractVisitor cVisitor=AbstractVisitor.getCurrentVisitor(currentResistrtionn);
 
     public void initialize() {

@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class InstructorVisitor extends AbstractVisitor {
-    @JsonProperty("type")
-    public final String type="instructor";
     public  static ArrayList<Slot> IuserResrvations =new ArrayList<>();
 
     //Class Constructors//
@@ -23,16 +21,18 @@ public class InstructorVisitor extends AbstractVisitor {
     public InstructorVisitor(@JsonProperty("name") String name,
                           @JsonProperty("password")String password,
                           @JsonProperty("id") int id,
-                          @JsonProperty("phoneNumber") String Email,
-                          @JsonProperty("userEmail") String phonenumber) {
+                          @JsonProperty("userEmail") String Email,
+                          @JsonProperty("phoneNumber") String phoneNumber) {
+        this.type="instructor";
         this.name = name;
         this.id = id;
         this.password = password;
         this.userEmail=Email;
-        this.phoneNumber=phonenumber;
+        this.phoneNumber=phoneNumber;
     }
     public InstructorVisitor(String name,
                             int id) {
+        this.type="instructor";
         this.name = name;
         this.id = id;
     }

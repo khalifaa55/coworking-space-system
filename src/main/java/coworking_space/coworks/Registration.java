@@ -34,6 +34,17 @@ public class Registration {
 
     }
 
+    public static void getVisitorsFromMain(ArrayList<AbstractVisitor>visitors){
+        for (AbstractVisitor visitorR:visitors) {
+            Registration r=new Registration();
+            r.setPhoneNumber(visitorR.phoneNumber);
+            r.setUserName(visitorR.name);
+            r.setUserEmail(visitorR.userEmail);
+            r.setNewPassword(visitorR.password);
+            registrations.add(r);
+        }
+    }
+
     public static boolean usernameRegex(String username) {
 
         String usernameRegex = "^[a-zA-Z0-9_]{3,20}$";

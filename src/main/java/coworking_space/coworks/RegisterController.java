@@ -44,13 +44,11 @@ public class RegisterController implements Initializable {
     @FXML
     private PasswordField confirmPassword;
 
-
     @FXML
     private TextField email;
 
     @FXML
     public PasswordField password;
-
 
     @FXML
     private TextField phoneNumber;
@@ -133,7 +131,6 @@ public class RegisterController implements Initializable {
             formaltype=true;
         } else if (visitorType.equals("General Visitor")) {
             generaltype=true;
-
         }
         else{
             instructortype=true;
@@ -221,7 +218,6 @@ public class RegisterController implements Initializable {
             String inValidTitle = "Username Validation";
             String inValidMessage ="Invalid username, please try again.";
             inValidMessage(inValidTitle, inValidMessage);
-
         }
     }
 
