@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class GeneralRoom extends AbstractRoom
 {
     //Attributes//
-    public String type;
+    public final String type = "general";
     public final int maxNumberOfVisitors = 2;
     public ArrayList<GeneralVisitor> visitors;
 
@@ -22,7 +22,6 @@ public class GeneralRoom extends AbstractRoom
                        @JsonProperty("id") int id,
                        @JsonProperty("slots") ArrayList<Slot> slots,
                        @JsonProperty("visitors") ArrayList<GeneralVisitor> visitors) {
-        this.type="general";
         this.name = name;
         this.id = id;
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
@@ -31,7 +30,6 @@ public class GeneralRoom extends AbstractRoom
 
     // Default constructor for Jackson
     public GeneralRoom() {
-        this.type = "general";
         this.slots = new ArrayList<>();
         this.visitors = new ArrayList<GeneralVisitor>();
     }
@@ -64,7 +62,7 @@ public class GeneralRoom extends AbstractRoom
                 availableSlots.add(slot);
             }
             else
-                ReservedSlots.add(slot);
+                reservedSlots.add(slot);
         }
         // No available slots
         if (availableSlots.isEmpty()) {
@@ -88,22 +86,23 @@ public class GeneralRoom extends AbstractRoom
         }
         return totalAmount;
     }
+    @JsonIgnore
     public ArrayList<Slot> getAvailableSlotsForAdmin(){
 
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
-                availableslots.add(slot);
+                availableSlots.add(slot);
             }
             else
-                reservedslots.add(slot);
+                reservedSlots.add(slot);
         }
         // no available slots.json
-        if(availableslots.isEmpty()){
+        if(availableSlots.isEmpty()){
             return null;
         }
         else{
-            return availableslots;
+            return availableSlots;
         }
     }
 
