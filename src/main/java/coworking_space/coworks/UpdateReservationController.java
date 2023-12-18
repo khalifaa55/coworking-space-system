@@ -4,9 +4,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -17,12 +19,13 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class VisitorCancelReservationScreen implements Initializable {
+public class UpdateReservationController implements Initializable {
 
 
     @FXML
@@ -30,10 +33,6 @@ public class VisitorCancelReservationScreen implements Initializable {
 
     @FXML
     private Button R_button;
-
-    @FXML
-    public AnchorPane anchor;
-
     @FXML
     private ImageView c_screen;
 
@@ -42,6 +41,11 @@ public class VisitorCancelReservationScreen implements Initializable {
 
     @FXML
     private DatePicker date_picker;
+    @FXML
+    private Button displayInfoButton;
+
+    @FXML
+    private Button makeReservationButton;
 
     @FXML
     private Button saveButton;
@@ -49,7 +53,7 @@ public class VisitorCancelReservationScreen implements Initializable {
     @FXML
     private ChoiceBox<String> slotChoiceBox;
     @FXML
-    public AnchorPane anchor2;
+    public AnchorPane updateReservationScreen;
     LocalDate newSelecteddate ;
     LocalDate currentDate=LocalDate.now();
 
@@ -249,9 +253,7 @@ public class VisitorCancelReservationScreen implements Initializable {
 
             inValidMessage("ERROR!", "invalid date");
         }
-
     }
-
     void makeNewReservation(){
 
         String selectedSlot = slotChoiceBox.getSelectionModel().getSelectedItem();
@@ -279,21 +281,56 @@ public class VisitorCancelReservationScreen implements Initializable {
                 }
             }
         }
-
     }
-
     @FXML
     void replaceReservation(MouseEvent event) {
-        anchor2.setVisible(true);
+        updateReservationScreen.setVisible(true);
         DeleteSlot();
         makeNewReservation();
-
-
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
+    @FXML
+    void changeScreenToDisplayInfoScreen_2(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)displayUserDataScreen.fxml"));
 
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
 
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) updateReservationScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    void changeScreenToMakeReservationScreen_2(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)MakeReservationScreen.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) updateReservationScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    void logout_2(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("welcomeScreen.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) updateReservationScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
 }

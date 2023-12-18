@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="visitorScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.VisitorController">
+<AnchorPane fx:id="visitorScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.MakeReservationController">
    <children>
-      <ImageView fitHeight="770.0" fitWidth="1183.0" layoutX="-23.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="762.0" fitWidth="1175.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D height="982.0" width="1512.0" />
          </viewport>
@@ -22,13 +22,13 @@
             <Image url="@../../Resources/VisitorScreen/MakeReservationScreen.png" />
          </image>
       </ImageView>
-      <ChoiceBox fx:id="choiceBox" layoutX="419.0" layoutY="542.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #3F388A; -fx-pref-width: 280;" />
-      <Label layoutX="430.0" layoutY="473.0" prefHeight="26.0" prefWidth="170.0" text="Choose a Slot :" textFill="#6678ccf5">
+      <ChoiceBox fx:id="choiceBox" layoutX="436.0" layoutY="536.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #3F388A; -fx-pref-width: 280;" />
+      <Label layoutX="435.0" layoutY="467.0" prefHeight="26.0" prefWidth="170.0" text="Choose a Slot :" textFill="#6678ccf5">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Label>
-      <RadioButton fx:id="Room1" layoutX="430.0" layoutY="393.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.0" text="Room_1" textFill="#3f388a">
+      <RadioButton fx:id="Room1" layoutX="446.0" layoutY="393.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.0" text="Room_1" textFill="#3f388a">
          <toggleGroup>
             <ToggleGroup fx:id="Rooms" />
          </toggleGroup>
@@ -36,32 +36,39 @@
             <Font name="Calisto MT Bold" size="18.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="Room2" layoutX="710.0" layoutY="398.0" mnemonicParsing="false" text="Room_2" textFill="#3f388a" toggleGroup="$Rooms">
+      <RadioButton fx:id="Room2" layoutX="726.0" layoutY="398.0" mnemonicParsing="false" text="Room_2" textFill="#3f388a" toggleGroup="$Rooms">
          <font>
             <Font name="Calisto MT Bold" size="18.0" />
          </font></RadioButton>
-      <RadioButton fx:id="Room3" layoutX="936.0" layoutY="398.0" mnemonicParsing="false" text="Room_3" textFill="#3f388a" toggleGroup="$Rooms">
+      <RadioButton fx:id="Room3" layoutX="952.0" layoutY="398.0" mnemonicParsing="false" text="Room_3" textFill="#3f388a" toggleGroup="$Rooms">
          <font>
             <Font name="Calisto MT Bold" size="18.0" />
          </font></RadioButton>
-      <Label layoutX="419.0" layoutY="336.0" text="Choose a Room :" textFill="#6678cc">
+      <Label layoutX="435.0" layoutY="336.0" text="Choose a Room :" textFill="#6678cc">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Label>
-      <Button fx:id="save" layoutX="675.0" layoutY="620.0" mnemonicParsing="false" onMouseClicked="#getselectedslot" prefHeight="50.0" prefWidth="168.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20; -fx-background-color: white;" text="Save" textFill="#063878">
+      <Button fx:id="save" layoutX="675.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#getselectedslot" prefHeight="50.0" prefWidth="168.0" style="-fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20; -fx-background-color: white;" text="Save" textFill="#063878">
          <font>
             <Font name="Calisto MT" size="24.0" />
          </font>
       </Button>
       <Button layoutX="115.0" layoutY="659.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="127.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
-      <DatePicker fx:id="datepicker" layoutX="415.0" layoutY="240.0" onAction="#getDate" />
-      <Label layoutX="419.0" layoutY="189.0" text="Choose a Date :" textFill="#6678cc">
+      <DatePicker fx:id="datepicker" layoutX="435.0" layoutY="257.0" onAction="#getDate" prefHeight="30.0" prefWidth="280.0" style="-fx-background-radius: 30; -fx-border-color: #3F388A; -fx-border-radius: 7; -fx-pref-width: 280;" />
+      <Label layoutX="435.0" layoutY="189.0" text="Choose a Date :" textFill="#6678cc">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Label>
-      <Button fx:id="DisplayinfoScreen" layoutX="-15.0" layoutY="475.0" mnemonicParsing="false" onMouseClicked="#DisplayInfoScreen" prefHeight="90.0" prefWidth="358.0" style="-fx-background-radius: 20; -fx-blend-mode: screen; -fx-border-radius: 20;" />
+      <Button fx:id="DisplayinfoButton" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#changeScreenToDisplayInfoScreen" prefHeight="82.0" prefWidth="359.0" style="-fx-background-color: transparent;" />
       <Button layoutX="140.0" layoutY="553.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="127.0" style="-fx-background-radius: 20; -fx-background-color: transparent; -fx-blend-mode: screen; -fx-border-radius: 20;" />
+      <Button fx:id="updateReservationButton" layoutY="369.0" mnemonicParsing="false" onMouseClicked="#changeScreenToUpdateReservationScreen" prefHeight="84.0" prefWidth="355.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="logoutButton" layoutX="116.0" layoutY="670.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="63.0" prefWidth="128.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="-1.0" layoutY="748.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="360.0" style="-fx-background-color: #063878;">
+         <font>
+            <Font size="5.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

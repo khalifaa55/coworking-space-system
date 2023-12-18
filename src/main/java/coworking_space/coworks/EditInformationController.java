@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -18,19 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static coworking_space.coworks.EditInformation.cVisitor;
-import static coworking_space.coworks.EditInformation.currentResistrtionn;
-
-public class DisplayUserData {
-    @FXML
-    private Button DisplayCancelReservationScreen;
-
-    @FXML
-    private AnchorPane DisplayINfoScreen;
-
-    @FXML
-    private Button DisplayInfoScreen;
-
+public class EditInformationController {
     @FXML
     private Button DisplayUpdateReservationScreen;
 
@@ -42,6 +31,15 @@ public class DisplayUserData {
 
     @FXML
     private TextField SetPhoneNum;
+
+    @FXML
+    private ImageView editInfoImage;
+
+    @FXML
+    private AnchorPane editInfoScreen;
+
+    @FXML
+    private Button logoutButton;
 
     @FXML
     private TextField setName;
@@ -57,7 +55,7 @@ public class DisplayUserData {
         Scene scene = new Scene(root);
 
         // Get the Stage from the MouseEvent's source
-        Stage stage = (Stage) DisplayINfoScreen.getScene().getWindow();
+        Stage stage = (Stage) editInfoScreen.getScene().getWindow();
 
         // Set the new scene on the stage
         stage.setScene(scene);
@@ -100,18 +98,57 @@ public class DisplayUserData {
         popupStage.showAndWait();
     }
 
-    @FXML
-    void DisplayCancelReservation(MouseEvent event) {
 
+
+    static Registration currentResistrtionn= Registration.getRegistration();
+    static AbstractVisitor cVisitor=AbstractVisitor.getCurrentVisitor(currentResistrtionn);
+
+    @FXML
+    void changeScreenToMakeReservationScreen_3(MouseEvent event)throws IOException
+    {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)MakeReservationScreen.fxml"));
+
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) editInfoScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
-
     @FXML
-    void DisplayMakeReservation(MouseEvent event) {
+    void changeScreenToUpdateReservationScreen_3(MouseEvent event) throws IOException
+    {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)updateReservationScreen.fxml"));
 
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) editInfoScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
-
     @FXML
-    void DisplayUpdateReservation(MouseEvent event) {
+    void logout_3(MouseEvent event) throws IOException
+    {
+        // Load the loginScreen.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("welcomeScreen.fxml"));
 
+        // Create a new scene with the loaded FXML content
+        Scene scene = new Scene(root);
+
+        // Get the Stage from the MouseEvent's source
+        Stage stage = (Stage) editInfoScreen.getScene().getWindow();
+
+        // Set the new scene on the stage
+        stage.setScene(scene);
+        stage.show();
     }
 }

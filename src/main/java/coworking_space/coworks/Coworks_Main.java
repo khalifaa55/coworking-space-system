@@ -13,14 +13,14 @@ public class Coworks_Main extends Application {
         3 Meeting Rooms: max_num_visitors 10 per room
         3 Teaching Rooms: max_num_visitors 10 per room
     */
-    final static String WRITE_GENERAL_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\generalRooms.json";
-    final static String READ_GENERAL_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\generalRooms.json";
-    final static String WRITE_MEETING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\meetingRooms.json";
-    final static String READ_MEETING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\meetingRooms.json";
-    final static String WRITE_TEACHING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\teachingRooms.json";
-    final static String READ_TEACHING_ROOMS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\teachingRooms.json";
-    final static String WRITE_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
-    final static String READ_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
+    final static String WRITE_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String READ_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String WRITE_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String READ_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String WRITE_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String READ_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String WRITE_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String READ_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
 
     public static ArrayList<AbstractVisitor> visitors= new ArrayList<>();
     public static ArrayList<Registration> registrations = new ArrayList<Registration>();
@@ -97,7 +97,7 @@ public class Coworks_Main extends Application {
         //write into files when exiting program
         stage.setOnCloseRequest(event -> {
             System.out.println("writing in file");
-                writeArrayListIntoJson();
+//                writeArrayListIntoJson();
         });
         stage.show();
     }
@@ -108,7 +108,7 @@ public class Coworks_Main extends Application {
 //
 //        ArrayList<AbstractVisitor> visitors=new ArrayList<>();
         public static void main (String[] args ){
-            readArrayListFromJson();
+//            readArrayListFromJson();
 
             FormalVisitor formal = new FormalVisitor("h", 12);
             FormalVisitor formal0 = new FormalVisitor("R", 14);
@@ -223,8 +223,8 @@ public class Coworks_Main extends Application {
 
 
             System.out.println("Size of meetingRooms: " + meetingRooms.size());
-            VisitorCancelReservationScreen.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
-            VisitorController.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
+            //VisitorCancelReservationScreen.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
+            MakeReservationController.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
 
 //            VisitorCancelReservationScreen.getarraylistfrommain(meetingRooms);
 //            VisitorCancelReservationScreen.getarraylistfromMain(teachingRooms);

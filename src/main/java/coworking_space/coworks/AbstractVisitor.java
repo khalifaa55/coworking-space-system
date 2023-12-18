@@ -1,19 +1,14 @@
 package coworking_space.coworks;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import coworking_space.coworks.AbstractRoom;
-import coworking_space.coworks.FormalVisitor;
-import coworking_space.coworks.GeneralVisitor;
-import coworking_space.coworks.InstructorVisitor;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static coworking_space.coworks.Coworks_Main.visitors;
-import static coworking_space.coworks.DisplayUserData.inValidMessage;
+import static coworking_space.coworks.DisplayUserDataController.inValidMessage;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
