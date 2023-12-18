@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class EditInformationController {
+
     @FXML
     private Button DisplayUpdateReservationScreen;
 
