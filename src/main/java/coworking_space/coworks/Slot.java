@@ -110,7 +110,7 @@ public class Slot
 
     // Inner class
 
-    public  class Reservation
+    public static class Reservation
     {
         public AbstractVisitor visitor;
         public LocalDate date;

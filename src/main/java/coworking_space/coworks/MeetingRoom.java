@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 
 public class MeetingRoom extends AbstractRoom {
-    public String type;
+    public final String type = "meeting";
     public final int maxNumberOfVisitors = 10;
     public ArrayList<FormalVisitor> visitors;
 
@@ -22,7 +22,6 @@ public class MeetingRoom extends AbstractRoom {
                        @JsonProperty("slots") ArrayList<Slot> slots,
                        @JsonProperty("visitors") ArrayList<FormalVisitor> visitors) {
         this();
-        this.type="meeting";
         this.name = name;
         this.id = id;
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
@@ -30,7 +29,6 @@ public class MeetingRoom extends AbstractRoom {
     }
 
     public MeetingRoom() {
-        this.type="meeting";
         this.slots = new ArrayList<>();
         this.visitors = new ArrayList<FormalVisitor>();
     }
@@ -63,7 +61,7 @@ public class MeetingRoom extends AbstractRoom {
                 availableSlots.add(slot);
             }
             else
-                ReservedSlots.add(slot);
+                reservedSlots.add(slot);
         }
         // no available slots.json
         if (availableSlots.isEmpty()) {
@@ -86,23 +84,23 @@ public class MeetingRoom extends AbstractRoom {
         }
         return totalAmount;
     }
-
+    @JsonIgnore
     public ArrayList<Slot> getAvailableSlotsForAdmin(){
 
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
-                availableslots.add(slot);
+                availableSlots.add(slot);
             }
             else
-                reservedslots.add(slot);
+                reservedSlots.add(slot);
         }
         // no available slots.json
-        if(availableslots.isEmpty()){
+        if(availableSlots.isEmpty()){
             return null;
         }
         else{
-            return availableslots;
+            return availableSlots;
         }
     }
 

@@ -135,7 +135,9 @@ public class filesMain {
         visitors.add(inst3);
         visitors.add(inst4);
         visitors.add(inst5);
-
+        for(AbstractVisitor visitor: visitors){
+            System.out.println(visitor);
+        }
 
         try {
             Json.writeVisitorsToFile( visitors, WRITE_VISITORS_PATH);

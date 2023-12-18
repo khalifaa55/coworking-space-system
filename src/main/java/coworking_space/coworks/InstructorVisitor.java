@@ -14,39 +14,39 @@ import java.util.Scanner;
 
 public class InstructorVisitor extends AbstractVisitor {
     @JsonProperty("type")
-    public String type;
+    public final String type="instructor";
+    public  static ArrayList<Slot> IuserResrvations =new ArrayList<>();
 
     //Class Constructors//
 
-    public InstructorVisitor( String name, String password,
-                              int id, String type) {
-        this.type = "instructor";
+    @JsonCreator
+    public InstructorVisitor(@JsonProperty("name") String name,
+                          @JsonProperty("password")String password,
+                          @JsonProperty("id") int id,
+                          @JsonProperty("phoneNumber") String Email,
+                          @JsonProperty("userEmail") String phonenumber) {
         this.name = name;
         this.id = id;
         this.password = password;
+        this.userEmail=Email;
+        this.phoneNumber=phonenumber;
     }
-    @JsonCreator
-    public InstructorVisitor(@JsonProperty("name")String name,
-                             @JsonProperty("id") int id) {
-        this.type="instructor";
+    public InstructorVisitor(String name,
+                            int id) {
         this.name = name;
         this.id = id;
     }
     @JsonCreator
     public InstructorVisitor() {
-        this.type="instructor";
     }
 
     //Getters//
-    @JsonProperty("password")
     public String getPassword(){
         return this.password;
     }
-    @JsonProperty("phoneNumber")
     public String getPhoneNumber(){
         return this.phoneNumber;
     }
-    @JsonProperty("userEmail")
     public String getUserEmail(){
         return this.userEmail;
     }
@@ -64,17 +64,19 @@ public class InstructorVisitor extends AbstractVisitor {
     //Class Methods//
     @JsonIgnore
     public static InstructorVisitor createVisitorFromRegistration(Registration registration) {
-        return new InstructorVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"instructor");
+        return new InstructorVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
     }
 
     @Override
-    protected void DisplayReservation(AbstractRoom room , Registration currentr) {
+    protected ArrayList DisplayReservation(AbstractRoom room , Registration currentr) {
 
         TeachingRoom TR = (TeachingRoom) room;
         for(Slot slot:TR.getSlots()){
             for(Slot.Reservation r:slot.getReservations()){
                 String visitorEmail = r.getVisitor().userEmail;
                 if(currentr.getUserEmail().equals(visitorEmail)){
+                    IuserResrvations.add(slot);
+
                     System.out.println(slot.getStartTime());
                     System.out.println(slot.getEndTime());
                     System.out.println(slot.getFees());
@@ -82,6 +84,7 @@ public class InstructorVisitor extends AbstractVisitor {
                 }
             }
         }
+        return IuserResrvations;
 
     }
 
@@ -102,38 +105,28 @@ public class InstructorVisitor extends AbstractVisitor {
 
     }
 
-    protected void updateReservation(AbstractRoom Room,  LocalDate date,String startTime,String endTime) {
+    protected void updateReservation(AbstractRoom Room,  LocalDate date,String startTime,String endTime, Registration currentr) {
 
         TeachingRoom TR= (TeachingRoom)Room;
-        cancelReservation(TR);
+      // cancelReservation(TR,currentr);
         makeReservation(TR,date,startTime,endTime);
 
     }
 
-    public void cancelReservation(AbstractRoom Room) {
+    public void cancelReservation(AbstractRoom Room, Registration currentr,String startTime,String endTime) {
 
         TeachingRoom TR= (TeachingRoom) Room;
-
-        Scanner input1 = new Scanner(System.in);
-        String startTimestring=input1.nextLine();
-        //LocalDateTime startTime = LocalDateTime.parse(startTimestring);
-
-        Scanner input2 = new Scanner(System.in);
-        String endTimestring=input2.nextLine();
-        //LocalDateTime endTime = LocalDateTime.parse(endTimestring);
-
-        Scanner input3 = new Scanner(System.in);
-        double fees=input3.nextDouble();
-        Slot Reservedslot = new Slot(startTimestring,  endTimestring,  fees);
-        InstructorVisitor instructorVisitor = new InstructorVisitor();
-
-        Slot canceledslot=new Slot (startTimestring,  endTimestring,  fees);
-
-        for (Slot slot : TR.slots)
-        {
-            if (canceledslot.startTime.equals(slot.startTime) && canceledslot.endTime.equals(slot.endTime)) {
-                slot.removeReservation(canceledslot.createReservation(instructorVisitor));
-
+        for (Slot slot : TR.slots) {
+            if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
+                for (Slot.Reservation r : slot.getReservations()) {
+                    String visitorEmail = r.getVisitor().userEmail;
+                    if (currentr.getUserEmail().equals(visitorEmail)) {
+                        slot.removeReservation(r);
+                        // Optionally add a message or confirmation of cancellation
+                        System.out.println("Reservation canceled successfully!");
+                        return; // Exit the method after canceling the reservation
+                    }
+                }
             }
         }
     }

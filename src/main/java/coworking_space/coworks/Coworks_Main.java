@@ -9,10 +9,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Coworks_Main extends Application {
+    /*  2 General Rooms: max_num_visitors 20 per room
+        3 Meeting Rooms: max_num_visitors 10 per room
+        3 Teaching Rooms: max_num_visitors 10 per room
+    */
+    final static String WRITE_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String READ_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String WRITE_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String READ_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String WRITE_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String READ_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String WRITE_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String READ_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
 
-    public static ArrayList<AbstractRoom> meetingRooms = new ArrayList<>();
+    public static ArrayList<AbstractVisitor> visitors= new ArrayList<>();
+    public static ArrayList<Registration> registrations = new ArrayList<Registration>();
+    public static ArrayList<MeetingRoom> meetingRooms = new ArrayList<>();
+    public static ArrayList<GeneralRoom> generalRooms = new ArrayList<>();
+    public static ArrayList<TeachingRoom> teachingRooms=new ArrayList<>();
+///////////////////////////////////////////////////////
 
-    public static ArrayList<AbstractRoom> generalRooms = new ArrayList<>();
 
     public static ArrayList<Slot> Mslots = new ArrayList<>();
     public static ArrayList<FormalVisitor> formals = new ArrayList<>();
@@ -22,7 +38,7 @@ public class Coworks_Main extends Application {
     public static ArrayList<FormalVisitor> formals3 = new ArrayList<>();
 
 
-    public static ArrayList<AbstractRoom> teachingRooms = new ArrayList<>();
+//    public static ArrayList<AbstractRoom> teachingRooms = new ArrayList<>();
 
     public static ArrayList<Slot> tslots = new ArrayList<>();
     public static ArrayList<InstructorVisitor> insts = new ArrayList<>();
@@ -31,12 +47,58 @@ public class Coworks_Main extends Application {
     public static ArrayList<Slot> tslots3 = new ArrayList<>();
     public static ArrayList<InstructorVisitor> insts3 = new ArrayList<>();
 
+    public static void readArrayListFromJson(){
+        try {
+            generalRooms = Json.readGeneralRoomsFromFile(READ_GENERAL_ROOMS_PATH);
+            meetingRooms = Json.readMeetingRoomsFromFile(READ_MEETING_ROOMS_PATH);
+            teachingRooms = Json.readTeachingRoomsFromFile(READ_TEACHING_ROOMS_PATH);
+            visitors = Json.readVisitorsFromFile(READ_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading data from file", e);
+        }
+    }
+    public static void writeArrayListIntoJson(){
+        try {
+            Json.writeGeneralRoomsToFile(generalRooms, WRITE_GENERAL_ROOMS_PATH);
+            Json.writeMeetingRoomsToFile(meetingRooms, WRITE_MEETING_ROOMS_PATH);
+            Json.writeTeachingRoomsToFile(teachingRooms, WRITE_TEACHING_ROOMS_PATH);
+            Json.writeVisitorsToFile(visitors, WRITE_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException("Error writing data to file", e);
+        }
+    }
+    public static void sendArrayListToMain(ArrayList<?> arrayList){
+        try {
+            Object firstElement = arrayList.get(0);
+            if(firstElement instanceof MeetingRoom){
+                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
+            }
+            else if(firstElement instanceof GeneralRoom){
+                generalRooms = (ArrayList<GeneralRoom>) arrayList;
+            }
+            else if(firstElement instanceof TeachingRoom){
+                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
+            }
+            else if(firstElement instanceof AbstractVisitor){
+                visitors = (ArrayList<AbstractVisitor>) arrayList;
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Null ArrayList");
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Coworks_Main.class.getResource("welcomeScreen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1155, 759);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Coworks");
         stage.setScene(scene);
+        //write into files when exiting program
+        stage.setOnCloseRequest(event -> {
+            System.out.println("writing in file");
+//                writeArrayListIntoJson();
+        });
         stage.show();
     }
 
@@ -46,21 +108,7 @@ public class Coworks_Main extends Application {
 //
 //        ArrayList<AbstractVisitor> visitors=new ArrayList<>();
         public static void main (String[] args ){
-
-            final String WRITE_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
-            final String READ_VISITORS_PATH = "E:\\coworking space\\coworks\\src\\main\\resources\\visitors.json";
-
-//            ArrayList<AbstractVisitor> visitors = new ArrayList<>();
-//            try {
-//                visitors = Json.readVisitorsFromFile(READ_VISITORS_PATH);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-
-
-//        final String WRITE_MEETING_ROOMS_PATH = "src/main/resources/meetingRooms.json";
-//        final String READ_MEETING_ROOMS_PATH = "meetingRooms.json";
-
+//            readArrayListFromJson();
 
             FormalVisitor formal = new FormalVisitor("h", 12);
             FormalVisitor formal0 = new FormalVisitor("R", 14);
@@ -71,22 +119,15 @@ public class Coworks_Main extends Application {
             FormalVisitor formal3 = new FormalVisitor("G", 122);
             FormalVisitor formal4 = new FormalVisitor("D", 142);
 
-
-//        try {
-//            visitors= Json.readVisitorsFromFile(READ_VISITORS_PATH);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-
-            Slot slot1 = new Slot("8", "10", 100.00);
-            Slot slot2 = new Slot("10", "12", 300);
+            Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00);
+            Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300);
 
 
-            Slot slot3 = new Slot("11", "1", 100.00);
-            Slot slot4 = new Slot("1", "3", 300);
+            Slot slot3 = new Slot("02:00 PM", "04:00 PM", 100.00);
+            Slot slot4 = new Slot("04:00 PM", "06:00 PM", 300);
 
-            Slot slot5 = new Slot("6", "8", 100.00);
-            Slot slot6 = new Slot("3", "5", 300);
+            Slot slot5 = new Slot("06:00 PM", "08:00 PM", 100.00);
+            Slot slot6 = new Slot("08:00 PM", "10:00 PM", 300);
 
             // slot2.createReservation(inst);
             //slot1.createReservation(inst);
@@ -125,15 +166,15 @@ public class Coworks_Main extends Application {
 //        InstructorVisitor inst6 = new InstructorVisitor("D",142);
 
 
-            Slot slot7 = new Slot("8/11", "9/11", 100.00);
-            Slot slot8 = new Slot("11/11", "10/10", 300);
+            Slot slot7 = new Slot("08:00 AM", "10:00 AM", 100.00);
+            Slot slot8 = new Slot("10:00 AM", "12:00 PM", 300.00);
 
 
-            Slot slot9 = new Slot("8/11", "9/11", 100.00);
-            Slot slot10 = new Slot("11/11", "10/10", 300);
+            Slot slot9 = new Slot("08:00 AM", "10:00 AM", 100.00);
+            Slot slot10 = new Slot("10:00 AM", "12:00 PM", 300.00);
 
-            Slot slot11 = new Slot("8/11", "9/11", 100.00);
-            Slot slot12 = new Slot("11/11", "10/10", 300);
+            Slot slot11 = new Slot("08:00 AM", "10:00 AM", 100.00);
+            Slot slot12 = new Slot("10:00 AM", "12:00 PM", 300.00);
 
 
             tslots.add(slot7);
@@ -159,11 +200,11 @@ public class Coworks_Main extends Application {
             ArrayList<GeneralVisitor> generals = new ArrayList<>();
             ArrayList<GeneralVisitor> generals2 = new ArrayList<>();
 
-            Slot slot13 = new Slot("11", "1", 100.00);
-            Slot slot14 = new Slot("1", "3", 300);
+            Slot slot13 = new Slot("02:00 PM", "04:00 PM", 100.00);
+            Slot slot14 = new Slot("04:00 PM", "06:00 PM", 300.00);
 
-            Slot slot15 = new Slot("6", "8", 100.00);
-            Slot slot16 = new Slot("3", "5", 300);
+            Slot slot15 = new Slot("06:00 PM", "08:00 PM", 100.00);
+            Slot slot16 = new Slot("04:00", "06:00 PM", 300.00);
 
 
 
@@ -180,22 +221,24 @@ public class Coworks_Main extends Application {
             gslots.add(slot15);
             gslots.add(slot16);
 
+
             System.out.println("Size of meetingRooms: " + meetingRooms.size());
-            VisitorController.getarraylistfrommain(meetingRooms);
-            VisitorController.getarraylistfromMain(teachingRooms);
-            VisitorController.getarraylistfrommMain(generalRooms);
+            //VisitorCancelReservationScreen.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
+            MakeReservationController.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
+
+//            VisitorCancelReservationScreen.getarraylistfrommain(meetingRooms);
+//            VisitorCancelReservationScreen.getarraylistfromMain(teachingRooms);
+//            VisitorCancelReservationScreen.getarraylistfrommMain(generalRooms);
+
+//            VisitorController.getarraylistfrommain(meetingRooms);
+//            VisitorController.getarraylistfromMain(teachingRooms);
+//            VisitorController.getarraylistfrommMain(generalRooms);
 
             // System.out.println(meetingRooms.get(0));
             //System.out.println("Size of meetingRooms: " + meetingRooms.size());
 
 
-
-//
-//        try {
-//            Json.writeRoomsToFile(meetingRooms,WRITE_MEETING_ROOMS_PATH);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+            //writeArrayListIntoJson();
             launch();
 
 

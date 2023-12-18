@@ -7,44 +7,50 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 
 public class GeneralVisitor extends AbstractVisitor{
     @JsonProperty("type")
-    public String type;
+    public final String type = "general";
+    public  static ArrayList<Slot> GuserResrvations =new ArrayList<>();
 
     //Class Constructors//
-
-    public GeneralVisitor( String name, String password, int id, String type) {
-        this.type = type;
+    @JsonCreator
+    public GeneralVisitor(@JsonProperty("name") String name,
+                          @JsonProperty("password")String password,
+                          @JsonProperty("id") int id,
+                          @JsonProperty("phoneNumber") String Email,
+                          @JsonProperty("userEmail") String phonenumber) {
         this.name = name;
         this.id = id;
         this.password = password;
+        this.userEmail=Email;
+        this.phoneNumber=phonenumber;
     }
-    @JsonCreator
-    public GeneralVisitor(@JsonProperty("name")String name,
-                          @JsonProperty("id") int id) {
-        this.type="general";
+    public GeneralVisitor(String name,
+                          int id) {
+
         this.name = name;
         this.id = id;
     }
     @JsonCreator
     public GeneralVisitor() {
-        this.type="general";
+
     }
 
     //Getters//
-    @JsonProperty("password")
+
     public String getPassword(){
         return this.password;
     }
-    @JsonProperty("phoneNumber")
+
     public String getPhoneNumber(){
         return this.phoneNumber;
     }
-    @JsonProperty("userEmail")
+
     public String getUserEmail(){
         return this.userEmail;
     }
@@ -62,21 +68,23 @@ public class GeneralVisitor extends AbstractVisitor{
     //Class Methods//
     @JsonIgnore
     public static GeneralVisitor createVisitorFromRegistration(Registration registration) {
-        return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),"general");
+        return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
     }
     @Override
-    protected void DisplayReservation(AbstractRoom room , Registration currentr) {
+    protected ArrayList DisplayReservation(AbstractRoom room , Registration currentr) {
         GeneralRoom gene = (GeneralRoom) room;
 
         for(Slot slot:gene.getSlots()){
             for(Slot.Reservation r:slot.getReservations()){
                 String visitorName = r.getVisitor().userEmail;
                 if(currentr.getUserEmail().equals(visitorName)){
+                    GuserResrvations.add(slot);
                     System.out.println(slot.startTime);
                     System.out.println(slot.endTime);
                 }
             }
         }
+        return GuserResrvations;
 
     }
     protected void makeReservation(AbstractRoom room , LocalDate date , String startTime , String endTime) {
@@ -96,35 +104,29 @@ public class GeneralVisitor extends AbstractVisitor{
         }
     }
 
-    protected void updateReservation(AbstractRoom Room, LocalDate date,String startTime,String endTime) {
+    protected void updateReservation(AbstractRoom Room, LocalDate date,String startTime,String endTime,Registration currentr) {
 
         GeneralRoom GR= (GeneralRoom)Room;
-        cancelReservation(GR);
+        //cancelReservation(GR,currentr);
         makeReservation(GR,date,startTime,endTime);
 
     }
 
-    public void cancelReservation(AbstractRoom Room) {
+    public void cancelReservation(AbstractRoom Room,Registration currentr,String startTime,String endTime) {
 
         GeneralRoom GR= (GeneralRoom) Room;
 
-        Scanner input1 = new Scanner(System.in);
-        String startTime=input1.nextLine();
-
-        Scanner input2 = new Scanner(System.in);
-        String endTime=input2.nextLine();
-
-        Scanner input3 = new Scanner(System.in);
-        double fees=input3.nextDouble();
-        Slot Reserved_slot = new Slot(startTime,  endTime,  fees);
-        GeneralVisitor generalVisitor = new GeneralVisitor();
-
-        Slot canceled_slot=new Slot (startTime,  endTime,  fees);
-
-
-        for(Slot slot :GR.slots) {
-            if (canceled_slot.startTime.equals(slot.startTime) && canceled_slot.endTime.equals(slot.endTime)) {
-                canceled_slot.removeReservation(canceled_slot.createReservation(generalVisitor));
+        for (Slot slot : GR.slots) {
+            if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
+                for (Slot.Reservation r : slot.getReservations()) {
+                    String visitorEmail = r.getVisitor().userEmail;
+                    if (currentr.getUserEmail().equals(visitorEmail)) {
+                        slot.removeReservation(r);
+                        // Optionally add a message or confirmation of cancellation
+                        System.out.println("Reservation canceled successfully!");
+                        return; // Exit the method after canceling the reservation
+                    }
+                }
             }
         }
     }

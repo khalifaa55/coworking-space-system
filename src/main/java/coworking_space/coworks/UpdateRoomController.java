@@ -29,6 +29,9 @@ import java.util.ResourceBundle;
 
 public class UpdateRoomController implements Initializable {
 
+
+    @FXML
+    private Button logoutButton;
     @FXML
     private Button AddSlotButton;
 
