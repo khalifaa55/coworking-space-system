@@ -5,30 +5,18 @@
     "startTime" : "02:00 PM",
     "endTime" : "04:00 PM",
     "fees" : 100.0,
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "general",
-        "name" : null,
-        "password" : null,
-        "id" : 0,
-        "userEmail" : null,
-        "phoneNumber" : null,
-        "type" : null
-      },
-      "date" : null
-    } ],
-    "currentDate" : [ 2023, 12, 18 ]
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
   }, {
     "startTime" : "04:00 PM",
     "endTime" : "06:00 PM",
     "fees" : 300.0,
     "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
+    "currentDate" : [ 2023, 12, 19 ]
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "C",
   "id" : 125,
@@ -37,618 +25,17 @@
     "endTime" : "08:00 PM",
     "fees" : 100.0,
     "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
+    "currentDate" : [ 2023, 12, 19 ]
   }, {
     "startTime" : "04:00",
     "endTime" : "06:00 PM",
     "fees" : 300.0,
     "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
+    "currentDate" : [ 2023, 12, 19 ]
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 18 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "B",
   "id" : 124,
@@ -667,8 +54,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "C",
   "id" : 125,
@@ -687,8 +73,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "B",
   "id" : 124,
@@ -707,8 +92,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "C",
   "id" : 125,
@@ -727,8 +111,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "B",
   "id" : 124,
@@ -747,8 +130,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "C",
   "id" : 125,
@@ -767,8 +149,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "B",
   "id" : 124,
@@ -787,8 +168,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "C",
   "id" : 125,
@@ -807,8 +187,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "B",
   "id" : 124,
@@ -827,8 +206,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "C",
   "id" : 125,
@@ -847,8 +225,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "B",
   "id" : 124,
@@ -867,8 +244,7 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 }, {
   "name" : "C",
   "id" : 125,
@@ -887,526 +263,5 @@
   } ],
   "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2,
-  "reservationsInDate" : [ ]
+  "maxNumberOfVisitors" : 2
 } ]

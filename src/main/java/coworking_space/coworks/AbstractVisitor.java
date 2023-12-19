@@ -94,21 +94,21 @@ public abstract class AbstractVisitor {
     public  void editUserInfo(AbstractVisitor cVisitor,String currentuseremail,String newname,String newpass,String newemail,String newphoneNumber){
         if(newname !=null&& !newname.isEmpty()){
             cVisitor.name=newname;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null);
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null,null, null);
 
         }
         if(newpass !=null&& !newpass.isEmpty()){
             cVisitor.password=newpass;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null);
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, null,newpass, null);
         }
         if(newemail !=null&& !newemail.isEmpty()){
             cVisitor.userEmail=newemail;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null);
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null,newemail, null, null);
 
         }
         if(newphoneNumber !=null&& !newphoneNumber.isEmpty()){
             cVisitor.phoneNumber=newphoneNumber;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null);
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, null,null, newphoneNumber);
 
         }
     }
