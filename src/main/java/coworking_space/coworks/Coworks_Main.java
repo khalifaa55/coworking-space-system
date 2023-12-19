@@ -1,4 +1,5 @@
 package coworking_space.coworks;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -6,21 +7,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.CompletableFuture;
 
 public class Coworks_Main extends Application {
     /*  2 General Rooms: max_num_visitors 20 per room
         3 Meeting Rooms: max_num_visitors 10 per room
         3 Teaching Rooms: max_num_visitors 10 per room
     */
-    final static String WRITE_GENERAL_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String READ_GENERAL_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String WRITE_MEETING_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String READ_MEETING_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String WRITE_TEACHING_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String READ_TEACHING_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String WRITE_VISITORS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
-    final static String READ_VISITORS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String WRITE_GENERAL_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String READ_GENERAL_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String WRITE_MEETING_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String READ_MEETING_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String WRITE_TEACHING_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String READ_TEACHING_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String WRITE_VISITORS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String READ_VISITORS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
 
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     public static ArrayList<Registration> registrations = new ArrayList<Registration>();
@@ -106,14 +106,14 @@ public class Coworks_Main extends Application {
         Registration.getVisitorsFromMain(visitors);
         AbstractVisitor.getAbstractVisitorsFromMain(visitors);
 
-        FormalVisitor formal = new FormalVisitor("h", 12);
-        FormalVisitor formal0 = new FormalVisitor("R", 14);
+       // FormalVisitor formal = new FormalVisitor("h", 12);
+        //FormalVisitor formal0 = new FormalVisitor("R", 14);
 
-        FormalVisitor formal1 = new FormalVisitor("y", 123);
-        FormalVisitor formal2 = new FormalVisitor("z", 143);
+        //FormalVisitor formal1 = new FormalVisitor("y", 123);
+        //FormalVisitor formal2 = new FormalVisitor("z", 143);
 
-        FormalVisitor formal3 = new FormalVisitor("G", 122);
-        FormalVisitor formal4 = new FormalVisitor("D", 142);
+        //FormalVisitor formal3 = new FormalVisitor("G", 122);
+        //FormalVisitor formal4 = new FormalVisitor("D", 142);
 
         Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00);
         Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300);
@@ -127,8 +127,8 @@ public class Coworks_Main extends Application {
 
         // slot2.createReservation(inst);
         //slot1.createReservation(inst);
-        formals.add(formal);
-        formals.add(formal0);
+      //  formals.add(formal);
+        //formals.add(formal0);
         Mslots.add(slot1);
         Mslots.add(slot2);
         MeetingRoom meeting_room = new MeetingRoom("A", 123, Mslots, formals);
@@ -139,15 +139,15 @@ public class Coworks_Main extends Application {
         meetingRooms.add(meeting_room2);
         meetingRooms.add(meeting_room3);
 
-        //slot1.createReservation(inst);
-        formals2.add(formal1);
-        formals2.add(formal2);
+//        //slot1.createReservation(inst);
+//        formals2.add(formal1);
+//        formals2.add(formal2);
         Mslots2.add(slot3);
         Mslots2.add(slot4);
 
         //slot1.createReservation(inst);
-        formals3.add(formal3);
-        formals3.add(formal4);
+//        formals3.add(formal3);
+//        formals3.add(formal4);
         Mslots3.add(slot5);
         Mslots3.add(slot6);
 

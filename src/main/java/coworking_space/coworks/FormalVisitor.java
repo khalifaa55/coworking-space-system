@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static coworking_space.coworks.DisplayUserDataController.cVisitor;
+
 @JsonTypeName("formal")
 public class FormalVisitor extends AbstractVisitor {
     public  static ArrayList<Slot> FuserResrvations =new ArrayList<>();
@@ -93,11 +95,11 @@ public class FormalVisitor extends AbstractVisitor {
         List<Slot> availableslots = MR.getAvailableSlots(date);
 
 
-        FormalVisitor formalVisitor = new FormalVisitor();
+
 
         for (Slot slot : availableslots) {
             if (startTime.equals( slot.startTime) & endTime.equals(slot.endTime) ) {
-                slot.createReservation(formalVisitor);
+                slot.createReservation(cVisitor);
                 System.out.println("Reservation Made successfully");
                 break;
             }
@@ -114,14 +116,14 @@ public class FormalVisitor extends AbstractVisitor {
 
     }
 
-    public void cancelReservation(AbstractRoom Room,Registration currentr,String startTime,String endTime) {
+    public void cancelReservation(AbstractRoom Room,Registration cuurentr,String startTime,String endTime) {
 
         MeetingRoom MR= (MeetingRoom)Room;
         for (Slot slot : MR.slots) {
             if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
                 for (Slot.Reservation r : slot.getReservations()) {
                     String visitorEmail = r.getVisitor().userEmail;
-                    if (currentr.getUserEmail().equals(visitorEmail)) {
+                    if ((cVisitor.userEmail).equals(visitorEmail)) {
                         slot.removeReservation(r);
                         // Optionally add a message or confirmation of cancellation
                         System.out.println("Reservation canceled successfully!");

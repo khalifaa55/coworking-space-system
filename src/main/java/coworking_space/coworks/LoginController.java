@@ -108,7 +108,7 @@ public class LoginController  implements Initializable {
         }
 
         // Load the loginScreen.fxml file
-        Parent root = FXMLLoader.load(getClass().getResource("(admin)displayRoomDataScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)MakeReservationScreen.fxml"));
 
         // Create a new scene with the loaded FXML content
         Scene scene = new Scene(root);
