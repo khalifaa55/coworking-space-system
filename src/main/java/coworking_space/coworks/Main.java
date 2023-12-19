@@ -109,13 +109,13 @@ public class Main {
 //        alshimaa.UpdateVisitor(Ivisitor, TRooms.get(0));
 //        alshimaa.UpdateRoom(TRooms.get(0));
 
-
-        Slot S_0=new Slot("8","10",150);
-        Slot S_1=new Slot("9","11",120);
-        Slot S_2=new Slot("10","11",120);
+//
+//        Slot S_0=new Slot("8","10",150);
+//        Slot S_1=new Slot("9","11",120);
+//        Slot S_2=new Slot("10","11",120);
 
         ArrayList<Slot> slots=new ArrayList<>();
-        slots.add(S_0);
+//        slots.add(S_0);
 //        slots.add(S_1);
 //        slots.add(S_2);
 
@@ -149,8 +149,8 @@ public class Main {
         visitors.add(Ivisitor_3);
 
         AbstractRoom Troom = new TeachingRoom("Troom",1,slots,visitors);
-        alshimaa.addSlot(Troom,S_1);
-        alshimaa.addSlot(Troom,S_2);
+//        alshimaa.addSlot(Troom,S_1);
+//        alshimaa.addSlot(Troom,S_2);
 //        alshimaa.displayAllAvailableSlots(Troom);
 
 

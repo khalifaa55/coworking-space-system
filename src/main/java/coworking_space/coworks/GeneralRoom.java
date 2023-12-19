@@ -54,7 +54,6 @@ public class GeneralRoom extends AbstractRoom
                 if(reservation.getDate().equals(date)){
                     reservationsInDate.add(reservation);
                 }
-
             }
             // Check if there are no reservations or the slot is not fully reserved
             if (reservationsInDate.isEmpty() ||reservationsInDate.size() < maxNumberOfVisitors)

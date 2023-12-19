@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -41,16 +42,16 @@ public class AvailableSlotsController implements Initializable {
     private Button AddSlotButton;
 
     @FXML
-    private TableColumn<AbstractRoom, String> Date;
+    private TableColumn<AbstractRoom, Slot> Date;
 
     @FXML
     private TextField EbdTineText;
-
-    @FXML
-    private TableColumn<AbstractRoom, String> EndTime;
-
-    @FXML
-    private TableColumn<AbstractRoom, String> Fees;
+//
+//    @FXML
+//    private TableColumn<AbstractRoom, String> EndTime;
+//
+//    @FXML
+//    private TableColumn<AbstractRoom, String> Fees;
 
     @FXML
     private TextField FeesText;
@@ -65,7 +66,7 @@ public class AvailableSlotsController implements Initializable {
     private TextField Roomid;
 
     @FXML
-    private TableColumn<AbstractRoom,String> RoomName;
+    private TableColumn<AbstractRoom, String> RoomName;
 
     @FXML
     private Button RoomsAvailableSlots;
@@ -90,32 +91,32 @@ public class AvailableSlotsController implements Initializable {
 
     @FXML
     private AnchorPane availableSlotsScreen;
-    AbstractRoom SelectedRoom ;
-    public  ArrayList<Slot> Mslots = new ArrayList<>();
-    public  ArrayList<InstructorVisitor> I_visitprs = new ArrayList<>();
-    public  ArrayList<GeneralVisitor> G_visitprs = new ArrayList<>();
-    public  ArrayList<FormalVisitor> F_visitprs = new ArrayList<>();
+    AbstractRoom SelectedRoom;
+    public ArrayList<Slot> Mslots = new ArrayList<>();
+    public ArrayList<InstructorVisitor> I_visitprs = new ArrayList<>();
+    public ArrayList<GeneralVisitor> G_visitprs = new ArrayList<>();
+    public ArrayList<FormalVisitor> F_visitprs = new ArrayList<>();
 
-    Slot slot1 = new Slot("8", "10", 100.00);
-    Slot slot2 = new Slot("10", "12", 300);
-    InstructorVisitor Ivisitor_2=new InstructorVisitor("Fagor",3);
-    InstructorVisitor Ivisitor_3=new InstructorVisitor("Fago",4);
+    Slot slot1 = new Slot("8", "10", 100.00, LocalDate.of(2023, 12, 19));
+    Slot slot2 = new Slot("10", "12", 300, LocalDate.of(2023, 12, 19));
+    InstructorVisitor Ivisitor_2 = new InstructorVisitor("Fagor", 3);
+    InstructorVisitor Ivisitor_3 = new InstructorVisitor("Fago", 4);
 
-    FormalVisitor Fvisitor_3=new FormalVisitor("Fago",4);
-    FormalVisitor Fvisitor_2=new FormalVisitor("Fagor",3);
-    GeneralVisitor Gvisitor_3=new GeneralVisitor("Fago",4);
-    GeneralVisitor Gvisitor_2=new GeneralVisitor("Fagor",3);
+    FormalVisitor Fvisitor_3 = new FormalVisitor("Fago", 4);
+    FormalVisitor Fvisitor_2 = new FormalVisitor("Fagor", 3);
+    GeneralVisitor Gvisitor_3 = new GeneralVisitor("Fago", 4);
+    GeneralVisitor Gvisitor_2 = new GeneralVisitor("Fagor", 3);
 
     ArrayList<AbstractRoom> GRooms = new ArrayList<>(3);
     ArrayList<AbstractRoom> TRooms = new ArrayList<>(2);
     ArrayList<AbstractRoom> MRooms = new ArrayList<>(2);
 
 
-
     @FXML
     void AddSlot(MouseEvent event) {
 
     }
+
     @FXML
     void changeScreenDisplayRoomsDataScreen_2(MouseEvent event) throws IOException {
 // Load the loginScreen.fxml file
@@ -147,6 +148,7 @@ public class AvailableSlotsController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     void changeScreenToVisitorsDataScreen_2(MouseEvent event) throws IOException {
 // Load the loginScreen.fxml file
@@ -162,6 +164,7 @@ public class AvailableSlotsController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     void LogOut_2(MouseEvent event) throws IOException {
 // Load the loginScreen.fxml file
@@ -178,105 +181,58 @@ public class AvailableSlotsController implements Initializable {
         stage.show();
     }
 
-//    public void DisplayAllSlots()
-//    {
-//        ObservableList<AbstractRoom> rooms = FXCollections.observableArrayList();
-////        ArrayList<AbstractRoom> Room ;
-//        for(AbstractRoom Gr :GRooms) {
-//          rooms.add(Gr);
-//        }
-//        for(AbstractRoom Tr :TRooms)
-//        {
-//            rooms.add(Tr);
+
+//public void DisplayAllSlots() {
+//    ObservableList<AbstractRoom> rooms = FXCollections.observableArrayList();
 //
-//        }
-//        for(AbstractRoom Mr :MRooms)
-//        {
-//            rooms.add(Mr);
-//
-//        }
-//        RoomId.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
-//        RoomName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().name));
-//
-//        RoonTy.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRoomType()));
-//        Date.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().availableslots.get(0).currentDate)));
-//
-//        StartTime.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().availableslots.get(0).getStartTime()));
-//        EndTime.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().availableslots.get(0).getEndTime()));
-//        Fees.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().availableslots.get(0).getFees())));
-//        AvailableTable.setItems(rooms);
+//    for (AbstractRoom Gr : GRooms) {
+//        System.out.println(Gr.id);
+//        rooms.add(Gr);
 //    }
-public void DisplayAllSlots() {
-    ObservableList<AbstractRoom> rooms = FXCollections.observableArrayList();
-
-    for (AbstractRoom Gr : GRooms) {
-        rooms.add(Gr);
-    }
-    for (AbstractRoom Tr : TRooms) {
-        rooms.add(Tr);
-    }
-    for (AbstractRoom Mr : MRooms) {
-        rooms.add(Mr);
-    }
-
-    RoomId.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
-    RoomName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().name));
-    RoonTy.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().type));
-
-    // Check if the room has available slots
-    Date.setCellValueFactory(cellData -> {
-        ArrayList<Slot> availableSlots = cellData.getValue().getAvailableSlotsForAdmin();
-        return new SimpleStringProperty(availableSlots.isEmpty() ? "" : String.valueOf(availableSlots.get(0).getCurrentDate()));
-    });
-
-    // Check if the room has available slots
-    StartTime.setCellValueFactory(cellData -> {
-        ArrayList<Slot> availableSlots = cellData.getValue().getAvailableSlotsForAdmin();
-        return new SimpleStringProperty(availableSlots.isEmpty() ? "" : availableSlots.get(0).getStartTime());
-    });
-
-    // Check if the room has available slots
-    EndTime.setCellValueFactory(cellData -> {
-        ArrayList<Slot> availableSlots = cellData.getValue().getAvailableSlotsForAdmin();
-        return new SimpleStringProperty(availableSlots.isEmpty() ? "" : availableSlots.get(0).getEndTime());
-    });
-
-    // Check if the room has available slots
-    Fees.setCellValueFactory(cellData -> {
-        ArrayList<Slot> availableSlots = cellData.getValue().getAvailableSlotsForAdmin();
-        return new SimpleStringProperty(availableSlots.isEmpty() ? "" : String.valueOf(availableSlots.get(0).getFees()));
-    });
-
-    AvailableTable.setItems(rooms);
-}
+//    for (AbstractRoom Tr : TRooms) {
+//        System.out.println(Tr.id);
+//        rooms.add(Tr);
+//    }
+//    for (AbstractRoom Mr : MRooms) {
+//        System.out.println(Mr.id);
+//        rooms.add(Mr);
+//    }
+//
+//    RoomId.setCellValueFactory(new PropertyValueFactory<AbstractRoom,String>("id"));
+//    RoomName.setCellValueFactory(new PropertyValueFactory<AbstractRoom,String>("name"));
+//    RoonTy.setCellValueFactory(new PropertyValueFactory<AbstractRoom,String>("type"));
+//
+//    AvailableTable.setItems(rooms);
+//}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Slot S_0 = new Slot("9" , "11",150);
-        Mslots.add(S_0);
-        Mslots.add(slot1);
-        Mslots.add(slot2);
-
-        I_visitprs.add(Ivisitor_2);
-        I_visitprs.add(Ivisitor_3);
-        F_visitprs.add(Fvisitor_2);
-        F_visitprs.add(Fvisitor_3);
-        G_visitprs.add(Gvisitor_2);
-        G_visitprs.add(Gvisitor_3);
-        GRooms.add(null);  // Or any initial value you want
-        TRooms.add(null);
-        MRooms.add(null);
-
-        Mslots.get(0).createReservation(Gvisitor_2);
-        Mslots.get(0).createReservation(Gvisitor_3);
-
-
-        AbstractRoom Groom = new GeneralRoom("G1", 2, Mslots, G_visitprs);
-        GRooms.set(0, Groom);
-        AbstractRoom Troom = new TeachingRoom("T1", 3, Mslots, I_visitprs);
-        TRooms.set(0, Troom);
-        AbstractRoom Mroom = new MeetingRoom("M1", 1, Mslots, F_visitprs);
-        MRooms.set(0, Mroom);
-        DisplayAllSlots();
-    }
+//        Slot S_0 = new Slot("9" , "11",150,LocalDate.of(2023,12,19));
+//        Mslots.add(S_0);
+//        Mslots.add(slot1);
+//        Mslots.add(slot2);
+//
+//        I_visitprs.add(Ivisitor_2);
+//        I_visitprs.add(Ivisitor_3);
+//        F_visitprs.add(Fvisitor_2);
+//        F_visitprs.add(Fvisitor_3);
+//        G_visitprs.add(Gvisitor_2);
+//        G_visitprs.add(Gvisitor_3);
+//        GRooms.add(null);  // Or any initial value you want
+//        TRooms.add(null);
+//        MRooms.add(null);
+//
+//        Mslots.get(0).createReservation(Gvisitor_2);
+//        Mslots.get(0).createReservation(Gvisitor_3);
+//
+//
+//        AbstractRoom Groom = new GeneralRoom("G1", 2, Mslots, G_visitprs);
+//        GRooms.set(0, Groom);
+//        AbstractRoom Troom = new TeachingRoom("T1", 3, Mslots, I_visitprs);
+//        TRooms.set(0, Troom);
+//        AbstractRoom Mroom = new MeetingRoom("M1", 1, Mslots, F_visitprs);
+//        MRooms.set(0, Mroom);
+//        DisplayAllSlots();
+//    }
+  }
 }

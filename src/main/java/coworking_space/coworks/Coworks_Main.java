@@ -1,10 +1,12 @@
 package coworking_space.coworks;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 
@@ -13,20 +15,20 @@ public class Coworks_Main extends Application {
         3 Meeting Rooms: max_num_visitors 10 per room
         3 Teaching Rooms: max_num_visitors 10 per room
     */
-    final static String WRITE_GENERAL_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String READ_GENERAL_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String WRITE_MEETING_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String READ_MEETING_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String WRITE_TEACHING_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String READ_TEACHING_ROOMS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String WRITE_VISITORS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
-    final static String READ_VISITORS_PATH = "C:\\Users\\DELL\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String WRITE_GENERAL_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String READ_GENERAL_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String WRITE_MEETING_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String READ_MEETING_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String WRITE_TEACHING_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String READ_TEACHING_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String WRITE_VISITORS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String READ_VISITORS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
 
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     public static ArrayList<Registration> registrations = new ArrayList<Registration>();
-    public static ArrayList<MeetingRoom> meetingRooms = new ArrayList<>();
-    public static ArrayList<GeneralRoom> generalRooms = new ArrayList<>();
-    public static ArrayList<TeachingRoom> teachingRooms = new ArrayList<>();
+    public static ArrayList<AbstractRoom> meetingRooms = new ArrayList<>();
+    public static ArrayList<AbstractRoom> generalRooms = new ArrayList<>();
+    public static ArrayList<AbstractRoom> teachingRooms = new ArrayList<>();
 ///////////////////////////////////////////////////////
 
     public static ArrayList<Slot> Mslots = new ArrayList<>();
@@ -46,46 +48,46 @@ public class Coworks_Main extends Application {
     public static ArrayList<Slot> tslots3 = new ArrayList<>();
     public static ArrayList<InstructorVisitor> insts3 = new ArrayList<>();
 
-    public static void readArrayListFromJson() {
-        try {
-            generalRooms = Json.readGeneralRoomsFromFile(READ_GENERAL_ROOMS_PATH);
-            meetingRooms = Json.readMeetingRoomsFromFile(READ_MEETING_ROOMS_PATH);
-            teachingRooms = Json.readTeachingRoomsFromFile(READ_TEACHING_ROOMS_PATH);
-            visitors = Json.readVisitorsFromFile(READ_VISITORS_PATH);
-        } catch (IOException e) {
-            throw new RuntimeException("Error reading data from file", e);
-        }
-    }
+//    public static void readArrayListFromJson() {
+//        try {
+//            generalRooms = Json.readGeneralRoomsFromFile(READ_GENERAL_ROOMS_PATH);
+//            meetingRooms = Json.readMeetingRoomsFromFile(READ_MEETING_ROOMS_PATH);
+//            teachingRooms = Json.readTeachingRoomsFromFile(READ_TEACHING_ROOMS_PATH);
+//            visitors = Json.readVisitorsFromFile(READ_VISITORS_PATH);
+//        } catch (IOException e) {
+//            throw new RuntimeException("Error reading data from file", e);
+//        }
+//    }
 
 
-    public static void writeArrayListIntoJson() {
-        try {
-            Json.writeGeneralRoomsToFile(generalRooms, WRITE_GENERAL_ROOMS_PATH);
-            Json.writeMeetingRoomsToFile(meetingRooms, WRITE_MEETING_ROOMS_PATH);
-            Json.writeTeachingRoomsToFile(teachingRooms, WRITE_TEACHING_ROOMS_PATH);
-            Json.writeVisitorsToFile(visitors, WRITE_VISITORS_PATH);
-        } catch (IOException e) {
-            throw new RuntimeException("Error writing data to file", e);
-        }
-    }
+//    public static void writeArrayListIntoJson() {
+//        try {
+//            Json.writeGeneralRoomsToFile(generalRooms, WRITE_GENERAL_ROOMS_PATH);
+//            Json.writeMeetingRoomsToFile(meetingRooms, WRITE_MEETING_ROOMS_PATH);
+//            Json.writeTeachingRoomsToFile(teachingRooms, WRITE_TEACHING_ROOMS_PATH);
+//            Json.writeVisitorsToFile(visitors, WRITE_VISITORS_PATH);
+//        } catch (IOException e) {
+//            throw new RuntimeException("Error writing data to file", e);
+//        }
+//    }
 
-    public static void sendArrayListToMain(ArrayList<?> arrayList) {
-        try {
-            Object firstElement = arrayList.get(0);
-            if (firstElement instanceof MeetingRoom) {
-                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
-            } else if (firstElement instanceof GeneralRoom) {
-                generalRooms = (ArrayList<GeneralRoom>) arrayList;
-            } else if (firstElement instanceof TeachingRoom) {
-                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
-            } else if (firstElement instanceof AbstractVisitor) {
-                visitors = (ArrayList<AbstractVisitor>) arrayList;
-            }
-        } catch (NullPointerException e) {
-            System.out.println("Null ArrayList");
-            e.printStackTrace();
-        }
-    }
+//    public static void sendArrayListToMain(ArrayList<?> arrayList) {
+//        try {
+//            Object firstElement = arrayList.get(0);
+//            if (firstElement instanceof MeetingRoom) {
+//                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
+//            } else if (firstElement instanceof GeneralRoom) {
+//                generalRooms = (ArrayList<GeneralRoom>) arrayList;
+//            } else if (firstElement instanceof TeachingRoom) {
+//                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
+//            } else if (firstElement instanceof AbstractVisitor) {
+//                visitors = (ArrayList<AbstractVisitor>) arrayList;
+//            }
+//        } catch (NullPointerException e) {
+//            System.out.println("Null ArrayList");
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -95,14 +97,15 @@ public class Coworks_Main extends Application {
         stage.setScene(scene);
         //write into files when exiting program
         stage.setOnCloseRequest(event -> {
-            writeArrayListIntoJson();
+//            writeArrayListIntoJson();
             System.out.println("writing in file");
+//           writeArrayListIntoJson();
         });
         stage.show();
     }
 
     public static void main(String[] args) {
-        readArrayListFromJson();
+//        readArrayListFromJson();
         Registration.getVisitorsFromMain(visitors);
         AbstractVisitor.getAbstractVisitorsFromMain(visitors);
 
@@ -115,25 +118,26 @@ public class Coworks_Main extends Application {
         FormalVisitor formal3 = new FormalVisitor("G", 122);
         FormalVisitor formal4 = new FormalVisitor("D", 142);
 
-        Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00);
-        Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300);
+            Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,29));
+            Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300,LocalDate.of(2023,12,30));
 
 
-        Slot slot3 = new Slot("02:00 PM", "04:00 PM", 100.00);
-        Slot slot4 = new Slot("04:00 PM", "06:00 PM", 300);
+            Slot slot3 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,22));
+            Slot slot4 = new Slot("04:00 PM", "06:00 PM", 300,LocalDate.of(2023,12,19));
 
-        Slot slot5 = new Slot("06:00 PM", "08:00 PM", 100.00);
-        Slot slot6 = new Slot("08:00 PM", "10:00 PM", 300);
+            Slot slot5 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,18));
+            Slot slot6 = new Slot("08:00 PM", "10:00 PM", 300,LocalDate.of(2023,12,17));
 
-        // slot2.createReservation(inst);
-        //slot1.createReservation(inst);
-        formals.add(formal);
-        formals.add(formal0);
-        Mslots.add(slot1);
-        Mslots.add(slot2);
-        MeetingRoom meeting_room = new MeetingRoom("A", 123, Mslots, formals);
-        MeetingRoom meeting_room2 = new MeetingRoom("B", 124, Mslots2, formals2);
-        MeetingRoom meeting_room3 = new MeetingRoom("C", 125, Mslots3, formals3);
+            // slot2.createReservation(inst);
+            //slot1.createReservation(inst);
+            formals.add(formal);
+            formals.add(formal0);
+            Mslots.add(slot1);
+            Mslots.add(slot2);
+
+            AbstractRoom meeting_room = new MeetingRoom("A", 1, Mslots, formals);
+            AbstractRoom meeting_room2 = new MeetingRoom("B", 2, Mslots2, formals2);
+            AbstractRoom meeting_room3 = new MeetingRoom("C", 3, Mslots3, formals3);
 
         meetingRooms.add(meeting_room);
         meetingRooms.add(meeting_room2);
@@ -152,34 +156,38 @@ public class Coworks_Main extends Application {
         Mslots3.add(slot6);
 
 
-//        InstructorVisitor inst1= new InstructorVisitor("h",12);
-//        InstructorVisitor inst2 = new InstructorVisitor("R",14);
-//
-//        InstructorVisitor inst3= new InstructorVisitor("y",123);
-//        InstructorVisitor inst4 = new InstructorVisitor("z",143);
-//
-//        InstructorVisitor inst5= new InstructorVisitor("G",122);
-//        InstructorVisitor inst6 = new InstructorVisitor("D",142);
+        InstructorVisitor inst1= new InstructorVisitor("h",12);
+        InstructorVisitor inst2 = new InstructorVisitor("R",14);
+        insts.add(inst1);
+        insts.add(inst2);
+
+        InstructorVisitor inst3= new InstructorVisitor("y",123);
+        InstructorVisitor inst4 = new InstructorVisitor("z",143);
+        insts.add(inst3);
+        insts.add(inst4);
+        InstructorVisitor inst5= new InstructorVisitor("G",122);
+        InstructorVisitor inst6 = new InstructorVisitor("D",142);
+        insts3.add(inst5);
+        insts3.add(inst6);
+
+            Slot slot7 = new Slot("08:00 AM", "10:00 AM", 100.00, LocalDate.of(2023,12,2));
+            Slot slot8 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,13));
 
 
-        Slot slot7 = new Slot("08:00 AM", "10:00 AM", 100.00);
-        Slot slot8 = new Slot("10:00 AM", "12:00 PM", 300.00);
+            Slot slot9 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,15));
+            Slot slot10 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,25));
 
-
-        Slot slot9 = new Slot("08:00 AM", "10:00 AM", 100.00);
-        Slot slot10 = new Slot("10:00 AM", "12:00 PM", 300.00);
-
-        Slot slot11 = new Slot("08:00 AM", "10:00 AM", 100.00);
-        Slot slot12 = new Slot("10:00 AM", "12:00 PM", 300.00);
+            Slot slot11 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,1));
+            Slot slot12 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,3));
 
 
         tslots.add(slot7);
         tslots.add(slot8);
-        TeachingRoom teaching_room = new TeachingRoom("A", 123, tslots, insts);
+        AbstractRoom teaching_room = new TeachingRoom("A", 4, tslots, insts);
         teachingRooms.add(teaching_room);
 
-        TeachingRoom teaching_room2 = new TeachingRoom("B", 124, tslots2, insts2);
-        TeachingRoom teaching_room3 = new TeachingRoom("C", 125, tslots3, insts3);
+        AbstractRoom teaching_room2 = new TeachingRoom("B", 5, tslots2, insts2);
+        AbstractRoom teaching_room3 = new TeachingRoom("C", 6, tslots3, insts3);
         teachingRooms.add(teaching_room2);
         teachingRooms.add(teaching_room3);
 
@@ -196,17 +204,25 @@ public class Coworks_Main extends Application {
         ArrayList<GeneralVisitor> generals = new ArrayList<>();
         ArrayList<GeneralVisitor> generals2 = new ArrayList<>();
 
-        Slot slot13 = new Slot("02:00 PM", "04:00 PM", 100.00);
-        Slot slot14 = new Slot("04:00 PM", "06:00 PM", 300.00);
+            Slot slot13 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,8));
+            Slot slot14 = new Slot("04:00 PM", "06:00 PM", 300.00,LocalDate.of(2023,12,9));
 
-        Slot slot15 = new Slot("06:00 PM", "08:00 PM", 100.00);
-        Slot slot16 = new Slot("04:00", "06:00 PM", 300.00);
+            Slot slot15 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,11));
+            Slot slot16 = new Slot("04:00", "06:00 PM", 300.00,LocalDate.of(2023,12,10));
+        GeneralVisitor  gen1= new GeneralVisitor("h",12);
+        GeneralVisitor gen2 = new GeneralVisitor("R",14);
+        generals.add(gen1);
+        generals.add(gen2);
 
+        GeneralVisitor gen3= new GeneralVisitor("y",123);
+        GeneralVisitor gen4 = new GeneralVisitor("z",143);
+        generals2.add(gen3);
+        generals2.add(gen4);
 
-        GeneralRoom general_room = new GeneralRoom("B", 124, gslots2, generals);
-        GeneralRoom general_room2 = new GeneralRoom("C", 125, gslots, generals2);
-        generalRooms.add(general_room);
-        generalRooms.add(general_room2);
+            AbstractRoom general_room = new GeneralRoom("B", 7, gslots2, generals);
+            AbstractRoom general_room2 = new GeneralRoom("C", 8, gslots, generals2);
+            generalRooms.add(general_room);
+            generalRooms.add(general_room2);
 
 
         gslots2.add(slot13);
@@ -218,7 +234,7 @@ public class Coworks_Main extends Application {
 
         System.out.println("Size of meetingRooms: " + meetingRooms.size());
         //VisitorCancelReservationScreen.getRoomsArrayListFromMain(meetingRooms,teachingRooms,generalRooms);
-        MakeReservationController.getRoomsArrayListFromMain(meetingRooms, teachingRooms, generalRooms);
+//        MakeReservationController.getRoomsArrayListFromMain(meetingRooms, teachingRooms, generalRooms);
 
 //            VisitorCancelReservationScreen.getarraylistfrommain(meetingRooms);
 //            VisitorCancelReservationScreen.getarraylistfromMain(teachingRooms);
@@ -228,6 +244,19 @@ public class Coworks_Main extends Application {
 //            VisitorController.getarraylistfromMain(teachingRooms);
 //            VisitorController.getarraylistfrommMain(generalRooms);
 
+        Admin alshimaa= new Admin();
+        for(AbstractRoom M:meetingRooms)
+        {
+            alshimaa.DisplayRoomsData(M);
+        }
+        for(AbstractRoom M:teachingRooms)
+        {
+            alshimaa.DisplayRoomsData(M);
+        }
+        for(AbstractRoom m: generalRooms)
+        {
+            alshimaa.DisplayRoomsData(m);
+        }
         // System.out.println(meetingRooms.get(0));
         //System.out.println("Size of meetingRooms: " + meetingRooms.size());
 

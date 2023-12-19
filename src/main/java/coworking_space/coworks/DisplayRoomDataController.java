@@ -1,6 +1,7 @@
 package coworking_space.coworks;
 
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
-import coworking_space.coworks.Slot; // Import the necessary class
-
 
 
 import javafx.stage.Stage;
@@ -27,6 +25,13 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
+
+import static com.sun.beans.introspect.ClassInfo.clear;
+import static coworking_space.coworks.Coworks_Main.generalRooms;
+import static coworking_space.coworks.Coworks_Main.meetingRooms;
+import static coworking_space.coworks.Coworks_Main.teachingRooms;
+
 
 public class DisplayRoomDataController implements Initializable {
     @FXML
@@ -34,13 +39,13 @@ public class DisplayRoomDataController implements Initializable {
     @FXML
     private TableColumn<Slot, String> StartTimeColumn;
     @FXML
-    private TableColumn<Slot, String> DateColumn;
+    private TableColumn<Slot, LocalDate> DateColumn;
 
     @FXML
     private TableColumn<Slot, String> EndTimeColumn;
 
     @FXML
-    private TableColumn<Slot, String> FeesColumn;
+    private TableColumn<Slot, Double> FeesColumn;
 
     @FXML
     private Button LogOutButton;
@@ -48,13 +53,13 @@ public class DisplayRoomDataController implements Initializable {
     @FXML
     private TableView<Slot> ReservedSlotsTable;
     @FXML
-    private TableColumn<Slot,String > StartTimeR;
+    private TableColumn<Slot, String> StartTimeR;
     @FXML
-    private TableColumn<Slot,String > EndTimeR;
+    private TableColumn<Slot, String> EndTimeR;
     @FXML
-    private TableColumn<Slot, String> FeesR;
+    private TableColumn<Slot, Double> FeesR;
     @FXML
-    private TableColumn<Slot, String> DateR;
+    private TableColumn<Slot, LocalDate> DateR;
 
 
     @FXML
@@ -95,11 +100,10 @@ public class DisplayRoomDataController implements Initializable {
     @FXML
     private TableView<AbstractVisitor> VisitorsTable;
     @FXML
-    private TableColumn<AbstractVisitor,String> VisitorsIdColumn;
+    private TableColumn<AbstractVisitor, String> VisitorsIdColumn;
 
     @FXML
-    private TableColumn<AbstractVisitor,String> VisitorsNameColumn;
-
+    private TableColumn<AbstractVisitor, String> VisitorsNameColumn;
 
 
     @FXML
@@ -107,17 +111,25 @@ public class DisplayRoomDataController implements Initializable {
 
     @FXML
     private ImageView displayRoomDataImage;
+    String RoomType;
+    AbstractRoom SelectedRoom= null;
 
     Admin alshimaa = new Admin();
 
-    AbstractRoom SelectedRoom ;
     public  ArrayList<Slot> Mslots = new ArrayList<>();
+    public  ArrayList<Slot> Mslots_1 = new ArrayList<>();
+    public  ArrayList<Slot> Mslots_2 = new ArrayList<>();
+
     public  ArrayList<InstructorVisitor> I_visitprs = new ArrayList<>();
     public  ArrayList<GeneralVisitor> G_visitprs = new ArrayList<>();
     public  ArrayList<FormalVisitor> F_visitprs = new ArrayList<>();
 
-    Slot slot1 = new Slot("8", "10", 100.00);
-    Slot slot2 = new Slot("10", "12", 300);
+    Slot slot1 = new Slot("8", "10", 100.00, LocalDate.of(2023 , 3 , 7));
+    Slot slot2 = new Slot("10", "12", 300,LocalDate.of(2023 , 12 , 7));
+    Slot slot3 = new Slot("8", "10", 100.00, LocalDate.of(2023 , 3 , 7));
+    Slot slot4= new Slot("10", "12", 300,LocalDate.of(2023 , 12 , 7));
+    Slot slot5 = new Slot("8", "10", 100.00, LocalDate.of(2023 , 3 , 7));
+    Slot slot6 = new Slot("10", "12", 300,LocalDate.of(2023 , 12 , 7));
     InstructorVisitor Ivisitor_2=new InstructorVisitor("Fagor",3);
     InstructorVisitor Ivisitor_3=new InstructorVisitor("Fago",4);
 
@@ -129,6 +141,10 @@ public class DisplayRoomDataController implements Initializable {
     ArrayList<AbstractRoom> GRooms = new ArrayList<>(3);
     ArrayList<AbstractRoom> TRooms = new ArrayList<>(2);
     ArrayList<AbstractRoom> MRooms = new ArrayList<>(2);
+
+    ObservableList<AbstractVisitor> Visitors = FXCollections.observableArrayList();
+    ObservableList<Slot> AvailableSlots = FXCollections.observableArrayList();
+    ObservableList<Slot> Reserved = FXCollections.observableArrayList();
 
 
     @FXML
@@ -181,6 +197,7 @@ public class DisplayRoomDataController implements Initializable {
         stage.show();
 
     }
+
     @FXML
     void LogOut_1(MouseEvent event) throws IOException {
         // Load the loginScreen.fxml file
@@ -200,185 +217,174 @@ public class DisplayRoomDataController implements Initializable {
 
 
     public void updateRoomsIdComboBox(String roomType) {
-        String selectedId;
-        // Clear existing items
         RoomsIdComboBox.getItems().clear();
 
-        // Add new IDs based on the selected room type
         if ("General".equals(roomType)) {
-            for (AbstractRoom room : GRooms) {
+            for (AbstractRoom room : generalRooms) {
                 if (room != null) {
                     String myString = String.valueOf(room.id);
-                    RoomsIdComboBox.getItems().addAll(myString);
-
+                    RoomsIdComboBox.getItems().add(myString);
+                    RoomType="General";
                 }
             }
         } else if ("Teaching".equals(roomType)) {
-            for (AbstractRoom room : TRooms) {
+            for (AbstractRoom room : teachingRooms) {
                 if (room != null) {
                     String myString = String.valueOf(room.id);
-                    RoomsIdComboBox.getItems().addAll(myString);
+                    RoomsIdComboBox.getItems().add(myString);
+                    RoomType="Teaching";
+
                 }
             }
         } else if ("Meeting".equals(roomType)) {
-            for (AbstractRoom room : MRooms) {
+            for (AbstractRoom room : meetingRooms) {
                 if (room != null) {
                     String myString = String.valueOf(room.id);
-                    RoomsIdComboBox.getItems().addAll(myString);
-
-
+                    RoomsIdComboBox.getItems().add(myString);
+                    RoomType="Meeting";
                 }
             }
-            selectedId = RoomsIdComboBox.getValue();
-//            UpdateRoomData(selectedId);
+
         }
-//        findRoomById(selectedId);
-
-
-
     }
 
+public void DisplayRoomVistor(String Id) {
 
-//        SelectedRoomID.setText(String.valueOf(SelectedRoom.id));
-//        SelectedRoomName.setText(SelectedRoom.name);
-//        VisitorsTable.setItems(FXCollections.observableArrayList(SelectedRoom.visitors));
-//        UpdateRoomData();
 
-    public  void  DisplayRoomVistor(String Id) {
-
-        for(AbstractRoom r :MRooms) {
-            if(Id.equals(String.valueOf(r.id))) {
-                SelectedRoomID.setText(String.valueOf(r.id));
-                SelectedRoomName.setText(r.name);
-                SelectedRoom=r;
-                MeetingRoom Mr = (MeetingRoom) r;
-                ObservableList<AbstractVisitor> customers = FXCollections.observableArrayList();
-                NoVisitorsRoom.setText(String.valueOf(Mr.getNumOfVisitors()));
-                MaxNoVisitors.setText(String.valueOf(Mr.maxNumberOfVisitors));
-                InstructorPane.setVisible(false);
-
-                for (FormalVisitor v : Mr.visitors) {
-                customers.add(v);
-//
+        if (RoomType.equals("General")) {
+            SelectedRoom= null;
+            for (AbstractRoom Gr : generalRooms) {
+                if (Id.equals(String.valueOf(Gr.id))) {
+                    SelectedRoom = Gr;
                 }
-                VisitorsNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().name)));
-                VisitorsIdColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
-
-                VisitorsTable.setItems(customers);
-                DisplayAvailableSlots();
-                DispalyReservedSlots();
-                RoomProfit.setText( String.valueOf(alshimaa.CalcRoom_Profit(Mr)));
-
-
             }
         }
-        for(AbstractRoom r :GRooms)
+       else if(RoomType.equals("Teaching"))
         {
-            if(Id.equals(String.valueOf(r.id))) {
-                SelectedRoomID.setText(String.valueOf(r.id));
-                SelectedRoomName.setText(r.name);
-                SelectedRoom=r;
-                GeneralRoom Gr = (GeneralRoom) r;
-                NoVisitorsRoom.setText(String.valueOf(Gr.getNumOfVisitors()));
-                MaxNoVisitors.setText(String.valueOf(Gr.maxNumberOfVisitors));
-                InstructorPane.setVisible(false);
-                ObservableList<AbstractVisitor> customers = FXCollections.observableArrayList();
-
-                for (GeneralVisitor v : Gr.visitors) {
-                    customers.add(v);
-//
+            SelectedRoom= null;
+            for (AbstractRoom Tr : teachingRooms) {
+                if (Id.equals(String.valueOf(Tr.id))) {
+                    SelectedRoom = Tr;
                 }
-                VisitorsNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().name)));
-                VisitorsIdColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
+            }
 
-                VisitorsTable.setItems(customers);
-                DisplayAvailableSlots();
-                DispalyReservedSlots();
-                RoomProfit.setText( String.valueOf(alshimaa.CalcRoom_Profit(Gr)));
-
-
+        }
+        else {
+            SelectedRoom= null;
+            for (AbstractRoom Mr : meetingRooms) {
+                if (Id.equals(String.valueOf(Mr.id))) {
+                    SelectedRoom = Mr;
+                }
             }
         }
-
-                for(AbstractRoom r :TRooms)
-                {
-                    if(Id.equals(String.valueOf(r.id))) {
-                        SelectedRoomID.setText(String.valueOf(r.id));
-                        SelectedRoomName.setText(r.name);
-                        SelectedRoom=r;
-                        TeachingRoom Tr = (TeachingRoom) r;
-
-                        NoVisitorsRoom.setText(String.valueOf(Tr.getNumOfVisitors()));
-                        MaxNoVisitors.setText(String.valueOf(Tr.maxNumberOfVisitors));
-                        InstructorPane.setVisible(true);
-                        BoardType.setText(Tr.boardtype);
-                        ProjectorType.setText(Tr.projecttype);
-                        ObservableList<AbstractVisitor> customers = FXCollections.observableArrayList();
-
-                        for (InstructorVisitor v : Tr.visitors) {
-                            customers.add(v);
-//
-                        }
-                        VisitorsNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().name)));
-                        VisitorsIdColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
-
-                        VisitorsTable.setItems(customers);
-                        DisplayAvailableSlots();
-                        DispalyReservedSlots();
-                        RoomProfit.setText( String.valueOf(alshimaa.CalcRoom_Profit(Tr)));
-
-                    }
-                }
-
-//
-        }
-        public void DisplayAvailableSlots()
-        {
-
-
-            ObservableList<Slot> slotsavail = FXCollections.observableArrayList();
-//            slotsavail=null;
-
-            for(Slot s :SelectedRoom.getAvailableSlotsForAdmin())
-            {
-                System.out.println(s.getFees());
-                slotsavail.add(s);
-            }
-            DateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().currentDate)));
-            StartTimeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStartTime()));
-            EndTimeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndTime()));
-            FeesColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fees)));
-
-
-            AvailableSlotsTable.setItems(slotsavail);
-        }
-public void DispalyReservedSlots()
-{
-    ObservableList<Slot> Reserved = FXCollections.observableArrayList();
-
-
-    for(Slot s :SelectedRoom.reservedSlots)
+        FillData(SelectedRoom);
+        DisplayAvailableSlots();
+        DispalyReservedSlots();
+    }
+public  void FillData(AbstractRoom Room)
     {
-        Reserved.add(s);
+        Visitors.clear();
+        RoomProfit.setText("");
+
+        SelectedRoomID.setText(String.valueOf(Room.id));
+        SelectedRoomName.setText(Room.name);
+        NoVisitorsRoom.setText(String.valueOf( Room.getNumOfVisitors()));
+        if(Room instanceof GeneralRoom)
+        {
+
+            InstructorPane.setVisible(false);
+
+            GeneralRoom room=(GeneralRoom) Room;
+            MaxNoVisitors.setText(String.valueOf(room.maxNumberOfVisitors));
+
+            for (GeneralVisitor V : room.visitors) {
+                Visitors.add(V);
+            }
+        }
+        else if(Room instanceof TeachingRoom)
+        {
+            InstructorPane.setVisible(true);
+
+            TeachingRoom room =(TeachingRoom) Room;
+            MaxNoVisitors.setText(String.valueOf(room.maxNumberOfVisitors));
+            ProjectorType.setText(room.projecttype);
+            BoardType.setText(room.boardtype);
+
+            for (InstructorVisitor V : room.visitors) {
+                Visitors.add(V);
+            }
+        }
+        else {
+            InstructorPane.setVisible(false);
+
+            MeetingRoom room=(MeetingRoom)Room;
+            MaxNoVisitors.setText(String.valueOf(room.maxNumberOfVisitors));
+            for (FormalVisitor V : room.visitors) {
+                Visitors.add(V);
+            }
+
+
+        }
+        VisitorsNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().name));
+        VisitorsIdColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
+
+        VisitorsTable.setItems(Visitors);
     }
-    DateR.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().currentDate)));
-    StartTimeR.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStartTime()));
-    EndTimeR.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndTime()));
-    FeesR.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fees)));
 
 
-    ReservedSlotsTable.setItems(Reserved);
-}
+    public void DisplayAvailableSlots() {
+        AvailableSlots.clear();
+
+        for (Slot s : SelectedRoom.getAvailableSlotsForAdmin()) {
+            System.out.println(s.getFees());
+            AvailableSlots.add(s);
+        }
+
+        DateColumn.setCellValueFactory(new PropertyValueFactory<Slot, LocalDate>("Sdate"));
+        StartTimeColumn.setCellValueFactory(new PropertyValueFactory<Slot, String>("startTime"));
+        EndTimeColumn.setCellValueFactory(new PropertyValueFactory<Slot, String>("endTime"));
+        FeesColumn.setCellValueFactory(new PropertyValueFactory<Slot, Double>("fees"));
 
 
+        AvailableSlotsTable.setItems(AvailableSlots);
+
+    }
+
+    public void DispalyReservedSlots() {
+
+        RoomProfit.setText(String.valueOf(SelectedRoom.getReservationMoney()));
+        Reserved.clear();
+
+        for (Slot s : SelectedRoom.reservedSlots) {
+            Reserved.add(s);
+        }
+
+        DateR.setCellValueFactory(new PropertyValueFactory<Slot, LocalDate>("Sdate"));
+        StartTimeR.setCellValueFactory(new PropertyValueFactory<Slot, String>("startTime"));
+        EndTimeR.setCellValueFactory(new PropertyValueFactory<Slot, String>("endTime"));
+        FeesR.setCellValueFactory(new PropertyValueFactory<Slot, Double>("fees"));
+
+
+        ReservedSlotsTable.setItems(Reserved);
+
+    }
+    public void ApplyManyTIMES()
+    {
+        RoomTyprComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            updateRoomsIdComboBox(newValue);
+        });
+        RoomsIdComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            DisplayRoomVistor(newValue);
+        });
+
+    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         InstructorPane.setVisible(false);
         RoomProfit.setText("");
-        RoomTyprComboBox.getItems().addAll("General", "Meeting", "Teaching");
-        Slot S_0 = new Slot("9" , "11",150);
+        Slot S_0 = new Slot("9" , "11",150 , LocalDate.of(2023,3 ,5));
         Mslots.add(S_0);
         Mslots.add(slot1);
         Mslots.add(slot2);
@@ -395,26 +401,25 @@ public void DispalyReservedSlots()
 
         Mslots.get(0).createReservation(Gvisitor_2);
         Mslots.get(0).createReservation(Gvisitor_3);
-
+       RoomProfit.setText("");
+       Mslots_1.add(slot3);
+       Mslots_1.add(slot4);
+       Mslots_2.add(slot5);
+       Mslots_2.add(slot6);
 
         AbstractRoom Groom = new GeneralRoom("G1", 2, Mslots, G_visitprs);
         GRooms.set(0, Groom);
-        AbstractRoom Troom = new TeachingRoom("T1", 3, Mslots, I_visitprs);
+        AbstractRoom Troom = new TeachingRoom("T1", 3, Mslots_1, I_visitprs);
         TRooms.set(0, Troom);
-        AbstractRoom Mroom = new MeetingRoom("M1", 1, Mslots, F_visitprs);
+        AbstractRoom Mroom = new MeetingRoom("M1", 1, Mslots_2, F_visitprs);
         MRooms.set(0, Mroom);
+        RoomTyprComboBox.getItems().addAll("General", "Meeting", "Teaching");
+
         SelectedRoomID.setText("");
         SelectedRoomName.setText("");
 
-
-        RoomTyprComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            updateRoomsIdComboBox(newValue);
-        });
-        RoomsIdComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            DisplayRoomVistor(newValue);
-        });
+        ApplyManyTIMES();
 
     }
-
 }
 

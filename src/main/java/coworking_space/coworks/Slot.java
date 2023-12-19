@@ -25,6 +25,7 @@ public class Slot
     public String endTime;
     public ArrayList<Reservation> reservations;
     public double fees;
+    public LocalDate Sdate;
 
     //@JsonFormat(pattern = "dd-MM-yyyy")
     @JsonSerialize(using = LocalDateSerializer.class)
@@ -36,12 +37,16 @@ public class Slot
     // start & end time are strings coming from GUI in a fixed format and use equals() to compare
     public Slot(@JsonProperty("startTime") String startTime,
                 @JsonProperty("endTime") String endTime,
-                @JsonProperty("fees") double fees)
+                @JsonProperty("fees") double fees,
+                @JsonProperty("Sdate") LocalDate Sdate
+
+                )
     {
         this.startTime = startTime;
         this.endTime = endTime;
         this.reservations = new ArrayList<Reservation>();
         this.fees = fees;
+        this.Sdate=Sdate;
         this.currentDate = LocalDate.now();   // Capture today's date
     }
 
@@ -59,6 +64,13 @@ public class Slot
     // Getter End time
     @JsonIgnore
     public String getEndTime() {return this.endTime;}
+
+    @JsonIgnore
+    public void setDate(LocalDate Sdate) {this.Sdate = Sdate;}
+
+    // Getter End time
+    @JsonIgnore
+    public LocalDate getSdate() {return this.Sdate;}
 
     // Setter End time
     @JsonIgnore

@@ -26,7 +26,7 @@
          </font>
       </Button>
       <Button layoutX="-11.0" layoutY="734.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="371.0" style="-fx-background-color: #063878;" />
-      <TableView fx:id="AvailableTA" layoutX="415.0" layoutY="137.0" prefHeight="338.0" prefWidth="700.0" style="-fx-background-radius: 15;">
+      <TableView fx:id="AvailableTA" layoutX="417.0" layoutY="137.0" prefHeight="338.0" prefWidth="698.0" style="-fx-background-radius: 15;">
         <columns>
           <TableColumn fx:id="RoomId" prefWidth="75.0" text="Room ID" />
           <TableColumn fx:id="RoomName" prefWidth="93.33334350585938" text="Room Name" />
