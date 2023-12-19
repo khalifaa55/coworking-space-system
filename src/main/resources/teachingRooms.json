@@ -1,1 +1,463 @@
-[]
+[ {
+  "name" : "A",
+  "id" : 123,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "B",
+  "id" : 124,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "C",
+  "id" : 125,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "A",
+  "id" : 123,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "B",
+  "id" : 124,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "C",
+  "id" : 125,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "A",
+  "id" : 123,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "B",
+  "id" : 124,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "C",
+  "id" : 125,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "A",
+  "id" : 123,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "B",
+  "id" : 124,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "C",
+  "id" : 125,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "A",
+  "id" : 123,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "B",
+  "id" : 124,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "C",
+  "id" : 125,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "A",
+  "id" : 123,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "B",
+  "id" : 124,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "C",
+  "id" : 125,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "A",
+  "id" : 123,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "B",
+  "id" : 124,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "C",
+  "id" : 125,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "currentDate" : [ 2023, 12, 19 ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+} ]
