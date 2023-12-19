@@ -24,12 +24,12 @@ public class Registration {
     static final String PANEL_NAME = "SCREEN_2";
 
     public Registration(){}
-    public Registration(String userName, String userEmail, String phoneNumber, String newPassword,String role) {
+    public Registration(String userName, String userEmail, String phoneNumber, String newPassword,String role,int lastId) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.phoneNumber = phoneNumber;
         this.newPassword = newPassword;
-        this.id = ++idCounter;
+        this.id = ++lastId;
         this.role=role;
 
     }
@@ -110,17 +110,22 @@ public class Registration {
         return currentRegistration;
     }
 
-    public static void  updateRegistrationInfo(ArrayList<Registration> registrations, String userCurrentEmail, String newUserName,String newPassword, String newPhoneNumber) {
+    public static void  updateRegistrationInfo(ArrayList<Registration> registrations, String userCurrentEmail, String newUserName,String newUserEmail,String newPassword, String newPhoneNumber) {
         for (Registration registration : registrations) {
             if (registration.getUserEmail().equals(userCurrentEmail)) {
                 if (newUserName != null) {
                     registration.setUserName(newUserName);
+                }
+                if (newUserEmail != null) {
+                    registration.setUserEmail(newUserEmail);
+                    System.out.println(registration.getUserEmail());
                 }
                 if (newPassword != null) {
                     registration.setNewPassword(newPassword);
                 }
                 if (newPhoneNumber != null) {
                     registration.setPhoneNumber(newPhoneNumber);
+                    System.out.println(registration.getPhoneNumber());
                 }
                 //if (newUserEmail!= null) {
                 //  registration.setPhoneNumber(newPhoneNumber);}
@@ -131,9 +136,10 @@ public class Registration {
     }
     public static Registration  getRegistration(){ return currentRegistration;}
     public int userid(){return id;}
-    public static void updateIdCounter(){
+    public static int updateIdCounter(){
     idCounter=AbstractVisitor.getlasindex();
         System.out.println(idCounter);
+        return idCounter;
     }
 
     public String getUserName() {

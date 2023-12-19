@@ -50,11 +50,16 @@ public class MeetingRoom extends AbstractRoom {
 
 
             ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
-            for(Slot.Reservation reservation : slot.getReservations()){
-                if(reservation.getDate().equals(date)){
-                    reservationsInDate.add(reservation);
-                }
+            System.out.println("outer if ");
+            if(slot.getReservations() !=null) {
+                for (Slot.Reservation reservation : slot.getReservations()) {
+                    System.out.println("inner if ");
 
+                    if (reservation.getDate().equals(date)) {
+                        reservationsInDate.add(reservation);
+                    }
+
+                }
             }
             // Check if there are no reservations or the slot is not fully reserved
             if (reservationsInDate.isEmpty() || reservationsInDate.size() < maxNumberOfVisitors) {

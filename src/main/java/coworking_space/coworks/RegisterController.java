@@ -145,7 +145,7 @@ public class RegisterController implements Initializable {
 //        validatePhoneNumber(phoneNumber.getText());
 //        validateUsername(userName.getText());
 //        validateEmail(email.getText());
-        boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText())&& (password.getText()).equals(confirmPassword.getText());
+        boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& !Registration.isDuplicateEmail(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText())&& (password.getText()).equals(confirmPassword.getText());
         // Check if any radio button is selected in the Visitor_Type ToggleGroup
         if (Visitor_Type.getSelectedToggle() == null) {
             // No radio button is selected, display an error message or take appropriate action
@@ -155,12 +155,14 @@ public class RegisterController implements Initializable {
             return; // Stop further processing since validation failed
         }  else if (!isRegistrationValid) {
             String inValidTitle = "Invalid Registration";
-            String inValidMessage = "Please fill out missing data.";
+            String inValidMessage = "Please fill out missing data or use a new email.";
             inValidMessage(inValidTitle, inValidMessage);
             return;
         }
         else {
-            Registration newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(), visitorType);
+            Registration newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(), visitorType,Registration.updateIdCounter());
+            System.out.println(newRegistration.getUserEmail());
+            System.out.println(newRegistration.userid());
             AbstractVisitor.createVisitorsFromRegistrations(newRegistration);
             Registration.setCurrentRegistration(newRegistration);
             Registration.getRegistrations().add(newRegistration);

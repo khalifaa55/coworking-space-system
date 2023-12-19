@@ -48,46 +48,46 @@ public class Coworks_Main extends Application {
     public static ArrayList<Slot> tslots3 = new ArrayList<>();
     public static ArrayList<InstructorVisitor> insts3 = new ArrayList<>();
 
-//    public static void readArrayListFromJson() {
-//        try {
-//            generalRooms = Json.readGeneralRoomsFromFile(READ_GENERAL_ROOMS_PATH);
-//            meetingRooms = Json.readMeetingRoomsFromFile(READ_MEETING_ROOMS_PATH);
-//            teachingRooms = Json.readTeachingRoomsFromFile(READ_TEACHING_ROOMS_PATH);
-//            visitors = Json.readVisitorsFromFile(READ_VISITORS_PATH);
-//        } catch (IOException e) {
-//            throw new RuntimeException("Error reading data from file", e);
-//        }
-//    }
+    public static void readArrayListFromJson() {
+        try {
+            generalRooms = Json.readGeneralRoomsFromFile(READ_GENERAL_ROOMS_PATH);
+            meetingRooms = Json.readMeetingRoomsFromFile(READ_MEETING_ROOMS_PATH);
+            teachingRooms = Json.readTeachingRoomsFromFile(READ_TEACHING_ROOMS_PATH);
+            visitors = Json.readVisitorsFromFile(READ_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading data from file", e);
+        }
+    }
 
 
-//    public static void writeArrayListIntoJson() {
-//        try {
-//            Json.writeGeneralRoomsToFile(generalRooms, WRITE_GENERAL_ROOMS_PATH);
-//            Json.writeMeetingRoomsToFile(meetingRooms, WRITE_MEETING_ROOMS_PATH);
-//            Json.writeTeachingRoomsToFile(teachingRooms, WRITE_TEACHING_ROOMS_PATH);
-//            Json.writeVisitorsToFile(visitors, WRITE_VISITORS_PATH);
-//        } catch (IOException e) {
-//            throw new RuntimeException("Error writing data to file", e);
-//        }
-//    }
+    public static void writeArrayListIntoJson() {
+        try {
+            Json.writeGeneralRoomsToFile(generalRooms, WRITE_GENERAL_ROOMS_PATH);
+            Json.writeMeetingRoomsToFile(meetingRooms, WRITE_MEETING_ROOMS_PATH);
+            Json.writeTeachingRoomsToFile(teachingRooms, WRITE_TEACHING_ROOMS_PATH);
+            Json.writeVisitorsToFile(visitors, WRITE_VISITORS_PATH);
+        } catch (IOException e) {
+            throw new RuntimeException("Error writing data to file", e);
+        }
+    }
 
-//    public static void sendArrayListToMain(ArrayList<?> arrayList) {
-//        try {
-//            Object firstElement = arrayList.get(0);
-//            if (firstElement instanceof MeetingRoom) {
-//                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
-//            } else if (firstElement instanceof GeneralRoom) {
-//                generalRooms = (ArrayList<GeneralRoom>) arrayList;
-//            } else if (firstElement instanceof TeachingRoom) {
-//                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
-//            } else if (firstElement instanceof AbstractVisitor) {
-//                visitors = (ArrayList<AbstractVisitor>) arrayList;
-//            }
-//        } catch (NullPointerException e) {
-//            System.out.println("Null ArrayList");
-//            e.printStackTrace();
-//        }
-//    }
+    public static void sendArrayListToMain(ArrayList<?> arrayList) {
+        try {
+            Object firstElement = arrayList.get(0);
+            if (firstElement instanceof MeetingRoom) {
+                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
+            } else if (firstElement instanceof GeneralRoom) {
+                generalRooms = (ArrayList<GeneralRoom>) arrayList;
+            } else if (firstElement instanceof TeachingRoom) {
+                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
+            } else if (firstElement instanceof AbstractVisitor) {
+                visitors = (ArrayList<AbstractVisitor>) arrayList;
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Null ArrayList");
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void start(Stage stage) throws IOException {

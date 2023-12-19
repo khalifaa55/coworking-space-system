@@ -25,6 +25,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static coworking_space.coworks.EditInformationController.cVisitor;
+
 public class UpdateReservationController implements Initializable {
 
 
@@ -109,34 +111,34 @@ public class UpdateReservationController implements Initializable {
         currentUserReservations.clear();;
 
         if(RegisterController.instructortype){
-            InstructorVisitor instructorVisitor = new InstructorVisitor();
+
             for(int i=0;i<teachingRooms.size();i++){
 
-                currentUserReservations= instructorVisitor.DisplayReservation(teachingRooms.get(i), Registration.getRegistration());
+                currentUserReservations= cVisitor.DisplayReservation(teachingRooms.get(i), Registration.getRegistration());
                 roomOfCurrentUser=i;
 
             }
 
 
         }else if (RegisterController.formaltype){
-            FormalVisitor formalVisitor = new FormalVisitor();
+
             for(int i=0;i<meetingRooms.size();i++){
 
-                currentUserReservations= formalVisitor.DisplayReservation(meetingRooms.get(i), Registration.getRegistration());
+                currentUserReservations= cVisitor.DisplayReservation(meetingRooms.get(i), Registration.getRegistration());
                 roomOfCurrentUser=i;
 
             }
 
         }else{
-            GeneralVisitor generalVisitor = new GeneralVisitor();
+
             for(int i=0;i<generalRooms.size();i++){
 
-                currentUserReservations= generalVisitor.DisplayReservation(generalRooms.get(i), Registration.getRegistration());
+                currentUserReservations= cVisitor.DisplayReservation(generalRooms.get(i), Registration.getRegistration());
                 roomOfCurrentUser=i;
 
             }
         }
-        fillChoicebox();;
+
 
 
     }
@@ -154,6 +156,9 @@ public class UpdateReservationController implements Initializable {
 
         // Set the updated observable list as the items for the ChoiceBox
         slotChoiceBox.setItems(observableSlots);
+
+        fillChoicebox();
+
     }
 
     private void retrieveAvailableSlots(int i) {
@@ -219,19 +224,19 @@ public class UpdateReservationController implements Initializable {
                 System.out.println("End Time: " + endTime);
 
                 if (RegisterController.formaltype) {
-                    FormalVisitor formalVisitor = new FormalVisitor();
+
                     for(int i=0;i<meetingRooms.size();i++) {
-                        formalVisitor.cancelReservation(meetingRooms.get(i), Registration.getRegistration(), startTime, endTime);
+                        cVisitor.cancelReservation(meetingRooms.get(i), Registration.getRegistration(), startTime, endTime);
                     }
                 } else if (RegisterController.instructortype) {
-                    InstructorVisitor instructorVisitor = new InstructorVisitor();
+
                     for(int i=0;i<teachingRooms.size();i++) {
-                        instructorVisitor.cancelReservation(teachingRooms.get(i), Registration.getRegistration(), startTime, endTime);
+                        cVisitor.cancelReservation(teachingRooms.get(i), Registration.getRegistration(), startTime, endTime);
                     }
                 } else {
-                    GeneralVisitor generalVisitor = new GeneralVisitor();
+
                     for(int i=0;i<generalRooms.size();i++) {
-                        generalVisitor.cancelReservation(generalRooms.get(i), Registration.getRegistration(), startTime, endTime);
+                        cVisitor.cancelReservation(generalRooms.get(i), Registration.getRegistration(), startTime, endTime);
                     }
                 }
             }

@@ -88,7 +88,7 @@ public class LoginController  implements Initializable {
 
         @FXML
     void validateSignInAndRedirect(MouseEvent event) throws IOException {
-
+        Login login =new Login(userEmail.getText(), userPassword.getText(),visitorType);
         if (Login.adminLogin(userEmail.getText(), userPassword.getText())&&Visitor_Type.getSelectedToggle() == null) {
             System.out.println("change to Admin Screen");
             return;
@@ -98,17 +98,17 @@ public class LoginController  implements Initializable {
             String inValidMessage = "Please choose a visitor type.";
             inValidMessage(inValidTitle, inValidMessage);
             return;
-        } else if (!(Login.validateLogin(userEmail.getText(), userPassword.getText(),visitorType))) {
+        } else if (!(Login.validateLogin(login))) {
             String inValidTitle = "Invalid Sign in";
             String inValidMessage = "Wrong credentials.";
             inValidMessage(inValidTitle, inValidMessage);
         }
-        else if((Login.validateLogin(userEmail.getText(), userPassword.getText(),visitorType))){
+        else if((Login.validateLogin(login))){
             System.out.println("change to Home Screen");
         }
 
         // Load the loginScreen.fxml file
-        Parent root = FXMLLoader.load(getClass().getResource("(admin)displayRoomDataScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("(visitor)MakeReservationScreen.fxml"));
 
         // Create a new scene with the loaded FXML content
         Scene scene = new Scene(root);
