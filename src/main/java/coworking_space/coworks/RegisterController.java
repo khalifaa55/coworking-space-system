@@ -48,7 +48,7 @@ public class RegisterController implements Initializable {
     private TextField email;
 
     @FXML
-    public PasswordField password;
+    private PasswordField password;
 
     @FXML
     private TextField phoneNumber;
@@ -63,7 +63,7 @@ public class RegisterController implements Initializable {
     private AnchorPane registerScreen;
 
     @FXML
-    public TextField userName;
+    private TextField userName;
 
     public static boolean formaltype =false;
     public static boolean generaltype =false;
@@ -145,7 +145,7 @@ public class RegisterController implements Initializable {
 //        validatePhoneNumber(phoneNumber.getText());
 //        validateUsername(userName.getText());
 //        validateEmail(email.getText());
-        boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& !Registration.isDuplicateEmail(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText())&& (password.getText()).equals(confirmPassword.getText());
+        boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText())&& (password.getText()).equals(confirmPassword.getText());
         // Check if any radio button is selected in the Visitor_Type ToggleGroup
         if (Visitor_Type.getSelectedToggle() == null) {
             // No radio button is selected, display an error message or take appropriate action
@@ -153,9 +153,13 @@ public class RegisterController implements Initializable {
             String inValidMessage = "Please choose a visitor type.";
             inValidMessage(inValidTitle, inValidMessage);
             return; // Stop further processing since validation failed
-        }  else if (!isRegistrationValid) {
+        } else if( Registration.isDuplicateEmail(email.getText())){
+            String inValidTitle = "Duplicate Email";
+            String inValidMessage ="Email in use, You can login directly.";
+            inValidMessage(inValidTitle, inValidMessage);
+        } else if (!isRegistrationValid) {
             String inValidTitle = "Invalid Registration";
-            String inValidMessage = "Please fill out missing data or use a new email.";
+            String inValidMessage = "Please fill out missing data.";
             inValidMessage(inValidTitle, inValidMessage);
             return;
         }

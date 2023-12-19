@@ -15,13 +15,7 @@ public class Registration {
     private String newPassword;
     private int id;
     private static int idCounter ;
-
-    public static void setCurrentRegistration(Registration currentRegistration) {
-        Registration.currentRegistration = currentRegistration;
-    }
     private static Registration currentRegistration;
-
-    static final String PANEL_NAME = "SCREEN_2";
 
     public Registration(){}
     public Registration(String userName, String userEmail, String phoneNumber, String newPassword,String role,int lastId) {
@@ -90,6 +84,7 @@ public class Registration {
     public static ArrayList<Registration> getRegistrations() {
         return registrations;
     }
+    public static Registration  getRegistration(){ return currentRegistration;}
 
     public static boolean  isDuplicateEmail(String email) {
         for (Registration registration : registrations) {
@@ -134,14 +129,13 @@ public class Registration {
             }
         }
     }
-    public static Registration  getRegistration(){ return currentRegistration;}
-    public int userid(){return id;}
+
     public static int updateIdCounter(){
     idCounter=AbstractVisitor.getlasindex();
         System.out.println(idCounter);
         return idCounter;
     }
-
+    public int userid(){return id;}
     public String getUserName() {
         return userName;
     }
@@ -155,6 +149,9 @@ public class Registration {
 
     public String getRole() {
         return role;
+    }
+    public static void setCurrentRegistration(Registration currentRegistration) {
+        Registration.currentRegistration = currentRegistration;
     }
     public void setRole(String role) {
         this.role = role;

@@ -16,8 +16,6 @@ class Login {
 
     public static boolean validateLogin(Login currentLogin) {
 
-
-
         for (Registration obj : Registration.getRegistrations()) {
 
             if (obj.getUserEmail().equals(currentLogin.userEmail) && (obj.getNewPassword().equals(currentLogin.password))) {
