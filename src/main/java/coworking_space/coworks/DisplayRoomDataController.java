@@ -220,7 +220,7 @@ public class DisplayRoomDataController implements Initializable {
         RoomsIdComboBox.getItems().clear();
 
         if ("General".equals(roomType)) {
-            for (AbstractRoom room : generalRooms) {
+            for (AbstractRoom room : GRooms) {
                 if (room != null) {
                     String myString = String.valueOf(room.id);
                     RoomsIdComboBox.getItems().add(myString);
@@ -228,7 +228,7 @@ public class DisplayRoomDataController implements Initializable {
                 }
             }
         } else if ("Teaching".equals(roomType)) {
-            for (AbstractRoom room : teachingRooms) {
+            for (AbstractRoom room : TRooms) {
                 if (room != null) {
                     String myString = String.valueOf(room.id);
                     RoomsIdComboBox.getItems().add(myString);
@@ -237,7 +237,7 @@ public class DisplayRoomDataController implements Initializable {
                 }
             }
         } else if ("Meeting".equals(roomType)) {
-            for (AbstractRoom room : meetingRooms) {
+            for (AbstractRoom room : MRooms) {
                 if (room != null) {
                     String myString = String.valueOf(room.id);
                     RoomsIdComboBox.getItems().add(myString);
@@ -253,7 +253,7 @@ public void DisplayRoomVistor(String Id) {
 
         if (RoomType.equals("General")) {
             SelectedRoom= null;
-            for (AbstractRoom Gr : generalRooms) {
+            for (AbstractRoom Gr : GRooms) {
                 if (Id.equals(String.valueOf(Gr.id))) {
                     SelectedRoom = Gr;
                 }
@@ -262,7 +262,7 @@ public void DisplayRoomVistor(String Id) {
        else if(RoomType.equals("Teaching"))
         {
             SelectedRoom= null;
-            for (AbstractRoom Tr : teachingRooms) {
+            for (AbstractRoom Tr : TRooms) {
                 if (Id.equals(String.valueOf(Tr.id))) {
                     SelectedRoom = Tr;
                 }
@@ -271,7 +271,7 @@ public void DisplayRoomVistor(String Id) {
         }
         else {
             SelectedRoom= null;
-            for (AbstractRoom Mr : meetingRooms) {
+            for (AbstractRoom Mr : MRooms) {
                 if (Id.equals(String.valueOf(Mr.id))) {
                     SelectedRoom = Mr;
                 }

@@ -26,9 +26,9 @@ public class Coworks_Main extends Application {
 
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     public static ArrayList<Registration> registrations = new ArrayList<Registration>();
-    public static ArrayList<AbstractRoom> meetingRooms = new ArrayList<>();
-    public static ArrayList<AbstractRoom> generalRooms = new ArrayList<>();
-    public static ArrayList<AbstractRoom> teachingRooms = new ArrayList<>();
+    public static ArrayList<MeetingRoom> meetingRooms = new ArrayList<>();
+    public static ArrayList<GeneralRoom> generalRooms = new ArrayList<>();
+    public static ArrayList<TeachingRoom> teachingRooms = new ArrayList<>();
 ///////////////////////////////////////////////////////
 
     public static ArrayList<Slot> Mslots = new ArrayList<>();
@@ -118,15 +118,15 @@ public class Coworks_Main extends Application {
         FormalVisitor formal3 = new FormalVisitor("G", 122);
         FormalVisitor formal4 = new FormalVisitor("D", 142);
 
-            Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,29));
-            Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300,LocalDate.of(2023,12,30));
+            Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,19));
+            Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300,LocalDate.of(2023,12,19));
 
 
-            Slot slot3 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,22));
+            Slot slot3 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,19));
             Slot slot4 = new Slot("04:00 PM", "06:00 PM", 300,LocalDate.of(2023,12,19));
 
-            Slot slot5 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,18));
-            Slot slot6 = new Slot("08:00 PM", "10:00 PM", 300,LocalDate.of(2023,12,17));
+            Slot slot5 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,19));
+            Slot slot6 = new Slot("08:00 PM", "10:00 PM", 300,LocalDate.of(2023,12,19));
 
             // slot2.createReservation(inst);
             //slot1.createReservation(inst);
@@ -135,9 +135,9 @@ public class Coworks_Main extends Application {
             Mslots.add(slot1);
             Mslots.add(slot2);
 
-            AbstractRoom meeting_room = new MeetingRoom("A", 1, Mslots, formals);
-            AbstractRoom meeting_room2 = new MeetingRoom("B", 2, Mslots2, formals2);
-            AbstractRoom meeting_room3 = new MeetingRoom("C", 3, Mslots3, formals3);
+            MeetingRoom meeting_room = new MeetingRoom("A", 1, Mslots, formals);
+            MeetingRoom meeting_room2 = new MeetingRoom("B", 2, Mslots2, formals2);
+            MeetingRoom meeting_room3 = new MeetingRoom("C", 3, Mslots3, formals3);
 
         meetingRooms.add(meeting_room);
         meetingRooms.add(meeting_room2);
@@ -170,24 +170,24 @@ public class Coworks_Main extends Application {
         insts3.add(inst5);
         insts3.add(inst6);
 
-            Slot slot7 = new Slot("08:00 AM", "10:00 AM", 100.00, LocalDate.of(2023,12,2));
-            Slot slot8 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,13));
+            Slot slot7 = new Slot("08:00 AM", "10:00 AM", 100.00, LocalDate.of(2023,12,19));
+            Slot slot8 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,19));
 
 
-            Slot slot9 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,15));
-            Slot slot10 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,25));
+            Slot slot9 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,19));
+            Slot slot10 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,19));
 
-            Slot slot11 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,1));
-            Slot slot12 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,3));
+            Slot slot11 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,19));
+            Slot slot12 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,19));
 
 
         tslots.add(slot7);
         tslots.add(slot8);
-        AbstractRoom teaching_room = new TeachingRoom("A", 4, tslots, insts);
+        TeachingRoom teaching_room = new TeachingRoom("A", 4, tslots, insts);
         teachingRooms.add(teaching_room);
 
-        AbstractRoom teaching_room2 = new TeachingRoom("B", 5, tslots2, insts2);
-        AbstractRoom teaching_room3 = new TeachingRoom("C", 6, tslots3, insts3);
+        TeachingRoom teaching_room2 = new TeachingRoom("B", 5, tslots2, insts2);
+        TeachingRoom teaching_room3 = new TeachingRoom("C", 6, tslots3, insts3);
         teachingRooms.add(teaching_room2);
         teachingRooms.add(teaching_room3);
 
@@ -204,23 +204,27 @@ public class Coworks_Main extends Application {
         ArrayList<GeneralVisitor> generals = new ArrayList<>();
         ArrayList<GeneralVisitor> generals2 = new ArrayList<>();
 
-            Slot slot13 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,8));
-            Slot slot14 = new Slot("04:00 PM", "06:00 PM", 300.00,LocalDate.of(2023,12,9));
+            Slot slot13 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,19));
+            Slot slot14 = new Slot("04:00 PM", "06:00 PM", 300.00,LocalDate.of(2023,12,19));
 
-            Slot slot15 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,11));
-            Slot slot16 = new Slot("04:00", "06:00 PM", 300.00,LocalDate.of(2023,12,10));
-        GeneralVisitor  gen1= new GeneralVisitor("h",12);
-        GeneralVisitor gen2 = new GeneralVisitor("R",14);
-        generals.add(gen1);
-        generals.add(gen2);
+            Slot slot15 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,19));
+            Slot slot16 = new Slot("04:00", "06:00 PM", 300.00,LocalDate.of(2023,12,19));
+//        InstructorVisitor inst1= new InstructorVisitor("h",12);
+//        InstructorVisitor inst2 = new InstructorVisitor("R",14);
+//        insts.add(inst1);
+//        insts.add(inst2);
+//
+//        InstructorVisitor inst3= new InstructorVisitor("y",123);
+//        InstructorVisitor inst4 = new InstructorVisitor("z",143);
+//        insts.add(inst3);
+//        insts.add(inst4);
+//        InstructorVisitor inst5= new InstructorVisitor("G",122);
+//        InstructorVisitor inst6 = new InstructorVisitor("D",142);
+//        insts3.add(inst5);
+//        insts3.add(inst6);
 
-        GeneralVisitor gen3= new GeneralVisitor("y",123);
-        GeneralVisitor gen4 = new GeneralVisitor("z",143);
-        generals2.add(gen3);
-        generals2.add(gen4);
-
-            AbstractRoom general_room = new GeneralRoom("B", 7, gslots2, generals);
-            AbstractRoom general_room2 = new GeneralRoom("C", 8, gslots, generals2);
+            GeneralRoom general_room = new GeneralRoom("B", 7, gslots2, generals);
+            GeneralRoom general_room2 = new GeneralRoom("C", 8, gslots, generals2);
             generalRooms.add(general_room);
             generalRooms.add(general_room2);
 
