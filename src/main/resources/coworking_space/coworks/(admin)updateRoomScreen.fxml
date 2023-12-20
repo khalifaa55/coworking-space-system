@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -60,10 +61,6 @@
             <Font name="Calisto MT" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="SlotDate" layoutX="947.0" layoutY="500.0" prefHeight="26.0" prefWidth="159.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
-         <font>
-            <Font name="Calisto MT" size="14.5" />
-         </font></TextField>
       <TextField fx:id="StartTimetEXT" layoutX="947.0" layoutY="532.0" prefHeight="26.0" prefWidth="159.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
          <font>
             <Font name="Calisto MT" size="14.5" />
@@ -113,11 +110,6 @@
          </font>
       </Label>
       <ChoiceBox id="RoomsIdComoboBox" fx:id="RoomsIdComboBox" layoutX="930.0" layoutY="111.0" prefHeight="32.0" prefWidth="179.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20;" />
-      <Button id="LogOutButton" fx:id="LogOutButton1" layoutX="99.0" layoutY="660.0" mnemonicParsing="false" onMouseClicked="#LogOut" prefHeight="60.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
-         <font>
-            <Font name="Arial Bold" size="28.0" />
-         </font>
-      </Button>
       <Label layoutX="426.0" layoutY="157.0" text="ID :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
@@ -133,7 +125,7 @@
             <Font name="Calisto MT" size="20.0" />
          </font>
       </Label>
-      <Button id="LogOutButton" fx:id="LogOutButton" layoutX="117.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#LogOut" prefHeight="63.0" prefWidth="132.0" style="-fx-background-color: clear; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
+      <Button id="LogOutButton" fx:id="LogOutButton" layoutX="117.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#LogOut" prefHeight="63.0" prefWidth="132.0" style="-fx-background-color: transparent; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
@@ -142,7 +134,7 @@
       <Button id="RoomsSlotsButton" fx:id="RoomsAvailableSlots" layoutX="-8.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#changeScreenToAvailableSlotsScreen" prefHeight="79.0" prefWidth="370.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
       <Button id="VisitorsButton" fx:id="VisitorsData" layoutX="-10.0" layoutY="457.0" mnemonicParsing="false" onMouseClicked="#changeScreenToVisitorsDataScreen" prefHeight="80.0" prefWidth="371.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
       <Button layoutX="-9.0" layoutY="734.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="370.0" style="-fx-background-color: #063878;" />
-      <Button id="LogOutButton" fx:id="LogOutButton2" layoutX="127.0" layoutY="667.0" mnemonicParsing="false" onMouseClicked="#LogOut" prefHeight="63.0" prefWidth="132.0" style="-fx-background-color: #000000; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
+      <Button id="LogOutButton" fx:id="LogOutButton2" layoutX="125.0" layoutY="667.0" mnemonicParsing="false" onMouseClicked="#LogOut" prefHeight="63.0" prefWidth="132.0" style="-fx-background-color: transparent; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
@@ -186,5 +178,6 @@
             <Font name="Calisto MT Bold" size="17.0" />
          </font>
       </Button>
+      <DatePicker fx:id="DatePick" layoutX="949.0" layoutY="501.0" prefHeight="26.0" prefWidth="154.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
    </children>
 </AnchorPane>

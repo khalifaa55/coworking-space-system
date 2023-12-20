@@ -8,14 +8,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TableColumn;
 
 
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -30,9 +26,6 @@ import java.util.ResourceBundle;
 
 public class UpdateRoomController implements Initializable {
 
-    private  Button logoutButton;
-    @FXML
-    private Button AddSlotButton;
 
     @FXML
     private TableView<Slot> AvailableSlotsTable;
@@ -95,7 +88,7 @@ public class UpdateRoomController implements Initializable {
     private TextField SelectedVisitorId;
 
     @FXML
-    private TextField SlotDate;
+    private DatePicker DatePick;
 
     @FXML
     private TextField SlotNumberSelected;
@@ -236,7 +229,7 @@ AbstractRoom SelectedRoom;
             slot.setStartTime(StartTimetEXT.getText());
             slot.setEndTime(EbdTineText.getText());
             slot.setFees(Double.parseDouble(FeesText.getText()));
-            slot.setDate(LocalDate.parse(SlotDate.getText()));
+            slot.setDate(DatePick.getValue());
             AvailableSlotsTable.setItems(currentSlots);
             AvailableSlotsTable.refresh();
                   break;
@@ -261,7 +254,7 @@ AbstractRoom SelectedRoom;
 
         Slot ClickedSlot = AvailableSlotsTable.getSelectionModel().getSelectedItem();
 //        int Index= AvailableSlotsTable.getSelectionModel().getSelectedIndex();
-        SlotDate.setText(String.valueOf(ClickedSlot.Sdate));
+         DatePick.setValue(ClickedSlot.Sdate);
         StartTimetEXT.setText(ClickedSlot.getStartTime());
         EbdTineText.setText(ClickedSlot.getEndTime());
         FeesText.setText(String.valueOf(ClickedSlot.getFees()));
@@ -271,8 +264,9 @@ AbstractRoom SelectedRoom;
     void AddSlot(MouseEvent event) {
         ObservableList<Slot> currentSlots = AvailableSlotsTable.getItems();
 
-        Slot slot = new Slot(StartTimetEXT.getText(),EbdTineText.getText(),Double.parseDouble(FeesText.getText()),LocalDate.parse(SlotDate.getText()));
+        Slot slot = new Slot(StartTimetEXT.getText(),EbdTineText.getText(),Double.parseDouble(FeesText.getText()),DatePick.getValue());
         currentSlots.add(slot);
+
         AvailableSlotsTable.setItems(currentSlots);
         AvailableSlotsTable.refresh();
     }

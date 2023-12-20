@@ -348,6 +348,7 @@ public  void FillData(AbstractRoom Room)
             MaxNoVisitors.setText(String.valueOf(room.maxNumberOfVisitors));
             ProjectorType.setText(room.projecttype);
             BoardType.setText(room.boardtype);
+            InstructorName.setText(room.instructorname);
 
             for (InstructorVisitor V : room.visitors) {
                 Visitors.add(V);
@@ -415,7 +416,6 @@ public  void FillData(AbstractRoom Room)
         AvailableSlotsTable.setItems(available);
 
     }
-
 
     public void DispalyReservedSlots(String Type , int Id) {
 
