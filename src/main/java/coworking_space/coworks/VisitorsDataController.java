@@ -18,6 +18,7 @@ import javafx.collections.ObservableList;
 //import static coworking_space.coworks.MyMain.Visitors;
 import static coworking_space.coworks.Coworks_Main.meetingRooms;
 import static coworking_space.coworks.Coworks_Main.teachingRooms;
+import static coworking_space.coworks.Coworks_Main.visitors;
 
 import javafx.stage.Stage;
 
@@ -48,8 +49,6 @@ public class VisitorsDataController  implements  Initializable{
 
     @FXML
     private TextField V_Phone;
-    @FXML
-    private TextField V_Index;
 
     @FXML
     private TableView<AbstractVisitor> V_Table;
@@ -74,10 +73,6 @@ public class VisitorsDataController  implements  Initializable{
 
     @FXML
     private AnchorPane visitorsDataScreen;
-    ArrayList<AbstractVisitor> vise= new ArrayList();
-
-
-
 
     @FXML
     void changeScreenDisplayRoomsDataScreen_3(MouseEvent event) throws IOException {
@@ -165,14 +160,14 @@ public class VisitorsDataController  implements  Initializable{
             V_Name.setText("");
             V_Email.setText("");
             V_Phone.setText("");
-            vise.remove(Index);
+            visitors.remove(Index);
             currentVisitors.remove(Index);
             V_Table.setItems(currentVisitors);
             V_Table.refresh();
             break; // <-- This break statement exits the loop after the first iteration
         }
 
-        for(AbstractVisitor V :vise){
+        for(AbstractVisitor V :visitors){
             System.out.println(V.id);
             System.out.println(V.name);
         }
@@ -183,9 +178,7 @@ public class VisitorsDataController  implements  Initializable{
     void UpdateVisitor(MouseEvent event) {
 
         ObservableList<AbstractVisitor> currentVisitors = V_Table.getItems();
-        V_Index.setText(String.valueOf(V_Table.getSelectionModel().getSelectedIndex()));
-//        String STime = StartA.getText();
-          Index=Integer.parseInt(V_Index.getText());
+         Index=V_Table.getSelectionModel().getSelectedIndex();
         for (int i=0 ; i<currentVisitors.size() ; i++) {
 
             if (i==Index) {
@@ -196,11 +189,10 @@ public class VisitorsDataController  implements  Initializable{
                 V_Table.setItems(currentVisitors);
                 V_Table.refresh();
                 break;
-//            }
             }
         }
 
-        for(AbstractVisitor V :vise){
+        for(AbstractVisitor V :visitors){
             System.out.println(V.id);
             System.out.println(V.name);
         }
@@ -208,25 +200,9 @@ public class VisitorsDataController  implements  Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        FormalVisitor F_1=new FormalVisitor("alshimaa","23791831A",2,"a@gmail.com","01019644058");
-        FormalVisitor F_2 =new FormalVisitor("Froha","23791831A",5,"a@gmail.com","01019644058");
-        GeneralVisitor F_3 =new GeneralVisitor("Banosa","23791831A",7,"a@gmail.com","01019644058");
-        GeneralVisitor F_5 =new GeneralVisitor("Fagora","23791831A",8,"a@gmail.com","01019644058");
-        InstructorVisitor F_4 =new InstructorVisitor("Omnia","23791831A",4,"a@gmail.com","01019644058");
 
-        vise.add(F_1);
-        vise.add(F_2);
-        vise.add(F_3);
-        vise.add(F_4);
-        vise.add(F_5);
-        for(AbstractVisitor v:vise)
-        {
-            System.out.println(v.id);
-            System.out.println(v.name);
-            System.out.println(v.userEmail);
-        }
         ObservableList<AbstractVisitor> visi= FXCollections.observableArrayList();
-        for(AbstractVisitor vis: vise)
+        for(AbstractVisitor vis: visitors)
         {
             System.out.println(vis.id);
             visi.add(vis);

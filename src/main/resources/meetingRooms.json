@@ -1,5 +1,5 @@
 [ {
-  "name" : "A",
+  "name" : "Mroom1",
   "id" : 1,
   "slots" : [ {
     "startTime" : "08:00 AM",
@@ -34,7 +34,7 @@
   "type" : "meeting",
   "maxNumberOfVisitors" : 10
 }, {
-  "name" : "B",
+  "name" : "Mroom2",
   "id" : 2,
   "slots" : [ {
     "startTime" : "02:00 PM",
@@ -69,7 +69,7 @@
   "type" : "meeting",
   "maxNumberOfVisitors" : 10
 }, {
-  "name" : "C",
+  "name" : "Mroom3",
   "id" : 3,
   "slots" : [ {
     "startTime" : "06:00 PM",

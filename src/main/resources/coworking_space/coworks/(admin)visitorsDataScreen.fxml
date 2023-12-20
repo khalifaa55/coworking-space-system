@@ -84,15 +84,5 @@
             <Font name="Calisto MT Bold" size="19.0" />
          </font>
       </Button>
-      <Label layoutX="632.0" layoutY="480.0" prefHeight="28.0" prefWidth="127.0" text="Visitor No. :" textFill="#6678cb">
-         <font>
-            <Font name="Calisto MT Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="V_Index" layoutX="763.0" layoutY="480.0" prefHeight="26.0" prefWidth="159.0" style="-fx-border-color: #3f388a; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #3f388a;">
-         <font>
-            <Font name="Calisto MT" size="14.5" />
-         </font>
-      </TextField>
    </children>
 </AnchorPane>

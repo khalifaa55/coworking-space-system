@@ -138,32 +138,6 @@ public class DisplayRoomDataController implements Initializable {
 
     Admin alshimaa = new Admin();
 
-    public  ArrayList<Slot> Mslots = new ArrayList<>();
-    public  ArrayList<Slot> Mslots_1 = new ArrayList<>();
-    public  ArrayList<Slot> Mslots_2 = new ArrayList<>();
-
-    public  ArrayList<InstructorVisitor> I_visitprs = new ArrayList<>();
-    public  ArrayList<GeneralVisitor> G_visitprs = new ArrayList<>();
-    public  ArrayList<FormalVisitor> F_visitprs = new ArrayList<>();
-
-    Slot slot1 = new Slot("8", "10", 100.00, LocalDate.of(2023 , 3 , 7));
-    Slot slot2 = new Slot("10", "12", 300,LocalDate.of(2023 , 12 , 7));
-    Slot slot3 = new Slot("8", "10", 100.00, LocalDate.of(2023 , 3 , 7));
-    Slot slot4= new Slot("10", "12", 300,LocalDate.of(2023 , 12 , 7));
-    Slot slot5 = new Slot("8", "10", 100.00, LocalDate.of(2023 , 3 , 7));
-    Slot slot6 = new Slot("10", "12", 300,LocalDate.of(2023 , 12 , 7));
-    InstructorVisitor Ivisitor_2=new InstructorVisitor("Fagor",3);
-    InstructorVisitor Ivisitor_3=new InstructorVisitor("Fago",4);
-
-    FormalVisitor Fvisitor_3=new FormalVisitor("Fago",4);
-    FormalVisitor Fvisitor_2=new FormalVisitor("Fagor",3);
-    GeneralVisitor Gvisitor_3=new GeneralVisitor("Fago",4);
-    GeneralVisitor Gvisitor_2=new GeneralVisitor("Fagor",3);
-
-    ArrayList<AbstractRoom> GRooms = new ArrayList<>(3);
-    ArrayList<AbstractRoom> TRooms = new ArrayList<>(2);
-    ArrayList<AbstractRoom> MRooms = new ArrayList<>(2);
-
     ObservableList<AbstractVisitor> Visitors = FXCollections.observableArrayList();
     ObservableList<Slot> AvailableSlots = FXCollections.observableArrayList();
     ObservableList<Slot> Reserved = FXCollections.observableArrayList();

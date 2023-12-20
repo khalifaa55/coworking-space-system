@@ -1,5 +1,5 @@
 [ {
-  "name" : "B",
+  "name" : "Groom1",
   "id" : 7,
   "slots" : [ {
     "startTime" : "02:00 PM",
@@ -35,7 +35,7 @@
   "maxNumberOfVisitors" : 2,
   "reservationsInDate" : [ ]
 }, {
-  "name" : "C",
+  "name" : "Groom2",
   "id" : 8,
   "slots" : [ {
     "startTime" : "06:00 PM",
@@ -47,7 +47,7 @@
     "startTime" : "04:00",
     "endTime" : "06:00 PM",
     "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 19 ],
+    "slotDate" : [ 2023, 12, 18 ],
     "reservations" : [ ]
   } ],
   "visitors" : [ {
