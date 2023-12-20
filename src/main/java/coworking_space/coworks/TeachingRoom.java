@@ -15,7 +15,7 @@ public class TeachingRoom extends AbstractRoom{
     public String instructorname;
     public final String type = "teaching";
     public ArrayList<InstructorVisitor> visitors;
-    public final int maxNumberOfVisitors = 3;
+    public final int maxNumberOfVisitors = 10;
     @JsonCreator
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projectType") String projecttype,
                         @JsonProperty("boardType") String boardtype, @JsonProperty("instructorName")String instractorname,
@@ -57,68 +57,6 @@ public class TeachingRoom extends AbstractRoom{
     ArrayList<InstructorVisitor> getVisitors() {
         return visitors;
     }
-
-    @JsonIgnore
-    public int getNumOfVisitors(){
-        return visitors.size();
-    }
-    @JsonIgnore
-    public ArrayList<Slot> getAvailableSlots(LocalDate date){
-
-        for (Slot slot : slots) {
-
-            ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<>();
-            for(Slot.Reservation reservation : slot.getReservations()){
-                if(reservation.getReservationDate().equals(date)){
-                    reservationsInDate.add(reservation);
-                }
-
-            }
-            // Check if there are no reservations or the slot is not fully reserved
-            if (reservationsInDate.isEmpty() || reservationsInDate.size() < maxNumberOfVisitors) {
-                availableSlots.add(slot);
-            }
-            else
-                reservedSlots.add(slot);
-        }
-        // no available slots.json
-        if(availableSlots.isEmpty()){
-            return null;
-        }
-        else{
-            return availableSlots;
-        }
-    }
-    @JsonIgnore
-    public double getReservationMoney(){
-        double totalAmount = 0;
-
-        for (Slot slot : slots) {
-            totalAmount += (slot.getReservations().size())*(slot.getFees());
-        }
-        return totalAmount;
-    }
-    @JsonIgnore
-    public ArrayList<Slot> getAvailableSlotsForAdmin(){
-
-        for (Slot slot : slots) {
-            // Check if there are no reservations or the slot is not fully reserved
-            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors) {
-                availableSlots.add(slot);
-            }
-            else
-                reservedSlots.add(slot);
-        }
-        // no available slots.json
-        if(availableSlots.isEmpty()){
-            return null;
-        }
-        else{
-            return availableSlots;
-        }
-    }
-
-
 }
 
 

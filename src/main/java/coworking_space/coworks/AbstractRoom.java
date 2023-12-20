@@ -24,18 +24,85 @@ abstract public class AbstractRoom
     public String type;
     public ArrayList<Slot> slots;
     public ArrayList<AbstractVisitor> visitors;
+    public int maxNumberOfVisitors;
     ArrayList<Slot> availableSlots=new ArrayList<>();
     ArrayList<Slot> reservedSlots=new ArrayList<>();
+    public  ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
+
 
     //Methods//
-    public abstract ArrayList<Slot> getAvailableSlots(LocalDate date);
-    public abstract int getNumOfVisitors();
-    public abstract double getReservationMoney();
-    @JsonIgnore abstract ArrayList<? extends AbstractVisitor> getVisitors();
-    public  abstract ArrayList<Slot> getAvailableSlotsForAdmin();
-//    public abstract ArrayList<Slot> getReservedSlotsForAdmin();
+    @JsonIgnore
+    public ArrayList<Slot> getAvailableSlots(LocalDate date)
+    {
+        for (Slot slot : slots)
+        {
+            if (slot.getReservations()!=null) {
+                for (Slot.Reservation reservation : slot.getReservations())
+                {  //store reservation that exist in the chosen date in ArrayList reservationsInDate
+                    if (reservation.getReservationDate().equals(date))
+                    {
+                        reservationsInDate.add(reservation);
+                    }
+                }
+            }
+            // Check if there are no reservations or the slot is not fully reserved at the chosen date
+            if (reservationsInDate.isEmpty() ||reservationsInDate.size() < maxNumberOfVisitors)
+            {
+                availableSlots.add(slot);
+            }
+            else
+                reservedSlots.add(slot);
+        }
+        // No available slots
+        if (availableSlots.isEmpty()) {
+            return null;
+        } else {
+            return availableSlots;
+        }
+    }
 
+    @JsonIgnore
+    public ArrayList<Slot> getAvailableSlotsForAdmin()
+    {
+        for (Slot slot : slots) {
+            // Check if there are no reservations or the slot is not fully reserved
+            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
+            {
+                availableSlots.add(slot);
+            }
+            else
+                reservedSlots.add(slot);
+        }
+        // no available slots
+        if(availableSlots.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return availableSlots;
+        }
+    }
+    //Getters
+    @JsonIgnore
+    public int getNumOfVisitors() {
+        return visitors.size();
+    }
 
+    @JsonIgnore
+    public double getReservationMoney()
+    {
+        double totalAmount = 0;
+        for (Slot slot : slots) //get number of reservations * its fees
+        {
+            totalAmount += (slot.getReservations().size()) * (slot.getFees());
+        }
+        return totalAmount;
+    }
+
+    //returns ArrayList of AbstractVisitor or any of its subclasses
+    @JsonIgnore
+    abstract ArrayList<? extends AbstractVisitor> getVisitors();
 }
 
 

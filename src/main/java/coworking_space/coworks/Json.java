@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 public class Json {
 
-    public static ArrayList<AbstractRoom> readGeneralRoomsFromFile(String filePath) throws IOException {
+    //Rooms read and write methods
+    public static ArrayList<AbstractRoom> readRoomsFromFile(String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.enableDefaultTyping();
@@ -23,56 +24,7 @@ public class Json {
             throw new RuntimeException(e);
         }
     }
-
-    public static void writeGeneralRoomsToFile(ArrayList<AbstractRoom> rooms, String filePath) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
-
-        try {
-            objectWriter.writeValue(new File(filePath), rooms);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-/////////////////////////////////////////////////////////
-
-    public static ArrayList<AbstractRoom> readTeachingRoomsFromFile(String filePath) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.enableDefaultTyping();
-
-        try {
-            return objectMapper.readValue(new File((filePath)), new TypeReference<ArrayList<AbstractRoom>>() {});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public static void writeTeachingRoomsToFile(ArrayList<AbstractRoom> rooms, String filePath) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
-
-        try {
-            objectWriter.writeValue(new File(filePath), rooms);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-/////////////////////////////////////////////////////////
-
-    public static ArrayList<AbstractRoom> readMeetingRoomsFromFile(String filePath) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.enableDefaultTyping();
-
-        try {
-            return objectMapper.readValue(new File((filePath)), new TypeReference<ArrayList<AbstractRoom>>() {});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public static void writeMeetingRoomsToFile(ArrayList<AbstractRoom> rooms, String filePath) throws IOException {
+    public static void writeRoomsToFile(ArrayList<AbstractRoom> rooms, String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
@@ -85,6 +37,7 @@ public class Json {
     }
 
     ////////////////////////////////////////////////////////
+    //Visitors read and write methods
     public static ArrayList<AbstractVisitor> readVisitorsFromFile(String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
@@ -106,33 +59,6 @@ public class Json {
         // Write the ArrayList<Student> objects to the specified file
         try {
             objectWriter.writeValue(new File(filePath), visitors);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-    /////////////////////////////////////////////////////////
-
-    public static ArrayList<Slot> readSlotsFromFile(String filePath) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        // Read the ArrayList<Slot> objects from the specified file
-        try {
-            return objectMapper.readValue(new File(filePath), new TypeReference<ArrayList<Slot>>() {});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    /////////////////////////////////////////////////////////
-    public static void writeSlotsToFile(ArrayList<Slot> slots, String filePath) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
-        // Write the ArrayList<Slot> objects to the specified file
-        try {
-            objectWriter.writeValue(new File(filePath), slots);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
