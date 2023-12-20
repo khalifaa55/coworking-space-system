@@ -12,21 +12,21 @@
 
 <AnchorPane fx:id="visitorsDataScreen" prefHeight="759.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.VisitorsDataController">
    <children>
-      <ImageView fx:id="visitorsDataImage" fitHeight="769.0" fitWidth="1175.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="visitorsDataImage" fitHeight="769.0" fitWidth="1175.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Resources/AdminScreens/VisitorsDataScreen.png" />
          </image>
       </ImageView>
-      <Button id="RoomDataButton" fx:id="RoomDataButton" layoutX="-14.0" layoutY="305.0" mnemonicParsing="false" onMouseClicked="#changeScreenDisplayRoomsDataScreen_3" prefHeight="78.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
-      <Button id="RoomsSlotsButton" fx:id="RoomsAvailableSlots" layoutX="-14.0" layoutY="539.0" mnemonicParsing="false" onMouseClicked="#changeScreenUpdateRoomDataScreen_3" prefHeight="79.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
-      <Button id="VisitorsButton" fx:id="VisitorsData" layoutX="-16.0" layoutY="377.0" mnemonicParsing="false" onMouseClicked="#changeScreenToAvailableRoomsScreen_3" prefHeight="80.0" prefWidth="360.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
-      <Button id="LogOutButton" fx:id="LogOutButton1" layoutX="96.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#LogOut_3" prefHeight="60.0" prefWidth="134.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
+      <Button id="RoomDataButton" fx:id="RoomDataButton" layoutX="1.0" layoutY="305.0" mnemonicParsing="false" onMouseClicked="#changeScreenDisplayRoomsDataScreen_3" prefHeight="78.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="RoomsSlotsButton" fx:id="RoomsAvailableSlots" layoutX="1.0" layoutY="539.0" mnemonicParsing="false" onMouseClicked="#changeScreenUpdateRoomDataScreen_3" prefHeight="79.0" prefWidth="358.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="VisitorsButton" fx:id="VisitorsData" layoutX="-1.0" layoutY="377.0" mnemonicParsing="false" onMouseClicked="#changeScreenToAvailableRoomsScreen_3" prefHeight="80.0" prefWidth="360.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button id="LogOutButton" fx:id="LogOutButton1" layoutX="114.0" layoutY="660.0" mnemonicParsing="false" onMouseClicked="#LogOut_3" prefHeight="60.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Button>
       <Button layoutX="-10.0" layoutY="734.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="371.0" style="-fx-background-color: #063878;" />
-      <TableView fx:id="V_Table" layoutX="421.0" layoutY="133.0" onMouseClicked="#ChoosenVisitor" prefHeight="346.0" prefWidth="685.0" style="-fx-background-radius: 15;">
+      <TableView fx:id="V_Table" layoutX="423.0" layoutY="115.0" onMouseClicked="#ChoosenVisitor" prefHeight="346.0" prefWidth="685.0" style="-fx-border-color: #3f388a;">
          <columns>
             <TableColumn fx:id="VisitorsId" prefWidth="141.60006713867188" text="Visitors ID" />
             <TableColumn fx:id="VisitorsNames" prefWidth="128.79998779296875" text="Visistors Name" />
@@ -38,46 +38,58 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label layoutX="460.0" layoutY="540.0" text="Visitor ID: ">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
-      <TextField fx:id="V_ID" layoutX="588.0" layoutY="542.0" />
-      <Label layoutX="788.0" layoutY="539.0" text="Visitor Name :">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
-      <TextField fx:id="V_Name" layoutX="932.0" layoutY="542.0" />
-      <Label layoutX="460.0" layoutY="591.0" text="Visitor Email :">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
-      <TextField fx:id="V_Email" layoutX="590.0" layoutY="591.0" />
-      <Label layoutX="782.0" layoutY="588.0" text="Phone Number :">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
-      <TextField fx:id="V_Phone" layoutX="934.0" layoutY="589.0" />
-      <Button layoutX="656.0" layoutY="648.0" mnemonicParsing="false" onMouseClicked="#UpdateVisitor" style="-fx-background-color: #345d8e;" text="Update" textFill="WHITE">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="824.0" layoutY="648.0" mnemonicParsing="false" onMouseClicked="#DeleteVisitor" style="-fx-background-color: #FFFFFF;" text="Delete" textFill="#345d8e">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </Button>
-      <Label layoutX="632.0" layoutY="490.0" prefHeight="28.0" prefWidth="127.0" text="Visitor No. :" textFill="#3f388a">
+      <Label layoutX="426.0" layoutY="540.0" text="Visitor ID : " textFill="#6678cb">
          <font>
             <Font name="Calisto MT Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="V_Index" layoutX="763.0" layoutY="490.0" prefHeight="26.0" prefWidth="159.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
+      <TextField fx:id="V_ID" layoutX="563.0" layoutY="542.0" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20; -fx-text-fill: #3f388a;">
+         <font>
+            <Font name="Calisto MT" size="14.5" />
+         </font></TextField>
+      <Label layoutX="760.0" layoutY="540.0" text="Visitor Name :" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="V_Name" layoutX="912.0" layoutY="540.0" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20; -fx-text-fill: #3f388a;">
+         <font>
+            <Font name="Calisto MT" size="14.5" />
+         </font></TextField>
+      <Label layoutX="426.0" layoutY="591.0" text="Visitor Email :" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="V_Email" layoutX="564.0" layoutY="591.0" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20; -fx-text-fill: #3f388a;">
+         <font>
+            <Font name="Calisto MT" size="14.5" />
+         </font></TextField>
+      <Label layoutX="762.0" layoutY="592.0" text="Phone Number :" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="V_Phone" layoutX="913.0" layoutY="593.0" prefHeight="30.0" prefWidth="180.0" style="-fx-border-color: #3f388a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-text-fill: #3f388a;">
+         <font>
+            <Font name="Calisto MT" size="14.5" />
+         </font></TextField>
+      <Button layoutX="615.0" layoutY="650.0" mnemonicParsing="false" onMouseClicked="#UpdateVisitor" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: #345d8e; -fx-background-radius: 20;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Calisto MT Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="812.0" layoutY="651.0" mnemonicParsing="false" onMouseClicked="#DeleteVisitor" prefHeight="35.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #063878; -fx-border-radius: 20;" text="Delete" textFill="#345d8e">
+         <font>
+            <Font name="Calisto MT Bold" size="19.0" />
+         </font>
+      </Button>
+      <Label layoutX="632.0" layoutY="480.0" prefHeight="28.0" prefWidth="127.0" text="Visitor No. :" textFill="#6678cb">
+         <font>
+            <Font name="Calisto MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="V_Index" layoutX="763.0" layoutY="480.0" prefHeight="26.0" prefWidth="159.0" style="-fx-border-color: #3f388a; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #3f388a;">
          <font>
             <Font name="Calisto MT" size="14.5" />
          </font>
