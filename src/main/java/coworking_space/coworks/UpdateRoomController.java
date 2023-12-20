@@ -236,7 +236,7 @@ AbstractRoom SelectedRoom;
             slot.setStartTime(StartTimetEXT.getText());
             slot.setEndTime(EbdTineText.getText());
             slot.setFees(Double.parseDouble(FeesText.getText()));
-            slot.setDate(LocalDate.parse(SlotDate.getText()));
+            slot.setSlotDate(LocalDate.parse(SlotDate.getText()));
             AvailableSlotsTable.setItems(currentSlots);
             AvailableSlotsTable.refresh();
                   break;
@@ -261,7 +261,7 @@ AbstractRoom SelectedRoom;
 
         Slot ClickedSlot = AvailableSlotsTable.getSelectionModel().getSelectedItem();
 //        int Index= AvailableSlotsTable.getSelectionModel().getSelectedIndex();
-        SlotDate.setText(String.valueOf(ClickedSlot.Sdate));
+        SlotDate.setText(String.valueOf(ClickedSlot.slotDate));
         StartTimetEXT.setText(ClickedSlot.getStartTime());
         EbdTineText.setText(ClickedSlot.getEndTime());
         FeesText.setText(String.valueOf(ClickedSlot.getFees()));

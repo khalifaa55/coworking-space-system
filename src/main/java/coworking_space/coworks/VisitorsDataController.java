@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import javafx.collections.ObservableList;
-import static coworking_space.coworks.MyMain.Visitors;
+//import static coworking_space.coworks.MyMain.Visitors;
 import static coworking_space.coworks.Coworks_Main.meetingRooms;
 import static coworking_space.coworks.Coworks_Main.teachingRooms;
 
