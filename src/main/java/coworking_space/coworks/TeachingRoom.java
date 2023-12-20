@@ -69,7 +69,7 @@ public class TeachingRoom extends AbstractRoom{
 
             ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<>();
             for(Slot.Reservation reservation : slot.getReservations()){
-                if(reservation.getDate().equals(date)){
+                if(reservation.getReservationDate().equals(date)){
                     reservationsInDate.add(reservation);
                 }
 

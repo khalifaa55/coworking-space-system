@@ -55,7 +55,7 @@ public class MeetingRoom extends AbstractRoom {
                 for (Slot.Reservation reservation : slot.getReservations()) {
                     System.out.println("inner if ");
 
-                    if (reservation.getDate().equals(date)) {
+                    if (reservation.getReservationDate().equals(date)) {
                         reservationsInDate.add(reservation);
                     }
 

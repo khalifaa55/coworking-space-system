@@ -3,11 +3,7 @@ package coworking_space.coworks;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
@@ -25,11 +21,12 @@ public class Slot
     public String endTime;
     public ArrayList<Reservation> reservations;
     public double fees;
-    public LocalDate Sdate;
+    public LocalDate slotDate;
 
-    //@JsonFormat(pattern = "dd-MM-yyyy")
+    //@JsonFormat(pattern = "yyyy-MM-dd") default format for LocalDate dtype.
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonIgnore
     public LocalDate currentDate;
 
     // coworking_space.coworks.Json constructor configuration
@@ -38,16 +35,14 @@ public class Slot
     public Slot(@JsonProperty("startTime") String startTime,
                 @JsonProperty("endTime") String endTime,
                 @JsonProperty("fees") double fees,
-                @JsonProperty("Sdate") LocalDate Sdate
-
-                )
+                @JsonProperty("slotDate") LocalDate slotDate)
     {
         this.startTime = startTime;
         this.endTime = endTime;
         this.reservations = new ArrayList<Reservation>();
         this.fees = fees;
-        this.Sdate=Sdate;
-        this.currentDate = LocalDate.now();   // Capture today's date
+        this.slotDate = slotDate;
+        this.currentDate = LocalDate.now(); // Captures today's date
     }
 
     // Constructor
@@ -55,7 +50,7 @@ public class Slot
 
     // Getter Start time
     @JsonIgnore
-    public String getStartTime() {return this.startTime;}
+    public String getStartTime() {return startTime;}
 
     // Setter Start time
     @JsonIgnore
@@ -63,18 +58,19 @@ public class Slot
 
     // Getter End time
     @JsonIgnore
-    public String getEndTime() {return this.endTime;}
-
-    @JsonIgnore
-    public void setDate(LocalDate Sdate) {this.Sdate = Sdate;}
-
-    // Getter End time
-    @JsonIgnore
-    public LocalDate getSdate() {return this.Sdate;}
+    public String getEndTime() {return endTime;}
 
     // Setter End time
     @JsonIgnore
     public void setEndTime(String endTime)  {this.endTime = endTime;}
+
+    // Setter slotDate
+    @JsonIgnore
+    public void setSlotDate(LocalDate slotDate) {this.slotDate = slotDate;}
+
+    // Getter slotDate
+    @JsonIgnore
+    public LocalDate getSlotDate() {return slotDate;}
 
     // Getter Reservation
     @JsonProperty
@@ -87,7 +83,7 @@ public class Slot
     }
 
     // Getter Fees
-    public double getFees() {return this.fees;}
+    public double getFees() {return fees;}
 
     // Setter Fees
     public void setFees(double fees) {this.fees = fees;}
@@ -111,8 +107,8 @@ public class Slot
     // A function for the admin to update the fees for reserving a room
     public void updateFees(double fees) {this.fees = fees;}
 
-    // createReservation	AbstractVisitor	Creates a new Reservation object with the
-    // provided visitor and adds it to the list
+    /*  createReservation AbstractVisitor:	Creates a new Reservation object with the
+     provided visitor and adds it to the list  */
     public Reservation createReservation(AbstractVisitor visitor)
     {
         Reservation reservation = new Reservation(visitor);
@@ -121,24 +117,24 @@ public class Slot
     }
 
     // Inner class
-
     public static class Reservation
     {
         public AbstractVisitor visitor;
-        public LocalDate date;
-        public Reservation(AbstractVisitor visitor) {
-            this.visitor = visitor;
+        public LocalDate reservationDate;
 
-        }
-        public LocalDate getDate(){return this.date;}
-
-        public Reservation(AbstractVisitor visitor , LocalDate date) {
+        // Constructors
+        public Reservation() {} // no argument constructor that acts like a default one
+        public Reservation(AbstractVisitor visitor)
+        {
             this.visitor = visitor;
-            this.date=date;
         }
-        public Reservation(){this.visitor = null;}
+        public Reservation(AbstractVisitor visitor , LocalDate reservationDate) // Constructor overloading
+        {
+            this.visitor = visitor;
+            this.reservationDate = reservationDate;
+        }
+        public LocalDate getReservationDate() {return this.reservationDate;}
         public AbstractVisitor getVisitor() {return visitor;}
-
         public void setVisitor(AbstractVisitor visitor) {this.visitor = visitor;}
     }
 }

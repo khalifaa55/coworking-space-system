@@ -53,7 +53,7 @@ public class GeneralRoom extends AbstractRoom
             if (slot.getReservations()!=null) {
 
                 for (Slot.Reservation reservation : slot.getReservations()) {
-                    if (reservation.getDate().equals(date)) {
+                    if (reservation.getReservationDate().equals(date)) {
                         reservationsInDate.add(reservation);
                     }
 
