@@ -248,19 +248,19 @@ public class Coworks_Main extends Application {
 //            VisitorController.getarraylistfromMain(teachingRooms);
 //            VisitorController.getarraylistfrommMain(generalRooms);
 
-        Admin alshimaa= new Admin();
-        for(AbstractRoom M:meetingRooms)
-        {
-            alshimaa.DisplayRoomsData(M);
-        }
-        for(AbstractRoom M:teachingRooms)
-        {
-            alshimaa.DisplayRoomsData(M);
-        }
-        for(AbstractRoom m: generalRooms)
-        {
-            alshimaa.DisplayRoomsData(m);
-        }
+//        Admin alshimaa= new Admin();
+//        for(AbstractRoom M:meetingRooms)
+//        {
+//            alshimaa.DisplayRoomsData(M);
+//        }
+//        for(AbstractRoom M:teachingRooms)
+//        {
+//            alshimaa.DisplayRoomsData(M);
+//        }
+//        for(AbstractRoom m: generalRooms)
+//        {
+//            alshimaa.DisplayRoomsData(m);
+//        }
         // System.out.println(meetingRooms.get(0));
         //System.out.println("Size of meetingRooms: " + meetingRooms.size());
 

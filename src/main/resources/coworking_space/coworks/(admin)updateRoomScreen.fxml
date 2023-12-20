@@ -142,7 +142,7 @@
       <Button id="RoomsSlotsButton" fx:id="RoomsAvailableSlots" layoutX="-8.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#changeScreenToAvailableSlotsScreen" prefHeight="79.0" prefWidth="370.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
       <Button id="VisitorsButton" fx:id="VisitorsData" layoutX="-10.0" layoutY="457.0" mnemonicParsing="false" onMouseClicked="#changeScreenToVisitorsDataScreen" prefHeight="80.0" prefWidth="371.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
       <Button layoutX="-9.0" layoutY="734.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="370.0" style="-fx-background-color: #063878;" />
-      <Button id="LogOutButton" fx:id="LogOutButton2" layoutX="127.0" layoutY="667.0" mnemonicParsing="false" onMouseClicked="#LogOut" prefHeight="63.0" prefWidth="132.0" style="-fx-background-color: clear; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
+      <Button id="LogOutButton" fx:id="LogOutButton2" layoutX="127.0" layoutY="667.0" mnemonicParsing="false" onMouseClicked="#LogOut" prefHeight="63.0" prefWidth="132.0" style="-fx-background-color: #000000; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
