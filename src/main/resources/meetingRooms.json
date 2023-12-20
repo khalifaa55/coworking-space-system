@@ -14,23 +14,7 @@
     "slotDate" : [ 2023, 12, 19 ],
     "reservations" : [ ]
   } ],
-  "visitors" : [ {
-    "type" : "formal",
-    "name" : "h",
-    "password" : null,
-    "id" : 12,
-    "userEmail" : null,
-    "phoneNumber" : null,
-    "type" : "formal"
-  }, {
-    "type" : "formal",
-    "name" : "R",
-    "password" : null,
-    "id" : 14,
-    "userEmail" : null,
-    "phoneNumber" : null,
-    "type" : "formal"
-  } ],
+  "visitors" : [ ],
   "type" : "meeting",
   "maxNumberOfVisitors" : 10
 }, {
@@ -49,58 +33,71 @@
     "slotDate" : [ 2023, 12, 19 ],
     "reservations" : [ ]
   } ],
-  "visitors" : [ {
-    "type" : "formal",
-    "name" : "y",
-    "password" : null,
-    "id" : 123,
-    "userEmail" : null,
-    "phoneNumber" : null,
-    "type" : "formal"
-  }, {
-    "type" : "formal",
-    "name" : "z",
-    "password" : null,
-    "id" : 143,
-    "userEmail" : null,
-    "phoneNumber" : null,
-    "type" : "formal"
-  } ],
+  "visitors" : [ ],
   "type" : "meeting",
   "maxNumberOfVisitors" : 10
 }, {
   "name" : "C",
   "id" : 3,
   "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 19 ],
-    "reservations" : [ ]
-  }, {
     "startTime" : "08:00 PM",
     "endTime" : "10:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 19 ],
     "reservations" : [ ]
   } ],
-  "visitors" : [ {
-    "type" : "formal",
-    "name" : "G",
-    "password" : null,
-    "id" : 122,
-    "userEmail" : null,
-    "phoneNumber" : null,
-    "type" : "formal"
+  "visitors" : [ ],
+  "type" : "meeting",
+  "maxNumberOfVisitors" : 10
+}, {
+  "name" : "A",
+  "id" : 1,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   }, {
-    "type" : "formal",
-    "name" : "D",
-    "password" : null,
-    "id" : 142,
-    "userEmail" : null,
-    "phoneNumber" : null,
-    "type" : "formal"
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   } ],
+  "visitors" : [ ],
+  "type" : "meeting",
+  "maxNumberOfVisitors" : 10
+}, {
+  "name" : "B",
+  "id" : 2,
+  "slots" : [ {
+    "startTime" : "02:00 PM",
+    "endTime" : "04:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
+  }, {
+    "startTime" : "04:00 PM",
+    "endTime" : "06:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
+  } ],
+  "visitors" : [ ],
+  "type" : "meeting",
+  "maxNumberOfVisitors" : 10
+}, {
+  "name" : "C",
+  "id" : 3,
+  "slots" : [ {
+    "startTime" : "08:00 PM",
+    "endTime" : "10:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
+  } ],
+  "visitors" : [ ],
   "type" : "meeting",
   "maxNumberOfVisitors" : 10
 } ]

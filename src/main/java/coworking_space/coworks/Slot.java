@@ -109,9 +109,9 @@ public class Slot
 
     /*  createReservation AbstractVisitor:	Creates a new Reservation object with the
      provided visitor and adds it to the list  */
-    public Reservation createReservation(AbstractVisitor visitor)
+    public Reservation createReservation(AbstractVisitor visitor ,LocalDate date)
     {
-        Reservation reservation = new Reservation(visitor);
+        Reservation reservation = new Reservation(visitor, date);
         reservations.add(reservation);
         return reservation;
     }

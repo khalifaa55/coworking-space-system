@@ -40,7 +40,7 @@
          <children>
             <DatePicker fx:id="date_picker" layoutX="26.0" layoutY="89.0" onAction="#getDate" style="-fx-pref-height: 30; -fx-pref-width: 280; -fx-background-radius: 20; -fx-border-color: #3F388A; -fx-border-radius: 7;" />
             <ChoiceBox fx:id="slotChoiceBox" layoutX="26.0" layoutY="194.0" prefHeight="34.0" prefWidth="166.0" style="-fx-pref-height: 30; -fx-pref-width: 280; -fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3F388A; -fx-border-radius: 20;" />
-            <Button fx:id="saveButton" layoutX="338.0" layoutY="189.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="94.0" style="-fx-background-color: #063878; -fx-background-radius: 20;" text="Save" textFill="WHITE">
+            <Button fx:id="saveButton" layoutX="338.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#saveNewReservation" prefHeight="36.0" prefWidth="94.0" style="-fx-background-color: #063878; -fx-background-radius: 20;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Calisto MT" size="19.0" />
                </font>

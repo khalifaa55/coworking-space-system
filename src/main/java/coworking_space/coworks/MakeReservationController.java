@@ -28,6 +28,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+
+import static coworking_space.coworks.Coworks_Main.generalRooms;
+import static coworking_space.coworks.Coworks_Main.meetingRooms;
+import static coworking_space.coworks.Coworks_Main.teachingRooms;
+
 import static coworking_space.coworks.DisplayUserDataController.cVisitor;
 
 public class MakeReservationController implements Initializable {
@@ -39,14 +44,29 @@ public class MakeReservationController implements Initializable {
     // ObservableList to hold the slot strings for the ChoiceBox
     private ObservableList<String> observableSlots = FXCollections.observableArrayList();
 //
-    public static  ArrayList<MeetingRoom> meetingRooms;
-    public static ArrayList<TeachingRoom> teachingRooms;
-    public static ArrayList<GeneralRoom> generalRooms;
-    public static void getRoomsArrayListFromMain(ArrayList<MeetingRoom> meeting_rooms,ArrayList<TeachingRoom> teaching_rooms,ArrayList<GeneralRoom> general_rooms){
-        meetingRooms=meeting_rooms;
-        teachingRooms=teaching_rooms;
-        generalRooms=general_rooms;
-    }
+
+//    public static void getRoomsArrayListFromMain(ArrayList<AbstractRoom> meeting_rooms, ArrayList<AbstractRoom> teaching_rooms, ArrayList<AbstractRoom> general_rooms) {
+//        for (AbstractRoom room : meeting_rooms) {
+//            if (room instanceof MeetingRoom) {
+//                MeetingRoom MR = (MeetingRoom) room;
+//                meetingRooms.add(MR);
+//            }
+//        }
+//
+//        for (AbstractRoom room : teaching_rooms) {
+//            if (room instanceof TeachingRoom) {
+//                TeachingRoom TR = (TeachingRoom) room;
+//                teachingRooms.add(TR);
+//            }
+//        }
+//
+//        for (AbstractRoom room : general_rooms) {
+//            if (room instanceof GeneralRoom) {
+//                GeneralRoom GR = (GeneralRoom) room;
+//                generalRooms.add(GR);
+//            }
+//        }
+//    }
 
 //    public static void getarraylistfromMain(ArrayList<AbstractRoom> ){
 //        teachingRooms=teaching_rooms;
@@ -142,22 +162,51 @@ public class MakeReservationController implements Initializable {
         choiceBox.setItems(observableSlots);
     }
 
+//   private void retrieveAvailableSlots(int i) {
+//        availableSlots.clear();
+//
+//        if ( RegisterController.formaltype) {
+//
+//            MeetingRoom meeting_room = meetingRooms.get(i);
+//            availableSlots = meeting_room.getAvailableSlots(selectedDate);
+//
+//
+//        } else if (RegisterController.instructortype) {
+//            TeachingRoom teaching_room = teachingRooms.get(i);
+//            availableSlots = teaching_room.getAvailableSlots(selectedDate);
+//        }
+//        else {
+//            Room3.setVisible(false);
+//            GeneralRoom general_room = generalRooms.get(i);
+//            availableSlots = general_room.getAvailableSlots(selectedDate);
+//        }
+//
+//        updatechoiceBox();
+//    }
+
+
     private void retrieveAvailableSlots(int i) {
         availableSlots.clear();
 
-        if (RegisterController.formaltype) {
-            MeetingRoom meeting_room = meetingRooms.get(i);
-            availableSlots = meeting_room.getAvailableSlots(selectedDate);
-
-
-        } else if (RegisterController.instructortype) {
-            TeachingRoom teaching_room = teachingRooms.get(i);
-            availableSlots = teaching_room.getAvailableSlots(selectedDate);
-        }
-        else {
+        if (RegisterController.formaltype && meetingRooms != null && i < meetingRooms.size()) {
+            AbstractRoom room = meetingRooms.get(i);
+            if (room instanceof MeetingRoom) {
+                MeetingRoom meeting_room = (MeetingRoom) room;
+                availableSlots = meeting_room.getAvailableSlots(selectedDate);
+            }
+        } else if (RegisterController.instructortype && teachingRooms != null && i < teachingRooms.size()) {
+            AbstractRoom room = teachingRooms.get(i);
+            if (room instanceof TeachingRoom) {
+                TeachingRoom teaching_room = (TeachingRoom) room;
+                availableSlots = teaching_room.getAvailableSlots(selectedDate);
+            }
+        } else if (generalRooms != null && i < generalRooms.size()) {
             Room3.setVisible(false);
-            GeneralRoom general_room = generalRooms.get(i);
-            availableSlots = general_room.getAvailableSlots(selectedDate);
+            AbstractRoom room = generalRooms.get(i);
+            if (room instanceof GeneralRoom) {
+                GeneralRoom general_room = (GeneralRoom) room;
+                availableSlots = general_room.getAvailableSlots(selectedDate);
+            }
         }
 
         updatechoiceBox();
@@ -218,7 +267,19 @@ public class MakeReservationController implements Initializable {
     }
 
     @FXML
-    void getselectedslot(MouseEvent event) {MakeReservation();}
+    void getselectedslot(MouseEvent event) {
+
+        if(selectedDate.isAfter(currentDate.plusDays(30))){
+            inValidMessage("ERROR!","choose a date within 30 days");
+
+        }
+        else if (selectedDate.isBefore(currentDate)) {
+            inValidMessage("ERROR!", "invalid date");
+
+        }
+        else{
+            MakeReservation();}
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

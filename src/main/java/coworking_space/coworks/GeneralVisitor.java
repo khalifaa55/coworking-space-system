@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static coworking_space.coworks.DisplayUserDataController.cVisitor;
+
 
 public class GeneralVisitor extends AbstractVisitor{
     public  static ArrayList<Slot> GuserResrvations =new ArrayList<>();
@@ -91,7 +93,7 @@ public class GeneralVisitor extends AbstractVisitor{
     protected void makeReservation(AbstractRoom room , LocalDate date , String startTime , String endTime) {
 
         GeneralRoom GR = (GeneralRoom) room;
-        GeneralVisitor generalVisitor = new GeneralVisitor();
+
 
 
         List<Slot> availableslots = GR.getAvailableSlots(date);
@@ -100,7 +102,7 @@ public class GeneralVisitor extends AbstractVisitor{
         for (Slot slot : availableslots){
 
             if (startTime .equals(slot.startTime) && endTime.equals(slot.endTime)) {
-                slot.createReservation(generalVisitor);
+                slot.createReservation(cVisitor,date);
                 break;
             }
         }
@@ -122,7 +124,7 @@ public class GeneralVisitor extends AbstractVisitor{
             if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
                 for (Slot.Reservation r : slot.getReservations()) {
                     String visitorEmail = r.getVisitor().userEmail;
-                    if (currentr.getUserEmail().equals(visitorEmail)) {
+                    if ((cVisitor.userEmail).equals(visitorEmail)) {
                         slot.removeReservation(r);
                         // Optionally add a message or confirmation of cancellation
                         System.out.println("Reservation canceled successfully!");

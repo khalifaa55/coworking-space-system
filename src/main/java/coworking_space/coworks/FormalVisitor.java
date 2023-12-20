@@ -70,7 +70,7 @@ public class FormalVisitor extends AbstractVisitor {
     }
 
     @Override
-    protected ArrayList DisplayReservation(AbstractRoom room,Registration currentr) {
+    protected ArrayList<Slot> DisplayReservation(AbstractRoom room,Registration currentr) {
         MeetingRoom MR = (MeetingRoom) room;
 
         for(Slot slot:MR.getSlots()){
@@ -99,7 +99,7 @@ public class FormalVisitor extends AbstractVisitor {
 
         for (Slot slot : availableslots) {
             if (startTime.equals( slot.startTime) & endTime.equals(slot.endTime) ) {
-                slot.createReservation(cVisitor);
+                slot.createReservation(cVisitor,date);
                 System.out.println("Reservation Made successfully");
                 break;
             }

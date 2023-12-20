@@ -50,7 +50,7 @@ public class MeetingRoom extends AbstractRoom {
 
 
             ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
-            System.out.println("outer if ");
+
             if(slot.getReservations() !=null) {
                 for (Slot.Reservation reservation : slot.getReservations()) {
                     System.out.println("inner if ");

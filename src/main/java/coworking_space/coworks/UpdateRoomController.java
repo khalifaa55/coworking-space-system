@@ -428,8 +428,8 @@ AbstractRoom SelectedRoom;
         TRooms.add(null);
         MRooms.add(null);
 
-        Mslots.get(0).createReservation(Gvisitor_2);
-        Mslots.get(0).createReservation(Gvisitor_3);
+       // Mslots.get(0).createReservation(Gvisitor_2);
+        //Mslots.get(0).createReservation(Gvisitor_3);
         Mslots_1.add(slot3);
         Mslots_1.add(slot4);
         Mslots_2.add(slot5);

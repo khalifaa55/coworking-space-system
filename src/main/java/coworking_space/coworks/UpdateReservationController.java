@@ -26,6 +26,9 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static coworking_space.coworks.EditInformationController.cVisitor;
+import static coworking_space.coworks.Coworks_Main.generalRooms;
+import static coworking_space.coworks.Coworks_Main.meetingRooms;
+import static coworking_space.coworks.Coworks_Main.teachingRooms;
 
 public class UpdateReservationController implements Initializable {
 
@@ -61,23 +64,11 @@ public class UpdateReservationController implements Initializable {
 
     private ObservableList<String> observableUserSlots = FXCollections.observableArrayList();
 
-    public static  ArrayList<MeetingRoom> meetingRooms;
-    public static ArrayList<TeachingRoom> teachingRooms;
-    public static ArrayList<GeneralRoom> generalRooms;
-    public static void getRoomsArrayListFromMain(ArrayList<MeetingRoom> meeting_rooms,ArrayList<TeachingRoom> teaching_rooms,ArrayList<GeneralRoom> general_rooms){
-        meetingRooms=meeting_rooms;
-        teachingRooms=teaching_rooms;
-        generalRooms=general_rooms;
-    }
-//    public static void getarraylistfrommain(ArrayList<AbstractRoom> meeting_rooms){
+
+//    public static void getRoomsArrayListFromMain(ArrayList<MeetingRoom> meeting_rooms,ArrayList<TeachingRoom> teaching_rooms,ArrayList<GeneralRoom> general_rooms){
 //        meetingRooms=meeting_rooms;
-//    }
-//
-//    public static void getarraylistfromMain(ArrayList<AbstractRoom> teaching_rooms){
 //        teachingRooms=teaching_rooms;
-//    }
-//    public static void getarraylistfrommMain(ArrayList<AbstractRoom> genaral_rooms){
-//        generalRooms=genaral_rooms;
+//        generalRooms=general_rooms;
 //    }
 
 
@@ -92,14 +83,21 @@ public class UpdateReservationController implements Initializable {
 
 
     private void updateUserchoiceBox() {
-        // Clear the observable list
+
         observableUserSlots.clear();
 
         // Populate the observable list with slot information
         for (Slot slot : currentUserReservations) {
-            // Customize this to format the slot information as needed
-            String slotInfo = slot.getStartTime() + " - " + slot.getEndTime();
-            observableUserSlots.add(slotInfo);
+           for(Slot.Reservation r : slot.reservations){
+               String visitorEmail = r.getVisitor().userEmail;
+               if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)){
+
+                   String slotInfo = slot.getStartTime() + " - " + slot.getEndTime() + " --> " +r.getReservationDate();
+                   observableUserSlots.add(slotInfo);
+               }
+           }
+
+
         }
 
         // Set the updated observable list as the items for the ChoiceBox
@@ -108,7 +106,13 @@ public class UpdateReservationController implements Initializable {
 
 
     public void fillChoicebox(){
-        currentUserReservations.clear();;
+
+        if (currentUserReservations == null) {
+            currentUserReservations = new ArrayList<>();
+        } else {
+            currentUserReservations.clear();
+        }
+
 
         if(RegisterController.instructortype){
 
@@ -116,6 +120,7 @@ public class UpdateReservationController implements Initializable {
 
                 currentUserReservations= cVisitor.DisplayReservation(teachingRooms.get(i), Registration.getRegistration());
                 roomOfCurrentUser=i;
+
 
             }
 
@@ -126,6 +131,7 @@ public class UpdateReservationController implements Initializable {
 
                 currentUserReservations= cVisitor.DisplayReservation(meetingRooms.get(i), Registration.getRegistration());
                 roomOfCurrentUser=i;
+                System.out.println(roomOfCurrentUser);
 
             }
 
@@ -138,9 +144,7 @@ public class UpdateReservationController implements Initializable {
 
             }
         }
-
-
-
+        updateUserchoiceBox();
     }
 
     private void updatechoiceBox() {
@@ -157,7 +161,7 @@ public class UpdateReservationController implements Initializable {
         // Set the updated observable list as the items for the ChoiceBox
         slotChoiceBox.setItems(observableSlots);
 
-        fillChoicebox();
+
 
     }
 
@@ -181,7 +185,7 @@ public class UpdateReservationController implements Initializable {
         }
 
 
-        updateUserchoiceBox();
+        updatechoiceBox();
     }
     private void inValidMessage(String title, String message){
         Stage popupStage = new Stage();
@@ -212,12 +216,17 @@ public class UpdateReservationController implements Initializable {
 
     void DeleteSlot (){
         String selectedSlot = choicebox.getSelectionModel().getSelectedItem();
+
         if (selectedSlot != null) {
             // Split the selected slot string to extract start time and end time
-            String[] parts = selectedSlot.split(" - ");
-            if (parts.length == 2) {
-                String startTime = parts[0]; // Extract start time
-                String endTime = parts[1];   // Extract end time
+            String[] Twoparts = selectedSlot.split(" --> ");
+            String timeInfo = Twoparts[0];
+            String dateInfo = Twoparts[1];
+           String [] timeparts= timeInfo.split(" - ");
+            if (timeparts.length == 2) {
+
+                String startTime = timeparts[0]; // Extract start time
+                String endTime = timeparts[1];  // Extract end time
 
                 // Now you have startTime and endTime
                 System.out.println("Start Time: " + startTime);
@@ -227,6 +236,7 @@ public class UpdateReservationController implements Initializable {
 
                     for(int i=0;i<meetingRooms.size();i++) {
                         cVisitor.cancelReservation(meetingRooms.get(i), Registration.getRegistration(), startTime, endTime);
+
                     }
                 } else if (RegisterController.instructortype) {
 
@@ -240,7 +250,9 @@ public class UpdateReservationController implements Initializable {
                     }
                 }
             }
+
         }
+        observableUserSlots.remove(selectedSlot);
     }
 
     @FXML
@@ -258,6 +270,8 @@ public class UpdateReservationController implements Initializable {
 
             inValidMessage("ERROR!", "invalid date");
         }
+
+        retrieveAvailableSlots(roomOfCurrentUser);
     }
     void makeNewReservation(){
 
@@ -291,10 +305,19 @@ public class UpdateReservationController implements Initializable {
     void replaceReservation(MouseEvent event) {
         updateReservationScreen.setVisible(true);
         DeleteSlot();
+
+    }
+
+    @FXML
+    void saveNewReservation(MouseEvent event) {
         makeNewReservation();
     }
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        fillChoicebox();
     }
     @FXML
     void changeScreenToDisplayInfoScreen_2(MouseEvent event) throws IOException {
