@@ -82,6 +82,7 @@ public class LoginController  implements Initializable {
     private void handleRadioButtonSelection(ActionEvent event) {
         RadioButton selectedRadioButton = (RadioButton) event.getSource();
         visitorType = selectedRadioButton.getText();
+        System.out.println("Selected RadioButton: " + visitorType);
 
     }
 
@@ -89,6 +90,7 @@ public class LoginController  implements Initializable {
     void validateSignInAndRedirect(MouseEvent event) throws IOException {
         Login login =new Login(userEmail.getText(),visitorType, userPassword.getText());
         if (Login.adminLogin(userEmail.getText(), userPassword.getText())&&Visitor_Type.getSelectedToggle() == null) {
+
             // Load the loginScreen.fxml file
             Parent root = FXMLLoader.load(getClass().getResource("(admin)displayRoomDataScreen.fxml"));
 
@@ -114,6 +116,7 @@ public class LoginController  implements Initializable {
             inValidMessage(inValidTitle, inValidMessage);
         }
         else if((Login.validateLogin(login))){
+
             // Load the loginScreen.fxml file
             Parent root = FXMLLoader.load(getClass().getResource("(visitor)MakeReservationScreen.fxml"));
 
@@ -126,21 +129,7 @@ public class LoginController  implements Initializable {
             // Set the new scene on the stage
             stage.setScene(scene);
             stage.show();
-
         }
-
-        // Load the loginScreen.fxml file
-        Parent root = FXMLLoader.load(getClass().getResource("(admin)displayRoomDataScreen.fxml"));
-
-        // Create a new scene with the loaded FXML content
-        Scene scene = new Scene(root);
-
-        // Get the Stage from the MouseEvent's source
-        Stage stage = (Stage) loginScreen.getScene().getWindow();
-
-        // Set the new scene on the stage
-        stage.setScene(scene);
-        stage.show();
     }
 
     private void inValidMessage(String title, String message){
@@ -167,5 +156,4 @@ public class LoginController  implements Initializable {
         popupStage.setScene(scene);
         popupStage.showAndWait();
     }
-
 }
