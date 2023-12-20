@@ -292,7 +292,7 @@ public class DisplayRoomDataController implements Initializable {
 
         if (Type.equals(String.valueOf(GeneralRadio))) {
             SelectedRoom= null;
-            for (AbstractRoom Gr : GRooms) {
+            for (AbstractRoom Gr : generalRooms) {
                 if (ID== Gr.id) {
                     SelectedRoom = Gr;
                 }
@@ -316,7 +316,7 @@ public class DisplayRoomDataController implements Initializable {
                 }
             }
         }
-        for(AbstractRoom G:GRooms)
+        for(AbstractRoom G:generalRooms)
             if(G.name==null)
                     break;
     }
@@ -378,7 +378,7 @@ public  void FillData(AbstractRoom Room)
 
         if(Type.equals(String.valueOf(GeneralRadio)))
         {
-            for(AbstractRoom R:GRooms)
+            for(AbstractRoom R:generalRooms)
             {
                 if(Id==R.id) {
                     for (Slot S : R.getAvailableSlotsForAdmin()) {
@@ -423,7 +423,7 @@ public  void FillData(AbstractRoom Room)
 
         if(Type.equals(String.valueOf(GeneralRadio)))
         {
-            for(AbstractRoom R:GRooms)
+            for(AbstractRoom R:generalRooms)
             {
                 if(Id==R.id) {
                     for (Slot S : R.reservedSlots) {
@@ -513,7 +513,7 @@ public  void FillData(AbstractRoom Room)
         TRooms.set(0, Troom);
         AbstractRoom Mroom = new MeetingRoom("M1", 1, Mslots_2, F_visitprs);
         MRooms.set(0, Mroom);
-        for(AbstractRoom G :GRooms)
+        for(AbstractRoom G :generalRooms)
         {
             System.out.println(G.name);
         }

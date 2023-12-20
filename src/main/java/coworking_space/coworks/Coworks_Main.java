@@ -26,9 +26,9 @@ public class Coworks_Main extends Application {
 
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     public static ArrayList<Registration> registrations = new ArrayList<Registration>();
-    public static ArrayList<MeetingRoom> meetingRooms = new ArrayList<>();
-    public static ArrayList<GeneralRoom> generalRooms = new ArrayList<>();
-    public static ArrayList<TeachingRoom> teachingRooms = new ArrayList<>();
+    public static ArrayList<AbstractRoom> meetingRooms = new ArrayList<>();
+    public static ArrayList<AbstractRoom> generalRooms = new ArrayList<>();
+    public static ArrayList<AbstractRoom> teachingRooms = new ArrayList<>();
 ///////////////////////////////////////////////////////
 
     public static ArrayList<Slot> Mslots = new ArrayList<>();
@@ -75,11 +75,11 @@ public class Coworks_Main extends Application {
         try {
             Object firstElement = arrayList.get(0);
             if (firstElement instanceof MeetingRoom) {
-                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
+                meetingRooms = (ArrayList<AbstractRoom>) arrayList;
             } else if (firstElement instanceof GeneralRoom) {
-                generalRooms = (ArrayList<GeneralRoom>) arrayList;
+                generalRooms = (ArrayList<AbstractRoom>) arrayList;
             } else if (firstElement instanceof TeachingRoom) {
-                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
+                teachingRooms = (ArrayList<AbstractRoom>) arrayList;
             } else if (firstElement instanceof AbstractVisitor) {
                 visitors = (ArrayList<AbstractVisitor>) arrayList;
             }
@@ -97,7 +97,7 @@ public class Coworks_Main extends Application {
         stage.setScene(scene);
         //write into files when exiting program
         stage.setOnCloseRequest(event -> {
-//            writeArrayListIntoJson();
+            writeArrayListIntoJson();
             System.out.println("writing in file");
 //           writeArrayListIntoJson();
         });
@@ -135,9 +135,9 @@ public class Coworks_Main extends Application {
             Mslots.add(slot1);
             Mslots.add(slot2);
 
-            MeetingRoom meeting_room = new MeetingRoom("A", 1, Mslots, formals);
-            MeetingRoom meeting_room2 = new MeetingRoom("B", 2, Mslots2, formals2);
-            MeetingRoom meeting_room3 = new MeetingRoom("C", 3, Mslots3, formals3);
+            AbstractRoom meeting_room = new MeetingRoom("A", 1, Mslots, formals);
+            AbstractRoom meeting_room2 = new MeetingRoom("B", 2, Mslots2, formals2);
+            AbstractRoom meeting_room3 = new MeetingRoom("C", 3, Mslots3, formals3);
 
         meetingRooms.add(meeting_room);
         meetingRooms.add(meeting_room2);
@@ -183,26 +183,33 @@ public class Coworks_Main extends Application {
 
         tslots.add(slot7);
         tslots.add(slot8);
-        TeachingRoom teaching_room = new TeachingRoom("A", 4, tslots, insts);
-        teachingRooms.add(teaching_room);
-
-        TeachingRoom teaching_room2 = new TeachingRoom("B", 5, tslots2, insts2);
-        TeachingRoom teaching_room3 = new TeachingRoom("C", 6, tslots3, insts3);
-        teachingRooms.add(teaching_room2);
-        teachingRooms.add(teaching_room3);
-
-        //slot1.createReservation(inst);
-
         tslots2.add(slot9);
         tslots2.add(slot10);
 
         tslots3.add(slot11);
         tslots3.add(slot12);
+        AbstractRoom teaching_room = new TeachingRoom("A", 4, tslots, insts);
+        teachingRooms.add(teaching_room);
+
+        AbstractRoom teaching_room2 = new TeachingRoom("B", 5, tslots2, insts2);
+        AbstractRoom teaching_room3 = new TeachingRoom("C", 6, tslots3, insts3);
+        teachingRooms.add(teaching_room2);
+        teachingRooms.add(teaching_room3);
+
+        //slot1.createReservation(inst);
+
+
 
         ArrayList<Slot> gslots = new ArrayList<>();
         ArrayList<Slot> gslots2 = new ArrayList<>();
+        GeneralVisitor Gvisitor_3=new GeneralVisitor("Fago",4);
+        GeneralVisitor Gvisitor_2=new GeneralVisitor("Fagor",3);
         ArrayList<GeneralVisitor> generals = new ArrayList<>();
         ArrayList<GeneralVisitor> generals2 = new ArrayList<>();
+        generals.add(Gvisitor_2);
+        generals.add(Gvisitor_3);
+        generals2.add(Gvisitor_2);
+        generals2.add(Gvisitor_3);
 
             Slot slot13 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,19));
             Slot slot14 = new Slot("04:00 PM", "06:00 PM", 300.00,LocalDate.of(2023,12,19));
@@ -222,18 +229,19 @@ public class Coworks_Main extends Application {
 //        InstructorVisitor inst6 = new InstructorVisitor("D",142);
 //        insts3.add(inst5);
 //        insts3.add(inst6);
-
-            GeneralRoom general_room = new GeneralRoom("B", 7, gslots2, generals);
-            GeneralRoom general_room2 = new GeneralRoom("C", 8, gslots, generals2);
-            generalRooms.add(general_room);
-            generalRooms.add(general_room2);
-
-
         gslots2.add(slot13);
         gslots2.add(slot14);
 
         gslots.add(slot15);
         gslots.add(slot16);
+
+
+        AbstractRoom general_room = new GeneralRoom("B", 7, gslots2, generals);
+            AbstractRoom general_room2 = new GeneralRoom("C", 8, gslots, generals2);
+            generalRooms.add(general_room);
+            generalRooms.add(general_room2);
+
+
 
 
         System.out.println("Size of meetingRooms: " + meetingRooms.size());
@@ -248,7 +256,7 @@ public class Coworks_Main extends Application {
 //            VisitorController.getarraylistfromMain(teachingRooms);
 //            VisitorController.getarraylistfrommMain(generalRooms);
 
-//        Admin alshimaa= new Admin();
+        Admin alshimaa= new Admin();
 //        for(AbstractRoom M:meetingRooms)
 //        {
 //            alshimaa.DisplayRoomsData(M);
@@ -261,7 +269,7 @@ public class Coworks_Main extends Application {
 //        {
 //            alshimaa.DisplayRoomsData(m);
 //        }
-        // System.out.println(meetingRooms.get(0));
+//        // System.out.println(meetingRooms.get(0));
         //System.out.println("Size of meetingRooms: " + meetingRooms.size());
 
 

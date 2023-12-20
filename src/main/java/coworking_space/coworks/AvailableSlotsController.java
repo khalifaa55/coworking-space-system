@@ -16,6 +16,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
+import static coworking_space.coworks.Coworks_Main.generalRooms;
+import static coworking_space.coworks.Coworks_Main.meetingRooms;
+import static coworking_space.coworks.Coworks_Main.teachingRooms;
+
 
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -188,7 +192,7 @@ public class AvailableSlotsController implements Initializable {
         SelectedSlot = AvailableTA.getSelectionModel().getSelectedIndex();
         if(Typee.equals(String.valueOf(GeneralRadio)))
         {
-            for(AbstractRoom R:GRooms)
+            for(AbstractRoom R:generalRooms)
             {
                 if(RoonID==R.id) {
                    R.slots.remove(SelectedSlot);
@@ -197,7 +201,7 @@ public class AvailableSlotsController implements Initializable {
 
             }
         } else if (Typee.equals(String.valueOf(TeachingRadio))) {
-            for(AbstractRoom R :TRooms)
+            for(AbstractRoom R :teachingRooms)
             {
                 if(RoonID== R.id)
                 {
@@ -211,7 +215,7 @@ public class AvailableSlotsController implements Initializable {
 
         }
         else {
-            for(AbstractRoom R:MRooms)
+            for(AbstractRoom R:meetingRooms)
             {
                 if(RoonID == R.id)
                 {
@@ -224,7 +228,7 @@ public class AvailableSlotsController implements Initializable {
         }
         AvailableTA.setItems(available);
         AvailableTA.refresh();
-        for(AbstractRoom R:GRooms)
+        for(AbstractRoom R:generalRooms)
         {
             for(Slot S: R.getAvailableSlotsForAdmin())
             {
@@ -246,7 +250,7 @@ public class AvailableSlotsController implements Initializable {
 
         if(Type.equals(String.valueOf(GeneralRadio)))
         {
-            for(AbstractRoom R:GRooms)
+            for(AbstractRoom R:generalRooms)
             {
                 if(Id==R.id) {
                     for (Slot S : R.slots) {
@@ -257,7 +261,7 @@ public class AvailableSlotsController implements Initializable {
 
             }
         } else if (Type.equals(String.valueOf(TeachingRadio))) {
-            for(AbstractRoom R :TRooms)
+            for(AbstractRoom R :teachingRooms)
             {
                 if(Id== R.id)
                 {
@@ -268,7 +272,7 @@ public class AvailableSlotsController implements Initializable {
 
         }
         else {
-            for(AbstractRoom R:MRooms)
+            for(AbstractRoom R:meetingRooms)
             {
                 if(Id == R.id)
                 {
