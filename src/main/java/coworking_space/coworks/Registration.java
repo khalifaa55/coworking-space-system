@@ -15,13 +15,7 @@ public class Registration {
     private String newPassword;
     private int id;
     private static int idCounter ;
-
-    public static void setCurrentRegistration(Registration currentRegistration) {
-        Registration.currentRegistration = currentRegistration;
-    }
     private static Registration currentRegistration;
-
-    static final String PANEL_NAME = "SCREEN_2";
 
     public Registration(){}
     public Registration(String userName, String userEmail, String phoneNumber, String newPassword,String role,int lastId) {
@@ -44,7 +38,7 @@ public class Registration {
             registrations.add(r);
         }
     }
-
+//
     public static boolean usernameRegex(String username) {
 
         String usernameRegex = "^[a-zA-Z0-9_]{3,20}$";
@@ -86,11 +80,13 @@ public class Registration {
         // Display a pop-up with the validation result
         return isValid;
     }
-
+//
     public static ArrayList<Registration> getRegistrations() {
         return registrations;
     }
+    public static Registration  getRegistration(){ return currentRegistration;}
 
+    //
     public static boolean  isDuplicateEmail(String email) {
         for (Registration registration : registrations) {
             if (registration.getUserEmail().equals(email)) {
@@ -109,7 +105,7 @@ public class Registration {
         }
         return currentRegistration;
     }
-
+//
     public static void  updateRegistrationInfo(ArrayList<Registration> registrations, String userCurrentEmail, String newUserName,String newUserEmail,String newPassword, String newPhoneNumber) {
         for (Registration registration : registrations) {
             if (registration.getUserEmail().equals(userCurrentEmail)) {
@@ -127,21 +123,17 @@ public class Registration {
                     registration.setPhoneNumber(newPhoneNumber);
                     System.out.println(registration.getPhoneNumber());
                 }
-                //if (newUserEmail!= null) {
-                //  registration.setPhoneNumber(newPhoneNumber);}
-
                 return;
             }
         }
     }
-    public static Registration  getRegistration(){ return currentRegistration;}
-    public int userid(){return id;}
+
     public static int updateIdCounter(){
     idCounter=AbstractVisitor.getlasindex();
         System.out.println(idCounter);
         return idCounter;
     }
-
+    public int userid(){return id;}
     public String getUserName() {
         return userName;
     }
@@ -155,6 +147,10 @@ public class Registration {
 
     public String getRole() {
         return role;
+    }
+
+    public void setCurrentRegistration(Registration currentRegistration) {
+        Registration.currentRegistration = currentRegistration;
     }
     public void setRole(String role) {
         this.role = role;

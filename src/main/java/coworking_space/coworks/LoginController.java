@@ -88,9 +88,21 @@ public class LoginController  implements Initializable {
 
         @FXML
     void validateSignInAndRedirect(MouseEvent event) throws IOException {
-        Login login =new Login(userEmail.getText(), userPassword.getText(),visitorType);
+        Login login =new Login(userEmail.getText(),visitorType, userPassword.getText());
         if (Login.adminLogin(userEmail.getText(), userPassword.getText())&&Visitor_Type.getSelectedToggle() == null) {
-            System.out.println("change to Admin Screen");
+
+            // Load the loginScreen.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("(admin)displayRoomDataScreen.fxml"));
+
+            // Create a new scene with the loaded FXML content
+            Scene scene = new Scene(root);
+
+            // Get the Stage from the MouseEvent's source
+            Stage stage = (Stage) loginScreen.getScene().getWindow();
+
+            // Set the new scene on the stage
+            stage.setScene(scene);
+            stage.show();
             return;
         } else if(Visitor_Type.getSelectedToggle() == null) {
             // No radio button is selected, display an error message or take appropriate action
@@ -104,21 +116,20 @@ public class LoginController  implements Initializable {
             inValidMessage(inValidTitle, inValidMessage);
         }
         else if((Login.validateLogin(login))){
-            System.out.println("change to Home Screen");
+
+            // Load the loginScreen.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("(visitor)MakeReservationScreen.fxml"));
+
+            // Create a new scene with the loaded FXML content
+            Scene scene = new Scene(root);
+
+            // Get the Stage from the MouseEvent's source
+            Stage stage = (Stage) loginScreen.getScene().getWindow();
+
+            // Set the new scene on the stage
+            stage.setScene(scene);
+            stage.show();
         }
-
-        // Load the loginScreen.fxml file
-        Parent root = FXMLLoader.load(getClass().getResource("(visitor)MakeReservationScreen.fxml"));
-
-        // Create a new scene with the loaded FXML content
-        Scene scene = new Scene(root);
-
-        // Get the Stage from the MouseEvent's source
-        Stage stage = (Stage) loginScreen.getScene().getWindow();
-
-        // Set the new scene on the stage
-        stage.setScene(scene);
-        stage.show();
     }
 
     private void inValidMessage(String title, String message){
@@ -145,5 +156,4 @@ public class LoginController  implements Initializable {
         popupStage.setScene(scene);
         popupStage.showAndWait();
     }
-
 }
