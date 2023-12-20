@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,39 +16,22 @@
 
 <AnchorPane fx:id="displayRoomDataScreen" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1174.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coworking_space.coworks.DisplayRoomDataController">
    <children>
-      <ImageView fx:id="displayRoomDataImage" fitHeight="769.0" fitWidth="1175.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="displayRoomDataImage" fitHeight="769.0" fitWidth="1175.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Resources/AdminScreens/DisplayRoomDataScreen.png" />
          </image>
       </ImageView>
-      <Label layoutX="423.0" layoutY="108.0" text="ChooseType" textFill="#6678cb">
-         <font>
-            <Font name="Calisto MT Bold" size="22.0" />
-         </font>
-      </Label>
-      <ChoiceBox id="TypeComboBox" fx:id="RoomTyprComboBox" layoutX="549.0" layoutY="109.0" prefHeight="32.0" prefWidth="194.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20;" />
-      <Label layoutX="816.0" layoutY="108.0" text="Choose ID" textFill="#6678cb">
-         <font>
-            <Font name="Calisto MT Bold" size="22.0" />
-         </font>
-      </Label>
-      <ChoiceBox id="RoomsIdComoboBox" fx:id="RoomsIdComboBox" layoutX="928.0" layoutY="108.0" prefHeight="32.0" prefWidth="179.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20;" />
-      <Button id="LogOutButton" fx:id="LogOutButton" layoutX="104.0" layoutY="658.0" mnemonicParsing="false" onMouseClicked="#LogOut_1" prefHeight="63.0" prefWidth="127.0" style="-fx-background-color: #0000ff; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
+      <Button id="LogOutButton" fx:id="LogOutButton" layoutX="104.0" layoutY="658.0" mnemonicParsing="false" onMouseClicked="#LogOut_1" prefHeight="63.0" prefWidth="127.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" textOverrun="LEADING_ELLIPSIS">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Button>
-      <Label layoutX="424.0" layoutY="162.0" text="ID :" textFill="#6678cb">
+      <Label layoutX="424.0" layoutY="162.0" text="Enter ID :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Label>
-      <Label id="SelectedRoomId" fx:id="SelectedRoomID" layoutX="470.0" layoutY="159.0" prefHeight="35.0" prefWidth="134.0" textFill="#3f388a">
-         <font>
-            <Font name="Calisto MT" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="819.0" layoutY="159.0" text="Name :" textFill="#6678cb">
+      <Label layoutX="783.0" layoutY="175.0" text="Name :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
@@ -75,7 +60,7 @@
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Label>
-      <TableView id="RoomAvailableSlotsTable" fx:id="AvailableSlotsTable" editable="true" layoutX="424.0" layoutY="491.0" prefHeight="199.0" prefWidth="304.0" style="-fx-border-color: #0000ff; -fx-background-radius: 20;">
+      <TableView id="RoomAvailableSlotsTable" fx:id="AvailableSlotsTable" editable="true" layoutX="424.0" layoutY="491.0" prefHeight="199.0" prefWidth="304.0" style="-fx-border-color: #000000; -fx-background-radius: 20;">
         <columns>
           <TableColumn fx:id="DateColumn" prefWidth="75.0" text="Date" />
           <TableColumn fx:id="StartTimeColumn" prefWidth="75.0" text="Start Time" />
@@ -88,7 +73,7 @@
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Label>
-      <TableView id="RoomReservesSlorsTable" fx:id="ReservedSlotsTable" editable="true" layoutX="803.0" layoutY="491.0" prefHeight="199.0" prefWidth="304.0" style="-fx-border-color: #0000ff; -fx-background-radius: 20;">
+      <TableView id="RoomReservesSlorsTable" fx:id="ReservedSlotsTable" editable="true" layoutX="803.0" layoutY="491.0" prefHeight="199.0" prefWidth="304.0" style="-fx-border-color: #000000; -fx-background-radius: 20;">
          <columns>
             <TableColumn fx:id="DateR" prefWidth="75.0" text="Date" />
             <TableColumn fx:id="StartTimeR" prefWidth="75.0" text="Start Time" />
@@ -101,8 +86,8 @@
             <Font name="Calisto MT Bold" size="20.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3f388a" height="24.0" layoutX="866.0" layoutY="707.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 20; -fx-arc-height: 20;" width="100.0" />
-      <Label id="RoomProfit" fx:id="RoomProfit" layoutX="901.0" layoutY="707.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #000000;" textAlignment="JUSTIFY" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#37448e" height="24.0" layoutX="866.0" layoutY="707.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 20; -fx-arc-height: 20;" width="100.0" />
+      <Label id="RoomProfit" fx:id="RoomProfit" layoutX="873.0" layoutY="707.0" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: transparent;" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="Calisto MT" size="17.0" />
          </font></Label>
@@ -110,11 +95,6 @@
       <Button id="VisitorsButton" fx:id="VisitorsData" layoutX="-1.0" layoutY="455.0" mnemonicParsing="false" onMouseClicked="#changeScreenToVisitorsDataScreen_1" prefHeight="83.0" prefWidth="347.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
       <Button id="RoomUpdateButton" fx:id="UpdateRoom" layoutX="-1.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#changeScreenToUpdateRoomDataDataScreen_1" prefHeight="75.0" prefWidth="347.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
       <Button layoutX="-9.0" layoutY="735.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="360.0" style="-fx-background-color: #063878;" />
-      <Label id="SelectedRoomId" fx:id="SelectedRoomID1" layoutX="478.0" layoutY="161.0" prefHeight="35.0" prefWidth="134.0" textFill="#3f388a">
-         <font>
-            <Font name="Calisto MT" size="20.0" />
-         </font>
-      </Label>
       <Label id="SelectedRoomId" fx:id="NoVisitorsRoom" layoutX="588.0" layoutY="211.0" prefHeight="35.0" prefWidth="134.0" textFill="#3f388a">
          <font>
             <Font name="Calisto MT" size="20.0" />
@@ -137,22 +117,61 @@
                   <Font name="Calisto MT Bold" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="43.0" layoutY="40.0" text="BoardType  :" textFill="#6678cb">
+            <Label layoutX="43.0" layoutY="50.0" text="BoardType  :" textFill="#6678cb">
                <font>
                   <Font name="Calisto MT Bold" size="22.0" />
                </font>
             </Label>
-            <Label id="SelectedRoomName" fx:id="ProjectorType" layoutX="189.0" layoutY="34.0" prefHeight="35.0" prefWidth="146.0" textFill="#3f388a">
+            <Label id="SelectedRoomName" fx:id="ProjectorType" layoutX="189.0" layoutY="48.0" prefHeight="35.0" prefWidth="146.0" textFill="#3f388a">
                <font>
                   <Font name="Calisto MT" size="20.0" />
                </font>
             </Label>
-            <Label id="SelectedRoomName" fx:id="BoardType" layoutX="206.0" prefHeight="35.0" prefWidth="146.0" textFill="#3f388a">
+            <Label id="SelectedRoomName" fx:id="BoardType" layoutX="206.0" layoutY="2.0" prefHeight="35.0" prefWidth="146.0" textFill="#3f388a">
+               <font>
+                  <Font name="Calisto MT" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="91.0" text="InstructorName :" textFill="#6678cb">
+               <font>
+                  <Font name="Calisto MT Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label id="SelectedRoomName" fx:id="InstructorName" layoutX="214.0" layoutY="88.0" prefHeight="35.0" prefWidth="146.0" textFill="#3f388a">
                <font>
                   <Font name="Calisto MT" size="20.0" />
                </font>
             </Label>
          </children>
       </Pane>
+      <Button layoutX="810.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#DisplayRoom" prefHeight="38.0" prefWidth="101.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #6678cb; -fx-border-radius: 20;" text="Display" textFill="#063878">
+         <font>
+            <Font name="Calisto MT Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="962.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#DeleteRoom" prefHeight="38.0" prefWidth="101.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #6678cb; -fx-border-radius: 20;" text="Delete" textFill="#063878">
+         <font>
+            <Font name="Calisto MT Bold" size="17.0" />
+         </font>
+      </Button>
+      <RadioButton fx:id="GeneralRadio" layoutX="461.0" layoutY="108.0" mnemonicParsing="false" text="General">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="types" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="MeetingRadio" layoutX="702.0" layoutY="107.0" mnemonicParsing="false" text="Meeting" toggleGroup="$types">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="TeachingRadio" layoutX="939.0" layoutY="110.0" mnemonicParsing="false" text="Teaching" toggleGroup="$types">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </RadioButton>
+      <TextField fx:id="RoomID" layoutX="524.0" layoutY="166.0" />
    </children>
 </AnchorPane>
