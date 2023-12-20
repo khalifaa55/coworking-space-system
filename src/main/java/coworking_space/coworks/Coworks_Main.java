@@ -51,9 +51,9 @@ public class Coworks_Main extends Application {
 
     public static void readArrayListFromJson() {
         try {
-            generalRooms = Json.readGeneralRoomsFromFile(READ_GENERAL_ROOMS_PATH);
-            meetingRooms = Json.readMeetingRoomsFromFile(READ_MEETING_ROOMS_PATH);
-            teachingRooms = Json.readTeachingRoomsFromFile(READ_TEACHING_ROOMS_PATH);
+            generalRooms = Json.readRoomsFromFile(READ_GENERAL_ROOMS_PATH);
+            meetingRooms = Json.readRoomsFromFile(READ_MEETING_ROOMS_PATH);
+            teachingRooms = Json.readRoomsFromFile(READ_TEACHING_ROOMS_PATH);
             visitors = Json.readVisitorsFromFile(READ_VISITORS_PATH);
         } catch (IOException e) {
             throw new RuntimeException("Error reading data from file", e);
@@ -63,9 +63,9 @@ public class Coworks_Main extends Application {
 
     public static void writeArrayListIntoJson() {
         try {
-            Json.writeGeneralRoomsToFile(generalRooms, WRITE_GENERAL_ROOMS_PATH);
-            Json.writeMeetingRoomsToFile(meetingRooms, WRITE_MEETING_ROOMS_PATH);
-            Json.writeTeachingRoomsToFile(teachingRooms, WRITE_TEACHING_ROOMS_PATH);
+            Json.writeRoomsToFile(generalRooms, WRITE_GENERAL_ROOMS_PATH);
+            Json.writeRoomsToFile(meetingRooms, WRITE_MEETING_ROOMS_PATH);
+            Json.writeRoomsToFile(teachingRooms, WRITE_TEACHING_ROOMS_PATH);
             Json.writeVisitorsToFile(visitors, WRITE_VISITORS_PATH);
         } catch (IOException e) {
             throw new RuntimeException("Error writing data to file", e);
