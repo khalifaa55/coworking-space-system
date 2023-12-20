@@ -150,7 +150,6 @@ AbstractRoom SelectedRoom;
 
     ObservableList<AbstractVisitor> Visitors = FXCollections.observableArrayList();
     ObservableList<Slot> AvailableSlots = FXCollections.observableArrayList();
-    ObservableList<Slot> Reserved = FXCollections.observableArrayList();
 
 
 
@@ -232,7 +231,7 @@ AbstractRoom SelectedRoom;
             slot.setStartTime(StartTimetEXT.getText());
             slot.setEndTime(EbdTineText.getText());
             slot.setFees(Double.parseDouble(FeesText.getText()));
-            slot.setDate(DatePick.getValue());
+            slot.setSlotDate(DatePick.getValue());
             AvailableSlotsTable.setItems(currentSlots);
             AvailableSlotsTable.refresh();
                   break;
@@ -257,7 +256,7 @@ AbstractRoom SelectedRoom;
 
         Slot ClickedSlot = AvailableSlotsTable.getSelectionModel().getSelectedItem();
 //        int Index= AvailableSlotsTable.getSelectionModel().getSelectedIndex();
-         DatePick.setValue(ClickedSlot.Sdate);
+         DatePick.setValue(ClickedSlot.slotDate);
         StartTimetEXT.setText(ClickedSlot.getStartTime());
         EbdTineText.setText(ClickedSlot.getEndTime());
         FeesText.setText(String.valueOf(ClickedSlot.getFees()));
@@ -389,7 +388,7 @@ AbstractRoom SelectedRoom;
             AvailableSlots.add(s);
         }
 
-        DateA.setCellValueFactory(new PropertyValueFactory<Slot, LocalDate>("Sdate"));
+        DateA.setCellValueFactory(new PropertyValueFactory<Slot, LocalDate>("slotDate"));
         StartA.setCellValueFactory(new PropertyValueFactory<Slot, String>("startTime"));
         EndA.setCellValueFactory(new PropertyValueFactory<Slot, String>("endTime"));
         FeesA.setCellValueFactory(new PropertyValueFactory<Slot, Double>("fees"));

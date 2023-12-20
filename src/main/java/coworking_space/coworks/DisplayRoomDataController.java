@@ -301,7 +301,7 @@ public class DisplayRoomDataController implements Initializable {
        else if(Type.equals(String.valueOf(TeachingRadio)))
         {
             SelectedRoom= null;
-            for (AbstractRoom Tr : TRooms) {
+            for (AbstractRoom Tr : teachingRooms) {
                 if (ID== Tr.id) {
                     SelectedRoom = Tr;
                 }
@@ -310,7 +310,7 @@ public class DisplayRoomDataController implements Initializable {
         }
         else {
             SelectedRoom= null;
-            for (AbstractRoom Mr : MRooms) {
+            for (AbstractRoom Mr : meetingRooms) {
                 if (ID ==Mr.id) {
                     SelectedRoom = Mr;
                 }
@@ -389,7 +389,7 @@ public  void FillData(AbstractRoom Room)
 
             }
         } else if (Type.equals(String.valueOf(TeachingRadio))) {
-            for(AbstractRoom R :TRooms)
+            for(AbstractRoom R :teachingRooms)
             {
                 if(Id== R.id)
                 {
@@ -400,7 +400,7 @@ public  void FillData(AbstractRoom Room)
 
         }
         else {
-            for(AbstractRoom R:MRooms)
+            for(AbstractRoom R:meetingRooms)
             {
                 if(Id == R.id)
                 {
@@ -409,7 +409,7 @@ public  void FillData(AbstractRoom Room)
                 }
             }
         }
-        DateColumn.setCellValueFactory(new PropertyValueFactory<Slot,LocalDate>("Sdate"));
+        DateColumn.setCellValueFactory(new PropertyValueFactory<Slot,LocalDate>("slotDate"));
         StartTimeColumn.setCellValueFactory(new PropertyValueFactory<Slot,String>("startTime"));
         EndTimeColumn.setCellValueFactory(new PropertyValueFactory<Slot,String>("endTime"));
         FeesColumn.setCellValueFactory(new PropertyValueFactory<Slot,Double>("fees"));
@@ -436,7 +436,7 @@ public  void FillData(AbstractRoom Room)
 
             }
         } else if (Type.equals(String.valueOf(TeachingRadio))) {
-            for(AbstractRoom R :TRooms)
+            for(AbstractRoom R :teachingRooms)
             {
                 if(Id== R.id)
                 {
@@ -449,7 +449,7 @@ public  void FillData(AbstractRoom Room)
 
         }
         else {
-            for(AbstractRoom R:MRooms)
+            for(AbstractRoom R:meetingRooms)
             {
                 if(Id == R.id)
                 {
@@ -460,21 +460,11 @@ public  void FillData(AbstractRoom Room)
                 }
             }
         }
-        DateR.setCellValueFactory(new PropertyValueFactory<Slot,LocalDate>("Sdate"));
+        DateR.setCellValueFactory(new PropertyValueFactory<Slot,LocalDate>("slotDate"));
         StartTimeR.setCellValueFactory(new PropertyValueFactory<Slot,String>("startTime"));
         EndTimeR.setCellValueFactory(new PropertyValueFactory<Slot,String>("endTime"));
         FeesR.setCellValueFactory(new PropertyValueFactory<Slot,Double>("fees"));
         ReservedSlotsTable.setItems(Reserved);
-
-    }
-    public void ApplyManyTIMES()
-    {
-//        RoomTyprComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//            updateRoomsIdComboBox(newValue);
-//        });
-//        RoomsIdComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//            DisplayRoomVistor(newValue);
-//        });
 
     }
 
@@ -483,36 +473,36 @@ public  void FillData(AbstractRoom Room)
     public void initialize(URL url, ResourceBundle resourceBundle) {
         InstructorPane.setVisible(false);
         RoomProfit.setText("");
-        Slot S_0 = new Slot("9" , "11",150 , LocalDate.of(2023,3 ,5));
-//        Mslots.add(S_0);
-        Mslots.add(slot1);
-        Mslots.add(slot2);
-
-        I_visitprs.add(Ivisitor_2);
-        I_visitprs.add(Ivisitor_3);
-        F_visitprs.add(Fvisitor_2);
-        F_visitprs.add(Fvisitor_3);
-        G_visitprs.add(Gvisitor_2);
-        G_visitprs.add(Gvisitor_3);
-        GRooms.add(null);  // Or any initial value you want
-        TRooms.add(null);
-        MRooms.add(null);
-
-        Mslots.get(0).createReservation(Gvisitor_2);
-        Mslots.get(0).createReservation(Gvisitor_3);
-       RoomProfit.setText("");
-       Mslots_1.add(slot3);
-       Mslots_1.add(slot4);
-       Mslots_2.add(slot5);
-       Mslots_2.add(slot6);
-
-        AbstractRoom Groom = new GeneralRoom("G1", 2, Mslots, G_visitprs);
-        GRooms.set(0, Groom);
-
-        AbstractRoom Troom = new TeachingRoom("T1", 3, Mslots_1, I_visitprs);
-        TRooms.set(0, Troom);
-        AbstractRoom Mroom = new MeetingRoom("M1", 1, Mslots_2, F_visitprs);
-        MRooms.set(0, Mroom);
+//        Slot S_0 = new Slot("9" , "11",150 , LocalDate.of(2023,3 ,5));
+////        Mslots.add(S_0);
+//        Mslots.add(slot1);
+//        Mslots.add(slot2);
+//
+//        I_visitprs.add(Ivisitor_2);
+//        I_visitprs.add(Ivisitor_3);
+//        F_visitprs.add(Fvisitor_2);
+//        F_visitprs.add(Fvisitor_3);
+//        G_visitprs.add(Gvisitor_2);
+//        G_visitprs.add(Gvisitor_3);
+//        GRooms.add(null);  // Or any initial value you want
+//        TRooms.add(null);
+//        MRooms.add(null);
+//
+//        Mslots.get(0).createReservation(Gvisitor_2);
+//        Mslots.get(0).createReservation(Gvisitor_3);
+//       RoomProfit.setText("");
+//       Mslots_1.add(slot3);
+//       Mslots_1.add(slot4);
+//       Mslots_2.add(slot5);
+//       Mslots_2.add(slot6);
+//
+//        AbstractRoom Groom = new GeneralRoom("G1", 2, Mslots, G_visitprs);
+//        GRooms.set(0, Groom);
+//
+//        AbstractRoom Troom = new TeachingRoom("T1", 3, Mslots_1, I_visitprs);
+//        TRooms.set(0, Troom);
+//        AbstractRoom Mroom = new MeetingRoom("M1", 1, Mslots_2, F_visitprs);
+//        MRooms.set(0, Mroom);
         for(AbstractRoom G :generalRooms)
         {
             System.out.println(G.name);

@@ -5,16 +5,14 @@
     "startTime" : "08:00 AM",
     "endTime" : "10:00 AM",
     "fees" : 100.0,
-    "Sdate" : [ 2023, 12, 19 ],
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 20 ]
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   }, {
     "startTime" : "10:00 AM",
     "endTime" : "12:00 PM",
     "fees" : 300.0,
-    "Sdate" : [ 2023, 12, 19 ],
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 20 ]
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   } ],
   "visitors" : [ {
     "type" : "formal",
@@ -42,16 +40,14 @@
     "startTime" : "02:00 PM",
     "endTime" : "04:00 PM",
     "fees" : 100.0,
-    "Sdate" : [ 2023, 12, 19 ],
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 20 ]
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   }, {
     "startTime" : "04:00 PM",
     "endTime" : "06:00 PM",
     "fees" : 300.0,
-    "Sdate" : [ 2023, 12, 19 ],
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 20 ]
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   } ],
   "visitors" : [ {
     "type" : "formal",
@@ -79,16 +75,14 @@
     "startTime" : "06:00 PM",
     "endTime" : "08:00 PM",
     "fees" : 100.0,
-    "Sdate" : [ 2023, 12, 19 ],
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 20 ]
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   }, {
     "startTime" : "08:00 PM",
     "endTime" : "10:00 PM",
     "fees" : 300.0,
-    "Sdate" : [ 2023, 12, 19 ],
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 20 ]
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   } ],
   "visitors" : [ {
     "type" : "formal",
