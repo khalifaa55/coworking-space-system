@@ -252,15 +252,15 @@ public class MakeReservationController implements Initializable {
                 // Pass these values to the appropriate visitor's makeReservation method
                 if (RegisterController.formaltype) {
                    // FormalVisitor formalVisitor = new FormalVisitor("fagr",123);
-                    cVisitor.makeReservation(meetingRooms.get(index), selectedDate, startTime, endTime);
+                    cVisitor.makeReservation(meetingRooms.get(index), selectedDate, startTime, endTime,index);
                 }
                 else if (RegisterController.instructortype) {
                     //InstructorVisitor instructorVisitor = new InstructorVisitor();
-                    cVisitor.makeReservation(teachingRooms.get(index), selectedDate, startTime, endTime);
+                    cVisitor.makeReservation(teachingRooms.get(index), selectedDate, startTime, endTime,index);
                 }
                 else {
                     //GeneralVisitor generalVisitor = new GeneralVisitor();
-                    cVisitor.makeReservation(generalRooms.get(index), selectedDate, startTime, endTime);
+                    cVisitor.makeReservation(generalRooms.get(index), selectedDate, startTime, endTime,index);
                 }
             }
         }

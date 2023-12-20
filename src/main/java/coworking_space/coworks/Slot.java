@@ -105,9 +105,9 @@ public class Slot implements Comparable
 
     /*  createReservation AbstractVisitor:	Creates a new Reservation object with the
      provided visitor and adds it to the list  */
-    public Reservation createReservation(AbstractVisitor visitor ,LocalDate date)
+    public Reservation createReservation(AbstractVisitor visitor ,LocalDate date, int id )
     {
-        Reservation reservation = new Reservation(visitor, date);
+        Reservation reservation = new Reservation(visitor, date , id );
         reservations.add(reservation);
         return reservation;
     }

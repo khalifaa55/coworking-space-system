@@ -82,6 +82,7 @@ public class UpdateReservationController implements Initializable {
     int roomOfCurrentUser;
 
 
+
     private void updateUserchoiceBox() {
 
         observableUserSlots.clear();
@@ -119,7 +120,7 @@ public class UpdateReservationController implements Initializable {
             for(int i=0;i<teachingRooms.size();i++){
 
                 currentUserReservations= cVisitor.DisplayReservation(teachingRooms.get(i), Registration.getRegistration());
-                roomOfCurrentUser=i;
+
 
 
             }
@@ -130,8 +131,7 @@ public class UpdateReservationController implements Initializable {
             for(int i=0;i<meetingRooms.size();i++){
 
                 currentUserReservations= cVisitor.DisplayReservation(meetingRooms.get(i), Registration.getRegistration());
-                roomOfCurrentUser=i;
-                System.out.println(roomOfCurrentUser);
+
 
             }
 
@@ -140,7 +140,7 @@ public class UpdateReservationController implements Initializable {
             for(int i=0;i<generalRooms.size();i++){
 
                 currentUserReservations= cVisitor.DisplayReservation(generalRooms.get(i), Registration.getRegistration());
-                roomOfCurrentUser=i;
+
 
             }
         }
@@ -160,6 +160,28 @@ public class UpdateReservationController implements Initializable {
 
         // Set the updated observable list as the items for the ChoiceBox
         slotChoiceBox.setItems(observableSlots);
+
+        if(RegisterController.formaltype) {
+            for (AbstractRoom MR :meetingRooms ){
+                for (Slot slot : MR.slots) {
+                    if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
+                        for (Slot.Reservation r : slot.getReservations()) {
+                            String visitorEmail = r.getVisitor().userEmail;
+                            if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)) {
+                                roomOfCurrentUser=r.
+                            }
+                        }
+                    }
+                }
+           }
+        }
+        else if(RegisterController.instructortype){
+
+
+        }else{
+
+
+        }
 
 
 
@@ -286,6 +308,8 @@ public class UpdateReservationController implements Initializable {
                 // Now you have startTime and endTime
                 System.out.println("Start Time: " + startTime);
                 System.out.println("End Time: " + endTime);
+
+
 
                 // Pass these values to the appropriate visitor's makeReservation method
                 if (RegisterController.formaltype) {

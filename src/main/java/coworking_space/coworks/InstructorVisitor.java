@@ -90,7 +90,7 @@ public class InstructorVisitor extends AbstractVisitor {
 
     }
 
-    protected void makeReservation(AbstractRoom room , LocalDate date,String startTime,String endTime) {
+    protected void makeReservation(AbstractRoom room , LocalDate date,String startTime,String endTime,int id) {
         //AbstractRoom room= new TeachingRoom();
 
         TeachingRoom TR = (TeachingRoom) room;
@@ -101,20 +101,14 @@ public class InstructorVisitor extends AbstractVisitor {
 
         for (Slot slot : availableslots) {
             if (startTime.equals( slot.startTime) & endTime.equals(slot.endTime) ) {
-                slot.createReservation(cVisitor,date);
+                slot.createReservation(cVisitor,date, id );
                 break;
             }
         }
 
     }
 
-    protected void updateReservation(AbstractRoom Room,  LocalDate date,String startTime,String endTime, Registration currentr) {
 
-        TeachingRoom TR= (TeachingRoom)Room;
-      // cancelReservation(TR,currentr);
-        makeReservation(TR,date,startTime,endTime);
-
-    }
 
     public void cancelReservation(AbstractRoom Room, Registration currentr,String startTime,String endTime) {
 

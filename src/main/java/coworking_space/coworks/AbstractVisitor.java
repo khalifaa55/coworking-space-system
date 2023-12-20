@@ -134,8 +134,8 @@ public abstract class AbstractVisitor {
     }
     @JsonIgnore
     protected abstract ArrayList DisplayReservation(AbstractRoom room,Registration currentr) ;
-    protected abstract void makeReservation(AbstractRoom room, LocalDate date,String startTime,String endTime);
-    //protected abstract void updateReservation(AbstractRoom Room ,LocalDate date,String startTime,String endTime);
+    protected abstract void makeReservation(AbstractRoom room, LocalDate date,String startTime,String endTime, int id);
+
     public abstract void cancelReservation(AbstractRoom Room,Registration currentr,String startTime,String endTime);
 
 }

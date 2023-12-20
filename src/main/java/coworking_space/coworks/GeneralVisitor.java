@@ -90,7 +90,7 @@ public class GeneralVisitor extends AbstractVisitor{
         return GuserResrvations;
 
     }
-    protected void makeReservation(AbstractRoom room , LocalDate date , String startTime , String endTime) {
+    protected void makeReservation(AbstractRoom room , LocalDate date , String startTime , String endTime,int id) {
 
         GeneralRoom GR = (GeneralRoom) room;
 
@@ -102,19 +102,13 @@ public class GeneralVisitor extends AbstractVisitor{
         for (Slot slot : availableslots){
 
             if (startTime .equals(slot.startTime) && endTime.equals(slot.endTime)) {
-                slot.createReservation(cVisitor,date);
+                slot.createReservation(cVisitor,date , id );
                 break;
             }
         }
     }
 
-    protected void updateReservation(AbstractRoom Room, LocalDate date,String startTime,String endTime,Registration currentr) {
 
-        GeneralRoom GR= (GeneralRoom)Room;
-        //cancelReservation(GR,currentr);
-        makeReservation(GR,date,startTime,endTime);
-
-    }
 
     public void cancelReservation(AbstractRoom Room,Registration currentr,String startTime,String endTime) {
 

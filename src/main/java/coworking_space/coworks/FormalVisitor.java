@@ -86,7 +86,7 @@ public class FormalVisitor extends AbstractVisitor {
         return FuserResrvations;
 
     }
-    protected void makeReservation(AbstractRoom room, LocalDate date,String startTime,String endTime) {
+    protected void makeReservation(AbstractRoom room, LocalDate date,String startTime,String endTime, int id) {
         //AbstractRoom room= new TeachingRoom();
        // System.out.println("Size of meetingRooms: " + meetingRooms.size());
 
@@ -99,7 +99,7 @@ public class FormalVisitor extends AbstractVisitor {
 
         for (Slot slot : availableslots) {
             if (startTime.equals( slot.startTime) & endTime.equals(slot.endTime) ) {
-                slot.createReservation(cVisitor,date);
+                slot.createReservation(cVisitor,date,id );
                 System.out.println("Reservation Made successfully");
                 break;
             }
@@ -108,13 +108,7 @@ public class FormalVisitor extends AbstractVisitor {
 
     }
 
-    protected void updateReservation(AbstractRoom Room ,LocalDate date,String startTime,String endTime) {
 
-        MeetingRoom MR= (MeetingRoom)Room;
-        //cancelReservation(MR);
-        makeReservation(MR,date,startTime,endTime);
-
-    }
 
     public void cancelReservation(AbstractRoom Room,Registration cuurentr,String startTime,String endTime) {
 

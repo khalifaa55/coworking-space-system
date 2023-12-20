@@ -72,23 +72,23 @@ public class Coworks_Main extends Application {
         }
     }
 
-  /*  public static void sendArrayListToMain(ArrayList<?> arrayList) {
-        try {
-            Object firstElement = arrayList.get(0);
-            if (firstElement instanceof MeetingRoom) {
-                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
-            } else if (firstElement instanceof GeneralRoom) {
-                generalRooms = (ArrayList<GeneralRoom>) arrayList;
-            } else if (firstElement instanceof TeachingRoom) {
-                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
-            } else if (firstElement instanceof AbstractVisitor) {
-                visitors = (ArrayList<AbstractVisitor>) arrayList;
-            }
-        } catch (NullPointerException e) {
-            System.out.println("Null ArrayList");
-            e.printStackTrace();
-        }
-    }
+//    public static void sendArrayListToMain(ArrayList<?> arrayList) {
+//        try {
+//            Object firstElement = arrayList.get(0);
+//            if (firstElement instanceof MeetingRoom) {
+//                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
+//            } else if (firstElement instanceof GeneralRoom) {
+//                generalRooms = (ArrayList<GeneralRoom>) arrayList;
+//            } else if (firstElement instanceof TeachingRoom) {
+//                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
+//            } else if (firstElement instanceof AbstractVisitor) {
+//                visitors = (ArrayList<AbstractVisitor>) arrayList;
+//            }
+//        } catch (NullPointerException e) {
+//            System.out.println("Null ArrayList");
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -185,7 +185,7 @@ public class Coworks_Main extends Application {
         tslots.add(slot8);
         tslots2.add(slot9);
         tslots2.add(slot10);
-        slot7.createReservation(inst1);
+        //slot7.createReservation(inst1);
 
         tslots3.add(slot11);
         tslots3.add(slot12);
@@ -231,15 +231,15 @@ public class Coworks_Main extends Application {
 //        insts3.add(inst5);
 //        insts3.add(inst6);
 //
-            Slot slot7 = new Slot("08:00 AM", "10:00 AM", 100.00, LocalDate.of(2023,12,19));
-            Slot slot8 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,19));
-
-
-            Slot slot9 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,19));
-            Slot slot10 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,19));
+//            Slot slot7 = new Slot("08:00 AM", "10:00 AM", 100.00, LocalDate.of(2023,12,19));
+//            Slot slot8 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,19));
 //
-            Slot slot11 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,19));
-            Slot slot12 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,19));
+//
+//            Slot slot9 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,19));
+//            Slot slot10 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,19));
+////
+//            Slot slot11 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,19));
+//            Slot slot12 = new Slot("10:00 AM", "12:00 PM", 300.00,LocalDate.of(2023,12,19));
 //
 //
 //        tslots.add(slot7);
@@ -353,3 +353,6 @@ public class Coworks_Main extends Application {
     }
 
 }
+
+
+
