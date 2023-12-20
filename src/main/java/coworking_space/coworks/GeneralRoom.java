@@ -42,6 +42,7 @@ public class GeneralRoom extends AbstractRoom
     public ArrayList<GeneralVisitor> getVisitors() {
         return visitors;
     }
+    public  ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
 
     //Implemented Methods//
     @JsonIgnore
@@ -49,12 +50,14 @@ public class GeneralRoom extends AbstractRoom
     {
         for (Slot slot : slots)
         {
-            ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
-            for(Slot.Reservation reservation : slot.getReservations()){
-                if(reservation.getDate().equals(date)){
-                    reservationsInDate.add(reservation);
-                }
+            if (slot.getReservations()!=null) {
 
+                for (Slot.Reservation reservation : slot.getReservations()) {
+                    if (reservation.getReservationDate().equals(date)) {
+                        reservationsInDate.add(reservation);
+                    }
+
+                }
             }
             // Check if there are no reservations or the slot is not fully reserved
             if (reservationsInDate.isEmpty() ||reservationsInDate.size() < maxNumberOfVisitors)

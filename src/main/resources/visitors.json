@@ -1,7 +1,7 @@
 [ {
   "name" : "Rabab",
   "password" : "P@ssw0rd!",
-  "id" : 0,
+  "id" : 25,
   "userEmail" : "0128887777",
   "phoneNumber" : "rabab@example.com",
   "type" : "general"
@@ -141,22 +141,29 @@
 }, {
   "name" : "farha",
   "password" : "123456789a",
-  "id" : 1,
+  "id" : 20,
   "userEmail" : "01017445230",
   "phoneNumber" : "f@gmail.com",
   "type" : "general"
 }, {
   "name" : "Bansee",
   "password" : "1234567a",
-  "id" : 1,
+  "id" : 21,
   "userEmail" : "bansee@gmail.com",
   "phoneNumber" : "01023210731",
   "type" : "instructor"
 }, {
   "name" : "haneen",
   "password" : "1234567a",
-  "id" : 1,
+  "id" : 22,
   "userEmail" : "haneen@gmail.com",
   "phoneNumber" : "01000000000",
+  "type" : "formal"
+}, {
+  "name" : "fagr",
+  "password" : "c1234567",
+  "id" : 23,
+  "userEmail" : "fagr@gmail.com",
+  "phoneNumber" : "12345678910",
   "type" : "formal"
 } ]

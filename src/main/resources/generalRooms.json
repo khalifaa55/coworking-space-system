@@ -1,267 +1,73 @@
 [ {
-  "name" : "B",
-  "id" : 124,
+  "name" : "Groom1",
+  "id" : 7,
   "slots" : [ {
     "startTime" : "02:00 PM",
     "endTime" : "04:00 PM",
     "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   }, {
     "startTime" : "04:00 PM",
     "endTime" : "06:00 PM",
     "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   } ],
-  "visitors" : [ ],
+  "visitors" : [ {
+    "type" : "general",
+    "name" : "Fagor",
+    "password" : null,
+    "id" : 3,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "general"
+  }, {
+    "type" : "general",
+    "name" : "Fago",
+    "password" : null,
+    "id" : 4,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "general"
+  } ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2
+  "maxNumberOfVisitors" : 2,
+  "reservationsInDate" : [ ]
 }, {
-  "name" : "C",
-  "id" : 125,
+  "name" : "Groom2",
+  "id" : 8,
   "slots" : [ {
     "startTime" : "06:00 PM",
     "endTime" : "08:00 PM",
     "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
+    "slotDate" : [ 2023, 12, 19 ],
+    "reservations" : [ ]
   }, {
     "startTime" : "04:00",
     "endTime" : "06:00 PM",
     "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
+    "slotDate" : [ 2023, 12, 18 ],
+    "reservations" : [ ]
   } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
+  "visitors" : [ {
+    "type" : "general",
+    "name" : "Fagor",
+    "password" : null,
+    "id" : 3,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "general"
   }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
+    "type" : "general",
+    "name" : "Fago",
+    "password" : null,
+    "id" : 4,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "general"
   } ],
-  "visitors" : [ ],
   "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "B",
-  "id" : 124,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
-}, {
-  "name" : "C",
-  "id" : 125,
-  "slots" : [ {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 100.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  }, {
-    "startTime" : "04:00",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "reservations" : [ ],
-    "currentDate" : [ 2023, 12, 19 ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 2
+  "maxNumberOfVisitors" : 2,
+  "reservationsInDate" : [ ]
 } ]
