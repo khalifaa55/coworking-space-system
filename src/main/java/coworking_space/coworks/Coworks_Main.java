@@ -15,14 +15,14 @@ public class Coworks_Main extends Application {
         3 Meeting Rooms: max_num_visitors 10 per room
         3 Teaching Rooms: max_num_visitors 10 per room
     */
-    final static String WRITE_GENERAL_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String READ_GENERAL_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String WRITE_MEETING_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String READ_MEETING_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String WRITE_TEACHING_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String READ_TEACHING_ROOMS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String WRITE_VISITORS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
-    final static String READ_VISITORS_PATH = "D:\\JavaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String WRITE_GENERAL_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String READ_GENERAL_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String WRITE_MEETING_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String READ_MEETING_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String WRITE_TEACHING_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String READ_TEACHING_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String WRITE_VISITORS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String READ_VISITORS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
 
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     public static ArrayList<Registration> registrations = new ArrayList<Registration>();
@@ -71,15 +71,15 @@ public class Coworks_Main extends Application {
         }
     }
 
-    public static void sendArrayListToMain(ArrayList<?> arrayList) {
+  /*  public static void sendArrayListToMain(ArrayList<?> arrayList) {
         try {
             Object firstElement = arrayList.get(0);
             if (firstElement instanceof MeetingRoom) {
-                meetingRooms = (ArrayList<AbstractRoom>) arrayList;
+                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
             } else if (firstElement instanceof GeneralRoom) {
-                generalRooms = (ArrayList<AbstractRoom>) arrayList;
+                generalRooms = (ArrayList<GeneralRoom>) arrayList;
             } else if (firstElement instanceof TeachingRoom) {
-                teachingRooms = (ArrayList<AbstractRoom>) arrayList;
+                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
             } else if (firstElement instanceof AbstractVisitor) {
                 visitors = (ArrayList<AbstractVisitor>) arrayList;
             }
@@ -88,7 +88,7 @@ public class Coworks_Main extends Application {
             e.printStackTrace();
         }
     }
-
+*/
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Coworks_Main.class.getResource("welcomeScreen.fxml"));
@@ -97,9 +97,8 @@ public class Coworks_Main extends Application {
         stage.setScene(scene);
         //write into files when exiting program
         stage.setOnCloseRequest(event -> {
-//            writeArrayListIntoJson();
+            writeArrayListIntoJson();
             System.out.println("writing in file");
-//           writeArrayListIntoJson();
         });
         stage.show();
     }
@@ -273,10 +272,7 @@ public class Coworks_Main extends Application {
 //        // System.out.println(meetingRooms.get(0));
         //System.out.println("Size of meetingRooms: " + meetingRooms.size());
 
-for(AbstractVisitor V:visitors)
-{
-    System.out.println(V.id);
-}
+
         //writeArrayListIntoJson();
 
        // writeArrayListIntoJson();

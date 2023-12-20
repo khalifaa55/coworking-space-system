@@ -50,6 +50,26 @@
     "slotDate" : [ 2023, 12, 18 ],
     "reservations" : [ ]
   } ],
+  "visitors" : [ ],
+  "type" : "general",
+  "maxNumberOfVisitors" : 2,
+  "reservationsInDate" : [ ]
+}, {
+  "name" : "Groom1",
+  "id" : 7,
+  "slots" : [ {
+    "startTime" : "02:00 PM",
+    "endTime" : "04:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 12 ],
+    "reservations" : [ ]
+  }, {
+    "startTime" : "04:00 PM",
+    "endTime" : "06:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 13 ],
+    "reservations" : [ ]
+  } ],
   "visitors" : [ {
     "type" : "general",
     "name" : "Fagor",
@@ -67,7 +87,42 @@
     "phoneNumber" : null,
     "type" : "general"
   } ],
-  "visitors" : [ ],
+  "type" : "general",
+  "maxNumberOfVisitors" : 2,
+  "reservationsInDate" : [ ]
+}, {
+  "name" : "Groom2",
+  "id" : 8,
+  "slots" : [ {
+    "startTime" : "06:00 PM",
+    "endTime" : "08:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 14 ],
+    "reservations" : [ ]
+  }, {
+    "startTime" : "04:00",
+    "endTime" : "06:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 15 ],
+    "reservations" : [ ]
+  } ],
+  "visitors" : [ {
+    "type" : "general",
+    "name" : "Fagor",
+    "password" : null,
+    "id" : 3,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "general"
+  }, {
+    "type" : "general",
+    "name" : "Fago",
+    "password" : null,
+    "id" : 4,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "general"
+  } ],
   "type" : "general",
   "maxNumberOfVisitors" : 2,
   "reservationsInDate" : [ ]

@@ -112,4 +112,129 @@
   "boardtype" : "B1",
   "instructorname" : "alshimaa",
   "maxNumberOfVisitors" : 3
+}, {
+  "name" : "Troom1",
+  "id" : 4,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 7 ],
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Fagr",
+        "password" : null,
+        "id" : 12,
+        "userEmail" : null,
+        "phoneNumber" : null,
+        "type" : "instructor"
+      },
+      "reservationDate" : null
+    } ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 8 ],
+    "reservations" : [ ]
+  } ],
+  "visitors" : [ {
+    "type" : "instructor",
+    "name" : "Fagr",
+    "password" : null,
+    "id" : 12,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "instructor"
+  }, {
+    "type" : "instructor",
+    "name" : "ashraf",
+    "password" : null,
+    "id" : 14,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "instructor"
+  } ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "Troom2",
+  "id" : 5,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 9 ],
+    "reservations" : [ ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 10 ],
+    "reservations" : [ ]
+  } ],
+  "visitors" : [ {
+    "type" : "instructor",
+    "name" : "Bansee",
+    "password" : null,
+    "id" : 123,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "instructor"
+  }, {
+    "type" : "instructor",
+    "name" : "abdelnasser",
+    "password" : null,
+    "id" : 143,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "instructor"
+  } ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
+}, {
+  "name" : "Troom3",
+  "id" : 6,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 11 ],
+    "reservations" : [ ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 12 ],
+    "reservations" : [ ]
+  } ],
+  "visitors" : [ {
+    "type" : "instructor",
+    "name" : "haneen",
+    "password" : null,
+    "id" : 122,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "instructor"
+  }, {
+    "type" : "instructor",
+    "name" : "ahmed",
+    "password" : null,
+    "id" : 142,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "instructor"
+  } ],
+  "type" : "teaching",
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa",
+  "maxNumberOfVisitors" : 3
 } ]
