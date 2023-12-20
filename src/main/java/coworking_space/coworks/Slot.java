@@ -114,26 +114,25 @@ public class Slot implements Comparable
     @Override
     public int compareTo(Object obj)
     {
-        Slot otherSlot = (Slot) obj;
-        if(this.slotDate.isBefore(otherSlot.slotDate))
-        {
-            return -1;
-        }
-        else if(this.slotDate.isAfter(otherSlot.slotDate))
-        {
-            return 1;
+        if (obj == null) {
+            throw new NullPointerException("Cannot compare with null object");
         }
         else
         {
-            return 0;
+            Slot otherSlot = (Slot) obj;
+            if (this.slotDate.isBefore(otherSlot.slotDate)) {
+                return -1;
+            } else if (this.slotDate.isAfter(otherSlot.slotDate)) {
+                return 1;
+            } else {
+                return 0;
+            }
         }
     }
 
     // Inner class
     public static class Reservation implements Comparable
     {
-
-
         private static int ID;
 
         public AbstractVisitor visitor;
@@ -177,20 +176,20 @@ public class Slot implements Comparable
         // Setter ID
         public static void setID(int ID) {Reservation.ID = ID;}
         @Override
-        public int compareTo(Object obj)
-        {
-            Reservation otherReservation = (Reservation) obj;
-            if (this.reservationDate.isBefore(otherReservation.reservationDate))
-            {
-                return -1;
-            }
-            else if (this.reservationDate.isAfter(otherReservation.reservationDate))
-            {
-                return 1;
+        public int compareTo(Object obj) {
+            if (obj == null) {
+                throw new NullPointerException("Cannot compare with null object");
             }
             else
             {
-                return 0;
+                Reservation otherReservation = (Reservation) obj;
+                if (this.reservationDate.isBefore(otherReservation.reservationDate)) {
+                    return -1;
+                } else if (this.reservationDate.isAfter(otherReservation.reservationDate)) {
+                    return 1;
+                } else {
+                    return 0;
+                }
             }
         }
     }
