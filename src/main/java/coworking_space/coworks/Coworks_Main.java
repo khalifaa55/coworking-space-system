@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
 public class Coworks_Main extends Application {
@@ -15,14 +16,14 @@ public class Coworks_Main extends Application {
         3 Meeting Rooms: max_num_visitors 10 per room
         3 Teaching Rooms: max_num_visitors 10 per room
     */
-    final static String WRITE_GENERAL_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String READ_GENERAL_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String WRITE_MEETING_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String READ_MEETING_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String WRITE_TEACHING_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String READ_TEACHING_ROOMS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String WRITE_VISITORS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
-    final static String READ_VISITORS_PATH = "C:\\Users\\Lenovo\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String WRITE_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String READ_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String WRITE_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String READ_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String WRITE_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String READ_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String WRITE_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String READ_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
 
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     public static ArrayList<Registration> registrations = new ArrayList<Registration>();
@@ -276,6 +277,16 @@ public class Coworks_Main extends Application {
         //writeArrayListIntoJson();
 
        // writeArrayListIntoJson();
+        Collections.sort(Mslots);
+        Collections.sort(Mslots2);
+        Collections.sort(Mslots3);
+
+        Collections.sort(tslots);
+        Collections.sort(tslots2);
+        Collections.sort(tslots3);
+
+        Collections.sort(gslots);
+        Collections.sort(gslots2);
          launch();
 
 
