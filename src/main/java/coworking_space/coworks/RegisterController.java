@@ -99,8 +99,6 @@ public class RegisterController implements Initializable {
         // Set the new scene on the stage
         stage.setScene(scene);
         stage.show();
-
-
     }
 
     @Override

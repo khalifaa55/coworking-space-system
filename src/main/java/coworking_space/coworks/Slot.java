@@ -8,14 +8,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-
 import java.time.LocalDate;
 
 
 // How to declare an ArrayList:
 // ArrayList<dataType> variableName = new ArrayList<>();
 
-public class Slot
+public class Slot implements Comparable
 {
     public String startTime;
     public String endTime;
@@ -23,7 +22,7 @@ public class Slot
     public double fees;
     public LocalDate slotDate;
 
-    //@JsonFormat(pattern = "yyyy-MM-dd") default format for LocalDate dtype.
+    //@JsonFormat(pattern = "yyyy-MM-dd"); default format for LocalDate dtype.
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonIgnore
@@ -104,9 +103,6 @@ public class Slot
         return currentDate.plusDays(30);
     }
 
-    // A function for the admin to update the fees for reserving a room
-    public void updateFees(double fees) {this.fees = fees;}
-
     /*  createReservation AbstractVisitor:	Creates a new Reservation object with the
      provided visitor and adds it to the list  */
     public Reservation createReservation(AbstractVisitor visitor ,LocalDate date)
@@ -115,26 +111,87 @@ public class Slot
         reservations.add(reservation);
         return reservation;
     }
+    @Override
+    public int compareTo(Object obj)
+    {
+        Slot otherSlot = (Slot) obj;
+        if(this.slotDate.isBefore(otherSlot.slotDate))
+        {
+            return -1;
+        }
+        else if(this.slotDate.isAfter(otherSlot.slotDate))
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 
     // Inner class
-    public static class Reservation
+    public static class Reservation implements Comparable
     {
+
+
+        private static int ID;
+
         public AbstractVisitor visitor;
         public LocalDate reservationDate;
 
         // Constructors
         public Reservation() {} // no argument constructor that acts like a default one
-        public Reservation(AbstractVisitor visitor)
-        {
+
+        public Reservation(AbstractVisitor visitor) {
             this.visitor = visitor;
         }
-        public Reservation(AbstractVisitor visitor , LocalDate reservationDate) // Constructor overloading
+
+        public Reservation(AbstractVisitor visitor, LocalDate reservationDate, int ID) // Constructor overloading
         {
             this.visitor = visitor;
             this.reservationDate = reservationDate;
+            Reservation.ID = ID;
         }
-        public LocalDate getReservationDate() {return this.reservationDate;}
-        public AbstractVisitor getVisitor() {return visitor;}
-        public void setVisitor(AbstractVisitor visitor) {this.visitor = visitor;}
+
+        // Getter reservationDate
+        public LocalDate getReservationDate()
+        {
+            return this.reservationDate;
+        }
+
+        // Getter visitor
+        public AbstractVisitor getVisitor()
+        {
+            return visitor;
+        }
+
+        // Setter visitor
+        public void setVisitor(AbstractVisitor visitor)
+        {
+            this.visitor = visitor;
+        }
+
+        // Getter ID
+        public static int getID() {return ID;}
+
+        // Setter ID
+        public static void setID(int ID) {Reservation.ID = ID;}
+        @Override
+        public int compareTo(Object obj)
+        {
+            Reservation otherReservation = (Reservation) obj;
+            if (this.reservationDate.isBefore(otherReservation.reservationDate))
+            {
+                return -1;
+            }
+            else if (this.reservationDate.isAfter(otherReservation.reservationDate))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }

@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
 public class Coworks_Main extends Application {
@@ -335,6 +336,16 @@ public class Coworks_Main extends Application {
         //writeArrayListIntoJson();
 
        // writeArrayListIntoJson();
+        Collections.sort(Mslots);
+        Collections.sort(Mslots2);
+        Collections.sort(Mslots3);
+
+        Collections.sort(tslots);
+        Collections.sort(tslots2);
+        Collections.sort(tslots3);
+
+        Collections.sort(gslots);
+        Collections.sort(gslots2);
          launch();
 
 
