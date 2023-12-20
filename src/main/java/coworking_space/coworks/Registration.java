@@ -38,7 +38,7 @@ public class Registration {
             registrations.add(r);
         }
     }
-
+//
     public static boolean usernameRegex(String username) {
 
         String usernameRegex = "^[a-zA-Z0-9_]{3,20}$";
@@ -80,12 +80,13 @@ public class Registration {
         // Display a pop-up with the validation result
         return isValid;
     }
-
+//
     public static ArrayList<Registration> getRegistrations() {
         return registrations;
     }
     public static Registration  getRegistration(){ return currentRegistration;}
 
+    //
     public static boolean  isDuplicateEmail(String email) {
         for (Registration registration : registrations) {
             if (registration.getUserEmail().equals(email)) {
@@ -104,7 +105,7 @@ public class Registration {
         }
         return currentRegistration;
     }
-
+//
     public static void  updateRegistrationInfo(ArrayList<Registration> registrations, String userCurrentEmail, String newUserName,String newUserEmail,String newPassword, String newPhoneNumber) {
         for (Registration registration : registrations) {
             if (registration.getUserEmail().equals(userCurrentEmail)) {
@@ -122,9 +123,6 @@ public class Registration {
                     registration.setPhoneNumber(newPhoneNumber);
                     System.out.println(registration.getPhoneNumber());
                 }
-                //if (newUserEmail!= null) {
-                //  registration.setPhoneNumber(newPhoneNumber);}
-
                 return;
             }
         }
@@ -150,7 +148,8 @@ public class Registration {
     public String getRole() {
         return role;
     }
-    public static void setCurrentRegistration(Registration currentRegistration) {
+
+    public void setCurrentRegistration(Registration currentRegistration) {
         Registration.currentRegistration = currentRegistration;
     }
     public void setRole(String role) {

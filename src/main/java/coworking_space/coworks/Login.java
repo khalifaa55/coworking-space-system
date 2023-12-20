@@ -15,17 +15,16 @@ class Login {
     }
 
     public static boolean validateLogin(Login currentLogin) {
-
+        boolean flag=false;
         for (Registration obj : Registration.getRegistrations()) {
-
             if (obj.getUserEmail().equals(currentLogin.userEmail) && (obj.getNewPassword().equals(currentLogin.password))) {
 
                 Registration currentRegistration = Registration.currentUser(currentLogin.userEmail, currentLogin.role);
                 AbstractVisitor.createVisitorsFromRegistrations(currentRegistration);
-                return true;
+                flag=true;
             }
         }
-        return false;
+        return flag;
     }
 
     public static boolean adminLogin(String userEmail, String password) {

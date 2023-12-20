@@ -67,6 +67,7 @@
     "phoneNumber" : null,
     "type" : "general"
   } ],
+  "visitors" : [ ],
   "type" : "general",
   "maxNumberOfVisitors" : 2,
   "reservationsInDate" : [ ]

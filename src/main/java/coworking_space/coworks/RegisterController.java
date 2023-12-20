@@ -139,12 +139,9 @@ public class RegisterController implements Initializable {
     }
 
     @FXML
-    void saveInfoAndRedirect(MouseEvent Event) throws IOException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
+    void saveInfoAndRedirect(MouseEvent Event) throws IOException {
+        Registration newRegistration;
 
-//        validatePassword(password.getText(),confirmPassword.getText());
-//        validatePhoneNumber(phoneNumber.getText());
-//        validateUsername(userName.getText());
-//        validateEmail(email.getText());
         boolean isRegistrationValid=Registration.usernameRegex(userName.getText())&& Registration.emailRegex(email.getText())&& Registration.phoneNumberRegex(phoneNumber.getText()) && Registration.passwordRegex(password.getText())&& (password.getText()).equals(confirmPassword.getText());
         // Check if any radio button is selected in the Visitor_Type ToggleGroup
         if (Visitor_Type.getSelectedToggle() == null) {
@@ -152,7 +149,7 @@ public class RegisterController implements Initializable {
             String inValidTitle = "Visitor Validation";
             String inValidMessage = "Please choose a visitor type.";
             inValidMessage(inValidTitle, inValidMessage);
-            return; // Stop further processing since validation failed
+            return;
         } else if( Registration.isDuplicateEmail(email.getText())){
             String inValidTitle = "Duplicate Email";
             String inValidMessage ="Email in use, You can login directly.";
@@ -164,11 +161,11 @@ public class RegisterController implements Initializable {
             return;
         }
         else {
-            Registration newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(), visitorType,Registration.updateIdCounter());
+            newRegistration = new Registration(userName.getText(), email.getText(), phoneNumber.getText(), password.getText(), visitorType,Registration.updateIdCounter());
             System.out.println(newRegistration.getUserEmail());
             System.out.println(newRegistration.userid());
             AbstractVisitor.createVisitorsFromRegistrations(newRegistration);
-            Registration.setCurrentRegistration(newRegistration);
+            newRegistration.setCurrentRegistration(newRegistration);
             Registration.getRegistrations().add(newRegistration);
             System.out.println("Registration successful");
             GoToVisitorScreen();

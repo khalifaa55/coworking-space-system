@@ -82,15 +82,13 @@ public class LoginController  implements Initializable {
     private void handleRadioButtonSelection(ActionEvent event) {
         RadioButton selectedRadioButton = (RadioButton) event.getSource();
         visitorType = selectedRadioButton.getText();
-        System.out.println("Selected RadioButton: " + visitorType);
 
     }
 
         @FXML
     void validateSignInAndRedirect(MouseEvent event) throws IOException {
-        Login login =new Login(userEmail.getText(), userPassword.getText(),visitorType);
+        Login login =new Login(userEmail.getText(),visitorType, userPassword.getText());
         if (Login.adminLogin(userEmail.getText(), userPassword.getText())&&Visitor_Type.getSelectedToggle() == null) {
-            System.out.println("change to Admin Screen");
             return;
         } else if(Visitor_Type.getSelectedToggle() == null) {
             // No radio button is selected, display an error message or take appropriate action
@@ -104,7 +102,7 @@ public class LoginController  implements Initializable {
             inValidMessage(inValidTitle, inValidMessage);
         }
         else if((Login.validateLogin(login))){
-            System.out.println("change to Home Screen");
+
         }
 
         // Load the loginScreen.fxml file

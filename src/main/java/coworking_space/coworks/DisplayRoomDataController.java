@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static com.sun.beans.introspect.ClassInfo.clear;
+//import static com.sun.beans.introspect.ClassInfo.clear;
 import static coworking_space.coworks.Coworks_Main.generalRooms;
 import static coworking_space.coworks.Coworks_Main.meetingRooms;
 import static coworking_space.coworks.Coworks_Main.teachingRooms;
