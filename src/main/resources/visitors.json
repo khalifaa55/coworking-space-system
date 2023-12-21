@@ -145,11 +145,4 @@
   "userEmail" : "haneen@gmail.com",
   "phoneNumber" : "01000000000",
   "type" : "formal"
-}, {
-  "name" : "fagr",
-  "password" : "c1234567",
-  "id" : 21,
-  "userEmail" : "fagr@gmail.com",
-  "phoneNumber" : "12345678910",
-  "type" : "formal"
 } ]

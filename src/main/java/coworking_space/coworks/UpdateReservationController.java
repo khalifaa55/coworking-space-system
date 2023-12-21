@@ -116,7 +116,7 @@ public class UpdateReservationController implements Initializable {
         }
 
 
-        if(RegisterController.instructortype){
+        if(RegisterController.instructortype||LoginController.instructortype){
 
             for(int i=0;i<teachingRooms.size();i++){
 
@@ -127,7 +127,7 @@ public class UpdateReservationController implements Initializable {
             }
 
 
-        }else if (RegisterController.formaltype){
+        }else if (RegisterController.formaltype||LoginController.formaltype){
 
             for(int i=0;i<meetingRooms.size();i++){
 
@@ -171,12 +171,12 @@ public class UpdateReservationController implements Initializable {
     private void retrieveAvailableSlots(int i) {
         availableSlots.clear();
 
-        if (RegisterController.formaltype) {
+        if (RegisterController.formaltype||LoginController.formaltype) {
             AbstractRoom meeting_room = meetingRooms.get(i);
             availableSlots = meeting_room.getAvailableSlots(newSelecteddate);
 
 
-        } else if (RegisterController.instructortype) {
+        } else if (RegisterController.instructortype||LoginController.instructortype) {
             AbstractRoom teaching_room = teachingRooms.get(i);
             availableSlots = teaching_room.getAvailableSlots(newSelecteddate);
 
@@ -235,7 +235,7 @@ public class UpdateReservationController implements Initializable {
                 System.out.println("Start Time: " + startTime);
                 System.out.println("End Time: " + endTime);
 
-                if(RegisterController.formaltype) {
+                if(RegisterController.formaltype||LoginController.formaltype) {
                     for (AbstractRoom MR :meetingRooms ){
                         for (Slot slot : MR.slots) {
                             if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
@@ -249,7 +249,7 @@ public class UpdateReservationController implements Initializable {
                         }
                     }
                 }
-                else if(RegisterController.instructortype){
+                else if(RegisterController.instructortype||LoginController.instructortype){
                     for (AbstractRoom TR :teachingRooms ){
                         for (Slot slot : TR.slots) {
                             if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
@@ -278,13 +278,13 @@ public class UpdateReservationController implements Initializable {
                 }
 
 
-                if (RegisterController.formaltype) {
+                if (RegisterController.formaltype||LoginController.formaltype) {
 
                     for(int i=0;i<meetingRooms.size();i++) {
                         cVisitor.cancelReservation(meetingRooms.get(i), Registration.getRegistration(), startTime, endTime);
 
                     }
-                } else if (RegisterController.instructortype) {
+                } else if (RegisterController.instructortype||LoginController.instructortype) {
 
                     for(int i=0;i<teachingRooms.size();i++) {
                         cVisitor.cancelReservation(teachingRooms.get(i), Registration.getRegistration(), startTime, endTime);
@@ -341,15 +341,15 @@ public class UpdateReservationController implements Initializable {
 
 
                 // Pass these values to the appropriate visitor's makeReservation method
-                if (RegisterController.formaltype) {
-                    FormalVisitor formalVisitor = new FormalVisitor();
-                    formalVisitor.makeReservation(meetingRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime,roomOfCurrentUser);
-                } else if (RegisterController.instructortype) {
-                    InstructorVisitor instructorVisitor = new InstructorVisitor();
-                    instructorVisitor.makeReservation(teachingRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime,roomOfCurrentUser);
+                if (RegisterController.formaltype||LoginController.formaltype) {
+                    //FormalVisitor formalVisitor = new FormalVisitor();
+                    cVisitor.makeReservation(meetingRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime,roomOfCurrentUser);
+                } else if (RegisterController.instructortype||LoginController.instructortype) {
+
+                    cVisitor.makeReservation(teachingRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime,roomOfCurrentUser);
                 } else {
-                    GeneralVisitor generalVisitor = new GeneralVisitor();
-                    generalVisitor.makeReservation(generalRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime,roomOfCurrentUser);
+
+                    cVisitor.makeReservation(generalRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime,roomOfCurrentUser);
                 }
             }
         }

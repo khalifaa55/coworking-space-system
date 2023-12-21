@@ -34,6 +34,8 @@ abstract public class AbstractRoom
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots(LocalDate date)
     {
+        availableSlots.clear();
+        reservedSlots.clear();
         for (Slot slot : slots)
         {
             if (slot.getReservations()!=null) {

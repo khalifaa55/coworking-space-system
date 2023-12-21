@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
+import static coworking_space.coworks.EditInformationController.cVisitor;
+
 public class Coworks_Main extends Application {
     /*  2 General Rooms: max_num_visitors 20 per room
         3 Meeting Rooms: max_num_visitors 10 per room
@@ -109,51 +111,52 @@ public class Coworks_Main extends Application {
         Registration.getVisitorsFromMain(visitors);
         AbstractVisitor.getAbstractVisitorsFromMain(visitors);
 
-        FormalVisitor formal = new FormalVisitor("alshimaa", 12);
-        FormalVisitor formal0 = new FormalVisitor("ahmed", 14);
 
-        FormalVisitor formal1 = new FormalVisitor("Farha", 123);
-        FormalVisitor formal2 = new FormalVisitor("ahmed", 143);
-
-        FormalVisitor formal3 = new FormalVisitor("Omnia", 122);
-        FormalVisitor formal4 = new FormalVisitor("Mahmoud", 142);
-
-            Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,1));
-            Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300,LocalDate.of(2023,12,2));
-
-
-            Slot slot3 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,3));
-            Slot slot4 = new Slot("04:00 PM", "06:00 PM", 300,LocalDate.of(2023,12,4));
-
-            Slot slot5 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,5));
-            Slot slot6 = new Slot("08:00 PM", "10:00 PM", 300,LocalDate.of(2023,12,6));
-
-            // slot2.createReservation(inst);
-            //slot1.createReservation(inst);
-            formals.add(formal);
-            formals.add(formal0);
-            Mslots.add(slot1);
-            Mslots.add(slot2);
-
-            AbstractRoom meeting_room = new MeetingRoom("Mroom1", 1, Mslots, formals);
-            AbstractRoom meeting_room2 = new MeetingRoom("Mroom2", 2, Mslots2, formals2);
-            AbstractRoom meeting_room3 = new MeetingRoom("Mroom3", 3, Mslots3, formals3);
-
-        meetingRooms.add(meeting_room);
-        meetingRooms.add(meeting_room2);
-        meetingRooms.add(meeting_room3);
+//        FormalVisitor formal = new FormalVisitor("alshimaa", 12);
+//        FormalVisitor formal0 = new FormalVisitor("ahmed", 14);
 //
-//        //slot1.createReservation(inst);
-//        formals2.add(formal1);
-//        formals2.add(formal2);
-        Mslots2.add(slot3);
-        Mslots2.add(slot4);
+//        FormalVisitor formal1 = new FormalVisitor("Farha", 123);
+//        FormalVisitor formal2 = new FormalVisitor("ahmed", 143);
 //
-//        //slot1.createReservation(inst);
-//        formals3.add(formal3);
-//        formals3.add(formal4);
-//        Mslots3.add(slot5);
-        Mslots3.add(slot6);
+//        FormalVisitor formal3 = new FormalVisitor("Omnia", 122);
+//        FormalVisitor formal4 = new FormalVisitor("Mahmoud", 142);
+//
+//            Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00,LocalDate.of(2023,12,1));
+//            Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300,LocalDate.of(2023,12,2));
+//
+//
+//            Slot slot3 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,3));
+//            Slot slot4 = new Slot("04:00 PM", "06:00 PM", 300,LocalDate.of(2023,12,4));
+//
+//            Slot slot5 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,5));
+//            Slot slot6 = new Slot("08:00 PM", "10:00 PM", 300,LocalDate.of(2023,12,6));
+//
+//            // slot2.createReservation(inst);
+//            //slot1.createReservation(inst);
+//            formals.add(formal);
+//            formals.add(formal0);
+//            Mslots.add(slot1);
+//            Mslots.add(slot2);
+//
+//            AbstractRoom meeting_room = new MeetingRoom("Mroom1", 1, Mslots, formals);
+//            AbstractRoom meeting_room2 = new MeetingRoom("Mroom2", 2, Mslots2, formals2);
+//            AbstractRoom meeting_room3 = new MeetingRoom("Mroom3", 3, Mslots3, formals3);
+//
+//        meetingRooms.add(meeting_room);
+//        meetingRooms.add(meeting_room2);
+//        meetingRooms.add(meeting_room3);
+////
+////        //slot1.createReservation(inst);
+////        formals2.add(formal1);
+////        formals2.add(formal2);
+//        Mslots2.add(slot3);
+//        Mslots2.add(slot4);
+////
+////        //slot1.createReservation(inst);
+////        formals3.add(formal3);
+////        formals3.add(formal4);
+////        Mslots3.add(slot5);
+//        Mslots3.add(slot6);
 
 
 //        InstructorVisitor inst1= new InstructorVisitor("Fagr",12);

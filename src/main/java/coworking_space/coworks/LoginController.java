@@ -53,6 +53,9 @@ public class LoginController  implements Initializable {
     @FXML
     private RadioButton instructorVisitor;
     private String visitorType;
+    public static boolean formaltype =false;
+    public static boolean generaltype =false;
+    public static boolean instructortype =false;
 
     @FXML
     void changeScreenToLoginScreen_2(MouseEvent event) throws IOException
@@ -83,6 +86,14 @@ public class LoginController  implements Initializable {
         RadioButton selectedRadioButton = (RadioButton) event.getSource();
         visitorType = selectedRadioButton.getText();
         System.out.println("Selected RadioButton: " + visitorType);
+        if(visitorType.equals("Formal Visitor")){
+            formaltype=true;
+        } else if (visitorType.equals("General Visitor")) {
+            generaltype=true;
+        }
+        else{
+            instructortype=true;
+        }
 
     }
 

@@ -76,7 +76,7 @@ public class InstructorVisitor extends AbstractVisitor {
         for(Slot slot:TR.getSlots()){
             for(Slot.Reservation r:slot.getReservations()){
                 String visitorEmail = r.getVisitor().userEmail;
-                if(currentr.getUserEmail().equals(visitorEmail)){
+                if ((cVisitor.userEmail).equals(visitorEmail)) {
                     IuserResrvations.add(slot);
 
                     System.out.println(slot.getStartTime());

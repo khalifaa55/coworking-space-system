@@ -79,8 +79,8 @@ public class GeneralVisitor extends AbstractVisitor{
 
         for(Slot slot:gene.getSlots()){
             for(Slot.Reservation r:slot.getReservations()){
-                String visitorName = r.getVisitor().userEmail;
-                if(currentr.getUserEmail().equals(visitorName)){
+                String visitorEmail = r.getVisitor().userEmail;
+                if ((cVisitor.userEmail).equals(visitorEmail)) {
                     GuserResrvations.add(slot);
                     System.out.println(slot.startTime);
                     System.out.println(slot.endTime);

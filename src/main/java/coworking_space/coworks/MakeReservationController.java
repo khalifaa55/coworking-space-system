@@ -188,13 +188,13 @@ public class MakeReservationController implements Initializable {
     private void retrieveAvailableSlots(int i) {
         availableSlots.clear();
 
-        if (RegisterController.formaltype && meetingRooms != null && i < meetingRooms.size()) {
+        if ((RegisterController.formaltype||LoginController.formaltype) && meetingRooms != null && i < meetingRooms.size()) {
             AbstractRoom room = meetingRooms.get(i);
             if (room instanceof MeetingRoom) {
                 MeetingRoom meeting_room = (MeetingRoom) room;
                 availableSlots = meeting_room.getAvailableSlots(selectedDate);
             }
-        } else if (RegisterController.instructortype && teachingRooms != null && i < teachingRooms.size()) {
+        } else if ((RegisterController.instructortype||LoginController.instructortype) && teachingRooms != null && i < teachingRooms.size()) {
             AbstractRoom room = teachingRooms.get(i);
             if (room instanceof TeachingRoom) {
                 TeachingRoom teaching_room = (TeachingRoom) room;
@@ -250,11 +250,11 @@ public class MakeReservationController implements Initializable {
                 System.out.println("End Time: " + endTime);
 
                 // Pass these values to the appropriate visitor's makeReservation method
-                if (RegisterController.formaltype) {
+                if (RegisterController.formaltype||LoginController.formaltype) {
                    // FormalVisitor formalVisitor = new FormalVisitor("fagr",123);
                     cVisitor.makeReservation(meetingRooms.get(index), selectedDate, startTime, endTime,index);
                 }
-                else if (RegisterController.instructortype) {
+                else if (RegisterController.instructortype||LoginController.instructortype) {
                     //InstructorVisitor instructorVisitor = new InstructorVisitor();
                     cVisitor.makeReservation(teachingRooms.get(index), selectedDate, startTime, endTime,index);
                 }
@@ -286,9 +286,10 @@ public class MakeReservationController implements Initializable {
         Room1.setOnAction(this::handleRadioButtonSelection_1);
         Room2.setOnAction(this::handleRadioButtonSelection_1);
         Room3.setOnAction(this::handleRadioButtonSelection_1);
+        System.out.println(EditInformationController.cVisitor.type);
 
 
-        if (RegisterController.generaltype){
+        if (RegisterController.generaltype||LoginController.generaltype){
             Room3.setVisible(false);
         }
 
