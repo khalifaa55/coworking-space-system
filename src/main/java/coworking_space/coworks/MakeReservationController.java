@@ -1,6 +1,9 @@
 package coworking_space.coworks;
 
 import coworking_space.coworks.Rooms.*;
+import coworking_space.coworks.Visitors.FormalVisitor;
+import coworking_space.coworks.Visitors.GeneralVisitor;
+import coworking_space.coworks.Visitors.InstructorVisitor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -251,14 +254,19 @@ public class MakeReservationController implements Initializable {
 
                 // Pass these values to the appropriate visitor's makeReservation method
                 if (RegisterController.formaltype||LoginController.formaltype) {
+//                    FormalVisitor F=(FormalVisitor)cVisitor;
                    // FormalVisitor formalVisitor = new FormalVisitor("fagr",123);
                     cVisitor.makeReservation(meetingRooms.get(index), selectedDate, startTime, endTime,index);
                 }
                 else if (RegisterController.instructortype||LoginController.instructortype) {
                     //InstructorVisitor instructorVisitor = new InstructorVisitor();
+//                    InstructorVisitor I =(InstructorVisitor) cVisitor;
+
                     cVisitor.makeReservation(teachingRooms.get(index), selectedDate, startTime, endTime,index);
                 }
                 else {
+//                    GeneralVisitor G =(GeneralVisitor) cVisitor;
+
                     //GeneralVisitor generalVisitor = new GeneralVisitor();
                     cVisitor.makeReservation(generalRooms.get(index), selectedDate, startTime, endTime,index);
                 }

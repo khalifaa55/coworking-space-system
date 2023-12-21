@@ -1,1 +1,157 @@
-[ ]
+[ {
+  "name" : "Groom1",
+  "id" : 4,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "12:00 PM",
+    "endTime" : "02:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "02:00 PM",
+    "endTime" : "04:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "04:00 PM",
+    "endTime" : "06:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "06:00 PM",
+    "endTime" : "08:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "maxNumberOfVisitors" : 10,
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa"
+}, {
+  "name" : "Groom2",
+  "id" : 5,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "12:00 PM",
+    "endTime" : "02:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "02:00 PM",
+    "endTime" : "04:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "04:00 PM",
+    "endTime" : "06:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "06:00 PM",
+    "endTime" : "08:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "maxNumberOfVisitors" : 10,
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa"
+}, {
+  "name" : "Groom3",
+  "id" : 6,
+  "slots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "12:00 PM",
+    "endTime" : "02:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "02:00 PM",
+    "endTime" : "04:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "04:00 PM",
+    "endTime" : "06:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "06:00 PM",
+    "endTime" : "08:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  } ],
+  "visitors" : [ ],
+  "type" : "teaching",
+  "maxNumberOfVisitors" : 10,
+  "projecttype" : "P1",
+  "boardtype" : "B1",
+  "instructorname" : "alshimaa"
+} ]

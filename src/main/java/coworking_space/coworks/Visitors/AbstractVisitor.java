@@ -96,28 +96,45 @@ public abstract class AbstractVisitor {
         return null;
     }
 
-    public void editUserInfo(AbstractVisitor cVisitor, String currentuseremail, String newname, String newpass, String newemail, String newphoneNumber) {
-        if (newname != null && !newname.isEmpty()) {
-            cVisitor.name = newname;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null, null);
-
+    @JsonIgnore
+    public  void editUserInfo(AbstractVisitor cVisitor,String currentUserEmail,String newName,String newPass,String newEmail,String newPhoneNumber){
+        boolean validUserInfo=true;
+        if(newName !=null&& !newName.isEmpty()){
+            if(Registration.usernameRegex(newName)) {
+                cVisitor.name = newName;
+                Registration.updateRegistrationInfo(Registration.getRegistrations(), currentUserEmail, newName, null, null, null);
+            }
+            else validUserInfo=false;
         }
-        if (newpass != null && !newpass.isEmpty()) {
-            cVisitor.password = newpass;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, null, newpass, null);
+        if(newPass !=null&& !newPass.isEmpty()) {
+            if (Registration.passwordRegex(newPass)) {
+                cVisitor.password = newPass;
+                Registration.updateRegistrationInfo(Registration.getRegistrations(), currentUserEmail, null, null, newPass, null);
+            }
+            else validUserInfo=false;
         }
-        if (newemail != null && !newemail.isEmpty()) {
-            cVisitor.userEmail = newemail;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, newemail, null, null);
-
+        if(newEmail !=null&& !newEmail.isEmpty()){
+            if(Registration.emailRegex(newEmail)) {
+                cVisitor.userEmail = newEmail;
+                Registration.updateRegistrationInfo(Registration.getRegistrations(), currentUserEmail, null, newEmail, null, null);
+            }
+            else validUserInfo=false;
         }
-        if (newphoneNumber != null && !newphoneNumber.isEmpty()) {
-            cVisitor.phoneNumber = newphoneNumber;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, null, null, newphoneNumber);
-
+        if(newPhoneNumber !=null&& !newPhoneNumber.isEmpty()){
+            if(Registration.phoneNumberRegex(newPhoneNumber)) {
+                cVisitor.phoneNumber = newPhoneNumber;
+                Registration.updateRegistrationInfo(Registration.getRegistrations(), currentUserEmail, null, null, null, newPhoneNumber);
+            }
+            else validUserInfo=false;
+        }
+        if(!validUserInfo){
+            String inValidTitle = "Visitor Validation";
+            String inValidMessage ="Invalid credentials ";
+            inValidMessage(inValidTitle, inValidMessage);
         }
     }
 
+    @JsonIgnore
     public void checkEmail(String newEmail) {
         for (AbstractVisitor allVisitor : visitors) {
             if (allVisitor.userEmail.equals(newEmail)) {

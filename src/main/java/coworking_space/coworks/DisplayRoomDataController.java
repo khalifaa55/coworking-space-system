@@ -245,19 +245,19 @@ public class DisplayRoomDataController implements Initializable {
     void DisplayRoom(MouseEvent event) {
         Id = Integer.parseInt(RoomID.getText());
         Type = String.valueOf(types.getSelectedToggle());
-//        try {
+        try {
             SelectRoom(Id);
             FillData();
             DisplayAvailableSlots();
             DispalyReservedSlots();
 
-//        }catch (NullPointerException ex)
-//        {
-//            SelectedRoomName.setText("");
-//            RoomID.setText("");
-//            available.clear();
-//            inValidMessage("EROOR!!", "No Room ID " + Id + " With This Type\n Enter Another ID .");
-//        }
+        }catch (NullPointerException ex)
+        {
+            SelectedRoomName.setText("");
+            RoomID.setText("");
+            available.clear();
+            inValidMessage("EROOR!!", "No Room ID " + Id + " With This Type\n Enter Another ID .");
+        }
     }
 
     @FXML

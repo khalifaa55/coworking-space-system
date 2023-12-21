@@ -43,7 +43,7 @@
             <Font name="Calisto MT Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="V_ID" layoutX="563.0" layoutY="542.0" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20; -fx-text-fill: #3f388a;">
+      <TextField fx:id="V_ID" editable="false" layoutX="563.0" layoutY="542.0" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20; -fx-text-fill: #3f388a;">
          <font>
             <Font name="Calisto MT" size="14.5" />
          </font></TextField>

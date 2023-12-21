@@ -4,6 +4,7 @@ package coworking_space.coworks.Visitors;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import coworking_space.coworks.Coworks_Main;
 import coworking_space.coworks.Rooms.AbstractRoom;
 import coworking_space.coworks.Rooms.MeetingRoom;
 import coworking_space.coworks.Rooms.Slot;
@@ -92,23 +93,31 @@ public class InstructorVisitor extends AbstractVisitor {
     }
 
     public void makeReservation(AbstractRoom room, LocalDate date, String startTime, String endTime, int id) {
-        //AbstractRoom room= new TeachingRoom();
+        if (room instanceof TeachingRoom) {
+            TeachingRoom TR = (TeachingRoom) room;
+            ArrayList<Slot> availableSlots = TR.getAvailableSlots(date);
 
-        TeachingRoom TR = (TeachingRoom) room;
+            for (Slot slot : availableSlots) {
+                if (startTime.equals(slot.getStartTime()) && endTime.equals(slot.getEndTime())) {
+                    slot.createReservation(cVisitor, date, id);
+                    InstructorVisitor v = (InstructorVisitor) cVisitor;
+                    TR.visitors.add(v);
 
-        List<Slot> availableslots = TR.getAvailableSlots(date);
-
-
-
-        for (Slot slot : availableslots) {
-            if (startTime.equals( slot.getStartTime()) & endTime.equals(slot.getEndTime()) ) {
-                slot.createReservation(cVisitor,date, id );
-                InstructorVisitor v = (InstructorVisitor) cVisitor;
-                TR.visitors.add(v);
-                break;
+                    if (TR.getId() == 1) {
+                        Coworks_Main.insts = TR.visitors;
+                    } else if (TR.getId() == 2) {
+                        Coworks_Main.insts2 = TR.visitors;
+                    } else {
+                        Coworks_Main.insts3 = TR.visitors;
+                    }
+                    System.out.println("Reservation Made successfully");
+                    break;
+                }
             }
+        } else {
+            // Handle the case where room is not a MeetingRoom
+            System.out.println("Room is not a MeetingRoom");
         }
-
     }
 
 

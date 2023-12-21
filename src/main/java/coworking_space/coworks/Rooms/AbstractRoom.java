@@ -30,7 +30,7 @@ abstract public class AbstractRoom
     @JsonIgnore
     public ArrayList<Slot> reservedSlots=new ArrayList<>();
     @JsonIgnore
-    protected ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
+    public ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
 
 
     //Methods//

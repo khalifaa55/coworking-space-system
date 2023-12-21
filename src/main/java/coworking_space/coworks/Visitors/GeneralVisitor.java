@@ -3,6 +3,7 @@ package coworking_space.coworks.Visitors;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import coworking_space.coworks.Coworks_Main;
 import coworking_space.coworks.Rooms.AbstractRoom;
 import coworking_space.coworks.Rooms.GeneralRoom;
 import coworking_space.coworks.Rooms.Slot;
@@ -92,22 +93,27 @@ public class GeneralVisitor extends AbstractVisitor {
 
     }
     public void makeReservation(AbstractRoom room, LocalDate date, String startTime, String endTime, int id) {
-
-        GeneralRoom GR = (GeneralRoom) room;
-
-
-
-        List<Slot> availableslots = GR.getAvailableSlots(date);
+         if (room instanceof GeneralRoom){
+            GeneralRoom GR = (GeneralRoom) room;
 
 
-        for (Slot slot : availableslots){
+            List<Slot> availableslots = GR.getAvailableSlots(date);
 
-            if (startTime .equals(slot.getStartTime()) && endTime.equals(slot.getEndTime())) {
-                slot.createReservation(cVisitor,date , id );
-                GeneralVisitor v = (GeneralVisitor) cVisitor;
-                GR.visitors.add(v);
-                break;
+
+            for (Slot slot : availableslots) {
+
+                if (startTime.equals(slot.getStartTime()) && endTime.equals(slot.getEndTime())) {
+                    slot.createReservation(cVisitor, date, id);
+                    GeneralVisitor v = (GeneralVisitor) cVisitor;
+                    GR.visitors.add(v);
+                    if (GR.getId() == 7)
+                        Coworks_Main.generals = GR.visitors;
+                    else
+                        Coworks_Main.generals2 = GR.visitors;
+                    break;
+                }
             }
+
         }
     }
 

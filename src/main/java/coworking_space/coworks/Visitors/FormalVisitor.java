@@ -89,33 +89,33 @@ public class FormalVisitor extends AbstractVisitor {
 
     }
     public void makeReservation(AbstractRoom room, LocalDate date, String startTime, String endTime, int id) {
-        //AbstractRoom room= new TeachingRoom();
-       // System.out.println("Size of meetingRooms: " + meetingRooms.size());
+        if (room instanceof MeetingRoom) {
+            MeetingRoom MR = (MeetingRoom) room;
+            ArrayList<Slot> availableSlots = MR.getAvailableSlots(date);
 
-        MeetingRoom MR = (MeetingRoom) room;
+            for (Slot slot : availableSlots) {
+                if (startTime.equals(slot.getStartTime()) && endTime.equals(slot.getEndTime())) {
+                    slot.createReservation(cVisitor, date, id);
+                    FormalVisitor v = (FormalVisitor) cVisitor;
+                    MR.visitors.add(v);
 
-        List<Slot> availableslots = MR.getAvailableSlots(date);
-
-
-
-
-        for (Slot slot : availableslots) {
-            if (startTime.equals( slot.getStartTime()) & endTime.equals(slot.getEndTime()) ) {
-                slot.createReservation(cVisitor,date,id );
-                FormalVisitor v = (FormalVisitor)cVisitor;
-                MR.visitors.add(v);
-                Coworks_Main.formals= MR.visitors;
-                System.out.println("Reservation Made successfully");
-                FormalVisitor v = (FormalVisitor) cVisitor;
-                MR.visitors.add(v);
-                Coworks_Main.formals= MR.visitors;
-//                getFormals(MR.visitors);
-                break;
+                    if (MR.getId() == 1) {
+                        Coworks_Main.formals = MR.visitors;
+                    } else if (MR.getId() == 2) {
+                        Coworks_Main.formals2 = MR.visitors;
+                    } else {
+                        Coworks_Main.formals3 = MR.visitors;
+                    }
+                    System.out.println("Reservation Made successfully");
+                    break;
+                }
             }
+        } else {
+            // Handle the case where room is not a MeetingRoom
+            System.out.println("Room is not a MeetingRoom");
         }
-
-
     }
+
 
 //    public  static  void getFormals(ArrayList<FormalVisitor> v)
 //    {
