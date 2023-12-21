@@ -1,5 +1,7 @@
 package coworking_space.coworks;
 
+import coworking_space.coworks.Visitors.AbstractVisitor;
+import coworking_space.coworks.Visitors.Registration;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -70,11 +72,11 @@ public class EditInformationController {
         cVisitor.checkEmail(newEmail);
         String newPhoneNumber=SetPhoneNum.getText();
         String newPassword=setPassword.getText();
-        cVisitor.editUserInfo(cVisitor,cVisitor.userEmail,newName,newPassword,newEmail,newPhoneNumber);
+        cVisitor.editUserInfo(cVisitor,cVisitor.getUserEmail(),newName,newPassword,newEmail,newPhoneNumber);
     }
 
 
-    protected static void inValidMessage(String title, String message){
+    public static void inValidMessage(String title, String message){
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.setTitle(title);
@@ -102,7 +104,7 @@ public class EditInformationController {
 
 
     static Registration currentResistrtionn= Registration.getRegistration();
-    static AbstractVisitor cVisitor=AbstractVisitor.getCurrentVisitor(currentResistrtionn);
+    public static AbstractVisitor cVisitor= AbstractVisitor.getCurrentVisitor(currentResistrtionn);
 
     @FXML
     void changeScreenToMakeReservationScreen_3(MouseEvent event)throws IOException

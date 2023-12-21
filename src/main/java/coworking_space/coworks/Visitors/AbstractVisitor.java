@@ -1,13 +1,13 @@
-package coworking_space.coworks;
+package coworking_space.coworks.Visitors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import coworking_space.coworks.Rooms.AbstractRoom;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import static coworking_space.coworks.Coworks_Main.visitors;
 import static coworking_space.coworks.EditInformationController.inValidMessage;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
@@ -18,6 +18,8 @@ import static coworking_space.coworks.EditInformationController.inValidMessage;
 })
 public abstract class AbstractVisitor {
     public String name;
+
+
     protected String userEmail;
     protected String phoneNumber;
     protected String password;
@@ -25,17 +27,17 @@ public abstract class AbstractVisitor {
     public String type;
     public static ArrayList<AbstractVisitor> visitors;
 
-    public static void getAbstractVisitorsFromMain(ArrayList<AbstractVisitor>Visitors){
-        visitors=Visitors;
+    public static void getAbstractVisitorsFromMain(ArrayList<AbstractVisitor> Visitors) {
+        visitors = Visitors;
     }
 
     public static void createVisitorsFromRegistrations(Registration currentR) {
-        boolean check=false;
-        boolean flag=false;
-        String UserEmailCurrentR=currentR.getUserEmail();
+        boolean check = false;
+        boolean flag = false;
+        String UserEmailCurrentR = currentR.getUserEmail();
         System.out.println(UserEmailCurrentR);
         for (AbstractVisitor v : visitors) {
-            if ( (v.userEmail).equals(UserEmailCurrentR) && currentR.getRole() .equals(v.type)) {
+            if ((v.userEmail).equals(UserEmailCurrentR) && currentR.getRole().equals(v.type)) {
                 check = true;
                 break;
             }
@@ -53,6 +55,7 @@ public abstract class AbstractVisitor {
             }
         }
     }
+
     @JsonIgnore
     protected static AbstractVisitor createVisitorFromRegistration(Registration currentR) {
         try {
@@ -72,6 +75,7 @@ public abstract class AbstractVisitor {
             return null; // Return null or throw a specific exception as needed
         }
     }
+
     @JsonIgnore
     public static AbstractVisitor getCurrentVisitor(Registration currentR) {
         try {
@@ -91,32 +95,34 @@ public abstract class AbstractVisitor {
         }
         return null;
     }
-    public  void editUserInfo(AbstractVisitor cVisitor,String currentuseremail,String newname,String newpass,String newemail,String newphoneNumber){
-        if(newname !=null&& !newname.isEmpty()){
-            cVisitor.name=newname;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null,null, null);
+
+    public void editUserInfo(AbstractVisitor cVisitor, String currentuseremail, String newname, String newpass, String newemail, String newphoneNumber) {
+        if (newname != null && !newname.isEmpty()) {
+            cVisitor.name = newname;
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, newname, null, null, null);
 
         }
-        if(newpass !=null&& !newpass.isEmpty()){
-            cVisitor.password=newpass;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, null,newpass, null);
+        if (newpass != null && !newpass.isEmpty()) {
+            cVisitor.password = newpass;
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, null, newpass, null);
         }
-        if(newemail !=null&& !newemail.isEmpty()){
-            cVisitor.userEmail=newemail;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null,newemail, null, null);
+        if (newemail != null && !newemail.isEmpty()) {
+            cVisitor.userEmail = newemail;
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, newemail, null, null);
 
         }
-        if(newphoneNumber !=null&& !newphoneNumber.isEmpty()){
-            cVisitor.phoneNumber=newphoneNumber;
-            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, null,null, newphoneNumber);
+        if (newphoneNumber != null && !newphoneNumber.isEmpty()) {
+            cVisitor.phoneNumber = newphoneNumber;
+            Registration.updateRegistrationInfo(Registration.getRegistrations(), currentuseremail, null, null, null, newphoneNumber);
 
         }
     }
-    public void checkEmail(String newEmail){
-        for(AbstractVisitor allVisitor:visitors){
-            if(allVisitor.userEmail.equals(newEmail)){
+
+    public void checkEmail(String newEmail) {
+        for (AbstractVisitor allVisitor : visitors) {
+            if (allVisitor.userEmail.equals(newEmail)) {
                 String inValidTitle = "EmailNotValid";
-                String inValidMessage ="Invalid Email, please try again.";
+                String inValidMessage = "Invalid Email, please try again.";
                 inValidMessage(inValidTitle, inValidMessage);
             }
         }
@@ -132,12 +138,37 @@ public abstract class AbstractVisitor {
     public int getId() {
         return id;
     }
+
     @JsonIgnore
-    protected abstract ArrayList DisplayReservation(AbstractRoom room) ;
-    protected abstract void makeReservation(AbstractRoom room, LocalDate date,String startTime,String endTime, int id);
+    public abstract ArrayList DisplayReservation(AbstractRoom room);
 
-    public abstract void cancelReservation(AbstractRoom Room,String startTime,String endTime);
+    public abstract void makeReservation(AbstractRoom room, LocalDate date, String startTime, String endTime, int id);
 
+    public abstract void cancelReservation(AbstractRoom Room, String startTime, String endTime);
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
 //    @JsonIgnore
 //    public void editUserInfo(int c, AbstractVisitor editVisitor, String currentUserEmail, String newName,String newPass, String newPhoneNumber, String newEmail) {

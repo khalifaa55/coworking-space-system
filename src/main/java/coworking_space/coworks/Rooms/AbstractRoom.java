@@ -1,8 +1,9 @@
-package coworking_space.coworks;
+package coworking_space.coworks.Rooms;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import coworking_space.coworks.Visitors.AbstractVisitor;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ abstract public class AbstractRoom
     public ArrayList<AbstractVisitor> visitors;
     public int maxNumberOfVisitors;
     ArrayList<Slot> availableSlots=new ArrayList<>();
-    ArrayList<Slot> reservedSlots=new ArrayList<>();
+    public ArrayList<Slot> reservedSlots=new ArrayList<>();
     public  ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
 
 
@@ -109,7 +110,7 @@ abstract public class AbstractRoom
 
     //returns ArrayList of AbstractVisitor or any of its subclasses
     @JsonIgnore
-    abstract ArrayList<? extends AbstractVisitor> getVisitors();
+    public abstract ArrayList<? extends AbstractVisitor> getVisitors();
 }
 
 

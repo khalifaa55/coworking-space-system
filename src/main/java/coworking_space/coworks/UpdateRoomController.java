@@ -1,5 +1,10 @@
 package coworking_space.coworks;
 
+import coworking_space.coworks.Rooms.*;
+import coworking_space.coworks.Visitors.AbstractVisitor;
+import coworking_space.coworks.Visitors.FormalVisitor;
+import coworking_space.coworks.Visitors.GeneralVisitor;
+import coworking_space.coworks.Visitors.InstructorVisitor;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,10 +40,8 @@ import static coworking_space.coworks.Coworks_Main.teachingRooms;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class UpdateRoomController implements Initializable {
@@ -228,7 +231,7 @@ public class UpdateRoomController implements Initializable {
 
         Slot ClickedSlot = AvailableSlotsTable.getSelectionModel().getSelectedItem();
 //        int Index= AvailableSlotsTable.getSelectionModel().getSelectedIndex();
-        DatePick.setValue(ClickedSlot.slotDate);
+        DatePick.setValue(ClickedSlot.getSlotDate());
         StartTimetEXT.setText(ClickedSlot.getStartTime());
         EbdTineText.setText(ClickedSlot.getEndTime());
         FeesText.setText(String.valueOf(ClickedSlot.getFees()));

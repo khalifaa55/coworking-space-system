@@ -1,8 +1,8 @@
-package coworking_space.coworks;
+package coworking_space.coworks.Visitors;
 
-import java.util.Arrays;
+import coworking_space.coworks.Admin;
 
-class Login {
+public class Login {
     private String userEmail;
     private String password;
     private String role;

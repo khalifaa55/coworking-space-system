@@ -1,5 +1,7 @@
 package coworking_space.coworks;
 
+import coworking_space.coworks.Visitors.AbstractVisitor;
+import coworking_space.coworks.Visitors.Registration;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -10,16 +12,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 
 import javafx.collections.ObservableList;
 //import static coworking_space.coworks.MyMain.Visitors;
-import static coworking_space.coworks.Coworks_Main.meetingRooms;
-import static coworking_space.coworks.Coworks_Main.teachingRooms;
 import static coworking_space.coworks.Coworks_Main.visitors;
 
 import javafx.scene.layout.VBox;
@@ -29,8 +27,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 public class VisitorsDataController  implements  Initializable{
 
@@ -173,8 +169,8 @@ public class VisitorsDataController  implements  Initializable{
         AbstractVisitor ClickedVisitor = V_Table.getSelectionModel().getSelectedItem();
         V_ID.setText(String.valueOf(ClickedVisitor.id));
         V_Name.setText(ClickedVisitor.name);
-        V_Email.setText(ClickedVisitor.userEmail);
-        V_Phone.setText(ClickedVisitor.phoneNumber);
+        V_Email.setText(ClickedVisitor.getUserEmail());
+        V_Phone.setText(ClickedVisitor.getPhoneNumber());
     }
 
     @FXML
@@ -229,10 +225,12 @@ public class VisitorsDataController  implements  Initializable{
             for (int i = 0; i < currentVisitors.size(); i++) {
 
                 if (i == Index) {
+                    String email = currentVisitors.get(i).getUserEmail();
+                    String phonenumber = currentVisitors.get(i).getPhoneNumber();
                     currentVisitors.get(i).id = Integer.parseInt(V_ID.getText());
                     currentVisitors.get(i).name = V_Name.getText();
-                    currentVisitors.get(i).userEmail = V_Email.getText();
-                    currentVisitors.get(i).phoneNumber = V_Phone.getText();
+                    email = V_Email.getText();
+                    phonenumber = V_Phone.getText();
                     V_Table.setItems(currentVisitors);
                     V_Table.refresh();
                     break;
@@ -253,8 +251,8 @@ public class VisitorsDataController  implements  Initializable{
         }
         VisitorsNames.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().name));
         VisitorsId.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().id)));
-        VisitorEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().userEmail));
-        VisitorsPhone.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().phoneNumber));
+        VisitorEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUserEmail()));
+        VisitorsPhone.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPhoneNumber()));
 
         V_Table.setItems(visi);
 

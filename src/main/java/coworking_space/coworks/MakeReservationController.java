@@ -1,5 +1,6 @@
 package coworking_space.coworks;
 
+import coworking_space.coworks.Rooms.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +21,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -188,13 +188,13 @@ public class MakeReservationController implements Initializable {
     private void retrieveAvailableSlots(int i) {
         availableSlots.clear();
 
-        if ((RegisterController.formaltype||LoginController.formaltype) && meetingRooms != null && i < meetingRooms.size()) {
+        if ((RegisterController.formaltype|| LoginController.formaltype) && meetingRooms != null && i < meetingRooms.size()) {
             AbstractRoom room = meetingRooms.get(i);
             if (room instanceof MeetingRoom) {
                 MeetingRoom meeting_room = (MeetingRoom) room;
                 availableSlots = meeting_room.getAvailableSlots(selectedDate);
             }
-        } else if ((RegisterController.instructortype||LoginController.instructortype) && teachingRooms != null && i < teachingRooms.size()) {
+        } else if ((RegisterController.instructortype|| LoginController.instructortype) && teachingRooms != null && i < teachingRooms.size()) {
             AbstractRoom room = teachingRooms.get(i);
             if (room instanceof TeachingRoom) {
                 TeachingRoom teaching_room = (TeachingRoom) room;

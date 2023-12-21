@@ -1,5 +1,7 @@
 package coworking_space.coworks;
 
+import coworking_space.coworks.Rooms.AbstractRoom;
+import coworking_space.coworks.Rooms.Slot;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +25,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import static coworking_space.coworks.EditInformationController.cVisitor;
@@ -90,9 +91,9 @@ public class UpdateReservationController implements Initializable {
 
         // Populate the observable list with slot information
         for (Slot slot : currentUserReservations) {
-           for(Slot.Reservation r : slot.reservations){
-               String visitorEmail = r.getVisitor().userEmail;
-               if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)){
+           for(Slot.Reservation r : slot.getReservations()){
+               String visitorEmail = r.getVisitor().getUserEmail();
+               if ((DisplayUserDataController.cVisitor.getUserEmail()).equals(visitorEmail)){
 
                    String slotInfo = slot.getStartTime() + " - " + slot.getEndTime() + " --> " +r.getReservationDate();
                    observableUserSlots.add(slotInfo);
@@ -116,7 +117,7 @@ public class UpdateReservationController implements Initializable {
         }
 
 
-        if(RegisterController.instructortype||LoginController.instructortype){
+        if(RegisterController.instructortype|| LoginController.instructortype){
 
             for(int i=0;i<teachingRooms.size();i++){
 
@@ -240,8 +241,8 @@ public class UpdateReservationController implements Initializable {
                         for (Slot slot : MR.slots) {
                             if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
                                 for (Slot.Reservation r : slot.getReservations()) {
-                                    String visitorEmail = r.getVisitor().userEmail;
-                                    if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)) {
+                                    String visitorEmail = r.getVisitor().getUserEmail();
+                                    if ((DisplayUserDataController.cVisitor.getUserEmail()).equals(visitorEmail)) {
                                         roomOfCurrentUser= r.getID();
                                     }
                                 }
@@ -249,13 +250,13 @@ public class UpdateReservationController implements Initializable {
                         }
                     }
                 }
-                else if(RegisterController.instructortype||LoginController.instructortype){
+                else if(RegisterController.instructortype|| LoginController.instructortype){
                     for (AbstractRoom TR :teachingRooms ){
                         for (Slot slot : TR.slots) {
                             if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
                                 for (Slot.Reservation r : slot.getReservations()) {
-                                    String visitorEmail = r.getVisitor().userEmail;
-                                    if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)) {
+                                    String visitorEmail = r.getVisitor().getUserEmail();
+                                    if ((DisplayUserDataController.cVisitor.getUserEmail()).equals(visitorEmail)) {
                                         roomOfCurrentUser=r.getID();
                                     }
                                 }
@@ -267,8 +268,8 @@ public class UpdateReservationController implements Initializable {
                         for (Slot slot : GR.slots) {
                             if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
                                 for (Slot.Reservation r : slot.getReservations()) {
-                                    String visitorEmail = r.getVisitor().userEmail;
-                                    if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)) {
+                                    String visitorEmail = r.getVisitor().getUserEmail();
+                                    if ((DisplayUserDataController.cVisitor.getUserEmail()).equals(visitorEmail)) {
                                         roomOfCurrentUser=r.getID();
                                     }
                                 }
@@ -372,6 +373,7 @@ public class UpdateReservationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         fillChoicebox();
     }
     @FXML

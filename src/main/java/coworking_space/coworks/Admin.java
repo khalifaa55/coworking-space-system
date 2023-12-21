@@ -1,5 +1,8 @@
 package coworking_space.coworks;
 
+import coworking_space.coworks.Rooms.*;
+import coworking_space.coworks.Visitors.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

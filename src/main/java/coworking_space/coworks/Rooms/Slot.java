@@ -1,4 +1,4 @@
-package coworking_space.coworks;
+package coworking_space.coworks.Rooms;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import coworking_space.coworks.Visitors.AbstractVisitor;
+
 import java.time.LocalDate;
 
 
@@ -16,17 +18,17 @@ import java.time.LocalDate;
 
 public class Slot implements Comparable
 {
-    public String startTime;
-    public String endTime;
-    public ArrayList<Reservation> reservations;
-    public double fees;
-    public LocalDate slotDate;
+    private String startTime;
+    private String endTime;
+    private ArrayList<Reservation> reservations;
+    private double fees;
+    private LocalDate slotDate;
 
     //@JsonFormat(pattern = "yyyy-MM-dd"); default format for LocalDate dtype.
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonIgnore
-    public LocalDate currentDate;
+    private LocalDate currentDate;
 
     // coworking_space.coworks.Json constructor configuration
     @JsonCreator
@@ -90,6 +92,16 @@ public class Slot implements Comparable
     // Getter for the current date
     public LocalDate getCurrentDate() {return currentDate;}
 
+    // Getter for the private ArrayList
+    public ArrayList<Reservation> getMyReservations() {
+        return this.reservations;
+    }
+
+    // Setter for the private ArrayList
+    public void setMyReservations(ArrayList<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
     // A function to remove a reservation object
     public void removeReservation(Reservation reservation)
     {
@@ -136,7 +148,10 @@ public class Slot implements Comparable
         private static int ID;
 
         public AbstractVisitor visitor;
-        public LocalDate reservationDate;
+
+
+
+        private LocalDate reservationDate;
 
         // Constructors
         public Reservation() {} // no argument constructor that acts like a default one
@@ -156,6 +171,12 @@ public class Slot implements Comparable
         public LocalDate getReservationDate()
         {
             return this.reservationDate;
+        }
+
+        // Setter reservationDate
+        public void setReservationDate(LocalDate reservationDate)
+        {
+        this.reservationDate = reservationDate;
         }
 
         // Getter visitor

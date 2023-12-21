@@ -1,6 +1,11 @@
 package coworking_space.coworks;
 
 
+import coworking_space.coworks.Rooms.*;
+import coworking_space.coworks.Visitors.AbstractVisitor;
+import coworking_space.coworks.Visitors.FormalVisitor;
+import coworking_space.coworks.Visitors.GeneralVisitor;
+import coworking_space.coworks.Visitors.InstructorVisitor;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -30,12 +35,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
 
-import static com.sun.beans.introspect.ClassInfo.clear;
 import static coworking_space.coworks.Coworks_Main.*;
 
 

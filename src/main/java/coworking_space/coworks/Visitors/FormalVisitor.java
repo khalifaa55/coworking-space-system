@@ -1,45 +1,46 @@
-
-package coworking_space.coworks;
+package coworking_space.coworks.Visitors;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import coworking_space.coworks.Rooms.AbstractRoom;
+import coworking_space.coworks.Rooms.MeetingRoom;
+import coworking_space.coworks.Rooms.Slot;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import static coworking_space.coworks.DisplayUserDataController.cVisitor;
 
-public class InstructorVisitor extends AbstractVisitor {
-    public  static ArrayList<Slot> IuserResrvations =new ArrayList<>();
+@JsonTypeName("formal")
+public class FormalVisitor extends AbstractVisitor {
+    public  static ArrayList<Slot> FuserResrvations =new ArrayList<>();
+
 
     //Class Constructors//
 
     @JsonCreator
-    public InstructorVisitor(@JsonProperty("name") String name,
+    public FormalVisitor(@JsonProperty("name") String name,
                           @JsonProperty("password")String password,
                           @JsonProperty("id") int id,
                           @JsonProperty("userEmail") String Email,
                           @JsonProperty("phoneNumber") String phoneNumber) {
-        this.type="instructor";
+        this.type="formal";
         this.name = name;
         this.id = id;
         this.password = password;
         this.userEmail=Email;
         this.phoneNumber=phoneNumber;
     }
-    public InstructorVisitor(String name,
-                            int id) {
-        this.type="instructor";
+    public FormalVisitor(String name, int id) {
+        this.type="formal";
         this.name = name;
         this.id = id;
     }
     @JsonCreator
-    public InstructorVisitor() {
+    public FormalVisitor() {
     }
 
     //Getters//
@@ -65,46 +66,46 @@ public class InstructorVisitor extends AbstractVisitor {
 
     //Class Methods//
     @JsonIgnore
-    public static InstructorVisitor createVisitorFromRegistration(Registration registration) {
-        return new InstructorVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
+    public static FormalVisitor createVisitorFromRegistration(Registration registration) {
+        return new FormalVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
     }
 
     @Override
-    protected ArrayList DisplayReservation(AbstractRoom room ) {
+    public ArrayList<Slot> DisplayReservation(AbstractRoom room) {
+        MeetingRoom MR = (MeetingRoom) room;
 
-        TeachingRoom TR = (TeachingRoom) room;
-        for(Slot slot:TR.getSlots()){
+        for(Slot slot:MR.getSlots()){
             for(Slot.Reservation r:slot.getReservations()){
                 String visitorEmail = r.getVisitor().userEmail;
                 if ((cVisitor.userEmail).equals(visitorEmail)) {
-                    IuserResrvations.add(slot);
-
+                    FuserResrvations.add(slot);
                     System.out.println(slot.getStartTime());
                     System.out.println(slot.getEndTime());
-                    System.out.println(slot.getFees());
-
                 }
             }
         }
-        return IuserResrvations;
+        return FuserResrvations;
 
     }
-
-    protected void makeReservation(AbstractRoom room , LocalDate date,String startTime,String endTime,int id) {
+    public void makeReservation(AbstractRoom room, LocalDate date, String startTime, String endTime, int id) {
         //AbstractRoom room= new TeachingRoom();
+       // System.out.println("Size of meetingRooms: " + meetingRooms.size());
 
-        TeachingRoom TR = (TeachingRoom) room;
+        MeetingRoom MR = (MeetingRoom) room;
 
-        List<Slot> availableslots = TR.getAvailableSlots(date);
+        List<Slot> availableslots = MR.getAvailableSlots(date);
+
 
 
 
         for (Slot slot : availableslots) {
-            if (startTime.equals( slot.startTime) & endTime.equals(slot.endTime) ) {
-                slot.createReservation(cVisitor,date, id );
+            if (startTime.equals( slot.getStartTime()) & endTime.equals(slot.getEndTime()) ) {
+                slot.createReservation(cVisitor,date,id );
+                System.out.println("Reservation Made successfully");
                 break;
             }
         }
+
 
     }
 
@@ -112,8 +113,8 @@ public class InstructorVisitor extends AbstractVisitor {
 
     public void cancelReservation(AbstractRoom Room,String startTime,String endTime) {
 
-        TeachingRoom TR= (TeachingRoom) Room;
-        for (Slot slot : TR.slots) {
+        MeetingRoom MR= (MeetingRoom)Room;
+        for (Slot slot : MR.slots) {
             if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
                 for (Slot.Reservation r : slot.getReservations()) {
                     String visitorEmail = r.getVisitor().userEmail;

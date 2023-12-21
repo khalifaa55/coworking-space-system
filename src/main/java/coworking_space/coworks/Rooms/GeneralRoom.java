@@ -1,13 +1,11 @@
-package coworking_space.coworks;
+package coworking_space.coworks.Rooms;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import coworking_space.coworks.Visitors.GeneralVisitor;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class GeneralRoom extends AbstractRoom
 {

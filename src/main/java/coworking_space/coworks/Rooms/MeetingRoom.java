@@ -1,14 +1,13 @@
-package coworking_space.coworks;
+package coworking_space.coworks.Rooms;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import coworking_space.coworks.Rooms.AbstractRoom;
+import coworking_space.coworks.Rooms.Slot;
+import coworking_space.coworks.Visitors.FormalVisitor;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 
 public class MeetingRoom extends AbstractRoom {

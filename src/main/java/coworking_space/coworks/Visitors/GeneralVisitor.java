@@ -1,20 +1,20 @@
-package coworking_space.coworks;
+package coworking_space.coworks.Visitors;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import coworking_space.coworks.Rooms.AbstractRoom;
+import coworking_space.coworks.Rooms.GeneralRoom;
+import coworking_space.coworks.Rooms.Slot;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import static coworking_space.coworks.DisplayUserDataController.cVisitor;
 
 
-public class GeneralVisitor extends AbstractVisitor{
+public class GeneralVisitor extends AbstractVisitor {
     public  static ArrayList<Slot> GuserResrvations =new ArrayList<>();
 
     //Class Constructors//
@@ -74,7 +74,7 @@ public class GeneralVisitor extends AbstractVisitor{
         return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
     }
     @Override
-    protected ArrayList DisplayReservation(AbstractRoom room ) {
+    public ArrayList DisplayReservation(AbstractRoom room) {
         GeneralRoom gene = (GeneralRoom) room;
 
         for(Slot slot:gene.getSlots()){
@@ -82,15 +82,15 @@ public class GeneralVisitor extends AbstractVisitor{
                 String visitorEmail = r.getVisitor().userEmail;
                 if ((cVisitor.userEmail).equals(visitorEmail)) {
                     GuserResrvations.add(slot);
-                    System.out.println(slot.startTime);
-                    System.out.println(slot.endTime);
+                    System.out.println(slot.getStartTime());
+                    System.out.println(slot.getEndTime());
                 }
             }
         }
         return GuserResrvations;
 
     }
-    protected void makeReservation(AbstractRoom room , LocalDate date , String startTime , String endTime,int id) {
+    public void makeReservation(AbstractRoom room, LocalDate date, String startTime, String endTime, int id) {
 
         GeneralRoom GR = (GeneralRoom) room;
 
@@ -101,7 +101,7 @@ public class GeneralVisitor extends AbstractVisitor{
 
         for (Slot slot : availableslots){
 
-            if (startTime .equals(slot.startTime) && endTime.equals(slot.endTime)) {
+            if (startTime .equals(slot.getStartTime()) && endTime.equals(slot.getEndTime())) {
                 slot.createReservation(cVisitor,date , id );
                 break;
             }

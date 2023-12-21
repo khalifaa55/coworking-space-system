@@ -2,11 +2,13 @@
   "name" : "Mroom1",
   "id" : 1,
   "slots" : [ {
-    "startTime" : "10:00 AM",
-    "endTime" : "12:00 PM",
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
     "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 2 ],
-    "reservations" : [ ]
+    "reservations" : [ ],
+    "myReservations" : [ ]
   } ],
   "visitors" : [ {
     "type" : "formal",
@@ -27,39 +29,75 @@
   } ],
   "type" : "meeting",
   "maxNumberOfVisitors" : 10,
+  "reservedSlots" : [ ],
   "reservationsInDate" : [ ]
 }, {
   "name" : "Mroom2",
   "id" : 2,
-  "slots" : [ {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 3 ],
-    "reservations" : [ ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 4 ],
-    "reservations" : [ ]
-  } ],
+  "slots" : [ ],
   "visitors" : [ ],
   "type" : "meeting",
   "maxNumberOfVisitors" : 10,
+  "reservedSlots" : [ ],
   "reservationsInDate" : [ ]
 }, {
   "name" : "Mroom3",
   "id" : 3,
-  "slots" : [ {
-    "startTime" : "08:00 PM",
-    "endTime" : "10:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 6 ],
-    "reservations" : [ ]
-  } ],
+  "slots" : [ ],
   "visitors" : [ ],
   "type" : "meeting",
   "maxNumberOfVisitors" : 10,
+  "reservedSlots" : [ ],
+  "reservationsInDate" : [ ]
+}, {
+  "name" : "Mroom1",
+  "id" : 1,
+  "slots" : [ {
+    "fees" : 100.0,
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "fees" : 300.0,
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  } ],
+  "visitors" : [ {
+    "type" : "formal",
+    "name" : "alshimaa",
+    "password" : null,
+    "id" : 12,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "formal"
+  }, {
+    "type" : "formal",
+    "name" : "ahmed",
+    "password" : null,
+    "id" : 14,
+    "userEmail" : null,
+    "phoneNumber" : null,
+    "type" : "formal"
+  } ],
+  "type" : "meeting",
+  "maxNumberOfVisitors" : 10,
+  "reservedSlots" : [ ],
+  "reservationsInDate" : [ ]
+}, {
+  "name" : "Mroom2",
+  "id" : 2,
+  "slots" : [ ],
+  "visitors" : [ ],
+  "type" : "meeting",
+  "maxNumberOfVisitors" : 10,
+  "reservedSlots" : [ ],
+  "reservationsInDate" : [ ]
+}, {
+  "name" : "Mroom3",
+  "id" : 3,
+  "slots" : [ ],
+  "visitors" : [ ],
+  "type" : "meeting",
+  "maxNumberOfVisitors" : 10,
+  "reservedSlots" : [ ],
   "reservationsInDate" : [ ]
 } ]

@@ -1,24 +1,18 @@
 package coworking_space.coworks;
 
+import coworking_space.coworks.Visitors.AbstractVisitor;
+import coworking_space.coworks.Visitors.Registration;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
-import static coworking_space.coworks.EditInformationController.cVisitor;
 
 public class DisplayUserDataController {
 
@@ -53,13 +47,13 @@ public class DisplayUserDataController {
     static Registration currentResistrtionn= Registration.getRegistration();
 
 
-    static AbstractVisitor cVisitor=AbstractVisitor.getCurrentVisitor(currentResistrtionn);
+    public static AbstractVisitor cVisitor= AbstractVisitor.getCurrentVisitor(currentResistrtionn);
 
     public void initialize() {
         namelabel.setText(cVisitor.name);
-        EmailLabel.setText(cVisitor.userEmail);
-        Passwordlable.setText(cVisitor.password);
-        phoneNumberlabel.setText(cVisitor.phoneNumber);
+        EmailLabel.setText(cVisitor.getUserEmail());
+        Passwordlable.setText(cVisitor.getPassword());
+        phoneNumberlabel.setText(cVisitor.getPhoneNumber());
     }
 
     @FXML

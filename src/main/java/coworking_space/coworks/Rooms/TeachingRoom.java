@@ -1,14 +1,13 @@
-package coworking_space.coworks;
+package coworking_space.coworks.Rooms;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import coworking_space.coworks.Visitors.InstructorVisitor;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class TeachingRoom extends AbstractRoom{
+public class TeachingRoom extends AbstractRoom {
 
     public String projecttype;
     public String boardtype;
@@ -81,7 +80,7 @@ public class TeachingRoom extends AbstractRoom{
     }
 
 
-    ArrayList<InstructorVisitor> getVisitors() {
+    public ArrayList<InstructorVisitor> getVisitors() {
         return visitors;
     }
 }

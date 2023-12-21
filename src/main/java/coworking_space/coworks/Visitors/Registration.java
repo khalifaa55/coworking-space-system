@@ -1,8 +1,6 @@
-package coworking_space.coworks;
+package coworking_space.coworks.Visitors;
 
-import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
 import static coworking_space.coworks.Coworks_Main.registrations;

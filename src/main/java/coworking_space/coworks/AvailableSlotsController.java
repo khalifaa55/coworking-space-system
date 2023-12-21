@@ -2,10 +2,10 @@ package coworking_space.coworks;
 
 
 
-import javafx.beans.property.SimpleStringProperty;
+import coworking_space.coworks.Rooms.AbstractRoom;
+import coworking_space.coworks.Rooms.Slot;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -16,8 +16,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
+
 import static coworking_space.coworks.Coworks_Main.generalRooms;
 import static coworking_space.coworks.Coworks_Main.meetingRooms;
 import static coworking_space.coworks.Coworks_Main.teachingRooms;
@@ -33,14 +32,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
-import javafx.util.Callback;
 
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AvailableSlotsController implements Initializable {
