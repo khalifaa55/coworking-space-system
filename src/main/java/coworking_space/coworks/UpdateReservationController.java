@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import static coworking_space.coworks.EditInformationController.cVisitor;
@@ -161,27 +162,7 @@ public class UpdateReservationController implements Initializable {
         // Set the updated observable list as the items for the ChoiceBox
         slotChoiceBox.setItems(observableSlots);
 
-        if(RegisterController.formaltype) {
-            for (AbstractRoom MR :meetingRooms ){
-                for (Slot slot : MR.slots) {
-                    if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
-                        for (Slot.Reservation r : slot.getReservations()) {
-                            String visitorEmail = r.getVisitor().userEmail;
-                            if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)) {
-                                roomOfCurrentUser=r.
-                            }
-                        }
-                    }
-                }
-           }
-        }
-        else if(RegisterController.instructortype){
 
-
-        }else{
-
-
-        }
 
 
 
@@ -254,6 +235,49 @@ public class UpdateReservationController implements Initializable {
                 System.out.println("Start Time: " + startTime);
                 System.out.println("End Time: " + endTime);
 
+                if(RegisterController.formaltype) {
+                    for (AbstractRoom MR :meetingRooms ){
+                        for (Slot slot : MR.slots) {
+                            if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
+                                for (Slot.Reservation r : slot.getReservations()) {
+                                    String visitorEmail = r.getVisitor().userEmail;
+                                    if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)) {
+                                        roomOfCurrentUser= r.getID();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(RegisterController.instructortype){
+                    for (AbstractRoom TR :teachingRooms ){
+                        for (Slot slot : TR.slots) {
+                            if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
+                                for (Slot.Reservation r : slot.getReservations()) {
+                                    String visitorEmail = r.getVisitor().userEmail;
+                                    if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)) {
+                                        roomOfCurrentUser=r.getID();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }else{
+                    for (AbstractRoom GR :generalRooms ){
+                        for (Slot slot : GR.slots) {
+                            if (slot.getStartTime().equals(startTime) && slot.getEndTime().equals(endTime)) {
+                                for (Slot.Reservation r : slot.getReservations()) {
+                                    String visitorEmail = r.getVisitor().userEmail;
+                                    if ((DisplayUserDataController.cVisitor.userEmail).equals(visitorEmail)) {
+                                        roomOfCurrentUser=r.getID();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
                 if (RegisterController.formaltype) {
 
                     for(int i=0;i<meetingRooms.size();i++) {
@@ -276,6 +300,9 @@ public class UpdateReservationController implements Initializable {
         }
         observableUserSlots.remove(selectedSlot);
     }
+
+
+
 
     @FXML
     void deletSlot(MouseEvent event) {
@@ -311,16 +338,18 @@ public class UpdateReservationController implements Initializable {
 
 
 
+
+
                 // Pass these values to the appropriate visitor's makeReservation method
                 if (RegisterController.formaltype) {
                     FormalVisitor formalVisitor = new FormalVisitor();
-                    formalVisitor.makeReservation(meetingRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime);
+                    formalVisitor.makeReservation(meetingRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime,roomOfCurrentUser);
                 } else if (RegisterController.instructortype) {
                     InstructorVisitor instructorVisitor = new InstructorVisitor();
-                    instructorVisitor.makeReservation(teachingRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime);
+                    instructorVisitor.makeReservation(teachingRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime,roomOfCurrentUser);
                 } else {
                     GeneralVisitor generalVisitor = new GeneralVisitor();
-                    generalVisitor.makeReservation(generalRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime);
+                    generalVisitor.makeReservation(generalRooms.get(roomOfCurrentUser), newSelecteddate, startTime, endTime,roomOfCurrentUser);
                 }
             }
         }
