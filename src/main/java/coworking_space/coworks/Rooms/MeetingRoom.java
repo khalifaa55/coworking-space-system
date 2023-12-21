@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MeetingRoom extends AbstractRoom {
     public final String type = "meeting";
     public final int maxNumberOfVisitors = 10;
-    public ArrayList<FormalVisitor> visitors;
+    public  ArrayList<FormalVisitor> visitors;
 
     @JsonCreator
     public MeetingRoom(@JsonProperty("name") String name,

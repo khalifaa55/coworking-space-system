@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import coworking_space.coworks.Coworks_Main;
 import coworking_space.coworks.Rooms.AbstractRoom;
 import coworking_space.coworks.Rooms.MeetingRoom;
 import coworking_space.coworks.Rooms.Slot;
@@ -102,6 +103,10 @@ public class FormalVisitor extends AbstractVisitor {
             if (startTime.equals( slot.getStartTime()) & endTime.equals(slot.getEndTime()) ) {
                 slot.createReservation(cVisitor,date,id );
                 System.out.println("Reservation Made successfully");
+                FormalVisitor v = (FormalVisitor) cVisitor;
+                MR.visitors.add(v);
+                Coworks_Main.formals= MR.visitors;
+//                getFormals(MR.visitors);
                 break;
             }
         }
@@ -109,6 +114,10 @@ public class FormalVisitor extends AbstractVisitor {
 
     }
 
+//    public  static  void getFormals(ArrayList<FormalVisitor> v)
+//    {
+//        Coworks_Main.formals=v;
+//    }
 
 
     public void cancelReservation(AbstractRoom Room,String startTime,String endTime) {

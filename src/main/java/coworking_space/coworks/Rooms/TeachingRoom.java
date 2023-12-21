@@ -13,7 +13,7 @@ public class TeachingRoom extends AbstractRoom {
     public String boardtype;
     public String instructorname;
     public final String type = "teaching";
-    public ArrayList<InstructorVisitor> visitors;
+    public  ArrayList<InstructorVisitor> visitors;
     public final int maxNumberOfVisitors = 10;
     @JsonCreator
     public TeachingRoom(@JsonProperty("name") String name, @JsonProperty("id") int id, @JsonProperty("projectType") String projecttype,

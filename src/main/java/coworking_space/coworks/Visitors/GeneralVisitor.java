@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import coworking_space.coworks.Rooms.AbstractRoom;
 import coworking_space.coworks.Rooms.GeneralRoom;
 import coworking_space.coworks.Rooms.Slot;
+import coworking_space.coworks.Rooms.TeachingRoom;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -103,6 +104,8 @@ public class GeneralVisitor extends AbstractVisitor {
 
             if (startTime .equals(slot.getStartTime()) && endTime.equals(slot.getEndTime())) {
                 slot.createReservation(cVisitor,date , id );
+                GeneralVisitor v = (GeneralVisitor) cVisitor;
+                GR.visitors.add(v);
                 break;
             }
         }

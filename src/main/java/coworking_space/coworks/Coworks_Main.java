@@ -79,24 +79,6 @@ public class Coworks_Main extends Application {
         }
     }
 
-//    public static void sendArrayListToMain(ArrayList<?> arrayList) {
-//        try {
-//            Object firstElement = arrayList.get(0);
-//            if (firstElement instanceof MeetingRoom) {
-//                meetingRooms = (ArrayList<MeetingRoom>) arrayList;
-//            } else if (firstElement instanceof GeneralRoom) {
-//                generalRooms = (ArrayList<GeneralRoom>) arrayList;
-//            } else if (firstElement instanceof TeachingRoom) {
-//                teachingRooms = (ArrayList<TeachingRoom>) arrayList;
-//            } else if (firstElement instanceof AbstractVisitor) {
-//                visitors = (ArrayList<AbstractVisitor>) arrayList;
-//            }
-//        } catch (NullPointerException e) {
-//            System.out.println("Null ArrayList");
-//            e.printStackTrace();
-//        }
-//    }
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Coworks_Main.class.getResource("welcomeScreen.fxml"));
@@ -116,34 +98,50 @@ public class Coworks_Main extends Application {
         Registration.getVisitorsFromMain(visitors);
         AbstractVisitor.getAbstractVisitorsFromMain(visitors);
 
-
-        FormalVisitor formal = new FormalVisitor("alshimaa", 12);
-        FormalVisitor formal0 = new FormalVisitor("ahmed", 14);
-
-        FormalVisitor formal1 = new FormalVisitor("Farha", 123);
-        FormalVisitor formal2 = new FormalVisitor("ahmed", 143);
-
-        FormalVisitor formal3 = new FormalVisitor("Omnia", 122);
-        FormalVisitor formal4 = new FormalVisitor("Mahmoud", 142);
-
-            Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00, LocalDate.of(2023,12,1));
-            Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300,LocalDate.of(2023,12,2));
+//            ArrayList<FormalVisitor> F= FormalVisitor.getFormals(formals);
+            Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00, LocalDate.of(2023,12,21));
+            Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300,LocalDate.of(2023,12,21));
 
 
-            Slot slot3 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,3));
-            Slot slot4 = new Slot("04:00 PM", "06:00 PM", 300,LocalDate.of(2023,12,4));
+            Slot slot3 = new Slot("12:00 PM", "02:00 PM", 100.00,LocalDate.of(2023,12,21));
+            Slot slot4 = new Slot("02:00 PM", "04:00 PM", 300,LocalDate.of(2023,12,21));
 
-            Slot slot5 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,5));
-            Slot slot6 = new Slot("08:00 PM", "10:00 PM", 300,LocalDate.of(2023,12,6));
+            Slot slot5 = new Slot("04:00 PM", "06:00 PM", 100.00,LocalDate.of(2023,12,21));
+            Slot slot6 = new Slot("06:00 PM", "08:00 PM", 300,LocalDate.of(2023,12,21));
 
-            // slot2.createReservation(inst);
-            //slot1.createReservation(inst);
-            formals.add(formal);
-            formals.add(formal0);
+//            formals.add((FormalVisitor) visitors.get(0));
+//            formals.add((FormalVisitor) visitors.get(1));
+//            formals.add((FormalVisitor) visitors.get(2));
+//            formals2.add((FormalVisitor) visitors.get(3));
+//            formals2.add((FormalVisitor) visitors.get(4));
+//            formals2.add((FormalVisitor) visitors.get(5));
+//            formals3.add((FormalVisitor) visitors.get(3));
+//            formals3.add((FormalVisitor) visitors.get(4));
+//            formals3.add((FormalVisitor) visitors.get(5));
+
             Mslots.add(slot1);
             Mslots.add(slot2);
+            Mslots.add(slot3);
+            Mslots.add(slot4);
+            Mslots.add(slot5);
+            Mslots.add(slot6);
 
-            AbstractRoom meeting_room = new MeetingRoom("Mroom1", 1, Mslots, formals);
+        Mslots2.add(slot1);
+        Mslots2.add(slot2);
+        Mslots2.add(slot3);
+        Mslots2.add(slot4);
+        Mslots2.add(slot5);
+        Mslots2.add(slot6);
+
+        Mslots3.add(slot1);
+        Mslots3.add(slot2);
+        Mslots3.add(slot3);
+        Mslots3.add(slot4);
+        Mslots3.add(slot5);
+        Mslots3.add(slot6);
+
+
+            AbstractRoom meeting_room = new MeetingRoom("Mroom1", 1, Mslots,formals);
             AbstractRoom meeting_room2 = new MeetingRoom("Mroom2", 2, Mslots2, formals2);
             AbstractRoom meeting_room3 = new MeetingRoom("Mroom3", 3, Mslots3, formals3);
 

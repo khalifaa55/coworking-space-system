@@ -50,27 +50,27 @@ public class Slot implements Comparable
     public Slot() {this.reservations = new ArrayList<Reservation>();}
 
     // Getter Start time
-    @JsonIgnore
+    //@JsonIgnore
     public String getStartTime() {return startTime;}
 
     // Setter Start time
-    @JsonIgnore
+    //@JsonIgnore
     public void setStartTime(String startTime) {this.startTime = startTime;}
 
     // Getter End time
-    @JsonIgnore
+    //@JsonIgnore
     public String getEndTime() {return endTime;}
 
     // Setter End time
-    @JsonIgnore
+    //@JsonIgnore
     public void setEndTime(String endTime)  {this.endTime = endTime;}
 
     // Setter slotDate
-    @JsonIgnore
+    //@JsonIgnore
     public void setSlotDate(LocalDate slotDate) {this.slotDate = slotDate;}
 
     // Getter slotDate
-    @JsonIgnore
+    //@JsonIgnore
     public LocalDate getSlotDate() {return slotDate;}
 
     // Getter Reservation
@@ -148,8 +148,6 @@ public class Slot implements Comparable
         private static int ID;
 
         public AbstractVisitor visitor;
-
-
 
         private LocalDate reservationDate;
 
