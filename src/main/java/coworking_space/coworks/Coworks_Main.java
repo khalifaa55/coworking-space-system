@@ -263,7 +263,7 @@ public class Coworks_Main extends Application {
 //        //slot1.createReservation(inst);
 //
 //
-//
+////
 //        ArrayList<Slot> gslots = new ArrayList<>();
 //        ArrayList<Slot> gslots2 = new ArrayList<>();
 //        GeneralVisitor Gvisitor_3=new GeneralVisitor("Fago",4);
@@ -274,31 +274,31 @@ public class Coworks_Main extends Application {
 //        generals.add(Gvisitor_3);
 //        generals2.add(Gvisitor_2);
 //        generals2.add(Gvisitor_3);
-//
-//            Slot slot13 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,19));
-//            Slot slot14 = new Slot("04:00 PM", "06:00 PM", 300.00,LocalDate.of(2023,12,19));
-//
+////
+////            Slot slot13 = new Slot("02:00 PM", "04:00 PM", 100.00,LocalDate.of(2023,12,19));
+////            Slot slot14 = new Slot("04:00 PM", "06:00 PM", 300.00,LocalDate.of(2023,12,19));
+////
 //            Slot slot15 = new Slot("06:00 PM", "08:00 PM", 100.00,LocalDate.of(2023,12,19));
 //            Slot slot16 = new Slot("04:00", "06:00 PM", 300.00,LocalDate.of(2023,12,19));
-////        InstructorVisitor inst1= new InstructorVisitor("h",12);
-////        InstructorVisitor inst2 = new InstructorVisitor("R",14);
-////        insts.add(inst1);
-////        insts.add(inst2);
+//////        InstructorVisitor inst1= new InstructorVisitor("h",12);
+//////        InstructorVisitor inst2 = new InstructorVisitor("R",14);
+//////        insts.add(inst1);
+//////        insts.add(inst2);
+//////
+//////        InstructorVisitor inst3= new InstructorVisitor("y",123);
+//////        InstructorVisitor inst4 = new InstructorVisitor("z",143);
+//////        insts.add(inst3);
+//////        insts.add(inst4);
+//////        InstructorVisitor inst5= new InstructorVisitor("G",122);
+//////        InstructorVisitor inst6 = new InstructorVisitor("D",142);
+//////        insts3.add(inst5);
+//////        insts3.add(inst6);
+////        gslots2.add(slot13);
+////        gslots2.add(slot14);
 ////
-////        InstructorVisitor inst3= new InstructorVisitor("y",123);
-////        InstructorVisitor inst4 = new InstructorVisitor("z",143);
-////        insts.add(inst3);
-////        insts.add(inst4);
-////        InstructorVisitor inst5= new InstructorVisitor("G",122);
-////        InstructorVisitor inst6 = new InstructorVisitor("D",142);
-////        insts3.add(inst5);
-////        insts3.add(inst6);
-//        gslots2.add(slot13);
-//        gslots2.add(slot14);
-//
 //        gslots.add(slot15);
 //        gslots.add(slot16);
-
+//
 //        AbstractRoom general_room = new GeneralRoom("Groom1", 7, gslots2, generals);
 //            AbstractRoom general_room2 = new GeneralRoom("Groom2", 8, gslots, generals2);
 //            generalRooms.add(general_room);

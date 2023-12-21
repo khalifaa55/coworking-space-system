@@ -36,6 +36,12 @@ public class GeneralRoom extends AbstractRoom
         this.visitors = new ArrayList<GeneralVisitor>();
     }
 
+    @JsonIgnore
+    public int getNumOfVisitors() {
+        return visitors.size();
+    }
+
+
     //Getters//
     @JsonProperty("slots")
     public ArrayList<Slot> getSlots() {
@@ -46,6 +52,31 @@ public class GeneralRoom extends AbstractRoom
     public ArrayList<GeneralVisitor> getVisitors() {
         return visitors;
     }
+//    @JsonIgnore
+//    public ArrayList<Slot> getAvailableSlotsForAdmin()
+//    {
+//        for (Slot slot : slots) {
+//            // Check if there are no reservations or the slot is not fully reserved
+//            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
+//            {
+//                availableSlots.add(slot);
+//            }
+//            else
+//                reservedSlots.add(slot);
+//        }
+//        // no available slots
+//        if(availableSlots.isEmpty())
+//        {
+//            return null;
+//        }
+//        else
+//        {
+//            return availableSlots;
+//        }
+//    }
+
+
+
 }
 
 

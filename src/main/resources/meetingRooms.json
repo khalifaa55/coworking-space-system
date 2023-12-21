@@ -2,12 +2,6 @@
   "name" : "Mroom1",
   "id" : 1,
   "slots" : [ {
-    "startTime" : "08:00 AM",
-    "endTime" : "10:00 AM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 1 ],
-    "reservations" : [ ]
-  }, {
     "startTime" : "10:00 AM",
     "endTime" : "12:00 PM",
     "fees" : 300.0,

@@ -63,9 +63,12 @@ abstract public class AbstractRoom
         }
     }
 
+
     @JsonIgnore
-    public ArrayList<Slot> getAvailableSlotsForAdmin()
+    public   ArrayList<Slot> getAvailableSlotsForAdmin()
     {
+        availableSlots.clear();
+        reservedSlots.clear();
         for (Slot slot : slots) {
             // Check if there are no reservations or the slot is not fully reserved
             if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
@@ -85,6 +88,8 @@ abstract public class AbstractRoom
             return availableSlots;
         }
     }
+
+
     //Getters
     @JsonIgnore
     public int getNumOfVisitors() {

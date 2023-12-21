@@ -1,11 +1,4 @@
 [ {
-  "name" : "Rabab",
-  "password" : "P@ssw0rd!",
-  "id" : 0,
-  "userEmail" : "rabab@example.com",
-  "phoneNumber" : "0128887777",
-  "type" : "general"
-}, {
   "name" : "Habiba",
   "password" : "8CharPwd",
   "id" : 1,

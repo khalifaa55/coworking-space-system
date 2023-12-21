@@ -47,12 +47,39 @@ public class TeachingRoom extends AbstractRoom{
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
         this.visitors = (visitors != null) ? visitors : new ArrayList<InstructorVisitor>();
     }
+//    @JsonIgnore
+//    public  ArrayList<Slot> getAvailableSlotsForAdmin()
+//    {
+//        for (Slot slot : slots) {
+//            // Check if there are no reservations or the slot is not fully reserved
+//            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
+//            {
+//                availableSlots.add(slot);
+//            }
+//            else
+//                reservedSlots.add(slot);
+//        }
+//        // no available slots
+//        if(availableSlots.isEmpty())
+//        {
+//            return null;
+//        }
+//        else
+//        {
+//            return availableSlots;
+//        }
+//    }
 
 
     @JsonProperty("slots")
     public ArrayList<Slot> getSlots() {
         return slots;
     }
+    @JsonIgnore
+    public int getNumOfVisitors() {
+        return visitors.size();
+    }
+
 
     ArrayList<InstructorVisitor> getVisitors() {
         return visitors;

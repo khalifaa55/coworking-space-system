@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.RadioButton;
 
 import javafx.scene.Parent;
@@ -20,6 +22,9 @@ import javafx.scene.layout.Pane;
 import javafx.collections.ObservableList;
 
 
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,10 +35,8 @@ import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
-//import static com.sun.beans.introspect.ClassInfo.clear;
-import static coworking_space.coworks.Coworks_Main.generalRooms;
-import static coworking_space.coworks.Coworks_Main.meetingRooms;
-import static coworking_space.coworks.Coworks_Main.teachingRooms;
+import static com.sun.beans.introspect.ClassInfo.clear;
+import static coworking_space.coworks.Coworks_Main.*;
 
 
 public class DisplayRoomDataController implements Initializable {
@@ -139,7 +142,7 @@ public class DisplayRoomDataController implements Initializable {
     Admin alshimaa = new Admin();
 
     ObservableList<AbstractVisitor> Visitors = FXCollections.observableArrayList();
-    ObservableList<Slot> AvailableSlots = FXCollections.observableArrayList();
+    ObservableList<Slot> available=FXCollections.observableArrayList();
     ObservableList<Slot> Reserved = FXCollections.observableArrayList();
 
 
@@ -210,130 +213,175 @@ public class DisplayRoomDataController implements Initializable {
         stage.show();
 
     }
+    private void inValidMessage(String title, String message){
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(title);
+
+        Label Message = new Label(message);
+        Message.setAlignment(Pos.CENTER);
+        Message.setFont(Font.font(14));
+        Message.setStyle("-fx-text-fill: white");
+
+        Button closeButton = new Button("Close");
+        closeButton.setOnAction(event -> popupStage.close());
+        closeButton.setStyle("-fx-background-radius: 10");
+
+        VBox layout = new VBox(10);
+        layout.setAlignment(Pos.CENTER);
+        layout.setStyle("-fx-background-color: #6678CB");
+        layout.setPadding(new Insets(10));
+        layout.getChildren().addAll(Message, closeButton);
+
+        Scene scene = new Scene(layout, 300, 100);
+        popupStage.setScene(scene);
+        popupStage.showAndWait();
+    }
     String Type;
     int Id;
     @FXML
 
     void DisplayRoom(MouseEvent event) {
+        Id = Integer.parseInt(RoomID.getText());
+        Type = String.valueOf(types.getSelectedToggle());
+//        try {
+            SelectRoom(Id);
+            FillData();
+            DisplayAvailableSlots();
+            DispalyReservedSlots();
 
-       Type =String.valueOf(types.getSelectedToggle());
-       Id=Integer.parseInt(RoomID.getText());
-//       updateRoomsIdComboBox(Type)
-//       ;
-       DisplayRoomVistor(Id);
-        FillData(SelectedRoom);
-        SelectedRoom(Type,Id);
-        DispalyReservedSlots(Type,Id);
+//        }catch (NullPointerException ex)
+//        {
+//            SelectedRoomName.setText("");
+//            RoomID.setText("");
+//            available.clear();
+//            inValidMessage("EROOR!!", "No Room ID " + Id + " With This Type\n Enter Another ID .");
+//        }
     }
 
     @FXML
     public void DeleteRoom(MouseEvent event) {
-//        int INDEX = 0;
-//
-//        if (Type.equals(String.valueOf(GeneralRadio))) {
-//            for (Iterator<AbstractRoom> iterator = GRooms.iterator(); iterator.hasNext(); ) {
-//                AbstractRoom G = iterator.next();
-//                if (G.id == Id) {
-//                    iterator.remove();
-//                    break;  // Exit the loop once the room is removed
-//                }
-//                INDEX++;
-//            }
-//        } else if (Type.equals(String.valueOf(TeachingRadio))) {
-//            for (Iterator<AbstractRoom> iterator = TRooms.iterator(); iterator.hasNext(); ) {
-//                AbstractRoom T = iterator.next();
-//                if (T.id == Id) {
-//                    iterator.remove();
-//                    break;  // Exit the loop once the room is removed
-//                }
-//                INDEX++;
-//            }
-//        } else {
-//            for (Iterator<AbstractRoom> iterator = MRooms.iterator(); iterator.hasNext(); ) {
-//                AbstractRoom M = iterator.next();
-//                if (M.id == Id) {
-//                    iterator.remove();
-//                    break;  // Exit the loop once the room is removed
-//                }
-//                INDEX++;
-//            }
-//        }
+        Id = Integer.parseInt(RoomID.getText());
+        Type = String.valueOf(types.getSelectedToggle());
+        try{
+
+            SelectRoom(Id);
+            RemoveSelectedRoom();
+        }catch (IndexOutOfBoundsException ex)
+        {
+            RoomID.setText("");
+            available.clear();
+            inValidMessage("EROOR!!", "No Room ID " + Id + " With This Type\n Enter Another ID .");
+        }
     }
 
+    int Index=0;
 
-    public void DisplayRoomVistor(int ID) {
+    public void RemoveSelectedRoom()
+    {
+        boolean Check=false;
+        if(Type.equals(String.valueOf(GeneralRadio)))
+        {
 
+            generalRooms.remove(Index);
+            Check=true;
+        } else if (Type.equals(String.valueOf(TeachingRadio))) {
+            teachingRooms.remove(Index);
+            Check=true;
+        }
+        else {
+            meetingRooms.remove(Index);
+            Check=true;
+        }
+
+        if(Check) {
+            Visitors.clear();
+            available.clear();
+            InstructorName.setText("");
+            BoardType.setText("");
+            ProjectorType.setText("");
+            SelectedRoomName.setText("");
+            RoomID.setText("");
+            NoVisitorsRoom.setText("");
+            MaxNoVisitors.setText("");
+            inValidMessage("Alert ", "Room " + Id + " is Deleted");
+        }
+    }
+
+    public void SelectRoom(int ID) {
 
         if (Type.equals(String.valueOf(GeneralRadio))) {
-            SelectedRoom= null;
+            Index=0;
             for (AbstractRoom Gr : generalRooms) {
                 if (ID== Gr.id) {
                     SelectedRoom = Gr;
+                    break;
                 }
+                Index++;
             }
         }
-       else if(Type.equals(String.valueOf(TeachingRadio)))
+        else if(Type.equals(String.valueOf(TeachingRadio)))
         {
-            SelectedRoom= null;
+            Index=0;
             for (AbstractRoom Tr : teachingRooms) {
                 if (ID== Tr.id) {
                     SelectedRoom = Tr;
+                    break;
                 }
+                Index++;
             }
 
         }
         else {
-            SelectedRoom= null;
+            Index=0;
             for (AbstractRoom Mr : meetingRooms) {
                 if (ID ==Mr.id) {
                     SelectedRoom = Mr;
+                    break;
                 }
+                Index++;
             }
         }
-        for(AbstractRoom G:generalRooms)
-            if(G.name==null)
-                    break;
     }
-public  void FillData(AbstractRoom Room)
+    public  void FillData()
     {
         Visitors.clear();
         RoomProfit.setText("");
 
-//        SelectedRoomID.setText(String.valueOf(Room.id));
-        SelectedRoomName.setText(Room.name);
-        NoVisitorsRoom.setText(String.valueOf( Room.getNumOfVisitors()));
-        if(Room instanceof GeneralRoom)
+        SelectedRoomName.setText(SelectedRoom.name);
+        NoVisitorsRoom.setText(String.valueOf( SelectedRoom.getNumOfVisitors()));
+        if(SelectedRoom instanceof GeneralRoom)
         {
 
             InstructorPane.setVisible(false);
 
-            GeneralRoom room=(GeneralRoom) Room;
+            GeneralRoom room=(GeneralRoom) SelectedRoom;
             MaxNoVisitors.setText(String.valueOf(room.maxNumberOfVisitors));
 
-            for (GeneralVisitor V : room.visitors) {
+            for (GeneralVisitor V : room.getVisitors()) {
                 Visitors.add(V);
             }
         }
-        else if(Room instanceof TeachingRoom)
+        else if(SelectedRoom instanceof TeachingRoom)
         {
             InstructorPane.setVisible(true);
 
-            TeachingRoom room =(TeachingRoom) Room;
+            TeachingRoom room =(TeachingRoom) SelectedRoom;
             MaxNoVisitors.setText(String.valueOf(room.maxNumberOfVisitors));
             ProjectorType.setText(room.projecttype);
             BoardType.setText(room.boardtype);
             InstructorName.setText(room.instructorname);
 
-            for (InstructorVisitor V : room.visitors) {
+            for (InstructorVisitor V : room.getVisitors()) {
                 Visitors.add(V);
             }
         }
         else {
             InstructorPane.setVisible(false);
 
-            MeetingRoom room=(MeetingRoom)Room;
+            MeetingRoom room=(MeetingRoom)SelectedRoom;
             MaxNoVisitors.setText(String.valueOf(room.maxNumberOfVisitors));
-            for (FormalVisitor V : room.visitors) {
+            for (FormalVisitor V : room.getVisitors()) {
                 Visitors.add(V);
             }
 
@@ -346,43 +394,13 @@ public  void FillData(AbstractRoom Room)
     }
 
 
-    public void SelectedRoom(String Type , int Id)
+    public void DisplayAvailableSlots()
     {
-        ObservableList<Slot> available=FXCollections.observableArrayList();
+        available.clear();
+        for(Slot S :SelectedRoom.getAvailableSlotsForAdmin())
+            available.add(S);
 
-        if(Type.equals(String.valueOf(GeneralRadio)))
-        {
-            for(AbstractRoom R:generalRooms)
-            {
-                if(Id==R.id) {
-                    for (Slot S : R.getAvailableSlotsForAdmin()) {
-                        System.out.println(S.getStartTime());
-                        available.add(S);
-                    }
-                }
 
-            }
-        } else if (Type.equals(String.valueOf(TeachingRadio))) {
-            for(AbstractRoom R :teachingRooms)
-            {
-                if(Id== R.id)
-                {
-                    for(Slot S:R.getAvailableSlotsForAdmin())
-                        available.add(S);
-                }
-            }
-
-        }
-        else {
-            for(AbstractRoom R:meetingRooms)
-            {
-                if(Id == R.id)
-                {
-                    for(Slot S :R.getAvailableSlotsForAdmin())
-                        available.add(S);
-                }
-            }
-        }
         DateColumn.setCellValueFactory(new PropertyValueFactory<Slot,LocalDate>("slotDate"));
         StartTimeColumn.setCellValueFactory(new PropertyValueFactory<Slot,String>("startTime"));
         EndTimeColumn.setCellValueFactory(new PropertyValueFactory<Slot,String>("endTime"));
@@ -391,49 +409,16 @@ public  void FillData(AbstractRoom Room)
 
     }
 
-    public void DispalyReservedSlots(String Type , int Id) {
+    public void DispalyReservedSlots() {
 
-        ObservableList<Slot> Reserved=FXCollections.observableArrayList();
-
-        if(Type.equals(String.valueOf(GeneralRadio)))
-        {
-            for(AbstractRoom R:generalRooms)
-            {
-                if(Id==R.id) {
-                    for (Slot S : R.reservedSlots) {
-                        System.out.println(S.getStartTime());
-                        Reserved.add(S);
-                    }
-                    RoomProfit.setText(String.valueOf(alshimaa.CalcRoom_Profit(R)));
-
-                }
-
-            }
-        } else if (Type.equals(String.valueOf(TeachingRadio))) {
-            for(AbstractRoom R :teachingRooms)
-            {
-                if(Id== R.id)
-                {
-                    for(Slot S: R.reservedSlots)
-                        Reserved.add(S);
-                    RoomProfit.setText(String.valueOf(alshimaa.CalcRoom_Profit(R)));
-
-                }
-            }
-
+        Reserved.clear();
+        for (Slot S : SelectedRoom.reservedSlots) {
+            System.out.println(S.getStartTime());
+            Reserved.add(S);
         }
-        else {
-            for(AbstractRoom R:meetingRooms)
-            {
-                if(Id == R.id)
-                {
-                    for(Slot S :R.reservedSlots)
-                        Reserved.add(S);
-                    RoomProfit.setText(String.valueOf(alshimaa.CalcRoom_Profit(R)));
+        Admin alshimaa=new Admin();
+        RoomProfit.setText(String.valueOf(alshimaa.CalcRoom_Profit(SelectedRoom)));
 
-                }
-            }
-        }
         DateR.setCellValueFactory(new PropertyValueFactory<Slot,LocalDate>("slotDate"));
         StartTimeR.setCellValueFactory(new PropertyValueFactory<Slot,String>("startTime"));
         EndTimeR.setCellValueFactory(new PropertyValueFactory<Slot,String>("endTime"));
@@ -441,56 +426,13 @@ public  void FillData(AbstractRoom Room)
         ReservedSlotsTable.setItems(Reserved);
 
     }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         InstructorPane.setVisible(false);
         RoomProfit.setText("");
-//        Slot S_0 = new Slot("9" , "11",150 , LocalDate.of(2023,3 ,5));
-////        Mslots.add(S_0);
-//        Mslots.add(slot1);
-//        Mslots.add(slot2);
-//
-//        I_visitprs.add(Ivisitor_2);
-//        I_visitprs.add(Ivisitor_3);
-//        F_visitprs.add(Fvisitor_2);
-//        F_visitprs.add(Fvisitor_3);
-//        G_visitprs.add(Gvisitor_2);
-//        G_visitprs.add(Gvisitor_3);
-//        GRooms.add(null);  // Or any initial value you want
-//        TRooms.add(null);
-//        MRooms.add(null);
-//
-//        Mslots.get(0).createReservation(Gvisitor_2);
-//        Mslots.get(0).createReservation(Gvisitor_3);
-//       RoomProfit.setText("");
-//       Mslots_1.add(slot3);
-//       Mslots_1.add(slot4);
-//       Mslots_2.add(slot5);
-//       Mslots_2.add(slot6);
-//
-//        AbstractRoom Groom = new GeneralRoom("G1", 2, Mslots, G_visitprs);
-//        GRooms.set(0, Groom);
-//
-//        AbstractRoom Troom = new TeachingRoom("T1", 3, Mslots_1, I_visitprs);
-//        TRooms.set(0, Troom);
-//        AbstractRoom Mroom = new MeetingRoom("M1", 1, Mslots_2, F_visitprs);
-//        MRooms.set(0, Mroom);
         for(AbstractRoom G :generalRooms)
         {
-            System.out.println(G.name);
+            System.out.println(G.id);
         }
-//        RoomTyprComboBox.getItems().addAll("General", "Meeting", "Teaching");
-//
-//        SelectedRoomID.setText("");
-//        SelectedRoomName.setText("");
-
-//        ApplyManyTIMES();
-//        RoomTyprComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//            updateRoomsIdComboBox(newValue);
-//        });
-
     }
 }
-

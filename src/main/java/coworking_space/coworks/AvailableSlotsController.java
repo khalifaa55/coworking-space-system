@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.RadioButton;
@@ -25,6 +27,9 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 
 
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
@@ -92,6 +97,8 @@ public class AvailableSlotsController implements Initializable {
 
     @FXML
     private AnchorPane availableSlotsScreen;
+    ObservableList<Slot> available=FXCollections.observableArrayList();
+
 
     @FXML
     void changeScreenDisplayRoomsDataScreen_2(MouseEvent event) throws IOException {
@@ -156,11 +163,36 @@ public class AvailableSlotsController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    private void inValidMessage(String title, String message){
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(title);
+
+        Label Message = new Label(message);
+        Message.setAlignment(Pos.CENTER);
+        Message.setFont(Font.font(14));
+        Message.setStyle("-fx-text-fill: white");
+
+        Button closeButton = new Button("Close");
+        closeButton.setOnAction(event -> popupStage.close());
+        closeButton.setStyle("-fx-background-radius: 10");
+
+        VBox layout = new VBox(10);
+        layout.setAlignment(Pos.CENTER);
+        layout.setStyle("-fx-background-color: #6678CB");
+        layout.setPadding(new Insets(10));
+        layout.getChildren().addAll(Message, closeButton);
+
+        Scene scene = new Scene(layout, 300, 100);
+        popupStage.setScene(scene);
+        popupStage.showAndWait();
+    }
     int SelectedSlot;
     String Typee;
     int RoonID;
     @FXML
     void DeleteSlot(MouseEvent event) {
+        boolean Check=false;
         ObservableList<Slot> available=AvailableTA.getItems();
 
         SelectedSlot = AvailableTA.getSelectionModel().getSelectedIndex();
@@ -169,8 +201,9 @@ public class AvailableSlotsController implements Initializable {
             for(AbstractRoom R:generalRooms)
             {
                 if(RoonID==R.id) {
-                   R.slots.remove(SelectedSlot);
-                   available.remove(SelectedSlot);
+                    Check=true;
+                    R.slots.remove(SelectedSlot);
+                    available.remove(SelectedSlot);
                 }
 
             }
@@ -179,7 +212,7 @@ public class AvailableSlotsController implements Initializable {
             {
                 if(RoonID== R.id)
                 {
-
+                    Check=true;
                     R.slots.remove(SelectedSlot);
                     available.remove(SelectedSlot);
 
@@ -193,40 +226,38 @@ public class AvailableSlotsController implements Initializable {
             {
                 if(RoonID == R.id)
                 {
-
+                    Check=true;
                     R.slots.remove(SelectedSlot);
                     available.remove(SelectedSlot);
 
                 }
             }
         }
+        if(Check)
+            inValidMessage("Alert" , "Slot no. " +(SelectedSlot+1) +" is Deleted ");
         AvailableTA.setItems(available);
         AvailableTA.refresh();
-        for(AbstractRoom R:generalRooms)
-        {
-            for(Slot S: R.getAvailableSlotsForAdmin())
-            {
-                System.out.println(S.getStartTime());
-            }
-        }
+
     }
 
     @FXML
     void DisplaySlots(MouseEvent event) {
-        Typee=String.valueOf(Types.getSelectedToggle());
-        RoonID=Integer.parseInt(Roomid1.getText());
-        SelectedRoom(Typee,RoonID);
+
+        RoonID = Integer.parseInt(Roomid1.getText());
+        Typee = String.valueOf(Types.getSelectedToggle());
+        DisplayAvailableSlots();
     }
 
-    public void SelectedRoom(String Type , int Id)
+    public void DisplayAvailableSlots()
     {
-        ObservableList<Slot> available=FXCollections.observableArrayList();
-
-        if(Type.equals(String.valueOf(GeneralRadio)))
+        available.clear();
+        boolean isExist=false;
+        if(Typee.equals(String.valueOf(GeneralRadio)))
         {
             for(AbstractRoom R:generalRooms)
             {
-                if(Id==R.id) {
+                if(RoonID==R.id) {
+                    isExist=true;
                     for (Slot S : R.slots) {
                         System.out.println(S.getStartTime());
                         available.add(S);
@@ -234,11 +265,12 @@ public class AvailableSlotsController implements Initializable {
                 }
 
             }
-        } else if (Type.equals(String.valueOf(TeachingRadio))) {
+        } else if (Typee.equals(String.valueOf(TeachingRadio))) {
             for(AbstractRoom R :teachingRooms)
             {
-                if(Id== R.id)
+                if(RoonID== R.id)
                 {
+                    isExist=true;
                     for(Slot S:R.getAvailableSlotsForAdmin())
                         available.add(S);
                 }
@@ -248,12 +280,18 @@ public class AvailableSlotsController implements Initializable {
         else {
             for(AbstractRoom R:meetingRooms)
             {
-                if(Id == R.id)
+                if(RoonID == R.id)
                 {
+                    isExist=true;
                     for(Slot S :R.getAvailableSlotsForAdmin())
                         available.add(S);
                 }
             }
+        }
+        if(!isExist) {
+            Roomid1.setText("");
+            available.clear();
+            inValidMessage("EROOR!!", "No Room ID " + RoonID + " With This Type\n Enter Another ID .");
         }
         Date.setCellValueFactory(new PropertyValueFactory<Slot,LocalDate>("slotDate"));
         StartTime.setCellValueFactory(new PropertyValueFactory<Slot,String>("startTime"));
@@ -269,5 +307,5 @@ public class AvailableSlotsController implements Initializable {
 
 
 
-  }
+    }
 }

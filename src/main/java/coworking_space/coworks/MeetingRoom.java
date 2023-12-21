@@ -40,6 +40,33 @@ public class MeetingRoom extends AbstractRoom {
     public ArrayList<FormalVisitor> getVisitors() {
         return visitors;
     }
+//    @JsonIgnore
+//    public  ArrayList<Slot> getAvailableSlotsForAdmin()
+//    {
+//        for (Slot slot : slots) {
+//            // Check if there are no reservations or the slot is not fully reserved
+//            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
+//            {
+//                availableSlots.add(slot);
+//            }
+//            else
+//                reservedSlots.add(slot);
+//        }
+//        // no available slots
+//        if(availableSlots.isEmpty())
+//        {
+//            return null;
+//        }
+//        else
+//        {
+//            return availableSlots;
+//        }
+//    }
+    @JsonIgnore
+    public int getNumOfVisitors() {
+        return visitors.size();
+    }
+
 }
 
 
