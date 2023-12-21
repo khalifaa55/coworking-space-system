@@ -70,7 +70,7 @@ public class InstructorVisitor extends AbstractVisitor {
     }
 
     @Override
-    protected ArrayList DisplayReservation(AbstractRoom room , Registration currentr) {
+    protected ArrayList DisplayReservation(AbstractRoom room ) {
 
         TeachingRoom TR = (TeachingRoom) room;
         for(Slot slot:TR.getSlots()){
@@ -110,7 +110,7 @@ public class InstructorVisitor extends AbstractVisitor {
 
 
 
-    public void cancelReservation(AbstractRoom Room, Registration currentr,String startTime,String endTime) {
+    public void cancelReservation(AbstractRoom Room,String startTime,String endTime) {
 
         TeachingRoom TR= (TeachingRoom) Room;
         for (Slot slot : TR.slots) {

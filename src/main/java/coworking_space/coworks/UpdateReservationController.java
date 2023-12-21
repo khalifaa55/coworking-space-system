@@ -120,7 +120,7 @@ public class UpdateReservationController implements Initializable {
 
             for(int i=0;i<teachingRooms.size();i++){
 
-                currentUserReservations= cVisitor.DisplayReservation(teachingRooms.get(i), Registration.getRegistration());
+                currentUserReservations= cVisitor.DisplayReservation(teachingRooms.get(i));
 
 
 
@@ -131,7 +131,7 @@ public class UpdateReservationController implements Initializable {
 
             for(int i=0;i<meetingRooms.size();i++){
 
-                currentUserReservations= cVisitor.DisplayReservation(meetingRooms.get(i), Registration.getRegistration());
+                currentUserReservations= cVisitor.DisplayReservation(meetingRooms.get(i));
 
 
             }
@@ -140,7 +140,7 @@ public class UpdateReservationController implements Initializable {
 
             for(int i=0;i<generalRooms.size();i++){
 
-                currentUserReservations= cVisitor.DisplayReservation(generalRooms.get(i), Registration.getRegistration());
+                currentUserReservations= cVisitor.DisplayReservation(generalRooms.get(i));
 
 
             }
@@ -281,18 +281,18 @@ public class UpdateReservationController implements Initializable {
                 if (RegisterController.formaltype||LoginController.formaltype) {
 
                     for(int i=0;i<meetingRooms.size();i++) {
-                        cVisitor.cancelReservation(meetingRooms.get(i), Registration.getRegistration(), startTime, endTime);
+                        cVisitor.cancelReservation(meetingRooms.get(i), startTime, endTime);
 
                     }
                 } else if (RegisterController.instructortype||LoginController.instructortype) {
 
                     for(int i=0;i<teachingRooms.size();i++) {
-                        cVisitor.cancelReservation(teachingRooms.get(i), Registration.getRegistration(), startTime, endTime);
+                        cVisitor.cancelReservation(teachingRooms.get(i), startTime, endTime);
                     }
                 } else {
 
                     for(int i=0;i<generalRooms.size();i++) {
-                        cVisitor.cancelReservation(generalRooms.get(i), Registration.getRegistration(), startTime, endTime);
+                        cVisitor.cancelReservation(generalRooms.get(i), startTime, endTime);
                     }
                 }
             }
@@ -312,6 +312,7 @@ public class UpdateReservationController implements Initializable {
     void getDate(ActionEvent event) {
 
         newSelecteddate=date_picker.getValue();
+
         if(newSelecteddate.isAfter(currentDate.plusDays(30))){
             inValidMessage("ERROR!","choose a date within 30 days");
 
@@ -363,6 +364,7 @@ public class UpdateReservationController implements Initializable {
 
     @FXML
     void saveNewReservation(MouseEvent event) {
+
         makeNewReservation();
     }
 

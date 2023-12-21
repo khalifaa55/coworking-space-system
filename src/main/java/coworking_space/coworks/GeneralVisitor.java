@@ -74,7 +74,7 @@ public class GeneralVisitor extends AbstractVisitor{
         return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
     }
     @Override
-    protected ArrayList DisplayReservation(AbstractRoom room , Registration currentr) {
+    protected ArrayList DisplayReservation(AbstractRoom room ) {
         GeneralRoom gene = (GeneralRoom) room;
 
         for(Slot slot:gene.getSlots()){
@@ -110,7 +110,7 @@ public class GeneralVisitor extends AbstractVisitor{
 
 
 
-    public void cancelReservation(AbstractRoom Room,Registration currentr,String startTime,String endTime) {
+    public void cancelReservation(AbstractRoom Room,String startTime,String endTime) {
 
         GeneralRoom GR= (GeneralRoom) Room;
 

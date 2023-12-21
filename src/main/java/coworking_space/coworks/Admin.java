@@ -184,7 +184,7 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
             System.out.println("The Instructor ID : " + vis.id);
              System.out.println("");
             System.out.println("## Your Reservations : \n");
-            vis.DisplayReservation(Room, currentr);
+            vis.DisplayReservation(Room);
             System.out.println();
 
     }

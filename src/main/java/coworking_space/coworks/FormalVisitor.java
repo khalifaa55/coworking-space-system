@@ -70,7 +70,7 @@ public class FormalVisitor extends AbstractVisitor {
     }
 
     @Override
-    protected ArrayList<Slot> DisplayReservation(AbstractRoom room,Registration currentr) {
+    protected ArrayList<Slot> DisplayReservation(AbstractRoom room) {
         MeetingRoom MR = (MeetingRoom) room;
 
         for(Slot slot:MR.getSlots()){
@@ -110,7 +110,7 @@ public class FormalVisitor extends AbstractVisitor {
 
 
 
-    public void cancelReservation(AbstractRoom Room,Registration cuurentr,String startTime,String endTime) {
+    public void cancelReservation(AbstractRoom Room,String startTime,String endTime) {
 
         MeetingRoom MR= (MeetingRoom)Room;
         for (Slot slot : MR.slots) {

@@ -133,10 +133,10 @@ public abstract class AbstractVisitor {
         return id;
     }
     @JsonIgnore
-    protected abstract ArrayList DisplayReservation(AbstractRoom room,Registration currentr) ;
+    protected abstract ArrayList DisplayReservation(AbstractRoom room) ;
     protected abstract void makeReservation(AbstractRoom room, LocalDate date,String startTime,String endTime, int id);
 
-    public abstract void cancelReservation(AbstractRoom Room,Registration currentr,String startTime,String endTime);
+    public abstract void cancelReservation(AbstractRoom Room,String startTime,String endTime);
 
 }
 //    @JsonIgnore
