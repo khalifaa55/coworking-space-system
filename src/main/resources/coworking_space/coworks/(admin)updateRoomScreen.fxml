@@ -21,12 +21,12 @@
             <Image url="@../../Resources/AdminScreens/UpdateRoomDataScreen.png" />
          </image>
       </ImageView>
-      <Label layoutX="426.0" layoutY="203.0" text="Room Visitors :" textFill="#6678cb">
+      <Label layoutX="426.0" layoutY="214.0" text="Room Visitors :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Label>
-      <TableView id="RoomVisitorsTable" fx:id="V_Table" layoutX="429.0" layoutY="236.0" prefHeight="188.0" prefWidth="362.0" style="-fx-background-radius: 20; -fx-border-color: #000000;">
+      <TableView id="RoomVisitorsTable" fx:id="V_Table" layoutX="429.0" layoutY="247.0" prefHeight="188.0" prefWidth="362.0" style="-fx-border-color: #3f388a;">
          <columns>
             <TableColumn fx:id="V_name" prefWidth="314.933349609375" text="Visitor Name" />
             <TableColumn fx:id="V_id" prefWidth="301.86663818359375" text="Visitor ID" />
@@ -35,12 +35,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label layoutX="427.0" layoutY="437.0" text="Available Room Slots :" textFill="#6678cb">
+      <Label layoutX="427.0" layoutY="442.0" text="Available Room Slots :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Label>
-      <TableView id="RoomAvailableSlotsTable" fx:id="AvailableSlotsTable" layoutX="429.0" layoutY="467.0" onMouseClicked="#RowClicked" prefHeight="218.0" prefWidth="303.0" style="-fx-border-color: #000000; -fx-background-radius: 20;">
+      <TableView id="RoomAvailableSlotsTable" fx:id="AvailableSlotsTable" layoutX="429.0" layoutY="475.0" onMouseClicked="#RowClicked" prefHeight="218.0" prefWidth="364.0" style="-fx-border-color: #3f388a;">
          <columns>
             <TableColumn fx:id="DateA" prefWidth="75.0" text="Date" />
             <TableColumn fx:id="StartA" prefWidth="75.0" text="Start Time" />
@@ -48,7 +48,7 @@
             <TableColumn fx:id="FeesA" prefWidth="75.0" text="Fees" />
          </columns>
       </TableView>
-      <Label layoutX="842.0" layoutY="468.0" prefHeight="26.0" prefWidth="100.0" text="Enter No. :" textFill="#3f388a">
+      <Label layoutX="842.0" layoutY="468.0" prefHeight="26.0" prefWidth="100.0" text="Enter No. :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT Bold" size="20.0" />
          </font>
@@ -59,7 +59,7 @@
          </font></TextField>
       <Label layoutX="842.0" layoutY="501.0" prefHeight="26.0" prefWidth="100.0" text="Date :" textFill="#6678cb">
          <font>
-            <Font name="Calisto MT" size="20.0" />
+            <Font name="Calisto MT Bold" size="20.0" />
          </font>
       </Label>
       <TextField fx:id="StartTimetEXT" layoutX="947.0" layoutY="532.0" prefHeight="26.0" prefWidth="159.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
@@ -76,35 +76,35 @@
          </font></TextField>
       <Label layoutX="841.0" layoutY="535.0" prefHeight="26.0" prefWidth="113.0" text="Start Time :" textFill="#6678cb">
          <font>
-            <Font name="Calisto MT" size="20.0" />
+            <Font name="Calisto MT Bold" size="20.0" />
          </font>
       </Label>
       <Label layoutX="841.0" layoutY="567.0" prefHeight="26.0" prefWidth="113.0" text="End Time :" textFill="#6678cb">
          <font>
-            <Font name="Calisto MT" size="20.0" />
+            <Font name="Calisto MT Bold" size="20.0" />
          </font>
       </Label>
       <Label layoutX="842.0" layoutY="600.0" prefHeight="26.0" prefWidth="113.0" text="Fees :" textFill="#6678cb">
          <font>
-            <Font name="Calisto MT" size="20.0" />
+            <Font name="Calisto MT Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="984.0" layoutY="643.0" mnemonicParsing="false" onMouseClicked="#UpdateSlot" prefHeight="20.0" prefWidth="90.0" style="-fx-background-color: #063878; -fx-background-radius: 20;" text="Edit" textFill="WHITE">
+      <Button layoutX="967.0" layoutY="643.0" mnemonicParsing="false" onMouseClicked="#UpdateSlot" prefHeight="20.0" prefWidth="90.0" style="-fx-background-color: #063878; -fx-background-radius: 20;" text="Edit" textFill="WHITE">
          <font>
             <Font name="Calisto MT Bold" size="17.0" />
          </font>
       </Button>
-      <Button fx:id="AddSlotButton" layoutX="880.0" layoutY="643.0" mnemonicParsing="false" onMouseClicked="#AddSlot" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #6678cb; -fx-border-radius: 20;" text="Add" textFill="#063878">
+      <Button fx:id="AddSlotButton" layoutX="857.0" layoutY="643.0" mnemonicParsing="false" onMouseClicked="#AddSlot" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #6678cb; -fx-border-radius: 20;" text="Add" textFill="#063878">
          <font>
             <Font name="Calisto MT Bold" size="17.0" />
          </font>
       </Button>
-      <Label layoutX="426.0" layoutY="155.0" text="Enter ID :" textFill="#6678cb">
+      <Label layoutX="427.0" layoutY="160.0" text="Enter ID :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="823.0" layoutY="187.0" text="Name :" textFill="#6678cb">
+      <Label layoutX="812.0" layoutY="187.0" text="Name :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT Bold" size="22.0" />
          </font>
@@ -122,7 +122,7 @@
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Button>
-      <TextField fx:id="RoomIdText" layoutX="543.0" layoutY="154.0" prefHeight="36.0" prefWidth="127.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
+      <TextField fx:id="RoomIdText" layoutX="544.0" layoutY="159.0" prefHeight="36.0" prefWidth="127.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
          <font>
             <Font name="Calisto MT" size="18.0" />
          </font>
@@ -134,65 +134,65 @@
       </TextField>
       <Pane fx:id="InstructorPane" layoutX="795.0" layoutY="235.0" prefHeight="186.0" prefWidth="322.0">
          <children>
-            <Label layoutX="26.0" layoutY="2.0" text="ProjectorType :" textFill="#6678cb">
+            <Label layoutX="16.0" layoutY="2.0" text="Projector Type :" textFill="#6678cb">
                <font>
                   <Font name="Calisto MT Bold" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="29.0" layoutY="52.0" text="BoardType  :" textFill="#6678cb">
+            <Label layoutX="17.0" layoutY="52.0" text="Board Type  :" textFill="#6678cb">
                <font>
                   <Font name="Calisto MT Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="BoardText" layoutX="189.0" layoutY="51.0" prefHeight="35.0" prefWidth="127.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
+            <TextField fx:id="BoardText" layoutX="191.0" layoutY="51.0" prefHeight="35.0" prefWidth="127.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
                <font>
                   <Font name="Calisto MT" size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="ProjectorText" layoutX="189.0" layoutY="5.0" prefHeight="35.0" prefWidth="126.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
+            <TextField fx:id="ProjectorText" layoutX="192.0" layoutY="5.0" prefHeight="35.0" prefWidth="126.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
                <font>
                   <Font name="Calisto MT" size="18.0" />
                </font>
             </TextField>
-            <Label layoutX="17.0" layoutY="99.0" prefHeight="29.0" prefWidth="178.0" text="InstructorName :" textFill="#6678cb">
+            <Label layoutX="17.0" layoutY="99.0" prefHeight="29.0" prefWidth="178.0" text="Instructor Name :" textFill="#6678cb">
                <font>
                   <Font name="Calisto MT Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="InsrtructorText" layoutX="195.0" layoutY="99.0" prefHeight="35.0" prefWidth="127.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
+            <TextField fx:id="InsrtructorText" layoutX="192.0" layoutY="99.0" prefHeight="35.0" prefWidth="127.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
                <font>
                   <Font name="Calisto MT" size="18.0" />
                </font>
             </TextField>
          </children>
       </Pane>
-      <Button layoutX="985.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#udateRoomData" prefHeight="20.0" prefWidth="90.0" style="-fx-background-color: #063878; -fx-background-radius: 20;" text="Edit" textFill="WHITE">
+      <Button layoutX="971.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#udateRoomData" prefHeight="20.0" prefWidth="90.0" style="-fx-background-color: #063878; -fx-background-radius: 20;" text="Edit" textFill="WHITE">
          <font>
             <Font name="Calisto MT Bold" size="17.0" />
          </font>
       </Button>
-      <DatePicker fx:id="DatePick" layoutX="949.0" layoutY="501.0" prefHeight="26.0" prefWidth="154.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
-      <Button layoutX="871.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#DisplayRoom" prefHeight="20.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" text="Display" textFill="#063878">
+      <DatePicker fx:id="DatePick" layoutX="949.0" layoutY="501.0" prefHeight="26.0" prefWidth="154.0" style="-fx-background-radius: 10; -fx-border-radius: 7; -fx-border-color: #6678cb;" />
+      <Button layoutX="857.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#DisplayRoom" prefHeight="20.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" text="Display" textFill="#063878">
          <font>
             <Font name="Calisto MT Bold" size="17.0" />
          </font>
       </Button>
-      <RadioButton fx:id="GeneralRadio" layoutX="467.0" layoutY="106.0" mnemonicParsing="false" text="General">
+      <RadioButton fx:id="GeneralRadio" layoutX="466.0" layoutY="113.0" mnemonicParsing="false" text="General" textFill="#6678cb">
          <font>
-            <Font name="Arial Bold" size="20.0" />
+            <Font name="Calisto MT Bold" size="22.0" />
          </font>
          <toggleGroup>
             <ToggleGroup fx:id="types" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="MeetingRadio" layoutX="707.0" layoutY="105.0" mnemonicParsing="false" text="Meeting" toggleGroup="$types">
+      <RadioButton fx:id="MeetingRadio" layoutX="706.0" layoutY="112.0" mnemonicParsing="false" text="Meeting" textFill="#6678cb" toggleGroup="$types">
          <font>
-            <Font name="Arial Bold" size="20.0" />
+            <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="TeachingRadio" layoutX="941.0" layoutY="108.0" mnemonicParsing="false" text="Teaching" toggleGroup="$types">
+      <RadioButton fx:id="TeachingRadio" layoutX="940.0" layoutY="115.0" mnemonicParsing="false" text="Teaching" textFill="#6678cb" toggleGroup="$types">
          <font>
-            <Font name="Arial Bold" size="20.0" />
+            <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </RadioButton>
    </children>

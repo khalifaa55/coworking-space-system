@@ -28,7 +28,7 @@
          </font>
       </Button>
       <Button layoutX="-11.0" layoutY="734.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="371.0" style="-fx-background-color: #063878;" />
-      <TableView fx:id="AvailableTA" layoutX="529.0" layoutY="269.0" prefHeight="282.0" prefWidth="443.0" style="-fx-background-radius: 15;">
+      <TableView fx:id="AvailableTA" layoutX="546.0" layoutY="269.0" prefHeight="282.0" prefWidth="443.0" style="-fx-border-color: #3f388a;">
         <columns>
             <TableColumn fx:id="Date" prefWidth="94.6666259765625" text="Date" />
             <TableColumn fx:id="StartTime" prefWidth="113.5999755859375" text="Start Time" />
@@ -36,45 +36,45 @@
             <TableColumn fx:id="Fees" prefWidth="117.06671142578125" text="Fees" />
         </columns>
       </TableView>
-      <Button layoutX="534.0" layoutY="618.0" mnemonicParsing="false" onMouseClicked="#DeleteSlot" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #6678cb; -fx-border-radius: 20;" text="Delete" textFill="#063878">
+      <Button layoutX="601.0" layoutY="630.0" mnemonicParsing="false" onMouseClicked="#DeleteSlot" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20;" text="Delete" textFill="#063878">
          <font>
             <Font name="Calisto MT Bold" size="17.0" />
          </font>
       </Button>
-      <RadioButton fx:id="GeneralRadio" layoutX="476.0" layoutY="117.0" mnemonicParsing="false" text="General">
+      <RadioButton fx:id="GeneralRadio" layoutX="465.0" layoutY="133.0" mnemonicParsing="false" text="General" textFill="#6678cb">
          <font>
-            <Font name="Arial Bold" size="20.0" />
+            <Font name="Calisto MT Bold" size="22.0" />
          </font>
          <toggleGroup>
             <ToggleGroup fx:id="Types" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="MeetingRadio" layoutX="697.0" layoutY="116.0" mnemonicParsing="false" text="Meeting" toggleGroup="$Types">
+      <RadioButton fx:id="MeetingRadio" layoutX="686.0" layoutY="132.0" mnemonicParsing="false" text="Meeting" textFill="#6678cb" toggleGroup="$Types">
          <font>
-            <Font name="Arial Bold" size="20.0" />
+            <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="TeachingRadio" layoutX="921.0" layoutY="119.0" mnemonicParsing="false" text="Teaching" toggleGroup="$Types">
+      <RadioButton fx:id="TeachingRadio" layoutX="910.0" layoutY="135.0" mnemonicParsing="false" text="Teaching" textFill="#6678cb" toggleGroup="$Types">
          <font>
-            <Font name="Arial Bold" size="20.0" />
+            <Font name="Calisto MT Bold" size="22.0" />
          </font>
       </RadioButton>
-      <Label layoutX="434.0" layoutY="187.0" prefHeight="30.0" prefWidth="188.0" text="Enter Room ID :" textFill="#6678cb">
+      <Label layoutX="450.0" layoutY="202.0" prefHeight="30.0" prefWidth="188.0" text="Enter Room ID :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="Roomid1" layoutX="488.0" layoutY="230.0" prefHeight="30.0" prefWidth="167.0" style="-fx-border-color: #6678cb; -fx-border-radius: 20; -fx-background-radius: 20;">
+      <TextField fx:id="Roomid1" layoutX="639.0" layoutY="204.0" prefHeight="30.0" prefWidth="140.0" style="-fx-border-color: #3f388a; -fx-border-radius: 20; -fx-background-radius: 20;">
          <font>
             <Font name="Calisto MT" size="14.5" />
          </font>
       </TextField>
-      <Button fx:id="AddSlotButton1" layoutX="693.0" layoutY="556.0" mnemonicParsing="false" onMouseClicked="#DisplaySlots" prefHeight="38.0" prefWidth="101.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #6678cb; -fx-border-radius: 20;" text="Display" textFill="#063878">
+      <Button fx:id="AddSlotButton1" layoutX="712.0" layoutY="559.0" mnemonicParsing="false" onMouseClicked="#DisplaySlots" prefHeight="38.0" prefWidth="101.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #3f388a; -fx-border-radius: 20;" text="Display" textFill="#063878">
          <font>
             <Font name="Calisto MT Bold" size="17.0" />
          </font>
       </Button>
-      <Label layoutX="444.0" layoutY="571.0" prefHeight="30.0" prefWidth="188.0" text="Delete Slot :" textFill="#6678cb">
+      <Label layoutX="458.0" layoutY="633.0" prefHeight="30.0" prefWidth="188.0" text="Delete Slot :" textFill="#6678cb">
          <font>
             <Font name="Calisto MT" size="24.0" />
          </font>
