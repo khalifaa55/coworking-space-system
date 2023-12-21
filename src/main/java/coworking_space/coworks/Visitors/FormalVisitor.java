@@ -5,9 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import coworking_space.coworks.Coworks_Main;
-import coworking_space.coworks.Rooms.AbstractRoom;
-import coworking_space.coworks.Rooms.MeetingRoom;
-import coworking_space.coworks.Rooms.Slot;
+import coworking_space.coworks.Rooms.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -89,7 +87,13 @@ public class FormalVisitor extends AbstractVisitor {
 
     }
     public void makeReservation(AbstractRoom room, LocalDate date, String startTime, String endTime, int id) {
-        if (room instanceof MeetingRoom) {
+
+        if(room instanceof TeachingRoom){
+            System.out.println(" instance of teaching room ");
+
+
+        }else if (room instanceof MeetingRoom){
+            System.out.println(" instance of Meeting room ");
             MeetingRoom MR = (MeetingRoom) room;
             ArrayList<Slot> availableSlots = MR.getAvailableSlots(date);
 
@@ -110,10 +114,40 @@ public class FormalVisitor extends AbstractVisitor {
                     break;
                 }
             }
-        } else {
-            // Handle the case where room is not a MeetingRoom
-            System.out.println("Room is not a MeetingRoom");
+
+        }else if (room instanceof GeneralRoom){
+            System.out.println(" instance of General room ");
+
+
+        }else{
+            System.out.println(" instance of abstract room ");
         }
+
+//        if (room instanceof MeetingRoom) {
+//            MeetingRoom MR = (MeetingRoom) room;
+//            ArrayList<Slot> availableSlots = MR.getAvailableSlots(date);
+//
+//            for (Slot slot : availableSlots) {
+//                if (startTime.equals(slot.getStartTime()) && endTime.equals(slot.getEndTime())) {
+//                    slot.createReservation(cVisitor, date, id);
+//                    FormalVisitor v = (FormalVisitor) cVisitor;
+//                    MR.visitors.add(v);
+//
+//                    if (MR.getId() == 1) {
+//                        Coworks_Main.formals = MR.visitors;
+//                    } else if (MR.getId() == 2) {
+//                        Coworks_Main.formals2 = MR.visitors;
+//                    } else {
+//                        Coworks_Main.formals3 = MR.visitors;
+//                    }
+//                    System.out.println("Reservation Made successfully");
+//                    break;
+//                }
+//            }
+//        } else {
+//            // Handle the case where room is not a MeetingRoom
+//            System.out.println("Room is not a MeetingRoom");
+//        }
     }
 
 

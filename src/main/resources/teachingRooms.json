@@ -6,8 +6,30 @@
     "endTime" : "10:00 AM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Kareem",
+        "password" : "Abc12345",
+        "id" : 19,
+        "userEmail" : "kareem12345@platform.travel",
+        "phoneNumber" : "0101234567",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Kareem",
+        "password" : "Abc12345",
+        "id" : 19,
+        "userEmail" : "kareem12345@platform.travel",
+        "phoneNumber" : "0101234567",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    } ]
   }, {
     "startTime" : "10:00 AM",
     "endTime" : "12:00 PM",
@@ -44,7 +66,15 @@
     "reservations" : [ ],
     "myReservations" : [ ]
   } ],
-  "visitors" : [ ],
+  "visitors" : [ {
+    "type" : "instructor",
+    "name" : "Kareem",
+    "password" : "Abc12345",
+    "id" : 19,
+    "userEmail" : "kareem12345@platform.travel",
+    "phoneNumber" : "0101234567",
+    "type" : "instructor"
+  } ],
   "type" : "teaching",
   "maxNumberOfVisitors" : 10,
   "projecttype" : "P1",

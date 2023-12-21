@@ -5,10 +5,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import coworking_space.coworks.Coworks_Main;
-import coworking_space.coworks.Rooms.AbstractRoom;
-import coworking_space.coworks.Rooms.MeetingRoom;
-import coworking_space.coworks.Rooms.Slot;
-import coworking_space.coworks.Rooms.TeachingRoom;
+import coworking_space.coworks.Rooms.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -93,6 +90,18 @@ public class InstructorVisitor extends AbstractVisitor {
     }
 
     public void makeReservation(AbstractRoom room, LocalDate date, String startTime, String endTime, int id) {
+
+        if(room instanceof TeachingRoom){
+            System.out.println(" instance of teaching room ");
+        }else if (room instanceof MeetingRoom){
+            System.out.println(" instance of Meeting room ");
+        }else if (room instanceof GeneralRoom){
+            System.out.println(" instance of General room ");
+        }else{
+            System.out.println(" instance of abstract room ");
+        }
+
+
         if (room instanceof TeachingRoom) {
             TeachingRoom TR = (TeachingRoom) room;
             ArrayList<Slot> availableSlots = TR.getAvailableSlots(date);

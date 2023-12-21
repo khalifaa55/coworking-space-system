@@ -84,6 +84,10 @@ public class LoginController  implements Initializable {
     }
 
     private void handleRadioButtonSelection(ActionEvent event) {
+        formaltype=false;
+        instructortype=false;
+        generaltype=false;
+
         RadioButton selectedRadioButton = (RadioButton) event.getSource();
         visitorType = selectedRadioButton.getText();
         System.out.println("Selected RadioButton: " + visitorType);
