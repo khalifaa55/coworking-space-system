@@ -11,7 +11,7 @@ public class GeneralRoom extends AbstractRoom
 {
     //Attributes//
     public final String type = "general";
-    public int maxNumberOfVisitors = 20;
+    public final int maxNumberOfVisitors = 20;
     public ArrayList<GeneralVisitor> visitors;
 
     //Class Constructors//

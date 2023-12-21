@@ -23,14 +23,14 @@ public class Coworks_Main extends Application {
         3 Meeting Rooms: max_num_visitors 10 per room
         3 Teaching Rooms: max_num_visitors 10 per room
     */
-    final static String WRITE_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String READ_GENERAL_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
-    final static String WRITE_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String READ_MEETING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
-    final static String WRITE_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String READ_TEACHING_ROOMS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
-    final static String WRITE_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
-    final static String READ_VISITORS_PATH = "E:\\Coworks with GUI\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String WRITE_GENERAL_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String READ_GENERAL_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\generalRooms.json";
+    final static String WRITE_MEETING_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String READ_MEETING_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\meetingRooms.json";
+    final static String WRITE_TEACHING_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String READ_TEACHING_ROOMS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\teachingRooms.json";
+    final static String WRITE_VISITORS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
+    final static String READ_VISITORS_PATH = "C:\\Users\\20100\\IdeaProjects\\coworking-space-system\\src\\main\\resources\\visitors.json";
 
     public static ArrayList<AbstractVisitor> visitors = new ArrayList<>();
     public static ArrayList<Registration> registrations = new ArrayList<Registration>();
@@ -116,15 +116,15 @@ public class Coworks_Main extends Application {
         Registration.getVisitorsFromMain(visitors);
         AbstractVisitor.getAbstractVisitorsFromMain(visitors);
 
-
-        FormalVisitor formal = new FormalVisitor("alshimaa", 12);
-        FormalVisitor formal0 = new FormalVisitor("ahmed", 14);
-
-        FormalVisitor formal1 = new FormalVisitor("Farha", 123);
-        FormalVisitor formal2 = new FormalVisitor("ahmed", 143);
-
-        FormalVisitor formal3 = new FormalVisitor("Omnia", 122);
-        FormalVisitor formal4 = new FormalVisitor("Mahmoud", 142);
+//
+//        FormalVisitor formal = new FormalVisitor("alshimaa", 12);
+//        FormalVisitor formal0 = new FormalVisitor("ahmed", 14);
+//
+//        FormalVisitor formal1 = new FormalVisitor("Farha", 123);
+//        FormalVisitor formal2 = new FormalVisitor("ahmed", 143);
+//
+//        FormalVisitor formal3 = new FormalVisitor("Omnia", 122);
+//        FormalVisitor formal4 = new FormalVisitor("Mahmoud", 142);
 
             Slot slot1 = new Slot("08:00 AM", "10:00 AM", 100.00, LocalDate.of(2023,12,1));
             Slot slot2 = new Slot("10:00 AM", "12:00 PM", 300,LocalDate.of(2023,12,2));
@@ -138,8 +138,8 @@ public class Coworks_Main extends Application {
 
             // slot2.createReservation(inst);
             //slot1.createReservation(inst);
-            formals.add(formal);
-            formals.add(formal0);
+//            formals.add(formal);
+//            formals.add(formal0);
             Mslots.add(slot1);
             Mslots.add(slot2);
 

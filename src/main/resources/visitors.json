@@ -145,4 +145,11 @@
   "userEmail" : "whenwasthis@gmail.com",
   "phoneNumber" : "01234567899",
   "type" : "formal"
+}, {
+  "name" : "Ruby",
+  "password" : "MyPassword1",
+  "id" : 22,
+  "userEmail" : "rubz@gmail.com",
+  "phoneNumber" : "01234567890",
+  "type" : "general"
 } ]

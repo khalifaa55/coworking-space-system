@@ -20,15 +20,17 @@ abstract public class AbstractRoom
 
     //Attributes//
     public String name;
-    public int id;
+    protected int id;
     @JsonIgnore
     public String type;
     public ArrayList<Slot> slots;
     public ArrayList<AbstractVisitor> visitors;
-    public int maxNumberOfVisitors;
-    ArrayList<Slot> availableSlots=new ArrayList<>();
+    protected int maxNumberOfVisitors;
+    protected ArrayList<Slot> availableSlots=new ArrayList<>();
+    @JsonIgnore
     public ArrayList<Slot> reservedSlots=new ArrayList<>();
-    public  ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
+    @JsonIgnore
+    protected ArrayList<Slot.Reservation> reservationsInDate=new ArrayList<Slot.Reservation>();
 
 
     //Methods//
@@ -92,6 +94,7 @@ abstract public class AbstractRoom
 
 
     //Getters
+
     @JsonIgnore
     public int getNumOfVisitors() {
         return visitors.size();
@@ -106,6 +109,13 @@ abstract public class AbstractRoom
             totalAmount += (slot.getReservations().size()) * (slot.getFees());
         }
         return totalAmount;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     //returns ArrayList of AbstractVisitor or any of its subclasses

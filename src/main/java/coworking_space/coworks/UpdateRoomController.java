@@ -287,7 +287,7 @@ public class UpdateRoomController implements Initializable {
         try {
             if (Types.equals(String.valueOf(GeneralRadio))) {
                 for (AbstractRoom R : generalRooms) {
-                    if (SelectedRoom.id == Integer.parseInt(RoomIdText.getText()) || SelectedRoom.name.equals(RoomNameText.getText())) {
+                    if (SelectedRoom.getId() == Integer.parseInt(RoomIdText.getText()) || SelectedRoom.name.equals(RoomNameText.getText())) {
                         R.name = RoomNameText.getText();
                         break;
                     }
@@ -295,7 +295,7 @@ public class UpdateRoomController implements Initializable {
             } else if (Types.equals(String.valueOf(TeachingRadio))) {
                 for (AbstractRoom R : teachingRooms) {
                     TeachingRoom Tr = (TeachingRoom) R;
-                    if (SelectedRoom.id == Integer.parseInt(RoomIdText.getText())) {
+                    if (SelectedRoom.getId() == Integer.parseInt(RoomIdText.getText())) {
                         Tr.name = RoomNameText.getText();
                         Tr.projecttype = ProjectorText.getText();
                         Tr.boardtype = BoardText.getText();
@@ -305,7 +305,7 @@ public class UpdateRoomController implements Initializable {
                 }
             } else {
                 for (AbstractRoom R : meetingRooms) {
-                    if (SelectedRoom.id == Integer.parseInt(RoomIdText.getText())) {
+                    if (SelectedRoom.getId() == Integer.parseInt(RoomIdText.getText())) {
                         R.name = RoomNameText.getText();
                         break;
                     }
@@ -351,7 +351,7 @@ public class UpdateRoomController implements Initializable {
         if (Types.equals(String.valueOf(GeneralRadio))) {
             SelectedRoom= null;
             for (AbstractRoom Gr : generalRooms) {
-                if (ID== Gr.id) {
+                if (ID== Gr.getId()) {
                     SelectedRoom = Gr;
 
                 }
@@ -361,7 +361,7 @@ public class UpdateRoomController implements Initializable {
         {
             SelectedRoom= null;
             for (AbstractRoom Tr : teachingRooms) {
-                if (ID== Tr.id) {
+                if (ID== Tr.getId()) {
                     SelectedRoom = Tr;
 
                 }
@@ -371,7 +371,7 @@ public class UpdateRoomController implements Initializable {
         else {
             SelectedRoom= null;
             for (AbstractRoom Mr : meetingRooms) {
-                if (ID ==Mr.id) {
+                if (ID ==Mr.getId()) {
                     SelectedRoom = Mr;
 
                 }
@@ -385,7 +385,7 @@ public class UpdateRoomController implements Initializable {
     {
         Visitors.clear();
 
-//        SelectedRoomID.setText(String.valueOf(Room.id));
+//        SelectedRoomID.setText(String.valueOf(Room.getId()));
         RoomNameText.setText(Room.name);
 //        NoVisitorsRoom.setText(String.valueOf( Room.getNumOfVisitors()));
         if(Room instanceof GeneralRoom)

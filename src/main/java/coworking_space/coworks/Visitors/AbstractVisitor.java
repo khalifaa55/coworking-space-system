@@ -158,9 +158,6 @@ public abstract class AbstractVisitor {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public String getPassword() {
         return password;

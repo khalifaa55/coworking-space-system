@@ -18,11 +18,11 @@ import java.time.LocalDate;
 
 public class Slot implements Comparable
 {
-    private String startTime;
-    private String endTime;
-    private ArrayList<Reservation> reservations;
-    private double fees;
-    private LocalDate slotDate;
+    public String startTime;
+    public String endTime;
+    public ArrayList<Reservation> reservations;
+    public double fees;
+    public LocalDate slotDate;
 
     //@JsonFormat(pattern = "yyyy-MM-dd"); default format for LocalDate dtype.
     @JsonSerialize(using = LocalDateSerializer.class)
