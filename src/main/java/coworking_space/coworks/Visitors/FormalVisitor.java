@@ -102,6 +102,9 @@ public class FormalVisitor extends AbstractVisitor {
         for (Slot slot : availableslots) {
             if (startTime.equals( slot.getStartTime()) & endTime.equals(slot.getEndTime()) ) {
                 slot.createReservation(cVisitor,date,id );
+                FormalVisitor v = (FormalVisitor)cVisitor;
+                MR.visitors.add(v);
+                Coworks_Main.formals= MR.visitors;
                 System.out.println("Reservation Made successfully");
                 FormalVisitor v = (FormalVisitor) cVisitor;
                 MR.visitors.add(v);

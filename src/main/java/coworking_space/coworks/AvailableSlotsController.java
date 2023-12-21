@@ -195,7 +195,7 @@ public class AvailableSlotsController implements Initializable {
         {
             for(AbstractRoom R:generalRooms)
             {
-                if(RoonID==R.id) {
+                if(RoonID==R.getId()) {
                     Check=true;
                     R.slots.remove(SelectedSlot);
                     available.remove(SelectedSlot);
@@ -205,7 +205,7 @@ public class AvailableSlotsController implements Initializable {
         } else if (Typee.equals(String.valueOf(TeachingRadio))) {
             for(AbstractRoom R :teachingRooms)
             {
-                if(RoonID== R.id)
+                if(RoonID== R.getId())
                 {
                     Check=true;
                     R.slots.remove(SelectedSlot);
@@ -219,7 +219,7 @@ public class AvailableSlotsController implements Initializable {
         else {
             for(AbstractRoom R:meetingRooms)
             {
-                if(RoonID == R.id)
+                if(RoonID == R.getId())
                 {
                     Check=true;
                     R.slots.remove(SelectedSlot);
@@ -251,7 +251,7 @@ public class AvailableSlotsController implements Initializable {
         {
             for(AbstractRoom R:generalRooms)
             {
-                if(RoonID==R.id) {
+                if(RoonID==R.getId()) {
                     isExist=true;
                     for (Slot S : R.slots) {
                         System.out.println(S.getStartTime());
@@ -263,7 +263,7 @@ public class AvailableSlotsController implements Initializable {
         } else if (Typee.equals(String.valueOf(TeachingRadio))) {
             for(AbstractRoom R :teachingRooms)
             {
-                if(RoonID== R.id)
+                if(RoonID== R.getId())
                 {
                     isExist=true;
                     for(Slot S:R.getAvailableSlotsForAdmin())
@@ -275,7 +275,7 @@ public class AvailableSlotsController implements Initializable {
         else {
             for(AbstractRoom R:meetingRooms)
             {
-                if(RoonID == R.id)
+                if(RoonID == R.getId())
                 {
                     isExist=true;
                     for(Slot S :R.getAvailableSlotsForAdmin())

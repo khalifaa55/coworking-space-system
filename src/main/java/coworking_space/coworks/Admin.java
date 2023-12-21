@@ -66,7 +66,7 @@ public class    Admin {
         }
     }
     void DisplayRoomsData(AbstractRoom Room) {
-        System.out.println("The Room ID : "+Room.id);
+        System.out.println("The Room ID : "+Room.getId());
         System.out.println("The Room Name : "+Room.name);
         if(Room instanceof TeachingRoom)
         {
@@ -120,7 +120,7 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
     for(TeachingRoom Tr :TR)
     {
         System.out.println("The "+ n_0+" Teaching Room Slots : " );
-        System.out.println("The "+ n_0+ "ID : "+ Tr.id );
+        System.out.println("The "+ n_0+ "ID : "+ Tr.getId() );
 
         for(Slot S :Tr.getAvailableSlotsForAdmin())
         {
@@ -136,7 +136,7 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
     for(GeneralRoom Gr :GR)
     {
         System.out.println("The "+ n_0+" General Room Slots : " );
-        System.out.println("The "+ n_0+ "ID : "+ Gr.id );
+        System.out.println("The "+ n_0+ "ID : "+ Gr.getId() );
         for(Slot S :Gr.getAvailableSlotsForAdmin())
         {
             System.out.println("The Start Time " + S.getStartTime());
@@ -150,7 +150,7 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
     for(MeetingRoom Mr :MR)
     {
         System.out.println("The "+ n_0+" Meeting Room Slots : " );
-        System.out.println("The "+ n_0+ "ID : "+ Mr.id );
+        System.out.println("The "+ n_0+ "ID : "+ Mr.getId() );
 
         for(Slot S :Mr.getAvailableSlotsForAdmin())
         {
@@ -172,7 +172,7 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
             int no_0 = 1;
             for (InstructorVisitor ins : Ins) {
                 System.out.println("The " + no_0 + " Instructor Name : " + ins.name);
-                System.out.println("The " + no_0 + " Instructor ID : " + ins.id);
+                System.out.println("The " + no_0 + " Instructor ID : " + ins.getId());
                 System.out.println();
                 no_0++;
             }
@@ -208,7 +208,8 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
             switch (Case) {
                 case 1:
                     System.out.println("Enter The new Room Id : ");
-                    TR.id = scanner.nextInt();
+                    int x = scanner.nextInt();
+                    TR.setId(x);
                     break;
                 case 2:
                     System.out.println("Enter The new Room name");
@@ -235,7 +236,8 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
             switch (Case) {
                 case 1:
                     System.out.println("Enter The new Room Id : ");
-                    GR.id = scanner.nextInt();
+                    int x = scanner.nextInt();
+                    GR.setId(x);
                     break;
                 case 2:
                     System.out.println("Enter The new Room name");
@@ -263,7 +265,8 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
             switch (Case) {
                 case 1:
                     System.out.println("Enter The new Room Id : ");
-                    MR.id = scanner.nextInt();
+                    int x = scanner.nextInt();
+                    MR.setId(x);
                     break;
                 case 2:
                     System.out.println("Enter The new Room name");
@@ -334,7 +337,7 @@ public void DisplayAllRoomsAvaialableSlots(ArrayList<TeachingRoom> TR , ArrayLis
     void DeleteRoom(int RoomId, ArrayList<AbstractRoom> Rooms ) {
 
         for (int i = 0; i < Rooms.size(); i++) {
-            if (Rooms.get(i).id == RoomId) {
+            if (Rooms.get(i).getId() == RoomId) {
                 Rooms.remove(i);
             }
         }

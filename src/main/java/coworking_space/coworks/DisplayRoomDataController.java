@@ -314,7 +314,7 @@ public class DisplayRoomDataController implements Initializable {
         if (Type.equals(String.valueOf(GeneralRadio))) {
             Index=0;
             for (AbstractRoom Gr : generalRooms) {
-                if (ID== Gr.id) {
+                if (ID== Gr.getId()) {
                     SelectedRoom = Gr;
                     break;
                 }
@@ -325,7 +325,7 @@ public class DisplayRoomDataController implements Initializable {
         {
             Index=0;
             for (AbstractRoom Tr : teachingRooms) {
-                if (ID== Tr.id) {
+                if (ID== Tr.getId()) {
                     SelectedRoom = Tr;
                     break;
                 }
@@ -336,7 +336,7 @@ public class DisplayRoomDataController implements Initializable {
         else {
             Index=0;
             for (AbstractRoom Mr : meetingRooms) {
-                if (ID ==Mr.id) {
+                if (ID ==Mr.getId()) {
                     SelectedRoom = Mr;
                     break;
                 }
@@ -433,7 +433,7 @@ public class DisplayRoomDataController implements Initializable {
         RoomProfit.setText("");
         for(AbstractRoom G :generalRooms)
         {
-            System.out.println(G.id);
+            System.out.println(G.getId());
         }
     }
 }
