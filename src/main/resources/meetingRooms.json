@@ -2,12 +2,34 @@
   "name" : "Mroom1",
   "id" : 1,
   "slots" : [ {
-    "startTime" : null,
-    "endTime" : null,
+    "startTime" : "09:00 PM",
+    "endTime" : "11:00 PM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "formal",
+        "name" : "haneen",
+        "password" : "1234567a",
+        "id" : 20,
+        "userEmail" : "haneen@gmail.com",
+        "phoneNumber" : "01000000000",
+        "type" : "formal"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "formal",
+        "name" : "haneen",
+        "password" : "1234567a",
+        "id" : 20,
+        "userEmail" : "haneen@gmail.com",
+        "phoneNumber" : "01000000000",
+        "type" : "formal"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    } ]
   }, {
     "startTime" : "06:00 PM",
     "endTime" : "08:00 PM",
@@ -16,7 +38,15 @@
     "reservations" : [ ],
     "myReservations" : [ ]
   } ],
-  "visitors" : [ ],
+  "visitors" : [ {
+    "type" : "formal",
+    "name" : "haneen",
+    "password" : "1234567a",
+    "id" : 20,
+    "userEmail" : "haneen@gmail.com",
+    "phoneNumber" : "01000000000",
+    "type" : "formal"
+  } ],
   "type" : "meeting",
   "maxNumberOfVisitors" : 10
 }, {

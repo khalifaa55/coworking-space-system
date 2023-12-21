@@ -70,6 +70,7 @@ public class FormalVisitor extends AbstractVisitor {
     }
 
     @Override
+    @JsonIgnore
     public ArrayList<Slot> DisplayReservation(AbstractRoom room) {
         MeetingRoom MR = (MeetingRoom) room;
 

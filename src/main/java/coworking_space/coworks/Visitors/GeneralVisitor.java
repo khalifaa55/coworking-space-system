@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import coworking_space.coworks.Coworks_Main;
-import coworking_space.coworks.Rooms.AbstractRoom;
-import coworking_space.coworks.Rooms.GeneralRoom;
-import coworking_space.coworks.Rooms.Slot;
-import coworking_space.coworks.Rooms.TeachingRoom;
+import coworking_space.coworks.Rooms.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -76,6 +73,7 @@ public class GeneralVisitor extends AbstractVisitor {
         return new GeneralVisitor(registration.getUserName(), registration.getNewPassword(), registration.userid(),registration.getUserEmail(), registration.getPhoneNumber());
     }
     @Override
+    @JsonIgnore
     public ArrayList DisplayReservation(AbstractRoom room) {
         GeneralRoom gene = (GeneralRoom) room;
 
@@ -93,28 +91,41 @@ public class GeneralVisitor extends AbstractVisitor {
 
     }
     public void makeReservation(AbstractRoom room, LocalDate date, String startTime, String endTime, int id) {
-         if (room instanceof GeneralRoom){
+        if(room instanceof TeachingRoom){
+            System.out.println(" instance of teaching room ");
+
+
+        }else if (room instanceof MeetingRoom){
+            System.out.println(" instance of Meeting room ");
+
+
+        }else if (room instanceof GeneralRoom){
+            System.out.println(" instance of General room ");
             GeneralRoom GR = (GeneralRoom) room;
+            ArrayList<Slot> availableSlots = GR.getAvailableSlots(date);
 
-
-            List<Slot> availableslots = GR.getAvailableSlots(date);
-
-
-            for (Slot slot : availableslots) {
-
+            for (Slot slot : availableSlots) {
                 if (startTime.equals(slot.getStartTime()) && endTime.equals(slot.getEndTime())) {
                     slot.createReservation(cVisitor, date, id);
                     GeneralVisitor v = (GeneralVisitor) cVisitor;
                     GR.visitors.add(v);
-                    if (GR.getId() == 7)
+
+                    if (GR.getId() == 7) {
                         Coworks_Main.generals = GR.visitors;
-                    else
+
+                    } else {
                         Coworks_Main.generals2 = GR.visitors;
+                    }
+                    System.out.println("Reservation Made successfully");
                     break;
                 }
             }
 
+
+        }else{
+            System.out.println(" instance of abstract room ");
         }
+
     }
 
 

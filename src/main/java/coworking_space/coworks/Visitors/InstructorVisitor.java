@@ -69,6 +69,7 @@ public class InstructorVisitor extends AbstractVisitor {
     }
 
     @Override
+    @JsonIgnore
     public ArrayList DisplayReservation(AbstractRoom room) {
 
         TeachingRoom TR = (TeachingRoom) room;
@@ -112,9 +113,9 @@ public class InstructorVisitor extends AbstractVisitor {
                     InstructorVisitor v = (InstructorVisitor) cVisitor;
                     TR.visitors.add(v);
 
-                    if (TR.getId() == 1) {
+                    if (TR.getId() == 4) {
                         Coworks_Main.insts = TR.visitors;
-                    } else if (TR.getId() == 2) {
+                    } else if (TR.getId() == 5) {
                         Coworks_Main.insts2 = TR.visitors;
                     } else {
                         Coworks_Main.insts3 = TR.visitors;

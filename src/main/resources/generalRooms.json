@@ -1,13 +1,35 @@
 [ {
   "name" : "Groom1",
-  "id" : 1,
+  "id" : 7,
   "slots" : [ {
     "startTime" : "08:00 AM",
     "endTime" : "10:00 AM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Malak",
+        "password" : "Pass@123",
+        "id" : 4,
+        "userEmail" : "malak123@aol.com",
+        "phoneNumber" : "0113334444",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Malak",
+        "password" : "Pass@123",
+        "id" : 4,
+        "userEmail" : "malak123@aol.com",
+        "phoneNumber" : "0113334444",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    } ]
   }, {
     "startTime" : "10:00 AM",
     "endTime" : "12:00 PM",
@@ -27,30 +49,8 @@
     "endTime" : "04:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "general",
-        "name" : "Alshimaa",
-        "password" : "23791831A",
-        "id" : 23,
-        "userEmail" : "alshimaa@gmail.com",
-        "phoneNumber" : "01019644058",
-        "type" : "general"
-      },
-      "reservationDate" : [ 2023, 12, 22 ]
-    } ],
-    "myReservations" : [ {
-      "visitor" : {
-        "type" : "general",
-        "name" : "Alshimaa",
-        "password" : "23791831A",
-        "id" : 23,
-        "userEmail" : "alshimaa@gmail.com",
-        "phoneNumber" : "01019644058",
-        "type" : "general"
-      },
-      "reservationDate" : [ 2023, 12, 22 ]
-    } ]
+    "reservations" : [ ],
+    "myReservations" : [ ]
   }, {
     "startTime" : "04:00 PM",
     "endTime" : "06:00 PM",
@@ -68,168 +68,13 @@
   } ],
   "visitors" : [ {
     "type" : "general",
-    "name" : "Alshimaa",
-    "password" : "23791831A",
-    "id" : 23,
-    "userEmail" : "alshimaa@gmail.com",
-    "phoneNumber" : "01019644058",
-    "type" : "general"
-  }, {
-    "type" : "general",
-    "name" : "Alshimaa",
-    "password" : "23791831A",
-    "id" : 23,
-    "userEmail" : "alshimaa@gmail.com",
-    "phoneNumber" : "01019644058",
+    "name" : "Malak",
+    "password" : "Pass@123",
+    "id" : 4,
+    "userEmail" : "malak123@aol.com",
+    "phoneNumber" : "0113334444",
     "type" : "general"
   } ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 20
-}, {
-  "name" : "Groom2",
-  "id" : 2,
-  "slots" : [ {
-    "startTime" : "08:00 AM",
-    "endTime" : "10:00 AM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "10:00 AM",
-    "endTime" : "12:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "12:00 PM",
-    "endTime" : "02:00 PM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 20
-}, {
-  "name" : "Groom3",
-  "id" : 3,
-  "slots" : [ {
-    "startTime" : "08:00 AM",
-    "endTime" : "10:00 AM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "10:00 AM",
-    "endTime" : "12:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "12:00 PM",
-    "endTime" : "02:00 PM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  } ],
-  "visitors" : [ ],
-  "type" : "general",
-  "maxNumberOfVisitors" : 20
-}, {
-  "name" : "Groom1",
-  "id" : 7,
-  "slots" : [ {
-    "startTime" : "09:00 AM",
-    "endTime" : "10:00 AM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "10:00 AM",
-    "endTime" : "12:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "12:00 PM",
-    "endTime" : "02:00 PM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "02:00 PM",
-    "endTime" : "04:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  } ],
-  "visitors" : [ ],
   "type" : "general",
   "maxNumberOfVisitors" : 20
 }, {

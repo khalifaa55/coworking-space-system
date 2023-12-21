@@ -1,35 +1,13 @@
 [ {
-  "name" : "Groom1",
+  "name" : "Troom1",
   "id" : 4,
   "slots" : [ {
     "startTime" : "08:00 AM",
     "endTime" : "10:00 AM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "Kareem",
-        "password" : "Abc12345",
-        "id" : 19,
-        "userEmail" : "kareem12345@platform.travel",
-        "phoneNumber" : "0101234567",
-        "type" : "instructor"
-      },
-      "reservationDate" : [ 2023, 12, 22 ]
-    } ],
-    "myReservations" : [ {
-      "visitor" : {
-        "type" : "instructor",
-        "name" : "Kareem",
-        "password" : "Abc12345",
-        "id" : 19,
-        "userEmail" : "kareem12345@platform.travel",
-        "phoneNumber" : "0101234567",
-        "type" : "instructor"
-      },
-      "reservationDate" : [ 2023, 12, 22 ]
-    } ]
+    "reservations" : [ ],
+    "myReservations" : [ ]
   }, {
     "startTime" : "10:00 AM",
     "endTime" : "12:00 PM",
@@ -81,7 +59,7 @@
   "boardtype" : "B1",
   "instructorname" : "alshimaa"
 }, {
-  "name" : "Groom2",
+  "name" : "Troom2",
   "id" : 5,
   "slots" : [ {
     "startTime" : "08:00 AM",
@@ -133,7 +111,7 @@
   "boardtype" : "B1",
   "instructorname" : "alshimaa"
 }, {
-  "name" : "Groom3",
+  "name" : "Troom3",
   "id" : 6,
   "slots" : [ {
     "startTime" : "08:00 AM",
