@@ -20,8 +20,52 @@
     "endTime" : "02:00 PM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Kareem",
+        "password" : "Abc12345",
+        "id" : 19,
+        "userEmail" : "kareem12345@platform.travel",
+        "phoneNumber" : "0101234567",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    }, {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Tayem",
+        "password" : "P@ssw0rd",
+        "id" : 18,
+        "userEmail" : "tayem@protonmail.ch",
+        "phoneNumber" : "0112345678",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Kareem",
+        "password" : "Abc12345",
+        "id" : 19,
+        "userEmail" : "kareem12345@platform.travel",
+        "phoneNumber" : "0101234567",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    }, {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Tayem",
+        "password" : "P@ssw0rd",
+        "id" : 18,
+        "userEmail" : "tayem@protonmail.ch",
+        "phoneNumber" : "0112345678",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    } ]
   }, {
     "startTime" : "02:00 PM",
     "endTime" : "04:00 PM",
@@ -51,6 +95,22 @@
     "id" : 19,
     "userEmail" : "kareem12345@platform.travel",
     "phoneNumber" : "0101234567",
+    "type" : "instructor"
+  }, {
+    "type" : "instructor",
+    "name" : "Kareem",
+    "password" : "Abc12345",
+    "id" : 19,
+    "userEmail" : "kareem12345@platform.travel",
+    "phoneNumber" : "0101234567",
+    "type" : "instructor"
+  }, {
+    "type" : "instructor",
+    "name" : "Tayem",
+    "password" : "P@ssw0rd",
+    "id" : 18,
+    "userEmail" : "tayem@protonmail.ch",
+    "phoneNumber" : "0112345678",
     "type" : "instructor"
   } ],
   "type" : "teaching",
@@ -101,10 +161,40 @@
     "endTime" : "08:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Kareem",
+        "password" : "Abc12345",
+        "id" : 19,
+        "userEmail" : "kareem12345@platform.travel",
+        "phoneNumber" : "0101234567",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 24 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Kareem",
+        "password" : "Abc12345",
+        "id" : 19,
+        "userEmail" : "kareem12345@platform.travel",
+        "phoneNumber" : "0101234567",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 24 ]
+    } ]
   } ],
-  "visitors" : [ ],
+  "visitors" : [ {
+    "type" : "instructor",
+    "name" : "Kareem",
+    "password" : "Abc12345",
+    "id" : 19,
+    "userEmail" : "kareem12345@platform.travel",
+    "phoneNumber" : "0101234567",
+    "type" : "instructor"
+  } ],
   "type" : "teaching",
   "maxNumberOfVisitors" : 10,
   "projecttype" : "P1",
@@ -139,8 +229,30 @@
     "endTime" : "04:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Kareem",
+        "password" : "Abc12345",
+        "id" : 19,
+        "userEmail" : "kareem12345@platform.travel",
+        "phoneNumber" : "0101234567",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2024, 1, 2 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Kareem",
+        "password" : "Abc12345",
+        "id" : 19,
+        "userEmail" : "kareem12345@platform.travel",
+        "phoneNumber" : "0101234567",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2024, 1, 2 ]
+    } ]
   }, {
     "startTime" : "04:00 PM",
     "endTime" : "06:00 PM",
@@ -153,10 +265,48 @@
     "endTime" : "08:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Tayem",
+        "password" : "P@ssw0rd",
+        "id" : 18,
+        "userEmail" : "tayem@protonmail.ch",
+        "phoneNumber" : "0112345678",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2024, 1, 1 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "Tayem",
+        "password" : "P@ssw0rd",
+        "id" : 18,
+        "userEmail" : "tayem@protonmail.ch",
+        "phoneNumber" : "0112345678",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2024, 1, 1 ]
+    } ]
   } ],
-  "visitors" : [ ],
+  "visitors" : [ {
+    "type" : "instructor",
+    "name" : "Kareem",
+    "password" : "Abc12345",
+    "id" : 19,
+    "userEmail" : "kareem12345@platform.travel",
+    "phoneNumber" : "0101234567",
+    "type" : "instructor"
+  }, {
+    "type" : "instructor",
+    "name" : "Tayem",
+    "password" : "P@ssw0rd",
+    "id" : 18,
+    "userEmail" : "tayem@protonmail.ch",
+    "phoneNumber" : "0112345678",
+    "type" : "instructor"
+  } ],
   "type" : "teaching",
   "maxNumberOfVisitors" : 10,
   "projecttype" : "P1",

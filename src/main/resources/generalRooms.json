@@ -49,15 +49,59 @@
     "endTime" : "04:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Mahmoud",
+        "password" : "Hello123",
+        "id" : 3,
+        "userEmail" : "mahmoud.email@outlook.com",
+        "phoneNumber" : "0125556666",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 25 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Mahmoud",
+        "password" : "Hello123",
+        "id" : 3,
+        "userEmail" : "mahmoud.email@outlook.com",
+        "phoneNumber" : "0125556666",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 25 ]
+    } ]
   }, {
     "startTime" : "04:00 PM",
     "endTime" : "06:00 PM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Ahmed",
+        "password" : "MyP@ssw0rd",
+        "id" : 2,
+        "userEmail" : "ahmed.khalifa@hotmail.com",
+        "phoneNumber" : "0107778888",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Ahmed",
+        "password" : "MyP@ssw0rd",
+        "id" : 2,
+        "userEmail" : "ahmed.khalifa@hotmail.com",
+        "phoneNumber" : "0107778888",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    } ]
   }, {
     "startTime" : "06:00 PM",
     "endTime" : "08:00 PM",
@@ -73,6 +117,22 @@
     "id" : 4,
     "userEmail" : "malak123@aol.com",
     "phoneNumber" : "0113334444",
+    "type" : "general"
+  }, {
+    "type" : "general",
+    "name" : "Ahmed",
+    "password" : "MyP@ssw0rd",
+    "id" : 2,
+    "userEmail" : "ahmed.khalifa@hotmail.com",
+    "phoneNumber" : "0107778888",
+    "type" : "general"
+  }, {
+    "type" : "general",
+    "name" : "Mahmoud",
+    "password" : "Hello123",
+    "id" : 3,
+    "userEmail" : "mahmoud.email@outlook.com",
+    "phoneNumber" : "0125556666",
     "type" : "general"
   } ],
   "type" : "general",
@@ -99,8 +159,30 @@
     "endTime" : "02:00 PM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Ahmed",
+        "password" : "MyP@ssw0rd",
+        "id" : 2,
+        "userEmail" : "ahmed.khalifa@hotmail.com",
+        "phoneNumber" : "0107778888",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 24 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Ahmed",
+        "password" : "MyP@ssw0rd",
+        "id" : 2,
+        "userEmail" : "ahmed.khalifa@hotmail.com",
+        "phoneNumber" : "0107778888",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 24 ]
+    } ]
   }, {
     "startTime" : "02:00 PM",
     "endTime" : "04:00 PM",
@@ -113,8 +195,30 @@
     "endTime" : "06:00 PM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Mahmoud",
+        "password" : "Hello123",
+        "id" : 3,
+        "userEmail" : "mahmoud.email@outlook.com",
+        "phoneNumber" : "0125556666",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 26 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "general",
+        "name" : "Mahmoud",
+        "password" : "Hello123",
+        "id" : 3,
+        "userEmail" : "mahmoud.email@outlook.com",
+        "phoneNumber" : "0125556666",
+        "type" : "general"
+      },
+      "reservationDate" : [ 2023, 12, 26 ]
+    } ]
   }, {
     "startTime" : "06:00 PM",
     "endTime" : "08:00 PM",
@@ -123,7 +227,23 @@
     "reservations" : [ ],
     "myReservations" : [ ]
   } ],
-  "visitors" : [ ],
+  "visitors" : [ {
+    "type" : "general",
+    "name" : "Ahmed",
+    "password" : "MyP@ssw0rd",
+    "id" : 2,
+    "userEmail" : "ahmed.khalifa@hotmail.com",
+    "phoneNumber" : "0107778888",
+    "type" : "general"
+  }, {
+    "type" : "general",
+    "name" : "Mahmoud",
+    "password" : "Hello123",
+    "id" : 3,
+    "userEmail" : "mahmoud.email@outlook.com",
+    "phoneNumber" : "0125556666",
+    "type" : "general"
+  } ],
   "type" : "general",
   "maxNumberOfVisitors" : 20
 } ]

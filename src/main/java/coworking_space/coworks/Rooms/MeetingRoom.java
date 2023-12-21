@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class MeetingRoom extends AbstractRoom {
     public final String type = "meeting";
-    public final int maxNumberOfVisitors = 10;
+//    public final int maxNumberOfVisitors = 10;
     public  ArrayList<FormalVisitor> visitors;
 
     @JsonCreator
@@ -25,6 +25,7 @@ public class MeetingRoom extends AbstractRoom {
         this.id = id;
         this.slots = (slots != null) ? slots : new ArrayList<Slot>();
         this.visitors = (visitors != null) ? visitors : new ArrayList<FormalVisitor>();
+        maxNumberOfVisitors=10;
     }
 
     public MeetingRoom() {
@@ -39,30 +40,30 @@ public class MeetingRoom extends AbstractRoom {
     public ArrayList<FormalVisitor> getVisitors() {
         return visitors;
     }
-    @JsonIgnore
-    public  ArrayList<Slot> getAvailableSlotsForAdmin()
-    {
-        availableSlots.clear();
-        reservedSlots.clear();
-        for (Slot slot : slots) {
-            // Check if there are no reservations or the slot is not fully reserved
-            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
-            {
-                availableSlots.add(slot);
-            }
-            else
-                reservedSlots.add(slot);
-        }
-        // no available slots
-        if(availableSlots.isEmpty())
-        {
-            return null;
-        }
-        else
-        {
-            return availableSlots;
-        }
-    }
+//    @JsonIgnore
+//    public  ArrayList<Slot> getAvailableSlotsForAdmin()
+//    {
+//        availableSlots.clear();
+//        reservedSlots.clear();
+//        for (Slot slot : slots) {
+//            // Check if there are no reservations or the slot is not fully reserved
+//            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
+//            {
+//                availableSlots.add(slot);
+//            }
+//            else
+//                reservedSlots.add(slot);
+//        }
+//        // no available slots
+//        if(availableSlots.isEmpty())
+//        {
+//            return null;
+//        }
+//        else
+//        {
+//            return availableSlots;
+//        }
+//    }
     @JsonIgnore
     public int getNumOfVisitors() {
         return visitors.size();

@@ -25,7 +25,7 @@ abstract public class AbstractRoom
     public String type;
     public ArrayList<Slot> slots;
     public ArrayList<AbstractVisitor> visitors;
-    protected int maxNumberOfVisitors;
+   public int maxNumberOfVisitors;
     protected ArrayList<Slot> availableSlots=new ArrayList<>();
     @JsonIgnore
     public ArrayList<Slot> reservedSlots=new ArrayList<>();
@@ -68,29 +68,29 @@ abstract public class AbstractRoom
 
 
     @JsonIgnore
-    public abstract  ArrayList<Slot> getAvailableSlotsForAdmin();
-//    {
-//        availableSlots.clear();
-//        reservedSlots.clear();
-//        for (Slot slot : slots) {
-//            // Check if there are no reservations or the slot is not fully reserved
-//            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
-//            {
-//                availableSlots.add(slot);
-//            }
-//            else
-//                reservedSlots.add(slot);
-//        }
-//        // no available slots
-//        if(availableSlots.isEmpty())
-//        {
-//            return null;
-//        }
-//        else
-//        {
-//            return availableSlots;
-//        }
-//    }
+    public   ArrayList<Slot> getAvailableSlotsForAdmin()
+    {
+        availableSlots.clear();
+        reservedSlots.clear();
+        for (Slot slot : slots) {
+            // Check if there are no reservations or the slot is not fully reserved
+            if (slot.getReservations().isEmpty() || slot.getReservations().size() < maxNumberOfVisitors)
+            {
+                availableSlots.add(slot);
+            }
+            else
+                reservedSlots.add(slot);
+        }
+        // no available slots
+        if(availableSlots.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return availableSlots;
+        }
+    }
 
 
     //Getters
