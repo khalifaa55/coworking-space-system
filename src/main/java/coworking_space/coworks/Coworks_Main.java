@@ -363,12 +363,10 @@ public class Coworks_Main extends Application {
         Collections.sort(tslots2);
         Collections.sort(tslots3);
 
+
 //        Collections.sort(gslots);
 //        Collections.sort(gslots2);
          launch();
-
-
-
     }
 
 }
