@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"coworking_space.coworks","l":"coworking_space.coworks"},{"m":"coworking_space.coworks","l":"coworking_space.coworks.Rooms"},{"m":"coworking_space.coworks","l":"coworking_space.coworks.Visitors"}];updateSearchResults();
