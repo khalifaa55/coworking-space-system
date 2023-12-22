@@ -1,0 +1,12 @@
+.popup {
+    -fx-background-color: #6678CB;
+}
+
+.popupLabel {
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+}
+
+.popupButton {
+    -fx-background-radius: 10;
+}
