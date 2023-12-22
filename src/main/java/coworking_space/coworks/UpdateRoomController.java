@@ -206,21 +206,20 @@ public class UpdateRoomController implements Initializable {
     @FXML
     void UpdateSlot(MouseEvent event) {
         ObservableList<Slot> currentSlots = AvailableSlotsTable.getItems();
-//        String STime = StartA.getText();
-
-        for (Slot slot : currentSlots) {
-//            if (STime.equals(slot.getStartTime())) {
-            slot.setStartTime(StartTimetEXT.getText());
-            slot.setEndTime(EbdTineText.getText());
-            slot.setFees(Double.parseDouble(FeesText.getText()));
-            slot.setSlotDate(DatePick.getValue());
-            AvailableSlotsTable.setItems(currentSlots);
-            AvailableSlotsTable.refresh();
-            break;
-//            }
-        }
+        int Index = AvailableSlotsTable.getSelectionModel().getSelectedIndex();
+        SelectedRoom.availableSlots.get(Index).setSlotDate(DatePick.getValue());
+        SelectedRoom.availableSlots.get(Index).setFees(Double.parseDouble(FeesText.getText()));
+        SelectedRoom.availableSlots.get(Index).setEndTime(EbdTineText.getText());
+        SelectedRoom.availableSlots.get(Index).setStartTime(StartTimetEXT.getText());
+        currentSlots.get(Index).setStartTime(StartTimetEXT.getText());
+        currentSlots.get(Index).setEndTime(EbdTineText.getText());
+        currentSlots.get(Index).setFees(Double.parseDouble(FeesText.getText()));
+        currentSlots.get(Index).setSlotDate(DatePick.getValue());
+        AvailableSlotsTable.setItems(currentSlots);
+        AvailableSlotsTable.refresh();
 
     }
+
     String Types;
     int ID;
     public void checkID(ActionEvent actionEvent) {

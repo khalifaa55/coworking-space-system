@@ -6,74 +6,8 @@
     "endTime" : "11:00 PM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "haneen",
-        "password" : "1234567a",
-        "id" : 20,
-        "userEmail" : "haneen@gmail.com",
-        "phoneNumber" : "01000000000",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 22 ]
-    }, {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Islam",
-        "password" : "L0ngP@ss",
-        "id" : 6,
-        "userEmail" : "islam456@icloud.com",
-        "phoneNumber" : "0123210987",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 24 ]
-    }, {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Layla",
-        "password" : "P@ssw0rd#789",
-        "id" : 14,
-        "userEmail" : "layla.account@yandex.com",
-        "phoneNumber" : "0114321098",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 25 ]
-    } ],
-    "myReservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "haneen",
-        "password" : "1234567a",
-        "id" : 20,
-        "userEmail" : "haneen@gmail.com",
-        "phoneNumber" : "01000000000",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 22 ]
-    }, {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Islam",
-        "password" : "L0ngP@ss",
-        "id" : 6,
-        "userEmail" : "islam456@icloud.com",
-        "phoneNumber" : "0123210987",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 24 ]
-    }, {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Layla",
-        "password" : "P@ssw0rd#789",
-        "id" : 14,
-        "userEmail" : "layla.account@yandex.com",
-        "phoneNumber" : "0114321098",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 25 ]
-    } ]
+    "reservations" : [ ],
+    "myReservations" : [ ]
   }, {
     "startTime" : "06:00 PM",
     "endTime" : "08:00 PM",
@@ -84,31 +18,16 @@
   } ],
   "visitors" : [ {
     "type" : "formal",
-    "name" : "haneen",
-    "password" : "1234567a",
-    "id" : 20,
-    "userEmail" : "haneen@gmail.com",
-    "phoneNumber" : "01000000000",
-    "type" : "formal"
-  }, {
-    "type" : "formal",
-    "name" : "Islam",
-    "password" : "L0ngP@ss",
-    "id" : 6,
-    "userEmail" : "islam456@icloud.com",
-    "phoneNumber" : "0123210987",
-    "type" : "formal"
-  }, {
-    "type" : "formal",
-    "name" : "Layla",
-    "password" : "P@ssw0rd#789",
-    "id" : 14,
-    "userEmail" : "layla.account@yandex.com",
-    "phoneNumber" : "0114321098",
+    "name" : "Rehab",
+    "password" : "MyPassword1",
+    "id" : 5,
+    "userEmail" : "rehab@gmail.com",
+    "phoneNumber" : "0101112222",
     "type" : "formal"
   } ],
   "type" : "meeting",
-  "maxNumberOfVisitors" : 10
+  "maxNumberOfVisitors" : 10,
+  "availableSlots" : [ ]
 }, {
   "name" : "Mroom2",
   "id" : 2,
@@ -124,30 +43,8 @@
     "endTime" : "12:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Islam",
-        "password" : "L0ngP@ss",
-        "id" : 6,
-        "userEmail" : "islam456@icloud.com",
-        "phoneNumber" : "0123210987",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 25 ]
-    } ],
-    "myReservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Islam",
-        "password" : "L0ngP@ss",
-        "id" : 6,
-        "userEmail" : "islam456@icloud.com",
-        "phoneNumber" : "0123210987",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 25 ]
-    } ]
+    "reservations" : [ ],
+    "myReservations" : [ ]
   }, {
     "startTime" : "12:00 PM",
     "endTime" : "02:00 PM",
@@ -160,30 +57,8 @@
     "endTime" : "04:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Layla",
-        "password" : "P@ssw0rd#789",
-        "id" : 14,
-        "userEmail" : "layla.account@yandex.com",
-        "phoneNumber" : "0114321098",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 28 ]
-    } ],
-    "myReservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Layla",
-        "password" : "P@ssw0rd#789",
-        "id" : 14,
-        "userEmail" : "layla.account@yandex.com",
-        "phoneNumber" : "0114321098",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 28 ]
-    } ]
+    "reservations" : [ ],
+    "myReservations" : [ ]
   }, {
     "startTime" : "04:00 PM",
     "endTime" : "06:00 PM",
@@ -199,25 +74,10 @@
     "reservations" : [ ],
     "myReservations" : [ ]
   } ],
-  "visitors" : [ {
-    "type" : "formal",
-    "name" : "Islam",
-    "password" : "L0ngP@ss",
-    "id" : 6,
-    "userEmail" : "islam456@icloud.com",
-    "phoneNumber" : "0123210987",
-    "type" : "formal"
-  }, {
-    "type" : "formal",
-    "name" : "Layla",
-    "password" : "P@ssw0rd#789",
-    "id" : 14,
-    "userEmail" : "layla.account@yandex.com",
-    "phoneNumber" : "0114321098",
-    "type" : "formal"
-  } ],
+  "visitors" : [ ],
   "type" : "meeting",
-  "maxNumberOfVisitors" : 10
+  "maxNumberOfVisitors" : 10,
+  "availableSlots" : [ ]
 }, {
   "name" : "Mroom3",
   "id" : 3,
@@ -233,30 +93,8 @@
     "endTime" : "12:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Islam",
-        "password" : "L0ngP@ss",
-        "id" : 6,
-        "userEmail" : "islam456@icloud.com",
-        "phoneNumber" : "0123210987",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 26 ]
-    } ],
-    "myReservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Islam",
-        "password" : "L0ngP@ss",
-        "id" : 6,
-        "userEmail" : "islam456@icloud.com",
-        "phoneNumber" : "0123210987",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 26 ]
-    } ]
+    "reservations" : [ ],
+    "myReservations" : [ ]
   }, {
     "startTime" : "12:00 PM",
     "endTime" : "02:00 PM",
@@ -276,30 +114,8 @@
     "endTime" : "06:00 PM",
     "fees" : 100.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Layla",
-        "password" : "P@ssw0rd#789",
-        "id" : 14,
-        "userEmail" : "layla.account@yandex.com",
-        "phoneNumber" : "0114321098",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 29 ]
-    } ],
-    "myReservations" : [ {
-      "visitor" : {
-        "type" : "formal",
-        "name" : "Layla",
-        "password" : "P@ssw0rd#789",
-        "id" : 14,
-        "userEmail" : "layla.account@yandex.com",
-        "phoneNumber" : "0114321098",
-        "type" : "formal"
-      },
-      "reservationDate" : [ 2023, 12, 29 ]
-    } ]
+    "reservations" : [ ],
+    "myReservations" : [ ]
   }, {
     "startTime" : "06:00 PM",
     "endTime" : "08:00 PM",
@@ -308,23 +124,8 @@
     "reservations" : [ ],
     "myReservations" : [ ]
   } ],
-  "visitors" : [ {
-    "type" : "formal",
-    "name" : "Islam",
-    "password" : "L0ngP@ss",
-    "id" : 6,
-    "userEmail" : "islam456@icloud.com",
-    "phoneNumber" : "0123210987",
-    "type" : "formal"
-  }, {
-    "type" : "formal",
-    "name" : "Layla",
-    "password" : "P@ssw0rd#789",
-    "id" : 14,
-    "userEmail" : "layla.account@yandex.com",
-    "phoneNumber" : "0114321098",
-    "type" : "formal"
-  } ],
+  "visitors" : [ ],
   "type" : "meeting",
-  "maxNumberOfVisitors" : 10
+  "maxNumberOfVisitors" : 10,
+  "availableSlots" : [ ]
 } ]

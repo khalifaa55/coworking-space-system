@@ -25,8 +25,8 @@ abstract public class AbstractRoom
     public String type;
     public ArrayList<Slot> slots;
     public ArrayList<AbstractVisitor> visitors;
-   public int maxNumberOfVisitors;
-    protected ArrayList<Slot> availableSlots=new ArrayList<>();
+    public int maxNumberOfVisitors;
+    public ArrayList<Slot> availableSlots=new ArrayList<>();
     @JsonIgnore
     public ArrayList<Slot> reservedSlots=new ArrayList<>();
     @JsonIgnore
@@ -37,8 +37,8 @@ abstract public class AbstractRoom
     @JsonIgnore
     public ArrayList<Slot> getAvailableSlots(LocalDate date)
     {
-//        availableSlots.clear();
-//        reservedSlots.clear();
+        availableSlots.clear();
+        reservedSlots.clear();
         for (Slot slot : slots)
         {
             if (slot.getReservations()!=null) {

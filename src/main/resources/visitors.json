@@ -97,13 +97,6 @@
   "phoneNumber" : "0114321098",
   "type" : "formal"
 }, {
-  "name" : "Moaz",
-  "password" : "Secret12",
-  "id" : 15,
-  "userEmail" : "moaz123@service.info",
-  "phoneNumber" : "0118765432",
-  "type" : "instructor"
-}, {
   "name" : "Mohamed",
   "password" : "1aB@cD!2",
   "id" : 16,
@@ -122,7 +115,7 @@
   "password" : "P@ssw0rd",
   "id" : 18,
   "userEmail" : "tayem@protonmail.ch",
-  "phoneNumber" : "0112345678",
+  "phoneNumber" : "01112233445",
   "type" : "instructor"
 }, {
   "name" : "Kareem",
@@ -136,7 +129,7 @@
   "password" : "1234567a",
   "id" : 20,
   "userEmail" : "haneen@gmail.com",
-  "phoneNumber" : "01000000000",
+  "phoneNumber" : "12234567891",
   "type" : "formal"
 }, {
   "name" : "rue",
@@ -150,6 +143,6 @@
   "password" : "MyPassword1",
   "id" : 22,
   "userEmail" : "rubz@gmail.com",
-  "phoneNumber" : "01234567890",
+  "phoneNumber" : "01234567891",
   "type" : "general"
 } ]

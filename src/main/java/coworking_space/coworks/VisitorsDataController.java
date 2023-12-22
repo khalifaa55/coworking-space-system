@@ -194,51 +194,45 @@ public class VisitorsDataController  implements  Initializable{
 
     @FXML
     void UpdateVisitor(MouseEvent event) {
-        Index=V_Table.getSelectionModel().getSelectedIndex();
+        ObservableList<AbstractVisitor> currentVisitors = V_Table.getItems();
+        Index = V_Table.getSelectionModel().getSelectedIndex();
 
+        boolean isChecked = editUserInfo(V_Email.getText(), V_Phone.getText());
 
-        editUserInfo( VisitorEmail.getText(),V_Phone.getText());
-    }
-    public  void editUserInfo(String Email , String PhoneNumber){
-        boolean validUserInfo=true;
-
-        if(Email !=null&& !Email.isEmpty()){
-            if(Registration.emailRegex(Email)) {
-                validUserInfo=true;
-            }
-            else validUserInfo=false;
-        }
-        if(PhoneNumber !=null&& !PhoneNumber.isEmpty()){
-            if(Registration.phoneNumberRegex(PhoneNumber)) {
-                validUserInfo=true;
-            }
-            else validUserInfo=false;
-        }
-        if(!validUserInfo){
-            String inValidTitle = "ERROR!!";
-            String inValidMessage ="Check Email or Phone Number Regex";
-            inValidMessage(inValidTitle, inValidMessage);
-        }
-        if(validUserInfo)
-        {
-            ObservableList<AbstractVisitor> currentVisitors = V_Table.getItems();
+        if (isChecked) {
             for (int i = 0; i < currentVisitors.size(); i++) {
-
-                if (i == Index) {
-                    String email = currentVisitors.get(i).getUserEmail();
-                    String phonenumber = currentVisitors.get(i).getPhoneNumber();
-                    currentVisitors.get(i).id = Integer.parseInt(V_ID.getText());
+                if (Index == i) {
+                    currentVisitors.get(i).setUserEmail(V_Email.getText());
                     currentVisitors.get(i).name = V_Name.getText();
-                    email = V_Email.getText();
-                    phonenumber = V_Phone.getText();
+                    currentVisitors.get(i).setPhoneNumber(V_Phone.getText());
+                    visitors.get(i).setPhoneNumber(V_Phone.getText());
+                    visitors.get(i).setUserEmail(V_Email.getText());
+                    visitors.get(i).name=V_Name.getText();
                     V_Table.setItems(currentVisitors);
                     V_Table.refresh();
-                    break;
                 }
             }
+        } else {
+            String inValidTitle = "ERROR!!";
+            String inValidMessage = "Check Email or Phone Number Regex";
+            inValidMessage(inValidTitle, inValidMessage);
         }
     }
 
+    public boolean editUserInfo(String email, String phoneNumber) {
+        boolean validEmail = true;
+        boolean validPhone = true;
+
+        if (email != null && !email.isEmpty()) {
+            validEmail = Registration.emailRegex(email);
+        }
+
+        if (phoneNumber != null && !phoneNumber.isEmpty()) {
+            validPhone = Registration.phoneNumberRegex(phoneNumber);
+        }
+
+        return validEmail && validPhone;
+    }
 
 
     @Override

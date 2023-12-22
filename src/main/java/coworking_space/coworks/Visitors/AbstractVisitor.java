@@ -180,6 +180,10 @@ public abstract class AbstractVisitor {
         return password;
     }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
