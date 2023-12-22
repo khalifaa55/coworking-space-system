@@ -145,4 +145,18 @@
   "userEmail" : "rubz@gmail.com",
   "phoneNumber" : "01234567891",
   "type" : "general"
+}, {
+  "name" : "haneen",
+  "password" : "1234567a",
+  "id" : 23,
+  "userEmail" : "haneen@gmail.com",
+  "phoneNumber" : "12234567891",
+  "type" : "instructor"
+}, {
+  "name" : "fagr",
+  "password" : "c1234567",
+  "id" : 24,
+  "userEmail" : "fagr@gmail.com",
+  "phoneNumber" : "01003809092",
+  "type" : "formal"
 } ]

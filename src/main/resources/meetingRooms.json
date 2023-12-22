@@ -24,10 +24,32 @@
     "userEmail" : "rehab@gmail.com",
     "phoneNumber" : "0101112222",
     "type" : "formal"
+  }, {
+    "type" : "formal",
+    "name" : "fagr",
+    "password" : "c1234567",
+    "id" : 1,
+    "userEmail" : "fagr@gmail.com",
+    "phoneNumber" : "01003809092",
+    "type" : "formal"
   } ],
   "type" : "meeting",
   "maxNumberOfVisitors" : 10,
-  "availableSlots" : [ ]
+  "availableSlots" : [ {
+    "startTime" : "09:00 PM",
+    "endTime" : "11:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "06:00 PM",
+    "endTime" : "08:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  } ]
 }, {
   "name" : "Mroom2",
   "id" : 2,
@@ -74,10 +96,60 @@
     "reservations" : [ ],
     "myReservations" : [ ]
   } ],
-  "visitors" : [ ],
+  "visitors" : [ {
+    "type" : "formal",
+    "name" : "fagr",
+    "password" : "c1234567",
+    "id" : 1,
+    "userEmail" : "fagr@gmail.com",
+    "phoneNumber" : "01003809092",
+    "type" : "formal"
+  } ],
   "type" : "meeting",
   "maxNumberOfVisitors" : 10,
-  "availableSlots" : [ ]
+  "availableSlots" : [ {
+    "startTime" : "08:00 AM",
+    "endTime" : "10:00 AM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "10:00 AM",
+    "endTime" : "12:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "12:00 PM",
+    "endTime" : "02:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "02:00 PM",
+    "endTime" : "04:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "04:00 PM",
+    "endTime" : "06:00 PM",
+    "fees" : 100.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  }, {
+    "startTime" : "06:00 PM",
+    "endTime" : "08:00 PM",
+    "fees" : 300.0,
+    "slotDate" : [ 2023, 12, 21 ],
+    "reservations" : [ ],
+    "myReservations" : [ ]
+  } ]
 }, {
   "name" : "Mroom3",
   "id" : 3,

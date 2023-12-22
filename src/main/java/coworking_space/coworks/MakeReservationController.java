@@ -255,17 +255,24 @@ public class MakeReservationController implements Initializable {
                 // Pass these values to the appropriate visitor's makeReservation method
                 if (RegisterController.formaltype||LoginController.formaltype) {
 //                    FormalVisitor F=(FormalVisitor)cVisitor;
-                   // FormalVisitor formalVisitor = new FormalVisitor("fagr",123);
+                    // FormalVisitor formalVisitor = new FormalVisitor("fagr",123);
+                    System.out.println("login formal Visitor");
+
+
                     cVisitor.makeReservation(meetingRooms.get(index), selectedDate, startTime, endTime,index);
                 }
                 else if (RegisterController.instructortype||LoginController.instructortype) {
                     //InstructorVisitor instructorVisitor = new InstructorVisitor();
 //                    InstructorVisitor I =(InstructorVisitor) cVisitor;
+                    System.out.println("login instrucroe Visitor");
+
 
                     cVisitor.makeReservation(teachingRooms.get(index), selectedDate, startTime, endTime,index);
                 }
                 else {
 //                    GeneralVisitor G =(GeneralVisitor) cVisitor;
+
+                    System.out.println("login formal Visitor");
 
                     //GeneralVisitor generalVisitor = new GeneralVisitor();
                     cVisitor.makeReservation(generalRooms.get(index), selectedDate, startTime, endTime,index);
@@ -294,7 +301,7 @@ public class MakeReservationController implements Initializable {
         Room1.setOnAction(this::handleRadioButtonSelection_1);
         Room2.setOnAction(this::handleRadioButtonSelection_1);
         Room3.setOnAction(this::handleRadioButtonSelection_1);
-        System.out.println(EditInformationController.cVisitor.type);
+        //System.out.println(EditInformationController.cVisitor.type);
 
 
         if (RegisterController.generaltype||LoginController.generaltype){
@@ -305,7 +312,7 @@ public class MakeReservationController implements Initializable {
         // leave the spaces for the GUI to look better
 
         //choiceBox.setItems(observableSlots);
-       // choiceBox.getItems().addAll(room1Options);
+        // choiceBox.getItems().addAll(room1Options);
 
         //System.out.println("Size of meetingRooms: " + meetingRooms.size());
         // Add default options to the ChoiceBox

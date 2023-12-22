@@ -99,10 +99,9 @@ public class LoginController  implements Initializable {
         else{
             instructortype=true;
         }
-
     }
 
-        @FXML
+    @FXML
     void validateSignInAndRedirect(MouseEvent event) throws IOException {
         Login login =new Login(userEmail.getText(),visitorType, userPassword.getText());
         if (Login.adminLogin(userEmail.getText(), userPassword.getText())&&Visitor_Type.getSelectedToggle() == null) {

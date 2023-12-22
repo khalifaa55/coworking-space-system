@@ -20,7 +20,6 @@ public class Login {
             if (obj.getUserEmail().equals(currentLogin.userEmail) && (obj.getNewPassword().equals(currentLogin.password))) {
 
                 Registration currentRegistration = Registration.currentUser(currentLogin.userEmail, currentLogin.role);
-                System.out.println(currentRegistration.getRole());
                 AbstractVisitor.createVisitorsFromRegistrations(currentRegistration);
                 flag=true;
             }

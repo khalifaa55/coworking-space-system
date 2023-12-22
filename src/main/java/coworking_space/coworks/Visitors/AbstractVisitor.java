@@ -18,8 +18,6 @@ import static coworking_space.coworks.EditInformationController.inValidMessage;
 })
 public abstract class AbstractVisitor {
     public String name;
-
-
     protected String userEmail;
     protected String phoneNumber;
     protected String password;
@@ -30,29 +28,25 @@ public abstract class AbstractVisitor {
     public static void getAbstractVisitorsFromMain(ArrayList<AbstractVisitor> Visitors) {
         visitors = Visitors;
     }
-
     public static void createVisitorsFromRegistrations(Registration currentR) {
         boolean check = false;
-        boolean flag = false;
         String UserEmailCurrentR = currentR.getUserEmail();
         System.out.println(UserEmailCurrentR);
+        String role=currentR.getRole();
         for (AbstractVisitor v : visitors) {
-            if ((v.userEmail).equals(UserEmailCurrentR) && currentR.getRole().equals(v.type)) {
+            if(currentR.getRole().equals("General Visitor"))role="general";
+            if(currentR.getRole().equals("Formal Visitor"))role="formal";
+            if(currentR.getRole().equals("Instructor Visitor"))role="instructor";
+            if ((v.userEmail).equals(UserEmailCurrentR) && role.equals(v.type)) {
+                v.type=role;
                 check = true;
                 break;
             }
         }
         if (!check) {
             AbstractVisitor visitor = createVisitorFromRegistration(currentR);
-            for (AbstractVisitor v : visitors) {
-                if ((v.userEmail).equals(UserEmailCurrentR)) {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) {
-                visitors.add(visitor);
-            }
+            visitor.type=role;
+            visitors.add(visitor);
         }
     }
 
@@ -80,8 +74,21 @@ public abstract class AbstractVisitor {
     public static AbstractVisitor getCurrentVisitor(Registration currentR) {
         try {
             if (visitors != null) {
+                String role=new String();
                 for (AbstractVisitor currentVisitor : visitors) {
-                    if (currentR.getUserEmail().equals(currentVisitor.userEmail)) {
+                    if(currentR.getRole().equals("General Visitor")){
+                        role="general" ;
+
+                    }
+                    if(currentR.getRole().equals("Formal Visitor")){
+                        role="formal" ;
+
+                    }
+                    if(currentR.getRole().equals("Instructor Visitor")){
+                        role="instructor" ;
+
+                    }
+                    if (currentR.getUserEmail().equals(currentVisitor.userEmail)&&role.equals(currentVisitor.type)) {
                         return currentVisitor;
                     }
                 }

@@ -53,6 +53,30 @@
     "userEmail" : "beebo22@yahoo.com",
     "phoneNumber" : "0119990000",
     "type" : "general"
+  }, {
+    "type" : "general",
+    "name" : "fagr",
+    "password" : "c1234567",
+    "id" : 1,
+    "userEmail" : "fagr@gmail.com",
+    "phoneNumber" : "01003809092",
+    "type" : "general"
+  }, {
+    "type" : "general",
+    "name" : "fagr",
+    "password" : "c1234567",
+    "id" : 1,
+    "userEmail" : "fagr@gmail.com",
+    "phoneNumber" : "01003809092",
+    "type" : "general"
+  }, {
+    "type" : "general",
+    "name" : "fagr",
+    "password" : "c1234567",
+    "id" : 0,
+    "userEmail" : "fagr@gmail.com",
+    "phoneNumber" : "01003809092",
+    "type" : "general"
   } ],
   "type" : "general",
   "maxNumberOfVisitors" : 20,
@@ -88,13 +112,6 @@
     "startTime" : "04:00 PM",
     "endTime" : "06:00 PM",
     "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "08:00 PM",
-    "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
     "reservations" : [ ],
     "myReservations" : [ ]

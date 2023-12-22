@@ -35,8 +35,9 @@ public class Registration {
             r.setNewPassword(visitorR.password);
             registrations.add(r);
         }
+
     }
-//
+    //
     public static boolean usernameRegex(String username) {
 
         String usernameRegex = "^[a-zA-Z0-9_]{3,20}$";
@@ -78,7 +79,7 @@ public class Registration {
         // Display a pop-up with the validation result
         return isValid;
     }
-//
+    //
     public static ArrayList<Registration> getRegistrations() {
         return registrations;
     }
@@ -103,7 +104,7 @@ public class Registration {
         }
         return currentRegistration;
     }
-//
+    //
     public static void  updateRegistrationInfo(ArrayList<Registration> registrations, String userCurrentEmail, String newUserName,String newUserEmail,String newPassword, String newPhoneNumber) {
         for (Registration registration : registrations) {
             if (registration.getUserEmail().equals(userCurrentEmail)) {
@@ -127,7 +128,7 @@ public class Registration {
     }
 
     public static int updateIdCounter(){
-    idCounter=AbstractVisitor.getlasindex();
+        idCounter=AbstractVisitor.getlasindex();
         System.out.println(idCounter);
         return idCounter;
     }
@@ -168,4 +169,3 @@ public class Registration {
     }
 
 }
-

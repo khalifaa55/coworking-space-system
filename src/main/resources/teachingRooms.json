@@ -6,8 +6,52 @@
     "endTime" : "12:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "fagr",
+        "password" : "c1234567",
+        "id" : 1,
+        "userEmail" : "fagr@gmail.com",
+        "phoneNumber" : "01003809092",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    }, {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "fagr",
+        "password" : "c1234567",
+        "id" : 0,
+        "userEmail" : "fagr@gmail.com",
+        "phoneNumber" : "01003809092",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "fagr",
+        "password" : "c1234567",
+        "id" : 1,
+        "userEmail" : "fagr@gmail.com",
+        "phoneNumber" : "01003809092",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    }, {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "fagr",
+        "password" : "c1234567",
+        "id" : 0,
+        "userEmail" : "fagr@gmail.com",
+        "phoneNumber" : "01003809092",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    } ]
   }, {
     "startTime" : "12:00 PM",
     "endTime" : "02:00 PM",
@@ -23,7 +67,31 @@
     "reservations" : [ ],
     "myReservations" : [ ]
   } ],
-  "visitors" : [ ],
+  "visitors" : [ {
+    "type" : "instructor",
+    "name" : "fagr",
+    "password" : "c1234567",
+    "id" : 1,
+    "userEmail" : "fagr@gmail.com",
+    "phoneNumber" : "01003809092",
+    "type" : "instructor"
+  }, {
+    "type" : "instructor",
+    "name" : "fagr",
+    "password" : "c1234567",
+    "id" : 1,
+    "userEmail" : "fagr@gmail.com",
+    "phoneNumber" : "01003809092",
+    "type" : "instructor"
+  }, {
+    "type" : "instructor",
+    "name" : "fagr",
+    "password" : "c1234567",
+    "id" : 0,
+    "userEmail" : "fagr@gmail.com",
+    "phoneNumber" : "01003809092",
+    "type" : "instructor"
+  } ],
   "type" : "teaching",
   "maxNumberOfVisitors" : 10,
   "availableSlots" : [ {
@@ -31,8 +99,52 @@
     "endTime" : "12:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
+    "reservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "fagr",
+        "password" : "c1234567",
+        "id" : 1,
+        "userEmail" : "fagr@gmail.com",
+        "phoneNumber" : "01003809092",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    }, {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "fagr",
+        "password" : "c1234567",
+        "id" : 0,
+        "userEmail" : "fagr@gmail.com",
+        "phoneNumber" : "01003809092",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    } ],
+    "myReservations" : [ {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "fagr",
+        "password" : "c1234567",
+        "id" : 1,
+        "userEmail" : "fagr@gmail.com",
+        "phoneNumber" : "01003809092",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 22 ]
+    }, {
+      "visitor" : {
+        "type" : "instructor",
+        "name" : "fagr",
+        "password" : "c1234567",
+        "id" : 0,
+        "userEmail" : "fagr@gmail.com",
+        "phoneNumber" : "01003809092",
+        "type" : "instructor"
+      },
+      "reservationDate" : [ 2023, 12, 23 ]
+    } ]
   }, {
     "startTime" : "12:00 PM",
     "endTime" : "02:00 PM",
@@ -43,20 +155,6 @@
   }, {
     "startTime" : "02:00 PM",
     "endTime" : "04:00 PM",
-    "fees" : 300.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "04:00 PM",
-    "endTime" : "06:00 PM",
-    "fees" : 100.0,
-    "slotDate" : [ 2023, 12, 21 ],
-    "reservations" : [ ],
-    "myReservations" : [ ]
-  }, {
-    "startTime" : "06:00 PM",
-    "endTime" : "08:00 PM",
     "fees" : 300.0,
     "slotDate" : [ 2023, 12, 21 ],
     "reservations" : [ ],
